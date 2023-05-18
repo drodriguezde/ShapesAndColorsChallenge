@@ -1,0 +1,70 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0-android33.0</TargetFramework>
+    <SupportedOSPlatformVersion>31.0</SupportedOSPlatformVersion>
+    <OutputType>Exe</OutputType>	
+    <ApplicationId>com.companyname.ShapesAndColorsChallenge</ApplicationId>
+    <ApplicationVersion>1</ApplicationVersion>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+	<Version>1.0.0.0</Version>
+	<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+	<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+	<ApplicationIcon>Icon.ico</ApplicationIcon>
+	<PackageIcon>ic_launcher.png</PackageIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;CA1416</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;CA1416</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Content\Image\0572586650d8f63ab7ba8cf1df59020c.png" />
+    <None Remove="Resources\Drawable\apk_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Cyotek.Drawing.BitmapFont" Version="2.0.4" />
+    <PackageReference Include="FontBuddy" Version="2.0.31" />
+    <PackageReference Include="FontStashSharp.MonoGame" Version="1.2.8" />
+    <PackageReference Include="InputHelper" Version="2.0.15" />
+    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
+    <PackageReference Include="MonoGame.Framework.Android" Version="3.8.1.303" />
+    <PackageReference Include="SpriteFontPlus" Version="0.9.2" />
+    <PackageReference Include="SpriteFontPlus.Content" Version="2.0.1" />
+    <PackageReference Include="SpriteFontPlus.MonoGame" Version="0.7.0.22" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.9.141-beta" />
+    <PackageReference Include="StbImageSharp" Version="2.27.13" />
+    <PackageReference Include="TouchScreenBuddy" Version="2.0.13" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Class\Interfaces\" />
+    <Folder Include="Content\UI\Background\" />
+    <Folder Include="Resources\Drawable-mdpi\" />
+    <Folder Include="Resources\Drawable-hdpi\" />
+    <Folder Include="Resources\Drawable-xhdpi\" />
+    <Folder Include="Resources\Drawable-xxhdpi\" />
+    <Folder Include="Resources\Drawable-xxxhdpi\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Update="Resources\Values\Strings.xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Resources\Drawable\Icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="Resources\Drawable\ic_launcher.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
+    <Message Text="Restoring dotnet tools" Importance="High" />
+    <Exec Command="dotnet tool restore" />
+  </Target>
+</Project>

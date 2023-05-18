@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Chino-->
+<resources>
+	<string name="app_name">形状和颜色挑战</string>
+	<string name="YES">是的</string>
+	<string name="NOT">不</string>
+	<string name="SETTINGS">设置</string>
+	<string name="ACHEIVEMENTS">成就</string>
+	<string name="GAME">游戏</string>
+	<string name="LANGUAGE">语言</string>		
+	<string name="MUSIC">音乐</string>
+	<string name="SOUND">声音</string>
+	<string name="NOTIFICATIONS">通知</string>
+	<string name="VIBRATION">振动</string>
+	<string name="DARK_MODE">黑暗模式</string>
+	<string name="ALWAYS_DARK_MODE">始终黑暗模式</string>
+	<string name="RESET_PROGRESS">重置进度</string>
+	<string name="CLASSIC_MODE">经典的</string>
+	<string name="CLASSIC_MODE_DESCRIPTION">尽可能快地在网格上找到正确的图块。</string>
+	<string name="ENDLESS_MODE">无尽的</string>
+	<string name="ENDLESS_MODE_DESCRIPTION">在您打破记录之前，它没有尽头 播放。</string>
+	<string name="MEMORY_MODE">记忆</string>
+	<string name="MEMORY_MODE_DESCRIPTION">在瓷砖出现之前，您必须记住 矩阵，几秒钟后它就会消失。</string>
+	<string name="TIMETRIAL_MODE">计时赛</string>
+	<string name="TIMETRIAL_MODE_DESCRIPTION">完成关卡的时间是有限的 如果它达到零你就输了。</string>
+	<string name="INCREMENTAL_MODE">增加的</string>
+	<string name="INCREMENTAL_MODE_DESCRIPTION">难度逐渐增加 每个新瓷砖。</string>
+	<string name="MOVE_MODE">移动</string>
+	<string name="MOVE_MODE_DESCRIPTION">矩阵随机变化 每个新的瓷砖。</string>
+	<string name="BLINK_MODE">眨</string>
+	<string name="BLINK_MODE_DESCRIPTION">令牌在短时间内可见 如果你眨眼你就看不到它。</string>
+	<string name="ROTATE_MODE">旋转</string>
+	<string name="ROTATE_MODE_DESCRIPTION">一些瓷砖将被旋转。</string>
+	<string name="CLASSIC_MODE_PLUS">经典的</string>
+	<string name="CLASSIC_MODE_PLUS_LOCKED">您需要在经典模式中收集 %1$d 颗星星 才能解锁经典模式。</string>
+	<string name="CLASSIC_MODE_PLUS_DESCRIPTION">经典模式，但令牌可能不在网格上或可能多次在网格上。</string>
+	<string name="ENDLESS_MODE_PLUS">无尽的</string>
+	<string name="ENDLESS_MODE_PLUS_LOCKED">你需要在无尽模式中收集 %1$d 颗星星 才能解锁无尽模式。</string>
+	<string name="ENDLESS_MODE_PLUS_DESCRIPTION">无尽模式，但令牌可能不在网格上或可能多次在网格上。</string>
+	<string name="MEMORY_MODE_PLUS">记忆</string>
+	<string name="MEMORY_MODE_PLUS_LOCKED">您需要在记忆模式中收集 %1$d 颗星 才能解锁记忆模式。</string>
+	<string name="MEMORY_MODE_PLUS_DESCRIPTION">记忆模式，但令牌可能不在网格上或可能多次在网格上。</string>
+	<string name="TIMETRIAL_MODE_PLUS">计时赛</string>
+	<string name="TIMETRIAL_MODE_PLUS_LOCKED">您需要在计时赛模式中收集 %1$d 颗星星 才能解锁计时赛模式。</string>
+	<string name="TIMETRIAL_MODE_PLUS_DESCRIPTION">计时赛模式，但令牌可能不在 网格上或可能多次在网格上。</string>
+	<string name="INCREMENTAL_MODE_PLUS">增加的</string>
+	<string name="INCREMENTAL_MODE_PLUS_LOCKED">您需要在增量模式下收集 %1$d 颗星 才能解锁增量模式。</string>
+	<string name="INCREMENTAL_MODE_PLUS_DESCRIPTION">经典模式，但令牌可能不在网格上或可能多次在网格上。</string>
+	<string name="MOVE_MODE_PLUS">移动</string>
+	<string name="MOVE_MODE_PLUS_LOCKED">您需要在移动模式下收集 %1$d 颗星星 才能解锁移动模式。</string>
+	<string name="MOVE_MODE_PLUS_DESCRIPTION">移动模式，但令牌可能不在网格上或可能多次在网格上。</string>
+	<string name="BLINK_MODE_PLUS">眨</string>
+	<string name="BLINK_MODE_PLUS_LOCKED">您需要在闪烁模式下收集 %1$d 颗星星 才能解锁闪烁模式。</string>
+	<string name="BLINK_MODE_PLUS_DESCRIPTION">闪烁模式，但令牌可能不在网格上或可能多次在网格上。</string>
+	<string name="ROTATE_MODE_PLUS">旋转</string>
+	<string name="ROTATE_MODE_PLUS_LOCKED">您需要在旋转模式中收集 %1$d 颗星星 才能解锁旋转模式。</string>
+	<string name="ROTATE_MODE_PLUS_DESCRIPTION">旋转模式，但令牌可能不在网格上或可能多次在网格上。</string>
+	<string name="ERROR_SAVING_SETTINGS">尝试保存设置时出错。</string>
+	<string name="EXIT_GAME_QUESTION">关闭游戏？</string>
+	<string name="BACK_TO_MAIN_MENU_QUESTION">返回主菜单？</string>
+	<string name="MORE_GAMES">更多游戏</string>
+	<string name="VERSION">版本</string>
+	<string name="APP_TITLE">形状和颜色挑战</string>
+	<string name="APP_TITLE_FIRST_LINE">形状和颜色</string>
+	<string name="APP_TITLE_SECOND_LINE">挑战</string>
+	<string name="GAME_MODES">游戏模式</string>
+	<string name="PLAY">玩！</string>
+
+
+
+	<!---->
+
+
+
+	<!---->
+</resources>

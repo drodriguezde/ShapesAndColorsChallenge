@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Francés-->
+<resources>
+	<string name="app_name">Défi Formes Et Couleurs</string>
+	<string name="YES">Oui</string>
+	<string name="NOT">Non</string>
+	<string name="SETTINGS">Réglages</string>
+	<string name="ACHEIVEMENTS">Réalisations</string>
+	<string name="GAME">Jeu</string>
+	<string name="LANGUAGE">Langue</string>		
+	<string name="MUSIC">La musique</string>
+	<string name="SOUND">Des sons</string>
+	<string name="NOTIFICATIONS">Avis</string>
+	<string name="VIBRATION">Vibration</string>
+	<string name="DARK_MODE">Mode sombre</string>
+	<string name="ALWAYS_DARK_MODE">Mode toujours sombre</string>
+	<string name="RESET_PROGRESS">Réinitialiser la progression</string>
+	<string name="CLASSIC_MODE">Classique</string>
+	<string name="CLASSIC_MODE_DESCRIPTION">Trouvez la bonne tuile sur la grille aussi vite que possible.</string>
+	<string name="ENDLESS_MODE">Sans fin</string>
+	<string name="ENDLESS_MODE_DESCRIPTION">Il n\'y a pas de fin jeu tant que vous n\'avez pas battu votre record.</string>
+	<string name="MEMORY_MODE">Mémoire</string>
+	<string name="MEMORY_MODE_DESCRIPTION">Avant que la tuile n\'apparaisse, vous devez mémoriser la matrice, après quelques secondes elle disparaît.</string>
+	<string name="TIMETRIAL_MODE">Contre la montre</string>
+	<string name="TIMETRIAL_MODE_DESCRIPTION">Le temps pour terminer le niveau est limité s\'il atteint zéro, vous avez perdu.</string>
+	<string name="INCREMENTAL_MODE">Incrémentale</string>
+	<string name="INCREMENTAL_MODE_DESCRIPTION">La difficulté augmente progressivement avec chaque nouvelle tuile.</string>
+	<string name="MOVE_MODE">Bouge toi</string>
+	<string name="MOVE_MODE_DESCRIPTION">La matrice change aléatoirement à chaque nouvelle tuile.</string>
+	<string name="BLINK_MODE">Clignoter</string>
+	<string name="BLINK_MODE_DESCRIPTION">Le jeton est visible pendant une courte période si vous clignez des yeux, vous ne le verrez pas.</string>
+	<string name="ROTATE_MODE">Tourner</string>
+	<string name="ROTATE_MODE_DESCRIPTION">Certaines figures seront tournées.</string>
+	<string name="CLASSIC_MODE_PLUS">Classique</string>
+	<string name="CLASSIC_MODE_PLUS_LOCKED">Vous devez collecter %1$d étoiles en mode classique pour déverrouiller le mode classique.</string>
+	<string name="CLASSIC_MODE_PLUS_DESCRIPTION">Mode classique, mais le jeton peut ne pas être sur la grille ou peut être sur la grille plusieurs fois.</string>
+	<string name="ENDLESS_MODE_PLUS">Sans fin</string>
+	<string name="ENDLESS_MODE_PLUS_LOCKED">Vous devez collecter %1$d étoiles en mode sans fin pour déverrouiller le mode sans fin.</string>
+	<string name="ENDLESS_MODE_PLUS_DESCRIPTION">Mode sans fin, mais le jeton peut ne pas être sur la grille ou peut être sur la grille plusieurs fois.</string>
+	<string name="MEMORY_MODE_PLUS">Mémoire</string>
+	<string name="MEMORY_MODE_PLUS_LOCKED">Vous devez collecter %1$d étoiles en mode mémoire pour déverrouiller le mode mémoire.</string>
+	<string name="MEMORY_MODE_PLUS_DESCRIPTION">Mode mémoire, mais le jeton peut ne pas être sur la grille ou peut s\'y trouver plusieurs fois.</string>
+	<string name="TIMETRIAL_MODE_PLUS">Contre la montre</string>
+	<string name="TIMETRIAL_MODE_PLUS_LOCKED">Vous devez collecter %1$d étoiles en mode contre-la-montre pour déverrouiller le mode contre-la-montre.</string>
+	<string name="TIMETRIAL_MODE_PLUS_DESCRIPTION">Mode contre-la-montre, mais le jeton peut ne pas être sur la grille ou peut être sur la grille plusieurs fois.</string>
+	<string name="INCREMENTAL_MODE_PLUS">Incrémentale</string>
+	<string name="INCREMENTAL_MODE_PLUS_LOCKED">Vous devez collecter %1$d étoiles en mode incrémentiel pour déverrouiller le mode incrémentiel.</string>
+	<string name="INCREMENTAL_MODE_PLUS_DESCRIPTION">Mode Incrémentale, mais le jeton peut ne pas être sur la grille ou peut être sur la grille plusieurs fois.</string>
+	<string name="MOVE_MODE_PLUS">Bouge toi</string>
+	<string name="MOVE_MODE_PLUS_LOCKED">Vous devez collecter %1$d étoiles en mode Déplacement pour déverrouiller le mode Déplacement.</string>
+	<string name="MOVE_MODE_PLUS_DESCRIPTION">Mode déplacement, mais le jeton peut ne pas être sur la grille ou peut s\'y trouver plusieurs fois.</string>
+	<string name="BLINK_MODE_PLUS">Clignoter</string>
+	<string name="BLINK_MODE_PLUS_LOCKED">Vous devez collecter %1$d étoiles en mode Clignotement pour déverrouiller le mode Clignotement.</string>
+	<string name="BLINK_MODE_PLUS_DESCRIPTION">Mode clignotant, mais le jeton peut ne pas être sur la grille ou peut être sur la grille plusieurs fois.</string>
+	<string name="ROTATE_MODE_PLUS">Tourner</string>
+	<string name="ROTATE_MODE_PLUS_LOCKED">Vous devez collecter %1$d étoiles en mode Rotation pour déverrouiller le mode Rotation.</string>
+	<string name="ROTATE_MODE_PLUS_DESCRIPTION">Mode rotation mais le jeton peut ne pas être sur la grille ou peut être sur la grille plusieurs fois.</string>
+	<string name="ERROR_SAVING_SETTINGS">Une erreur s\'est produite lors de la tentative d\'enregistrement des paramètres.</string>
+	<string name="EXIT_GAME_QUESTION">Fermer le jeu ?</string>
+	<string name="BACK_TO_MAIN_MENU_QUESTION">Retour au menu principal?</string>
+	<string name="MORE_GAMES">Plus de jeux</string>
+	<string name="VERSION">Version</string>
+	<string name="APP_TITLE">Défi Formes Et Couleurs</string>
+	<string name="APP_TITLE_FIRST_LINE">Formes et couleurs</string>
+	<string name="APP_TITLE_SECOND_LINE">Défi</string>
+	<string name="GAME_MODES">Modes de jeu</string>
+	<string name="PLAY">JOUER!</string>
+
+
+
+	<!---->
+
+
+
+	<!---->
+</resources>

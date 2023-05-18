@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Danés-->
+<resources>
+	<string name="app_name">Former og farver udfordring</string>
+	<string name="YES">Ja</string>
+	<string name="NOT">Ingen</string>
+	<string name="SETTINGS">Indstillinger</string>
+	<string name="ACHEIVEMENTS">Præstationer</string>
+	<string name="GAME">Spil</string>
+	<string name="LANGUAGE">Sprog</string>		
+	<string name="MUSIC">musik</string>
+	<string name="SOUND">Lyde</string>
+	<string name="NOTIFICATIONS">Meddelelser</string>
+	<string name="VIBRATION">Vibration</string>
+	<string name="DARK_MODE">Mørk tilstand</string>
+	<string name="ALWAYS_DARK_MODE">Altid mørk tilstand</string>
+	<string name="RESET_PROGRESS">Nulstil fremskridt</string>
+	<string name="CLASSIC_MODE">Klassisk</string>
+	<string name="CLASSIC_MODE_DESCRIPTION">Find den rigtige flise på gitteret a hurtigst du kan.</string>
+	<string name="ENDLESS_MODE">Endeløs</string>
+	<string name="ENDLESS_MODE_DESCRIPTION">Den har ingen ende afspilning, før du slår din rekord.</string>
+	<string name="MEMORY_MODE">Hukommelse</string>
+	<string name="MEMORY_MODE_DESCRIPTION">Før flisen dukker op, skal du huske matricen, efter et par sekunder forsvinder den.</string>
+	<string name="TIMETRIAL_MODE">Tidskørsel</string>
+	<string name="TIMETRIAL_MODE_DESCRIPTION">Tiden til at fuldføre niveauet er begrænset hvis det når nul, du har mistet.</string>
+	<string name="INCREMENTAL_MODE">Inkrementel</string>
+	<string name="INCREMENTAL_MODE_DESCRIPTION">Sværhedsgraden øges progressivt for hver ny brikke.</string>
+	<string name="MOVE_MODE">Bevæge sig</string>
+	<string name="MOVE_MODE_DESCRIPTION">Matrixen ændres tilfældigt for hver ny brikke.</string>
+	<string name="BLINK_MODE">Blinke</string>
+	<string name="BLINK_MODE_DESCRIPTION">Tokenet er synligt i kort tid hvis du blinker, vil du ikke se det.</string>
+	<string name="ROTATE_MODE">Rotere</string>
+	<string name="ROTATE_MODE_DESCRIPTION">Nogle figurer vil blive roteret.</string>
+	<string name="CLASSIC_MODE_PLUS">Klassisk</string>
+	<string name="CLASSIC_MODE_PLUS_LOCKED">Du skal indsamle %1$d stjerner i klassisk tilstand for at låse op for klassisk tilstand.</string>
+	<string name="CLASSIC_MODE_PLUS_DESCRIPTION">Klassisk tilstand, men tokenet er muligvis ikke på gitteret eller kan være på gitteret flere gange.</string>
+	<string name="ENDLESS_MODE_PLUS">Endeløs</string>
+	<string name="ENDLESS_MODE_PLUS_LOCKED">Du skal indsamle %1$d stjerner i Endless mode for at låse Endless mode op.</string>
+	<string name="ENDLESS_MODE_PLUS_DESCRIPTION">Endeløs tilstand, men tokenet er muligvis ikke på gitteret eller kan være på gitteret flere gange.</string>
+	<string name="MEMORY_MODE_PLUS">Hukommelse</string>
+	<string name="MEMORY_MODE_PLUS_LOCKED">Du skal indsamle %1$d stjerner i hukommelsestilstand for at låse hukommelsestilstand op.</string>
+	<string name="MEMORY_MODE_PLUS_DESCRIPTION">Hukommelsestilstand, men tokenet er muligvis ikke på gitteret eller kan være på gitteret flere gange.</string>
+	<string name="TIMETRIAL_MODE_PLUS">Tidskørsel</string>
+	<string name="TIMETRIAL_MODE_PLUS_LOCKED">Du skal indsamle %1$d stjerner i Time Trial-tilstand for at låse Time Trial-tilstand op.</string>
+	<string name="TIMETRIAL_MODE_PLUS_DESCRIPTION">Tidsprøvetilstand, men tokenet er muligvis ikke på gitteret eller kan være på gitteret flere gange.</string>
+	<string name="INCREMENTAL_MODE_PLUS">Inkrementel</string>
+	<string name="INCREMENTAL_MODE_PLUS_LOCKED">Du skal indsamle %1$d stjerner i inkrementel tilstand for at låse op for inkrementel tilstand.</string>
+	<string name="INCREMENTAL_MODE_PLUS_DESCRIPTION">Inkrementel tilstand, men tokenet er muligvis ikke på gitteret eller kan være på gitteret flere gange.</string>
+	<string name="MOVE_MODE_PLUS">Bevæge sig</string>
+	<string name="MOVE_MODE_PLUS_LOCKED">Du skal indsamle %1$d stjerner i Move-tilstand for at låse Move-tilstand op.</string>
+	<string name="MOVE_MODE_PLUS_DESCRIPTION">Flyttetilstand, men tokenet er muligvis ikke på gitteret eller kan være på gitteret flere gange.</string>
+	<string name="BLINK_MODE_PLUS">Blinke</string>
+	<string name="BLINK_MODE_PLUS_LOCKED">Du skal indsamle %1$d stjerner i Blink-tilstand for at låse Blink-tilstand op.</string>
+	<string name="BLINK_MODE_PLUS_DESCRIPTION">Blink-tilstand, men tokenet er muligvis ikke på gitteret eller kan være på gitteret flere gange.</string>
+	<string name="ROTATE_MODE_PLUS">Rotere</string>
+	<string name="ROTATE_MODE_PLUS_LOCKED">Du skal indsamle %1$d stjerner i rotationstilstand for at låse rotationstilstand op.</string>
+	<string name="ROTATE_MODE_PLUS_DESCRIPTION">Rotationstilstand, men tokenet er muligvis ikke på gitteret eller kan være på gitteret flere gange.</string>
+	<string name="ERROR_SAVING_SETTINGS">Der opstod en fejl under forsøget på at gemme indstillinger.</string>
+	<string name="EXIT_GAME_QUESTION">Vil du lukke spillet?</string>
+	<string name="BACK_TO_MAIN_MENU_QUESTION">Tilbage til hovedmenuen?</string>
+	<string name="MORE_GAMES">Flere spil</string>
+	<string name="VERSION">Version</string>
+	<string name="APP_TITLE">Former og farver udfordring</string>
+	<string name="APP_TITLE_FIRST_LINE">Former Og Farver</string>
+	<string name="APP_TITLE_SECOND_LINE">Udfordring</string>
+	<string name="GAME_MODES">Spiltilstande</string>
+	<string name="PLAY">SPIL!</string>
+
+
+
+	<!---->
+
+
+
+	<!---->
+</resources>

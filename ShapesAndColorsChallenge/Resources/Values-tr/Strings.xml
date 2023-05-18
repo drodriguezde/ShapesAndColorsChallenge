@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Turco-->
+<resources>
+	<string name="app_name">Şekiller ve Renkler Yarışması</string>
+	<string name="YES">Evet</string>
+	<string name="NOT">Numara</string>
+	<string name="SETTINGS">Ayarlar</string>
+	<string name="ACHEIVEMENTS">Başarılar</string>
+	<string name="GAME">oyun</string>
+	<string name="LANGUAGE">Dilim</string>		
+	<string name="MUSIC">Müzik</string>
+	<string name="SOUND">Sesler</string>
+	<string name="NOTIFICATIONS">Bildirimler</string>
+	<string name="VIBRATION">Titreşim</string>
+	<string name="DARK_MODE">karanlık mod</string>
+	<string name="ALWAYS_DARK_MODE">Her zaman karanlık mod</string>
+	<string name="RESET_PROGRESS">İlerlemeyi sıfırla</string>
+	<string name="CLASSIC_MODE">Klasik</string>
+	<string name="CLASSIC_MODE_DESCRIPTION">Izgarada doğru döşemeyi olabildiğince hızlı bulun.</string>
+	<string name="ENDLESS_MODE">Sonsuz</string>
+	<string name="ENDLESS_MODE_DESCRIPTION">Rekorunu kırana kadar sonu yoktur.</string>
+	<string name="MEMORY_MODE">Hafıza</string>
+	<string name="MEMORY_MODE_DESCRIPTION">Döşeme görünmeden önce matrisi ezberlemelisiniz, birkaç saniye sonra kaybolur.</string>
+	<string name="TIMETRIAL_MODE">Deneme süresi</string>
+	<string name="TIMETRIAL_MODE_DESCRIPTION">Seviyeyi tamamlama süresi sınırlıdır sıfıra ulaşırsa kaybedersiniz.</string>
+	<string name="INCREMENTAL_MODE">artımlı</string>
+	<string name="INCREMENTAL_MODE_DESCRIPTION">Zorluk, her yeni karo ile giderek artar.</string>
+	<string name="MOVE_MODE">Hareket</string>
+	<string name="MOVE_MODE_DESCRIPTION">Matris, her yeni döşemeyle rastgele değişir.</string>
+	<string name="BLINK_MODE">Goz kirpmak</string>
+	<string name="BLINK_MODE_DESCRIPTION">Belirteç kısa bir süre için görünür durumda gözünüzü kırpıştırırsanız onu göremezsiniz.</string>
+	<string name="ROTATE_MODE">Döndür</string>
+	<string name="ROTATE_MODE_DESCRIPTION">Bazı rakamlar döndürülecek.</string>
+	<string name="CLASSIC_MODE_PLUS">Klasik</string>
+	<string name="CLASSIC_MODE_PLUS_LOCKED">Klasik modun kilidini açmak için Klasik modda %1$d yıldız toplamanız gerekiyor.</string>
+	<string name="CLASSIC_MODE_PLUS_DESCRIPTION">Klasik mod, ancak jeton ızgarada olmayabilir veya birden çok kez ızgarada olabilir.</string>
+	<string name="ENDLESS_MODE_PLUS">Sonsuz</string>
+	<string name="ENDLESS_MODE_PLUS_LOCKED">Sonsuz modun kilidini açmak için Sonsuz modda %1$d yıldız toplamanız gerekiyor.</string>
+	<string name="ENDLESS_MODE_PLUS_DESCRIPTION">Sonsuz mod, ancak belirteç ızgarada olmayabilir veya birden çok kez ızgarada olabilir.</string>
+	<string name="MEMORY_MODE_PLUS">Hafıza</string>
+	<string name="MEMORY_MODE_PLUS_LOCKED">Hafıza modunun kilidini açmak için Bellek modunda %1$d yıldız toplaman gerekiyor.</string>
+	<string name="MEMORY_MODE_PLUS_DESCRIPTION">Bellek modu, ancak belirteç ızgarada olmayabilir veya birden çok kez ızgarada olabilir.</string>
+	<string name="TIMETRIAL_MODE_PLUS">Deneme süresi</string>
+	<string name="TIMETRIAL_MODE_PLUS_LOCKED">Zaman Denemesi modunun kilidini açmak için Zaman Denemesi modunda %1$d yıldız toplamanız gerekiyor.</string>
+	<string name="TIMETRIAL_MODE_PLUS_DESCRIPTION">Zaman Denemesi modunda, ancak belirteç ızgarada olmayabilir veya birden çok kez ızgarada olabilir.</string>
+	<string name="INCREMENTAL_MODE_PLUS">artımlı</string>
+	<string name="INCREMENTAL_MODE_PLUS_LOCKED">Artımlı modun kilidini açmak için Artımlı modda %1$d yıldız toplamanız gerekiyor.</string>
+	<string name="INCREMENTAL_MODE_PLUS_DESCRIPTION">Klasik mod, ancak jeton ızgarada olmayabilir veya birden çok kez ızgarada olabilir.</string>
+	<string name="MOVE_MODE_PLUS">Hareket</string>
+	<string name="MOVE_MODE_PLUS_LOCKED">Hareket modunun kilidini açmak için Taşı modunda %1$d yıldız toplamanız gerekiyor.</string>
+	<string name="MOVE_MODE_PLUS_DESCRIPTION">Hareket modu, ancak belirteç ızgarada olmayabilir veya birden çok kez ızgarada olabilir.</string>
+	<string name="BLINK_MODE_PLUS">Goz kirpmak</string>
+	<string name="BLINK_MODE_PLUS_LOCKED">Göz kırpma modunun kilidini açmak için Göz kırpma modunda %1$d yıldız toplamanız gerekiyor.</string>
+	<string name="BLINK_MODE_PLUS_DESCRIPTION">Göz kırpma modu, ancak belirteç ızgarada olmayabilir veya birden çok kez ızgarada olabilir.</string>
+	<string name="ROTATE_MODE_PLUS">Döndür</string>
+	<string name="ROTATE_MODE_PLUS_LOCKED">Döndür + modunun kilidini açmak için Döndür modunda %1$d yıldız toplamanız gerekir.</string>
+	<string name="ROTATE_MODE_PLUS_DESCRIPTION">Döndürme modu ancak belirteç kılavuzda olmayabilir veya birden çok kez kılavuzda olabilir.</string>
+	<string name="ERROR_SAVING_SETTINGS">Ayarları kaydetmeye çalışırken bir hata oluştu.</string>
+	<string name="EXIT_GAME_QUESTION">Oyunu kapat?</string>
+	<string name="BACK_TO_MAIN_MENU_QUESTION">Ana menüye dön?</string>
+	<string name="MORE_GAMES">Daha fazla oyun</string>
+	<string name="VERSION">Sürüm</string>
+	<string name="APP_TITLE">Şekiller ve Renkler Yarışması</string>
+	<string name="APP_TITLE_FIRST_LINE">Şekiller ve renkler</string>
+	<string name="APP_TITLE_SECOND_LINE">Meydan okumak</string>
+	<string name="GAME_MODES">Oyun modları</string>
+	<string name="PLAY">OYNA!</string>
+
+
+
+	<!---->
+
+
+
+	<!---->
+</resources>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Italiano-->
+<resources>
+	<string name="app_name">Sfida Forme E Colori</string>
+	<string name="YES">sì</string>
+	<string name="NOT">No</string>
+	<string name="SETTINGS">Impostazioni</string>
+	<string name="ACHEIVEMENTS">Realizzazioni</string>
+	<string name="GAME">Gioco</string>
+	<string name="LANGUAGE">Lingua</string>		
+	<string name="MUSIC">Musica</string>
+	<string name="SOUND">Suoni</string>
+	<string name="NOTIFICATIONS">Notifiche</string>
+	<string name="VIBRATION">Vibrazione</string>
+	<string name="DARK_MODE">Modalità scura</string>
+	<string name="ALWAYS_DARK_MODE">Sempre modalità oscura</string>
+	<string name="RESET_PROGRESS">Reimposta l\'avanzamento</string>
+	<string name="CLASSIC_MODE">Classico</string>
+	<string name="CLASSIC_MODE_DESCRIPTION">Trova la tessera corretta sulla griglia più velocemente che puoi.</string>
+	<string name="ENDLESS_MODE">Senza fine</string>
+	<string name="ENDLESS_MODE_DESCRIPTION">Non ha fine finché non batti il ​​tuo record.</string>
+	<string name="MEMORY_MODE">Memoria</string>
+	<string name="MEMORY_MODE_DESCRIPTION">Prima che appaia la tessera, devi memorizzare la matrice, dopo qualche secondo scompare.</string>
+	<string name="TIMETRIAL_MODE">Prova a tempo</string>
+	<string name="TIMETRIAL_MODE_DESCRIPTION">Il tempo per completare il livello è limitato se raggiunge lo zero che hai perso.</string>
+	<string name="INCREMENTAL_MODE">Incrementale</string>
+	<string name="INCREMENTAL_MODE_DESCRIPTION">La difficoltà aumenta progressivamente ad ogni nuova tessera.</string>
+	<string name="MOVE_MODE">Spostare</string>
+	<string name="MOVE_MODE_DESCRIPTION">La matrice cambia in modo casuale ad ogni nuova tessera.</string>
+	<string name="BLINK_MODE">Battito di ciglia</string>
+	<string name="BLINK_MODE_DESCRIPTION">Il token è visibile per un breve periodo i se sbatti le palpebre non lo vedrai.</string>
+	<string name="ROTATE_MODE">Ruotare</string>
+	<string name="ROTATE_MODE_DESCRIPTION">Alcune figure verranno ruotate.</string>
+	<string name="CLASSIC_MODE_PLUS">Classico</string>
+	<string name="CLASSIC_MODE_PLUS_LOCKED">Devi raccogliere %1$d stelle in modalità Classica\per sbloccare la modalità Classica.</string>
+	<string name="CLASSIC_MODE_PLUS_DESCRIPTION">Modalità classica ma il token potrebbe non essere sulla griglia o essere sulla griglia più volte.</string>
+	<string name="ENDLESS_MODE_PLUS">Senza fine</string>
+	<string name="ENDLESS_MODE_PLUS_LOCKED">Devi raccogliere %1$d stelle in modalità Endless\per sbloccare la modalità Endless.</string>
+	<string name="ENDLESS_MODE_PLUS_DESCRIPTION">Modalità infinita ma il token potrebbe non essere sulla griglia o essere sulla griglia più volte.</string>
+	<string name="MEMORY_MODE_PLUS">Memoria</string>
+	<string name="MEMORY_MODE_PLUS_LOCKED">Devi raccogliere %1$d stelle in modalità Memoria\per sbloccare la modalità Memoria.</string>
+	<string name="MEMORY_MODE_PLUS_DESCRIPTION">Modalità memoria ma il token potrebbe non essere sulla griglia o essere sulla griglia più volte.</string>
+	<string name="TIMETRIAL_MODE_PLUS">Prova a tempo</string>
+	<string name="TIMETRIAL_MODE_PLUS_LOCKED">Devi raccogliere %1$d stelle in modalità Prova a tempo\per sbloccare la modalità Prova a tempo.</string>
+	<string name="TIMETRIAL_MODE_PLUS_DESCRIPTION">Modalità di prova a tempo, ma il token potrebbe non essere sulla griglia o essere sulla griglia più volte.</string>
+	<string name="INCREMENTAL_MODE_PLUS">Incrementale</string>
+	<string name="INCREMENTAL_MODE_PLUS_LOCKED">Devi raccogliere %1$d stelle in modalità incrementale\per sbloccare la modalità incrementale.</string>
+	<string name="INCREMENTAL_MODE_PLUS_DESCRIPTION">Modalità Incrementale ma il token potrebbe non essere sulla griglia o essere sulla griglia più volte.</string>
+	<string name="MOVE_MODE_PLUS">Spostare</string>
+	<string name="MOVE_MODE_PLUS_LOCKED">Devi raccogliere %1$d stelle in modalità Sposta\per sbloccare la modalità Sposta.</string>
+	<string name="MOVE_MODE_PLUS_DESCRIPTION">Modalità di spostamento ma il token potrebbe non essere sulla griglia o essere sulla griglia più volte.</string>
+	<string name="BLINK_MODE_PLUS">Battito di ciglia</string>
+	<string name="BLINK_MODE_PLUS_LOCKED">Devi raccogliere %1$d stelle in modalità Blink\per sbloccare la modalità Blink.</string>
+	<string name="BLINK_MODE_PLUS_DESCRIPTION">Modalità lampeggiante ma il token potrebbe non essere sulla griglia o essere sulla griglia più volte.</string>
+	<string name="ROTATE_MODE_PLUS">Ruotare</string>
+	<string name="ROTATE_MODE_PLUS_LOCKED">Devi raccogliere %1$d stelle in modalità Ruota per sbloccare la modalità Ruota.</string>
+	<string name="ROTATE_MODE_PLUS_DESCRIPTION">Modalità di rotazione ma il token potrebbe non essere sulla griglia o potrebbe essere sulla griglia più volte.</string>
+	<string name="ERROR_SAVING_SETTINGS">Si è verificato un errore durante il tentativo di salvataggio delle impostazioni.</string>
+	<string name="EXIT_GAME_QUESTION">Chiudere il gioco?</string>
+	<string name="BACK_TO_MAIN_MENU_QUESTION">Indietro al menù principale?</string>
+	<string name="MORE_GAMES">Più giochi</string>
+	<string name="VERSION">Versione</string>
+	<string name="APP_TITLE">Sfida Forme E Colori</string>
+	<string name="APP_TITLE_FIRST_LINE">Forme E Colori</string>
+	<string name="APP_TITLE_SECOND_LINE">Sfida</string>
+	<string name="GAME_MODES">Modalità di gioco</string>
+	<string name="PLAY">GIOCARE A!</string>
+
+
+
+	<!---->
+
+
+
+	<!---->
+</resources>

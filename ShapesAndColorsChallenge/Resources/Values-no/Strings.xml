@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Noruego-->
+<resources>
+	<string name="app_name">Former og farger utfordring</string>
+	<string name="YES">Ja</string>
+	<string name="NOT">Nei</string>
+	<string name="SETTINGS">Innstillinger</string>
+	<string name="ACHEIVEMENTS">Prestasjoner</string>
+	<string name="GAME">Spill</string>
+	<string name="LANGUAGE">Språk</string>		
+	<string name="MUSIC">Musikk</string>
+	<string name="SOUND">Lyder</string>
+	<string name="NOTIFICATIONS">Varsler</string>
+	<string name="VIBRATION">Vibrasjon</string>
+	<string name="DARK_MODE">Mørk modus</string>
+	<string name="ALWAYS_DARK_MODE">Alltid mørk modus</string>
+	<string name="RESET_PROGRESS">Tilbakestill fremdriften</string>
+	<string name="CLASSIC_MODE">Klassisk</string>
+	<string name="CLASSIC_MODE_DESCRIPTION">Finn den riktige flisen på rutenettet a så raskt du kan.</string>
+	<string name="ENDLESS_MODE">Endeløs</string>
+	<string name="ENDLESS_MODE_DESCRIPTION">Den har ingen slutt spill før du slår rekorden din.</string>
+	<string name="MEMORY_MODE">Hukommelse</string>
+	<string name="MEMORY_MODE_DESCRIPTION">Før flisen vises må du huske matrisen, etter noen sekunder forsvinner den.</string>
+	<string name="TIMETRIAL_MODE">Tidsprøve</string>
+	<string name="TIMETRIAL_MODE_DESCRIPTION">Tiden for å fullføre nivået er begrenset hvis det når null du har mistet.</string>
+	<string name="INCREMENTAL_MODE">Trinnvis</string>
+	<string name="INCREMENTAL_MODE_DESCRIPTION">Vanskelighetsgraden øker gradvis for hver ny brikke.</string>
+	<string name="MOVE_MODE">Bevege seg</string>
+	<string name="MOVE_MODE_DESCRIPTION">Matrisen endres tilfeldig for hver ny brikke.</string>
+	<string name="BLINK_MODE">Blinke</string>
+	<string name="BLINK_MODE_DESCRIPTION">Tokenet er synlig i en kort stund hvis du blinker vil du ikke se det.</string>
+	<string name="ROTATE_MODE">Rotere</string>
+	<string name="ROTATE_MODE_DESCRIPTION">Noen figurer vil bli rotert.</string>
+	<string name="CLASSIC_MODE_PLUS">Klassisk</string>
+	<string name="CLASSIC_MODE_PLUS_LOCKED">Du må samle %1$d stjerner i klassisk modus for å låse opp klassisk modus.</string>
+	<string name="CLASSIC_MODE_PLUS_DESCRIPTION">Klassisk modus, men tokenet er kanskje ikke på rutenettet eller kan være på rutenettet flere ganger.</string>
+	<string name="ENDLESS_MODE_PLUS">Endeløs</string>
+	<string name="ENDLESS_MODE_PLUS_LOCKED">Du må samle %1$d stjerner i endeløs modus for å låse opp endeløs modus.</string>
+	<string name="ENDLESS_MODE_PLUS_DESCRIPTION">Uendelig modus, men tokenet er kanskje ikke på rutenettet eller kan være på rutenettet flere ganger.</string>
+	<string name="MEMORY_MODE_PLUS">Hukommelse</string>
+	<string name="MEMORY_MODE_PLUS_LOCKED">Du må samle %1$d stjerner i minnemodus for å låse opp minnemodus.</string>
+	<string name="MEMORY_MODE_PLUS_DESCRIPTION">Minnemodus, men tokenet er kanskje ikke på rutenettet eller kan være på rutenettet flere ganger.</string>
+	<string name="TIMETRIAL_MODE_PLUS">Tidsprøve</string>
+	<string name="TIMETRIAL_MODE_PLUS_LOCKED">Du må samle %1$d stjerner i Time Trial-modus for å låse opp Time Trial-modus.</string>
+	<string name="TIMETRIAL_MODE_PLUS_DESCRIPTION">Tidsprøvemodus, men tokenet er kanskje ikke på rutenettet eller kan være på rutenettet flere ganger.</string>
+	<string name="INCREMENTAL_MODE_PLUS">Trinnvis</string>
+	<string name="INCREMENTAL_MODE_PLUS_LOCKED">Du må samle %1$d stjerner i inkrementell modus for å låse opp inkrementell modus.</string>
+	<string name="INCREMENTAL_MODE_PLUS_DESCRIPTION">Klassisk modus, men tokenet er kanskje ikke på rutenettet eller kan være på rutenettet flere ganger.</string>
+	<string name="MOVE_MODE_PLUS">Bevege seg</string>
+	<string name="MOVE_MODE_PLUS_LOCKED">Du må samle %1$d stjerner i Move-modus for å låse opp Move-modus.</string>
+	<string name="MOVE_MODE_PLUS_DESCRIPTION">Flyttemodus, men tokenet er kanskje ikke på rutenettet eller kan være på rutenettet flere ganger.</string>
+	<string name="BLINK_MODE_PLUS">Blinke</string>
+	<string name="BLINK_MODE_PLUS_LOCKED">Du må samle %1$d stjerner i Blink-modus for å låse opp Blink-modus.</string>
+	<string name="BLINK_MODE_PLUS_DESCRIPTION">Blinke-modus, men tokenet er kanskje ikke på rutenettet eller kan være på rutenettet flere ganger.</string>
+	<string name="ROTATE_MODE_PLUS">Rotere</string>
+	<string name="ROTATE_MODE_PLUS_LOCKED">Du må samle %1$d stjerner i Rotate-modus for å låse opp Rotate+-modus.</string>
+	<string name="ROTATE_MODE_PLUS_DESCRIPTION">Rotasjonsmodus, men tokenet er kanskje ikke på rutenettet eller kan være på rutenettet flere ganger.</string>
+	<string name="ERROR_SAVING_SETTINGS">Det oppstod en feil under forsøk på å lagre innstillinger.</string>
+	<string name="EXIT_GAME_QUESTION">Vil du lukke spillet?</string>
+	<string name="BACK_TO_MAIN_MENU_QUESTION">Tilbake til hovedmenyen?</string>
+	<string name="MORE_GAMES">Flere spill</string>
+	<string name="VERSION">Versjon</string>
+	<string name="APP_TITLE">Former og farger utfordring</string>
+	<string name="APP_TITLE_FIRST_LINE">Former og farger</string>
+	<string name="APP_TITLE_SECOND_LINE">Utfordring</string>
+	<string name="GAME_MODES">Spill moduser</string>
+	<string name="PLAY">SPILLE!</string>
+
+
+
+	<!---->
+
+
+
+	<!---->
+</resources>

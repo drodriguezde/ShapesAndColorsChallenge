@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Alemán-->
+<resources>
+	<string name="app_name">Formen und Farben-Challenge</string>
+	<string name="YES">Jawohl</string>
+	<string name="NOT">Nein</string>
+	<string name="SETTINGS">Einstellungen</string>
+	<string name="ACHEIVEMENTS">Erfolge</string>
+	<string name="GAME">Spiel</string>
+	<string name="LANGUAGE">Sprache</string>		
+	<string name="MUSIC">Musik</string>
+	<string name="SOUND">Geräusche</string>
+	<string name="NOTIFICATIONS">Benachrichtigungen</string>
+	<string name="VIBRATION">Vibration</string>
+	<string name="DARK_MODE">Dunkler Modus</string>
+	<string name="ALWAYS_DARK_MODE">Immer dunkler Modus</string>
+	<string name="RESET_PROGRESS">Fortschritt zurücksetzen</string>
+	<string name="CLASSIC_MODE">Klassisch</string>
+	<string name="CLASSIC_MODE_DESCRIPTION">Finden Sie schnellstmöglich die richtige Kachel auf dem Gitter .</string>
+	<string name="ENDLESS_MODE">Endlos</string>
+	<string name="ENDLESS_MODE_DESCRIPTION">Es hat kein Endspiel, bis du deinen Rekord geschlagen hast.</string>
+	<string name="MEMORY_MODE">Erinnerung</string>
+	<string name="MEMORY_MODE_DESCRIPTION">Bevor die Kachel erscheint, müssen Sie sich die Matrix merken, nach ein paar Sekunden verschwindet sie.</string>
+	<string name="TIMETRIAL_MODE">Zeitfahren</string>
+	<string name="TIMETRIAL_MODE_DESCRIPTION">Die Zeit zum Abschließen des Levels ist begrenzt Wenn es null erreicht, haben Sie verloren.</string>
+	<string name="INCREMENTAL_MODE">Inkrementell</string>
+	<string name="INCREMENTAL_MODE_DESCRIPTION">Der Schwierigkeitsgrad nimmt mit jeder neuen Kachel progressiv zu.</string>
+	<string name="MOVE_MODE">Umzug</string>
+	<string name="MOVE_MODE_DESCRIPTION">Die Matrix ändert sich zufällig mit jeder neuen Kachel.</string>
+	<string name="BLINK_MODE">Blinken</string>
+	<string name="BLINK_MODE_DESCRIPTION">Das Token ist für kurze Zeit sichtbar Wenn Sie blinzeln, sehen Sie es nicht.</string>
+	<string name="ROTATE_MODE">Drehen</string>
+	<string name="ROTATE_MODE_DESCRIPTION">Einige Figuren werden gedreht.</string>
+	<string name="CLASSIC_MODE_PLUS">Klassisch</string>
+	<string name="CLASSIC_MODE_PLUS_LOCKED">Sie müssen im klassischen Modus %1$d Sterne sammeln, um den klassischen Modus freizuschalten.</string>
+	<string name="CLASSIC_MODE_PLUS_DESCRIPTION">Klassischer Modus, aber der Token ist möglicherweise nicht im Grid oder mehrmals im Grid.</string>
+	<string name="ENDLESS_MODE_PLUS">Endlos</string>
+	<string name="ENDLESS_MODE_PLUS_LOCKED">Du musst %1$d Sterne im Endlosmodus sammeln, um den Endlosmodus freizuschalten.</string>
+	<string name="ENDLESS_MODE_PLUS_DESCRIPTION">Endlosmodus, aber der Token ist möglicherweise nicht auf dem Gitter oder mehrmals auf dem Gitter.</string>
+	<string name="MEMORY_MODE_PLUS">Erinnerung</string>
+	<string name="MEMORY_MODE_PLUS_LOCKED">Sie müssen im Speichermodus %1$d Sterne sammeln, um den Speichermodus freizuschalten.</string>
+	<string name="MEMORY_MODE_PLUS_DESCRIPTION">Speichermodus, aber der Token ist möglicherweise nicht im Grid oder mehrmals im Grid.</string>
+	<string name="TIMETRIAL_MODE_PLUS">Zeitfahren</string>
+	<string name="TIMETRIAL_MODE_PLUS_LOCKED">Du musst %1$d Sterne im Zeitfahrmodus sammeln, um den Zeitfahrmodus freizuschalten.</string>
+	<string name="TIMETRIAL_MODE_PLUS_DESCRIPTION">Zeitfahrmodus, aber der Token ist möglicherweise nicht auf dem Gitter oder mehrmals auf dem Gitter.</string>
+	<string name="INCREMENTAL_MODE_PLUS">Inkrementell</string>
+	<string name="INCREMENTAL_MODE_PLUS_LOCKED">Sie müssen %1$d Sterne im inkrementellen Modus sammeln, um den inkrementellen Modus freizuschalten.</string>
+	<string name="INCREMENTAL_MODE_PLUS_DESCRIPTION">Inkrementell Modus, aber der Token ist möglicherweise nicht im Grid oder mehrmals im Grid.</string>
+	<string name="MOVE_MODE_PLUS">Umzug</string>
+	<string name="MOVE_MODE_PLUS_LOCKED">Du musst %1$d Sterne im Bewegungsmodus sammeln, um den Bewegungsmodus freizuschalten.</string>
+	<string name="MOVE_MODE_PLUS_DESCRIPTION">Bewegungsmodus, aber der Token ist möglicherweise nicht auf dem Gitter oder mehrmals auf dem Gitter.</string>
+	<string name="BLINK_MODE_PLUS">Blinken</string>
+	<string name="BLINK_MODE_PLUS_LOCKED">Du musst %1$d Sterne im Blink-Modus sammeln, um den Blink-Modus freizuschalten.</string>
+	<string name="BLINK_MODE_PLUS_DESCRIPTION">Blinkmodus, aber der Token ist möglicherweise nicht auf dem Gitter oder mehrmals auf dem Gitter.</string>
+	<string name="ROTATE_MODE_PLUS">Drehen</string>
+	<string name="ROTATE_MODE_PLUS_LOCKED">Du musst %1$d Sterne im Rotationsmodus sammeln, um den Rotationsmodus freizuschalten.</string>
+	<string name="ROTATE_MODE_PLUS_DESCRIPTION">Rotationsmodus, aber der Token befindet sich möglicherweise nicht oder mehrmals im Raster.</string>
+	<string name="ERROR_SAVING_SETTINGS">Beim Versuch, die Einstellungen zu speichern, ist ein Fehler aufgetreten.</string>
+	<string name="EXIT_GAME_QUESTION">Spiel beenden?</string>
+	<string name="BACK_TO_MAIN_MENU_QUESTION">Zurück zum Hauptmenü?</string>
+	<string name="MORE_GAMES">Mehr Spiele</string>
+	<string name="VERSION">Ausführung</string>
+	<string name="APP_TITLE">Formen und Farben-Challenge</string>
+	<string name="APP_TITLE_FIRST_LINE">Formen und Farben</string>
+	<string name="APP_TITLE_SECOND_LINE">Herausforderung</string>
+	<string name="GAME_MODES">Spielmodi</string>
+	<string name="PLAY">ABSPIELEN!</string>
+
+
+
+	<!---->
+
+
+
+	<!---->
+</resources>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Finlandés-->
+<resources>
+	<string name="app_name">Muodot ja värit Haaste</string>
+	<string name="YES">Joo</string>
+	<string name="NOT">Ei</string>
+	<string name="SETTINGS">asetukset</string>
+	<string name="ACHEIVEMENTS">Saavutukset</string>
+	<string name="GAME">Peli</string>
+	<string name="LANGUAGE">Kieli</string>		
+	<string name="MUSIC">Musiikki</string>
+	<string name="SOUND">Äänet</string>
+	<string name="NOTIFICATIONS">Ilmoitukset</string>
+	<string name="VIBRATION">Tärinä</string>
+	<string name="DARK_MODE">Tumma tila</string>
+	<string name="ALWAYS_DARK_MODE">Aina pimeä tila</string>
+	<string name="RESET_PROGRESS">Nollaa edistyminen</string>
+	<string name="CLASSIC_MODE">Klassinen</string>
+	<string name="CLASSIC_MODE_DESCRIPTION">Etsi oikea laatta ruudukosta a nopeasti kuin voit.</string>
+	<string name="ENDLESS_MODE">Loputon</string>
+	<string name="ENDLESS_MODE_DESCRIPTION">Sillä ei ole loppua soittoa ennen kuin voitat ennätyksesi.</string>
+	<string name="MEMORY_MODE">Muisti</string>
+	<string name="MEMORY_MODE_DESCRIPTION">Ennen kuin laatta tulee näkyviin, sinun on muistettava matriisi, muutaman sekunnin kuluttua se katoaa.</string>
+	<string name="TIMETRIAL_MODE">Aikaajo</string>
+	<string name="TIMETRIAL_MODE_DESCRIPTION">Aikaa tason suorittamiseen on rajoitettu jos se saavuttaa nollan, jonka olet menettänyt.</string>
+	<string name="INCREMENTAL_MODE">Inkrementaalinen</string>
+	<string name="INCREMENTAL_MODE_DESCRIPTION">Vaikeusaste kasvaa asteittain jokaisella uudella laatalla.</string>
+	<string name="MOVE_MODE">Liikkua</string>
+	<string name="MOVE_MODE_DESCRIPTION">Matriisi muuttuu satunnaisesti jokaisella ruudulla.</string>
+	<string name="BLINK_MODE">Räpäytys</string>
+	<string name="BLINK_MODE_DESCRIPTION">Tunniste on näkyvissä hetken Jos räpäytät, et näe sitä.</string>
+	<string name="ROTATE_MODE">Kiertää</string>
+	<string name="ROTATE_MODE_DESCRIPTION">Joitakin lukuja käännetään.</string>
+	<string name="CLASSIC_MODE_PLUS">Klassinen</string>
+	<string name="CLASSIC_MODE_PLUS_LOCKED">Sinun on kerättävä %1$d tähteä klassisessa tilassa avataksesi klassisen tilan lukituksen.</string>
+	<string name="CLASSIC_MODE_PLUS_DESCRIPTION">Klassinen tila, mutta tunnus ei välttämättä ole ruudukossa tai se voi olla ruudukossa useita kertoja.</string>
+	<string name="ENDLESS_MODE_PLUS">Loputon</string>
+	<string name="ENDLESS_MODE_PLUS_LOCKED">Sinun on kerättävä %1$d tähteä Endless-tilassa päättömän tilan avaamiseksi.</string>
+	<string name="ENDLESS_MODE_PLUS_DESCRIPTION">Loputon tila, mutta merkki ei välttämättä ole ruudukossa tai se voi olla ruudukossa useita kertoja.</string>
+	<string name="MEMORY_MODE_PLUS">Muisti</string>
+	<string name="MEMORY_MODE_PLUS_LOCKED">Sinun on kerättävä %1$d tähteä muistitilassa voittaaksesi muistitilan lukituksen.</string>
+	<string name="MEMORY_MODE_PLUS_DESCRIPTION">Muistitila, mutta merkki ei välttämättä ole ruudukossa tai se voi olla ruudukossa useita kertoja.</string>
+	<string name="TIMETRIAL_MODE_PLUS">Aikaajo</string>
+	<string name="TIMETRIAL_MODE_PLUS_LOCKED">Sinun on kerättävä %1$d tähteä Time Trial -tilassa vapauttaaksesi Time Trial -tilan lukituksen.</string>
+	<string name="TIMETRIAL_MODE_PLUS_DESCRIPTION">Aikakokeilutila, mutta merkki ei välttämättä ole ruudukossa tai se voi olla ruudukossa useita kertoja.</string>
+	<string name="INCREMENTAL_MODE_PLUS">Inkrementaalinen</string>
+	<string name="INCREMENTAL_MODE_PLUS_LOCKED">Sinun on kerättävä %1$d tähteä inkrementtitilassa inkrementtitilan avaamiseksi.</string>
+	<string name="INCREMENTAL_MODE_PLUS_DESCRIPTION">Inkrementaalinen tila, mutta tunnus ei välttämättä ole ruudukossa tai se voi olla ruudukossa useita kertoja.</string>
+	<string name="MOVE_MODE_PLUS">Liikkua</string>
+	<string name="MOVE_MODE_PLUS_LOCKED">Sinun on kerättävä %1$d tähteä siirtotilassa vapauttaaksesi siirtotilan lukituksen.</string>
+	<string name="MOVE_MODE_PLUS_DESCRIPTION">Siirtotila, mutta merkki ei välttämättä ole ruudukossa tai se voi olla ruudukossa useita kertoja.</string>
+	<string name="BLINK_MODE_PLUS">Räpäytys</string>
+	<string name="BLINK_MODE_PLUS_LOCKED">Sinun on kerättävä %1$d tähteä vilkkumistilassa voittaaksesi vilkkumistilan lukituksen.</string>
+	<string name="BLINK_MODE_PLUS_DESCRIPTION">Vilkkumistila, mutta merkki ei välttämättä ole ruudukossa tai se voi olla ruudukossa useita kertoja.</string>
+	<string name="ROTATE_MODE_PLUS">Kiertää</string>
+	<string name="ROTATE_MODE_PLUS_LOCKED">Sinun on kerättävä %1$d tähteä kiertotilassa avataksesi kiertotilan lukituksen.</string>
+	<string name="ROTATE_MODE_PLUS_DESCRIPTION">Kiertotila, mutta merkki ei välttämättä ole ruudukossa tai se voi olla ruudukossa useita kertoja.</string>
+	<string name="ERROR_SAVING_SETTINGS">Asetusten tallentamisessa tapahtui virhe.</string>
+	<string name="EXIT_GAME_QUESTION">Suljetaanko peli?</string>
+	<string name="BACK_TO_MAIN_MENU_QUESTION">Takaisin päävalikkoon?</string>
+	<string name="MORE_GAMES">Lisää pelejä</string>
+	<string name="VERSION">Versio</string>
+	<string name="APP_TITLE">Muodot ja värit Haaste</string>
+	<string name="APP_TITLE_FIRST_LINE">Muodot ja värit</string>
+	<string name="APP_TITLE_SECOND_LINE">Haaste</string>
+	<string name="GAME_MODES">Pelitilat</string>
+	<string name="PLAY">PELATA!</string>
+
+
+
+	<!---->
+
+
+
+	<!---->
+</resources>
