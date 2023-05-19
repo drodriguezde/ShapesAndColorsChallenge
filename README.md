@@ -21,7 +21,7 @@ https://play.google.com/store/apps/details?id=com.mi.android.globalFileexplorer
 https://play.google.com/store/apps/details?id=com.simplemobiletools.filemanager
 
 # Uso 
-Es posible jugar a cualqueir modo, todos están implementados.
+Es posible jugar a cualquier modo, todos están implementados.
 
 # Licencia
 Esta obra está sujeta a una licencia de Reconocimiento- NoComercial-SinObraDerivada
