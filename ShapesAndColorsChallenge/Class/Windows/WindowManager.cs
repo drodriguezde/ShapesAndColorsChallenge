@@ -79,8 +79,8 @@ namespace ShapesAndColorsChallenge.Class.Windows
                         windowType = Windows[i].WindowType;
                     }
 
-                return (byte)modalLevel > (byte)ModalLevel.Window 
-                    ? windowType 
+                return (byte)modalLevel > (byte)ModalLevel.Window
+                    ? windowType
                     : WindowType.None;
             }
         }
@@ -160,7 +160,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 {
                     return Add(windowType);
                 }
-                else if ((byte)GetTopModalLevel < (byte)modalLevel)/*No hay abierta una de nivel igual y superior*/
+                else if (GetTopModalLevel < modalLevel)/*No hay abierta una de nivel igual y superior*/
                 {
                     return Add(windowType, parameters);
                 }
@@ -190,7 +190,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
             window.OnClose += Window_OnClose;/*Lo disparará el botón cerrar de las ventanas*/
             window.LoadContent();
             Windows.Add(window);
-            SetTopMost();
             return window;
         }
 
@@ -221,7 +220,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
             window.Visible = false;
             Windows.Remove(window);
             Nuller.Null(ref window);
-            SetTopMost();
         }
 
         /// <summary>
@@ -233,18 +231,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 Remove(Windows[i]);
 
             Windows.Clear();
-        }
-
-        static void SetTopMost()
-        {
-            for (int i = 0; i < Windows.Count; i++)
-                Windows[i].SetTopMost(false);
-
-            ModalLevel topModalLevel = GetTopModalLevel;
-
-            for (int i = 0; i < Windows.Count; i++)
-                if (Windows[i].ModalLevel == topModalLevel)
-                    Windows[i].SetTopMost(true);
         }
 
         internal static Window GetWindowIMessage()
@@ -260,6 +246,16 @@ namespace ShapesAndColorsChallenge.Class.Windows
         internal static bool IsOpen(WindowType windowType)
         {
             return Windows.Exists(t => t.WindowType == windowType);
+        }
+
+        /// <summary>
+        /// Comprueba si una ventana es la superior.
+        /// </summary>
+        /// <param name="modalLevel"></param>
+        /// <returns></returns>
+        internal static bool ItsMeTheTopMost(ModalLevel modalLevel)
+        {
+            return modalLevel >= GetTopModalLevel;
         }
 
         internal static void LoadContent()

@@ -152,12 +152,6 @@ namespace ShapesAndColorsChallenge.Class.Management
             }
         }
 
-        internal void SetTopMost(bool state)
-        {
-            for (int i = 0; i < InteractiveObjects.Count; i++)
-                InteractiveObjects[i].TopMost = state;
-        }
-
         internal InteractiveObject Get(long id)
         {
             return InteractiveObjects.FirstOrDefault(t => t.ID == id);

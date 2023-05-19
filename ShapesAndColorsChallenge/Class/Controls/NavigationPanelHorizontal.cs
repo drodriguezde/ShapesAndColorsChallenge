@@ -213,7 +213,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         private void TouchManager_OnDrag(object sender, DragEventArgs e)
         {
-            if (e.Delta == Vector2.Zero || !TopMost)
+            if (e.Delta == Vector2.Zero || !WindowManager.ItsMeTheTopMost(ModalLevel))
                 return;
 
             if (TransitionPanelDirection != TransitionPanelDirection.None)
@@ -231,7 +231,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         private void TouchManager_OnDrop(object sender, DropEventArgs e)
         {
-            if (TransitionPanelDirection != TransitionPanelDirection.None || !TopMost)
+            if (TransitionPanelDirection != TransitionPanelDirection.None || !WindowManager.ItsMeTheTopMost(ModalLevel))
                 return;
 
             float diff = e.Start.X - e.Drop.X;

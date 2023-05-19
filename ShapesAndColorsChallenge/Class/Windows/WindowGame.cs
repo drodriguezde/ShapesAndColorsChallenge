@@ -425,7 +425,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             Paused = false;
             PerksPanel.Pause(Paused);
 
-            if (!PerksPanel.IsTimeStopRunning)/*Si está lanzado este potenciadors el volver de la pausa no debe iniciar el Stopwatch*/
+            if (!PerksPanel.IsTimeStopRunning)/*Si está lanzado este potenciador al volver de la pausa no debe iniciar el Stopwatch*/
                 Stopwatch.Start();
         }
 

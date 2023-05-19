@@ -208,12 +208,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         #region METHODS
 
-        internal void SetTopMost(bool state)
-        {
-            TopMost = state;
-            InteractiveObjectManager.SetTopMost(state);
-        }
-
         void SubscribeEvents()
         {
             if (AddBackButton && buttonBack != null)

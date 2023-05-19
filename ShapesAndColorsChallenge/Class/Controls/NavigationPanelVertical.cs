@@ -148,7 +148,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         private void TouchManager_OnDrag(object sender, DragEventArgs e)
         {
-            if (e.Delta == Vector2.Zero || !TopMost)
+            if (e.Delta == Vector2.Zero || !WindowManager.ItsMeTheTopMost(ModalLevel))
                 return;
 
             if (yStart == 0)
@@ -161,7 +161,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         private void TouchManager_OnDrop(object sender, DropEventArgs e)
         {
-            if (!TopMost)
+            if (!WindowManager.ItsMeTheTopMost(ModalLevel))
                 return;
 
             yStart = 0;

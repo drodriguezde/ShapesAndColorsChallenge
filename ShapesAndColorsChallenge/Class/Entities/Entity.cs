@@ -91,11 +91,6 @@ namespace ShapesAndColorsChallenge.Class.Entities
         /// </summary>
         internal long ID { get; private set; }
 
-        /// <summary>
-        /// Indica si esta es la entidad que está en primer plano.
-        /// </summary>
-        internal bool TopMost { get; set; } = true;
-
         internal bool Visible { get; set; } = true;
 
         /// <summary>

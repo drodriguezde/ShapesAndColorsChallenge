@@ -25,6 +25,7 @@ using Microsoft.Xna.Framework;
 using ShapesAndColorsChallenge.Class.Entities;
 using ShapesAndColorsChallenge.Class.EventArguments;
 using ShapesAndColorsChallenge.Class.Management;
+using ShapesAndColorsChallenge.Class.Windows;
 using ShapesAndColorsChallenge.Enum;
 using System;
 using System.Collections.Generic;
@@ -215,7 +216,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
                 && !e.ClickEventArgs.DoubleClick /*No debe ser un doble click*/
                 && CursorInsideMe(e.ClickEventArgs.Position) /*El cursor debe estar en su superficie*/
                 && Screen.IsActive /*La pantalla debe estar activa*/
-                && TopMost /*Debe estar en la ventana superior*/
+                && WindowManager.ItsMeTheTopMost(ModalLevel) /*Debe estar en la ventana superior*/
                 && Active /*Debe estar activa*/
                 && OnClick != null /*Debe haber algo enganchado al manejador*/)
             {
