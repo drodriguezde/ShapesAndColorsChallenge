@@ -51,6 +51,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         #region DELEGATES
 
         internal event EventHandler OnClose;
+        internal event EventHandler OnBack;
 
         internal event EventHandler<OnFinishTransitionEventArgs> OnFinishTransition;
 
@@ -201,6 +202,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (BlockBack)
                 return;
 
+            OnBack?.Invoke(sender, e);
             ExitManager.BackButtonPressed = true;
         }
 

@@ -88,7 +88,10 @@ namespace ShapesAndColorsChallenge.Class.Management
         /// <returns></returns>
         internal static int GetTotalPendingToClaim()
         {
-            return AcheivementResumes.Sum(t => t.Pending);
+            while (loading)
+                Thread.SpinWait(1);
+
+            return AcheivementResumes.Count(t => t.Pending > 0);
         }
 
         /// <summary>

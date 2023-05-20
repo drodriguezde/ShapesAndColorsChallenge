@@ -122,8 +122,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             /*Objetos administrados aquí*/
             if (disposing)
             {
-                UnsubscribeEvents();
-                AcheivementsManager.Refresh();
+                UnsubscribeEvents();                
             }
 
             /*Objetos no administrados aquí*/
@@ -151,6 +150,8 @@ namespace ShapesAndColorsChallenge.Class.Windows
         {
             for (int i = 0; i < buttons.Count; i++)
                 buttons[i].OnClick += ButtonClaimReward_OnClick;
+
+            OnBack += WindowAcheivements_OnBack;
         }
 
         /// <summary>
@@ -160,6 +161,13 @@ namespace ShapesAndColorsChallenge.Class.Windows
         {
             for (int i = 0; i < buttons.Count; i++)
                 buttons[i].OnClick -= ButtonClaimReward_OnClick;
+
+            OnBack -= WindowAcheivements_OnBack;
+        }
+
+        void WindowAcheivements_OnBack(object sender, EventArgs e)
+        {
+            AcheivementsManager.Refresh();
         }
 
         void ButtonClaimReward_OnClick(object sender, OnClickEventArgs e)
