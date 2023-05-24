@@ -90,6 +90,7 @@ namespace ShapesAndColorsChallenge.Class.Management
         internal static Texture2D TextureGift { get; private set; }
         internal static Texture2D TextureCompleted { get; private set; }
         internal static Texture2D TextureForbidden { get; private set; }
+        internal static Texture2D TexturePlay { get; private set; }
 
         static Hashtable LoadedFlags { get; set; } = new();
 
@@ -225,6 +226,17 @@ namespace ShapesAndColorsChallenge.Class.Management
             TextureGift = GameContent.ContentImage.Load<Texture2D>("Image/ButtonGift");
             TextureCompleted = GameContent.ContentImage.Load<Texture2D>("Image/Completed");
             TextureForbidden = GameContent.ContentImage.Load<Texture2D>("Image/Forbidden");
+            TexturePlay = GameContent.ContentImage.Load<Texture2D>("Image/ButtonPlay");
+        }
+
+        /// <summary>
+        /// Devuelve una textura a demanda.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        internal static Texture2D GetTexture(string path)
+        { 
+            return GameContent.ContentImage.Load<Texture2D>(path);
         }
 
         /// <summary>

@@ -55,6 +55,10 @@ namespace ShapesAndColorsChallenge.Class.Management
         static WindowNationality windowNationality;
         static WindowGame windowGame;
 
+        #endregion
+
+        #region PROPERTIES
+
         /// <summary>
         /// Modo de juego seleccionado actual.
         /// Si es None es que no estamos en ningún modo de juego.
@@ -91,12 +95,13 @@ namespace ShapesAndColorsChallenge.Class.Management
         /// </summary>
         static MessageBoxInvoker MessageBoxInvoker { get; set; } = MessageBoxInvoker.None;
 
-        #endregion
-
-        #region PROPERTIES
-
         static bool Started { get; set; } = false;
         static bool IsOpenMessageBox { get; set; } = false;
+
+        /// <summary>
+        /// Parámetros que se pasarán a la nueva ventana.
+        /// </summary>
+        static object WindowParams { get; set; } = null;
 
         #endregion
 
@@ -194,8 +199,8 @@ namespace ShapesAndColorsChallenge.Class.Management
                 case WindowType.Acheivements:
                     windowAcheivements.CloseMeAndOpenThis(WindowType.GameMode);
                     return true;
-                case WindowType.HowToPlay:
-                    windowHowToPlay.CloseMeAndOpenThis(WindowType.Level);
+                case WindowType.HowToPlay:/*La ventana HowToPlay tendrá botón "Atrás" unicamente si se abre desde la pantalla de selcción de etapa (Stage)*/
+                    windowHowToPlay.CloseMeAndOpenThis(WindowType.Stage);
                     return true;
                 case WindowType.Rankings:
                     windowRankings.CloseMeAndOpenThis(WindowType.Stage);
@@ -332,7 +337,7 @@ namespace ShapesAndColorsChallenge.Class.Management
                     windowAcheivements.StartTransition(TransitionType.Show, SHORT_TRANSITION_TIME);
                     break;
                 case WindowType.HowToPlay:
-                    windowHowToPlay = (WindowHowToPlay)WindowManager.OpenCloseWindow(CurrentWindow, ModalLevel.Window);
+                    windowHowToPlay = (WindowHowToPlay)WindowManager.OpenCloseWindow(CurrentWindow, ModalLevel.Window, WindowParams);
                     windowHowToPlay.OnFinishTransition += TransitionWindow_OnFinish;
                     windowHowToPlay.StartTransition(TransitionType.Show, SHORT_TRANSITION_TIME);
                     break;
@@ -382,10 +387,11 @@ namespace ShapesAndColorsChallenge.Class.Management
         /// 4º Se desengancha la siguiente del evento de transición.
         /// 5º Se quita la actual del Manager y se elimina.
         /// </summary>
-        internal static void StartTransition(Window window, WindowType nextWindowType)
+        internal static void StartTransition(Window window, WindowType nextWindowType, object windowParams = null)
         {
             CurrentWindow = window.WindowType;
             NextWindow = nextWindowType;
+            WindowParams = windowParams;
             window.StartTransition(TransitionType.Hide, SHORT_TRANSITION_TIME);
         }
 

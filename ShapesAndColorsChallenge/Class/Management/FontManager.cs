@@ -156,11 +156,11 @@ namespace ShapesAndColorsChallenge.Class.Management
             GetFont().Write(text, position, justify, scale, color, Screen.SpriteBatch, null);
         }
 
-        internal static float GetScaleToFit(string text, Vector2 scaleSize)
+        internal static float GetScaleToFit(string text, Vector2 scaleSize, int linesNumber = 1)
         {
             FontBuddyPlus font = GetFont();
             float scaleToFit = 1f;
-            Vector2 stringSize = font.MeasureString(text) * new Vector2(scaleToFit, scaleToFit);
+            Vector2 stringSize = font.MeasureString(string.Concat(text, new string(' ', linesNumber - 1))) * new Vector2(scaleToFit, scaleToFit);
 
             if (stringSize.Y > scaleSize.Y)/*Nos hemos pasado, hay que reducir*/
                 while (stringSize.Y > scaleSize.Y)/*Vamos reduciendo*/
@@ -200,47 +200,43 @@ namespace ShapesAndColorsChallenge.Class.Management
         /// <returns></returns>
         internal static string StringInLines(string text, float scaleToFit, float width, int linesNumber)
         {
-            int currentLines = 1;
+            List<string> lines = new() { "" };
 
             if (FontWithSpaces())
             {
                 List<string> words = text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
-                text = string.Empty;
 
-                for (int i = 0; i < words.Count; i++)
-                    if (GetFont().MeasureString(string.Concat(text, words[i])).X * scaleToFit < width || currentLines == linesNumber)
-                    {
-                        if (i < words.Count - 1)
-                            text += string.Concat(words[i], " ");
-                        else
-                            text += string.Concat(words[i]);
-                    }
+                foreach (string word in words)
+                {
+                    if (GetFont().MeasureString(string.Concat(lines.Last().Trim(), " ", word)).X * scaleToFit < width)/*No se llenará la línea con esta palabra*/
+                        lines[lines.Count - 1] = string.Concat(lines.Last(), word, " ");
                     else
                     {
-                        if (i < words.Count - 1)
-                            text += string.Concat("\n", words[i], " ");
-                        else
-                            text += string.Concat("\n", words[i]);
-
-                        currentLines++;
+                        lines[lines.Count - 1] = lines[lines.Count - 1].Trim();
+                        lines.Add(string.Concat(word, " "));
                     }
+                }
             }
             else
             {
                 List<char> letters = text.ToCharArray().ToList();
-                text = string.Empty;
 
                 foreach (char letter in letters)
-                    if (GetFont().MeasureString(string.Concat(text, letter)).X * scaleToFit < width || currentLines == linesNumber)
-                        text += letter;
+                {
+                    if (GetFont().MeasureString(string.Concat(lines.Last(), letter)).X * scaleToFit < width)
+                        lines[lines.Count - 1] = string.Concat(lines.Last(), letter);
                     else
-                    {
-                        text += string.Concat("\n", letter);
-                        currentLines++;
-                    }
+                        lines.Add(letter.ToString());
+                }
             }
 
-            return text;
+            if (lines.Count > linesNumber)
+            {
+                lines[lines.Count - 2] = string.Concat(lines[lines.Count - 2], FontWithSpaces() ? " " : "", lines[lines.Count - 1]);
+                lines.RemoveAt(lines.Count - 1);
+            }
+
+            return string.Join("\n", lines);
         }
 
         /// <summary>

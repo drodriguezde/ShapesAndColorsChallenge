@@ -43,7 +43,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 WindowType.Settings => DeploySettings(),
                 WindowType.Language => DeployLanguage(),
                 WindowType.Acheivements => DeployAcheivements(),
-                WindowType.HowToPlay => DeployHowToPlay(),
+                WindowType.HowToPlay => DeployHowToPlay(parameters),
                 WindowType.Rankings => DeployRankings(),
                 WindowType.Challenges => DeployChallenges(),
                 WindowType.Nationality => DeployNationality(),
@@ -131,9 +131,9 @@ namespace ShapesAndColorsChallenge.Class.Windows
             return window;
         }
 
-        static Window DeployHowToPlay()
+        static Window DeployHowToPlay(object parameters)
         {
-            Window window = new WindowHowToPlay();
+            Window window = new WindowHowToPlay((WindowHowToPlayParams)parameters);
             return window;
         }
 

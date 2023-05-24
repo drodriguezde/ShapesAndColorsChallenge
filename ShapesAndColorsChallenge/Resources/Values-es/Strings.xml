@@ -47,7 +47,7 @@
 	<string name="INCREMENTAL_MODE_PLUS">Incremental+</string>
 	<string name="INCREMENTAL_MODE_PLUS_LOCKED">Debe recolectar %1$d estrellas en el modo Incremental para desbloquear este modo.</string>
 	<string name="INCREMENTAL_MODE_PLUS_DESCRIPTION">Modo Incremental, pero es posible que el ficha no esté en la cuadrícula o que esté varias veces.</string>
-	<string name="MOVE_MODE_PLUS">Movimiento</string>
+	<string name="MOVE_MODE_PLUS">Movimiento+</string>
 	<string name="MOVE_MODE_PLUS_LOCKED">Debes recolectar %1$d estrellas en el modo Movimiento para desbloquear este modo.</string>
 	<string name="MOVE_MODE_PLUS_DESCRIPTION">Modo Movimiento, pero es posible que el ficha no esté en la cuadrícula o que esté varias veces.</string>
 	<string name="BLINK_MODE_PLUS">Parpadeo+</string>
@@ -82,6 +82,26 @@
 	<string name="PAUSE">Pausa</string>
 	<string name="REWARD">Recompensa</string>
 	<string name="NEW_RECORD">¡Nuevo record!</string>
+	<string name="PERK_TIMESTOP">Detiene el tiempo durante 5 segundos.</string>
+	<string name="PERK_REVEAL">Muestra la ubicación de las siguientes dos fichas.</string>
+	<string name="PERK_CHANGE">Cambia la ficha maestra por otra diferente y reinicia el tiempo para encontrarla.</string>
+	<string name="HTP_CLASSIC_MODE">Busca la ficha (1) en la parrilla (2) antes de que acabe el tiempo (3).</string>
+	<string name="HTP_ENDLESS_MODE">Busca la ficha (1) en la parrilla (2) antes de que acabe el tiempo (3), sin límite de fichas a buscar (4).</string>
+	<string name="HTP_MEMORY_MODE">Busca la ficha (1) en la parrilla (2) antes de que acabe el tiempo (3), memoriza rápido la parrilla porque desaparece.</string>
+	<string name="HTP_TIMETRIAL_MODE">Busca la ficha (1) en la parrilla (2), tienes un tiempo límite (3) para encontrar tantas como puedas (4).</string>
+	<string name="HTP_INCREMENTAL_MODE">Busca la ficha (1) en la parrilla (2) antes de que acabe el tiempo (3), sin límite de fichas a buscar (4), la dificultad va aumentando.</string>
+	<string name="HTP_MOVE_MODE">Busca la ficha (1) en la parrilla (2) antes de que acabe el tiempo (3), la parrilla se mueve con cada nueva ficha.</string>
+	<string name="HTP_BLINK_MODE">Busca la ficha (1) que solo se ve un instante en la parrilla (2) antes de que acabe el tiempo (3).</string>
+	<string name="HTP_ROTATE_MODE">Busca la ficha (1) en la parrilla (2) antes de que acabe el tiempo (3), algunas fichas girarán.</string>
+	<string name="HTP_CLASSIC_MODE_PLUS">Busca la ficha (1) en la parrilla (2) antes de que acabe el tiempo (3), si la ficha no está pulsa en (4).</string>
+	<string name="HTP_ENDLESS_MODE_PLUS">Busca la ficha (1) en la parrilla (2) antes de que acabe el tiempo (3), sin límite de fichas a buscar (4), si la ficha no está pulsa en (5).</string>
+	<string name="HTP_MEMORY_MODE_PLUS">Busca la ficha (1) en la parrilla (2) antes de que acabe el tiempo (3), memoriza rápido la parrilla porque desaparece, si la ficha no está pulsa en (4).</string>
+	<string name="HTP_TIMETRIAL_MODE_PLUS">Busca la ficha (1) en la parrilla (2), tienes un tiempo límite (3) para encontrar tantas como puedas (4), si la ficha no está pulsa en (5).</string>
+	<string name="HTP_INCREMENTAL_MODE_PLUS">Busca la ficha (1) en la parrilla (2) antes de que acabe el tiempo (3), sin límite de fichas a buscar (4), si la ficha no está pulsa en (5), la dificultad va aumentando.</string>
+	<string name="HTP_MOVE_MODE_PLUS">Busca la ficha (1) en la parrilla (2) antes de que acabe el tiempo (3), si la ficha no está pulsa en (4), la parrilla se mueve con cada nueva ficha.</string>
+	<string name="HTP_BLINK_MODE_PLUS">Busca la ficha (1) que solo se ve un instante en la parrilla (2) antes de que acabe el tiempo (3), si la ficha no está pulsa en (4).</string>
+	<string name="HTP_ROTATE_MODE_PLUS">Busca la ficha (1) en la parrilla (2) antes de que acabe el tiempo (3), si la ficha no está pulsa en (4), algunas fichas girarán.</string>
+	<string name="DONT_SHOW_AGAIN">No mostrar de nuevo.</string>
 	<!--ACHEIVEMENTS-->
 	<string name="ACHEIVEMENT_FirstStar">Mi primera estrella</string>
 	<string name="ACHEIVEMENT_StarCollector">Estrellita, ¿dónde estás?</string>

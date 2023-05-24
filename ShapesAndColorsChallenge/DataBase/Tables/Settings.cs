@@ -42,5 +42,8 @@ namespace ShapesAndColorsChallenge.DataBase.Tables
         /// </summary>
         [MaxLength(3)]
         public string PlayerCountryCode { get; set; }
+
+        [MaxLength(16)]
+        public string ShowHowToPlay { get; set; }
     }
 }

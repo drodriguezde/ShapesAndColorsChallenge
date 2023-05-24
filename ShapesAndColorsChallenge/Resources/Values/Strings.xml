@@ -85,6 +85,26 @@
 	<string name="PAUSE">Pause</string>
 	<string name="REWARD">Reward</string>
 	<string name="NEW_RECORD">New record!</string>
+	<string name="PERK_TIMESTOP">Stops time for 5 seconds.</string>
+	<string name="PERK_REVEAL">Shows the location of the next two tiles.</string>
+	<string name="PERK_CHANGE">Change the master tile for a different one and reset time to find it.</string>
+	<string name="HTP_CLASSIC_MODE">Find the tile (1) on the grid (2) before time runs out (3).</string>
+	<string name="HTP_ENDLESS_MODE">Find the tile (1) on the grid (2) before time runs out (3), with no limit to the number of tiles to search for (4).</string>
+	<string name="HTP_MEMORY_MODE">Find the tile (1) on the grid (2) before time runs out (3), memorize the grid quickly because it disappears.</string>
+	<string name="HTP_TIMETRIAL_MODE">Find the tile (1) on the grid (2), you have a time limit (3) to find as many as you can (4).</string>
+	<string name="HTP_INCREMENTAL_MODE">Find the tile (1) on the grid (2) before time runs out (3), with no limit to the number of tiles to search for (4), the difficulty increases.</string>
+	<string name="HTP_MOVE_MODE">Find the tile (1) on the grid (2) before the time runs out (3), the grid moves with each new tile.</string>
+	<string name="HTP_BLINK_MODE">Find the token (1) that is only visible for an instant on the grid (2) before time runs out (3).</string>
+	<string name="HTP_ROTATE_MODE">Find the tile (1) on the grid (2) before the time runs out (3), some tiles will rotate.</string>
+	<string name="HTP_CLASSIC_MODE_PLUS">Find the tile (1) on the grid (2) before the time runs out (3), if the tile is not there click on (4).</string>
+	<string name="HTP_ENDLESS_MODE_PLUS">Find the tile (1) on the grid (2) before the time runs out (3), without limit of tiles to search (4), if the tile is not there click on (5).</string>
+	<string name="HTP_MEMORY_MODE_PLUS">Find the tile (1) on the grid (2) before the time runs out (3), quickly memorize the grid because it disappears if the tile is not there click on (4).</string>
+	<string name="HTP_TIMETRIAL_MODE_PLUS">Find the tile (1) on the grid (2), you have a time limit (3) to find as many as you can (4), if the tile is not there click on (5).</string>
+	<string name="HTP_INCREMENTAL_MODE_PLUS">Find the tile (1) on the grid (2) before time runs out (3), with no limit to the number of tile to search for (4), if the tile is not there click on (5), the difficulty increases.</string>
+	<string name="HTP_MOVE_MODE_PLUS">Find the tile (1) on the grid (2) before the time runs out (3), if the tile is not there click on (4), the grid moves with each new tile.</string>
+	<string name="HTP_BLINK_MODE_PLUS">Find the tile (1) that is only visible for an instant on the grid (2) before the time runs out (3), if the tile is not there click on (4).</string>
+	<string name="HTP_ROTATE_MODE_PLUS">Find the tile (1) on the grid (2) before the time runs out (3), if the tile is not there click on (4), some tiles will rotate.</string>
+	<string name="DONT_SHOW_AGAIN">Don&quot;'t show again.</string>
 	<!--ACHEIVEMENTS-->
 	<string name="ACHEIVEMENT_FirstStar">My first star</string>
 	<string name="ACHEIVEMENT_StarCollector">Little star, where are you?</string>

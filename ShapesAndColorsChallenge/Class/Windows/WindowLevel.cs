@@ -26,6 +26,7 @@ using ShapesAndColorsChallenge.Class.Animated;
 using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.EventArguments;
 using ShapesAndColorsChallenge.Class.Management;
+using ShapesAndColorsChallenge.Class.Params;
 using ShapesAndColorsChallenge.DataBase.Controllers;
 using ShapesAndColorsChallenge.DataBase.Tables;
 using ShapesAndColorsChallenge.Enum;
@@ -333,9 +334,13 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 OrchestratorManager.LevelNumber = level;
                 OrchestratorManager.BackWindow = WindowType;
                 OrchestratorManager.GameWindowInvoker = WindowType.Level;
-                CloseMeAndOpenThis(WindowType.Game);
+
+                if(ControllerSettings.GetShowHowToPlay(OrchestratorManager.GameMode))
+                    CloseMeAndOpenThis(WindowType.Game);                
+                else
+                    CloseMeAndOpenThis(WindowType.HowToPlay, new WindowHowToPlayParams(OrchestratorManager.GameMode, false));
+            }
         }
-    }
 
         Image GetImagePadlockByLevel(int level)
         {

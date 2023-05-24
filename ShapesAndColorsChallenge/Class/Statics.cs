@@ -33,6 +33,7 @@ using ShapesAndColorsChallenge.Enum;
 using System.Globalization;
 using Android.Widget;
 using AndroidApp = Android.App;
+using Microsoft.Xna.Framework.Graphics;
 #if ANDROID
 using Java.Util;
 #else
@@ -194,43 +195,74 @@ namespace ShapesAndColorsChallenge.Class
 
         internal static string GetGameModeTitle()
         {
-            switch (OrchestratorManager.GameMode)
+            return OrchestratorManager.GameMode switch
             {
-                case GameMode.Blink:
-                    return Resource.String.BLINK_MODE.GetString();
-                case GameMode.BlinkPlus:
-                    return Resource.String.BLINK_MODE_PLUS.GetString();
-                case GameMode.Rotate:
-                    return Resource.String.ROTATE_MODE.GetString();
-                case GameMode.RotatePlus:
-                    return Resource.String.ROTATE_MODE_PLUS.GetString();
-                case GameMode.Classic:
-                    return Resource.String.CLASSIC_MODE.GetString();
-                case GameMode.ClassicPlus:
-                    return Resource.String.CLASSIC_MODE_PLUS.GetString();
-                case GameMode.Endless:
-                    return Resource.String.ENDLESS_MODE.GetString();
-                case GameMode.EndlessPlus:
-                    return Resource.String.ENDLESS_MODE_PLUS.GetString();
-                case GameMode.Incremental:
-                    return Resource.String.INCREMENTAL_MODE.GetString();
-                case GameMode.IncrementalPlus:
-                    return Resource.String.INCREMENTAL_MODE_PLUS.GetString();
-                case GameMode.Memory:
-                    return Resource.String.MEMORY_MODE.GetString();
-                case GameMode.MemoryPlus:
-                    return Resource.String.MEMORY_MODE_PLUS.GetString();
-                case GameMode.Move:
-                    return Resource.String.MOVE_MODE.GetString();
-                case GameMode.MovePlus:
-                    return Resource.String.MOVE_MODE_PLUS.GetString();
-                case GameMode.TimeTrial:
-                    return Resource.String.TIMETRIAL_MODE.GetString();
-                case GameMode.TimeTrialPlus:
-                    return Resource.String.TIMETRIAL_MODE_PLUS.GetString();
-                default:
-                    return string.Empty;
-            }
+                GameMode.Blink => Resource.String.BLINK_MODE.GetString(),
+                GameMode.BlinkPlus => Resource.String.BLINK_MODE_PLUS.GetString(),
+                GameMode.Rotate => Resource.String.ROTATE_MODE.GetString(),
+                GameMode.RotatePlus => Resource.String.ROTATE_MODE_PLUS.GetString(),
+                GameMode.Classic => Resource.String.CLASSIC_MODE.GetString(),
+                GameMode.ClassicPlus => Resource.String.CLASSIC_MODE_PLUS.GetString(),
+                GameMode.Endless => Resource.String.ENDLESS_MODE.GetString(),
+                GameMode.EndlessPlus => Resource.String.ENDLESS_MODE_PLUS.GetString(),
+                GameMode.Incremental => Resource.String.INCREMENTAL_MODE.GetString(),
+                GameMode.IncrementalPlus => Resource.String.INCREMENTAL_MODE_PLUS.GetString(),
+                GameMode.Memory => Resource.String.MEMORY_MODE.GetString(),
+                GameMode.MemoryPlus => Resource.String.MEMORY_MODE_PLUS.GetString(),
+                GameMode.Move => Resource.String.MOVE_MODE.GetString(),
+                GameMode.MovePlus => Resource.String.MOVE_MODE_PLUS.GetString(),
+                GameMode.TimeTrial => Resource.String.TIMETRIAL_MODE.GetString(),
+                GameMode.TimeTrialPlus => Resource.String.TIMETRIAL_MODE_PLUS.GetString(),
+                _ => string.Empty,
+            };
+        }
+
+        internal static string GetHowToPlayDescription(GameMode gameMode)
+        {
+            return gameMode switch
+            {
+                GameMode.Classic => Resource.String.HTP_CLASSIC_MODE.GetString(),
+                GameMode.Incremental => Resource.String.HTP_INCREMENTAL_MODE.GetString(),
+                GameMode.Endless => Resource.String.HTP_ENDLESS_MODE.GetString(),
+                GameMode.Move => Resource.String.HTP_MOVE_MODE.GetString(),
+                GameMode.Memory => Resource.String.HTP_MEMORY_MODE.GetString(),
+                GameMode.Blink => Resource.String.HTP_BLINK_MODE.GetString(),
+                GameMode.TimeTrial => Resource.String.HTP_TIMETRIAL_MODE.GetString(),
+                GameMode.Rotate => Resource.String.HTP_ROTATE_MODE.GetString(),
+                GameMode.ClassicPlus => Resource.String.HTP_CLASSIC_MODE_PLUS.GetString(),
+                GameMode.IncrementalPlus => Resource.String.HTP_INCREMENTAL_MODE_PLUS.GetString(),
+                GameMode.EndlessPlus => Resource.String.HTP_ENDLESS_MODE_PLUS.GetString(),
+                GameMode.MovePlus => Resource.String.HTP_MOVE_MODE_PLUS.GetString(),
+                GameMode.MemoryPlus => Resource.String.HTP_MEMORY_MODE_PLUS.GetString(),
+                GameMode.BlinkPlus => Resource.String.HTP_BLINK_MODE_PLUS.GetString(),
+                GameMode.TimeTrialPlus => Resource.String.HTP_TIMETRIAL_MODE_PLUS.GetString(),
+                GameMode.RotatePlus => Resource.String.HTP_ROTATE_MODE_PLUS.GetString(),
+                _ => null,
+            };
+        }
+
+        internal static Texture2D GetHowToPlayTexture(GameMode gameMode)
+        {
+            return gameMode switch
+            {
+                GameMode.Classic => TextureManager.GetTexture("Image/HTPClassic"),
+                GameMode.Incremental => TextureManager.GetTexture("Image/HTPIncremental"),
+                GameMode.Endless => TextureManager.GetTexture("Image/HTPEndless"),
+                GameMode.Move => TextureManager.GetTexture("Image/HTPMove"),
+                GameMode.Memory => TextureManager.GetTexture("Image/HTPMemory"),
+                GameMode.Blink => TextureManager.GetTexture("Image/HTPBlink"),
+                GameMode.TimeTrial => TextureManager.GetTexture("Image/HTPTimeTrial"),
+                GameMode.Rotate => TextureManager.GetTexture("Image/HTPRotate"),
+                GameMode.ClassicPlus => TextureManager.GetTexture("Image/HTPClassicPlus"),
+                GameMode.IncrementalPlus => TextureManager.GetTexture("Image/HTPIncrementalPlus"),
+                GameMode.EndlessPlus => TextureManager.GetTexture("Image/HTPEndlessPlus"),
+                GameMode.MovePlus => TextureManager.GetTexture("Image/HTPMovePlus"),
+                GameMode.MemoryPlus => TextureManager.GetTexture("Image/HTPMemoryPlus"),
+                GameMode.BlinkPlus => TextureManager.GetTexture("Image/HTPBlinkPlus"),
+                GameMode.TimeTrialPlus => TextureManager.GetTexture("Image/HTPTimeTrialPlus"),
+                GameMode.RotatePlus => TextureManager.GetTexture("Image/HTPRotatePlus"),
+                _ => null,
+            };
         }
 
         internal static void SetLocale(string languageCode)

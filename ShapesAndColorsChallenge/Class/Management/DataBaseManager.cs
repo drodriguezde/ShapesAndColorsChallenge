@@ -67,6 +67,7 @@ namespace ShapesAndColorsChallenge.Class.Management
             /*TODO, tambien hay que reiniciar los retos*/
             ControllerScore.Reset();
             ControllerRanking.Reset();
+            ControllerSettings.Reset();
         }
 
         /// <summary>

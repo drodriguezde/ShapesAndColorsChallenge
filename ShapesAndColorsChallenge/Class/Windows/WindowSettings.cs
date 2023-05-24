@@ -341,37 +341,37 @@ namespace ShapesAndColorsChallenge.Class.Windows
         void SetCheckBoxMusic()
         {
             checkBoxMusic = new(ModalLevel, CheckBoxMusicBounds, UserSettingsManager.Music);
-            InteractiveObjectManager.Add(checkBoxMusic, GetLabel(CheckBoxMusicBounds, Resource.String.MUSIC));
+            InteractiveObjectManager.Add(checkBoxMusic, checkBoxMusic.GetLabel(Resource.String.MUSIC));
         }
 
         void SetCheckBoxSound()
         {
             checkBoxSound = new(ModalLevel, CheckBoxSoundBounds, UserSettingsManager.Sounds);
-            InteractiveObjectManager.Add(checkBoxSound, GetLabel(CheckBoxSoundBounds, Resource.String.SOUND));
+            InteractiveObjectManager.Add(checkBoxSound, checkBoxSound.GetLabel(Resource.String.SOUND));
         }
 
         void SetCheckBoxVoice()
         {
             checkBoxVoice = new(ModalLevel, CheckBoxVoiceBounds, UserSettingsManager.Voices);
-            InteractiveObjectManager.Add(checkBoxVoice, GetLabel(CheckBoxVoiceBounds, Resource.String.VOICES));
+            InteractiveObjectManager.Add(checkBoxVoice, checkBoxVoice.GetLabel(Resource.String.VOICES));
         }
 
         void SetCheckBoxVibration()
         {
             checkBoxVibration = new(ModalLevel, CheckBoxVibrationBounds, UserSettingsManager.Vibration);
-            InteractiveObjectManager.Add(checkBoxVibration, GetLabel(CheckBoxVibrationBounds, Resource.String.VIBRATION));
+            InteractiveObjectManager.Add(checkBoxVibration, checkBoxVibration.GetLabel(Resource.String.VIBRATION));
         }
 
         void SetCheckBoxDarkMode()
         {
             checkBoxDarkMode = new(ModalLevel, CheckBoxDarkModeBounds, UserSettingsManager.DarkMode);
-            InteractiveObjectManager.Add(checkBoxDarkMode, GetLabel(CheckBoxDarkModeBounds, Resource.String.DARK_MODE));
+            InteractiveObjectManager.Add(checkBoxDarkMode, checkBoxDarkMode.GetLabel(Resource.String.DARK_MODE));
         }
 
         void SetCheckBoxAlwaysDarkMode()
         {
             checkBoxAlwaysDarkMode = new(ModalLevel, CheckBoxAlwaysDarkModeBounds, UserSettingsManager.AlwaysDarkMode);
-            InteractiveObjectManager.Add(checkBoxAlwaysDarkMode, GetLabel(CheckBoxAlwaysDarkModeBounds, Resource.String.ALWAYS_DARK_MODE));
+            InteractiveObjectManager.Add(checkBoxAlwaysDarkMode, checkBoxAlwaysDarkMode.GetLabel(Resource.String.ALWAYS_DARK_MODE));
         }
 
         void SetButtonLanguage()
@@ -380,21 +380,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             int border = Const.BUTTON_BORDER.RedimX();
             Rectangle backImageBounds = new(ButtonLanguageBounds.X - border.Half(), ButtonLanguageBounds.Y - border.Half(), ButtonLanguageBounds.Width + border, ButtonLanguageBounds.Height + border);
             Image backImage = new(ModalLevel, backImageBounds, TextureManager.Get(backImageBounds.ToSize(), ColorManager.HardGray, CommonTextureType.Rectangle).Texture);
-            InteractiveObjectManager.Add(backImage, buttonLanguage, GetLabel(ButtonLanguageBounds, Resource.String.LANGUAGE));
-        }
-
-        Label GetLabel(Rectangle objectBounds, int text)
-        {
-            return new(
-                        ModalLevel,
-                        new Rectangle(
-                            objectBounds.Right + 20.RedimX(),
-                            objectBounds.Top + objectBounds.Height.Half() - 40.RedimY(),
-                            800.RedimY(),
-                            80.RedimX()),
-                        text.GetString(),
-                        ColorManager.HardGray,
-                        ColorManager.HardGray);
+            InteractiveObjectManager.Add(backImage, buttonLanguage, buttonLanguage.GetLabel(Resource.String.LANGUAGE));
         }
 
         void SetButtonResetProgress()

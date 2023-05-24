@@ -27,6 +27,7 @@ using ShapesAndColorsChallenge.Class.Animated;
 using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.EventArguments;
 using ShapesAndColorsChallenge.Class.Management;
+using ShapesAndColorsChallenge.Class.Params;
 using ShapesAndColorsChallenge.DataBase.Types;
 using ShapesAndColorsChallenge.Enum;
 using System;
@@ -214,7 +215,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void ButtonHowToPlay_OnClick(object sender, OnClickEventArgs e)
         {
-            /*TODO*/
+            CloseMeAndOpenThis(WindowType.HowToPlay, new WindowHowToPlayParams(OrchestratorManager.GameMode, true));
         }
 
         void ButtonChallenge_OnClick(object sender, OnClickEventArgs e)

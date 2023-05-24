@@ -52,7 +52,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         internal event EventHandler OnClose;
         internal event EventHandler OnBack;
-
         internal event EventHandler<OnFinishTransitionEventArgs> OnFinishTransition;
 
         #endregion
@@ -222,9 +221,9 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 buttonBack.OnClick += ButtonBack_OnClick;
         }
 
-        internal virtual void CloseMeAndOpenThis(WindowType windowTypeDestination)
+        internal virtual void CloseMeAndOpenThis(WindowType windowTypeDestination, object windowParams = null)
         {
-            OrchestratorManager.StartTransition(this, windowTypeDestination);
+            OrchestratorManager.StartTransition(this, windowTypeDestination, windowParams);
         }
 
         internal override void LoadContent()

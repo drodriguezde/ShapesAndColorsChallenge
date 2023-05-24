@@ -165,8 +165,8 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         void SetScale()
         {
-            Vector2 testSize = new(Bounds.Width * LinesNumber, Bounds.Height / LinesNumber);
-            ScaletoFit = FontManager.GetScaleToFit(Text, testSize);
+            Vector2 testSize = new(Bounds.Width * 0.9f * LinesNumber, Bounds.Height / LinesNumber);
+            ScaletoFit = FontManager.GetScaleToFit(Text, testSize, LinesNumber);
         }
 
         void SetLines()

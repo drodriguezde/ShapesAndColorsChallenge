@@ -243,6 +243,25 @@ namespace ShapesAndColorsChallenge.Class.Controls
         #region METHODS
 
         /// <summary>
+        /// Devuelve una etiqueta que complementa un objeto como un checkbox.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        internal Label GetLabel(int text)
+        {
+            return new(
+                        ModalLevel,
+                        new Rectangle(
+                            Bounds.Right + 20.RedimX(),
+                            Bounds.Top + Bounds.Height.Half() - 40.RedimY(),
+                            700.RedimX(),
+                            80.RedimY()),
+                        text.GetString(),
+                        ColorManager.HardGray,
+                        ColorManager.HardGray);
+        }
+
+        /// <summary>
         /// Comprueba si una coordenada está dentro del área de este objeto.
         /// </summary>
         /// <param name="position"></param>

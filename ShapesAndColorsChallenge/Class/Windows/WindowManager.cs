@@ -158,7 +158,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             {
                 if ((byte)modalLevel < 2)/*Las de nivel 0 y 1 se abren siempre si no existen, ya que se lanzan una única vez al comienzo*/
                 {
-                    return Add(windowType);
+                    return Add(windowType, parameters);
                 }
                 else if (GetTopModalLevel < modalLevel)/*No hay abierta una de nivel igual y superior*/
                 {
