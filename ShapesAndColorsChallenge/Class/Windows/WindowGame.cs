@@ -64,7 +64,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// <summary>
         /// Para que suene un feedback positivo el usuario tiene que encontrar una ficha en menos de este tiempo en milisegundos.
         /// </summary>
-        const int TIME_FOR_POSITIVE_FEEDBACK = 550;
+        const int TIME_FOR_POSITIVE_FEEDBACK = 600;
 
         const int REVEAL_PERK_BOUNDS_OFFSET = 8;
 

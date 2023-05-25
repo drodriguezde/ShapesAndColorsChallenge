@@ -102,6 +102,7 @@
 	<string name="HTP_BLINK_MODE_PLUS">Busca la ficha (1) que solo se ve un instante en la parrilla (2) antes de que acabe el tiempo (3), si la ficha no está pulsa en (4).</string>
 	<string name="HTP_ROTATE_MODE_PLUS">Busca la ficha (1) en la parrilla (2) antes de que acabe el tiempo (3), si la ficha no está pulsa en (4), algunas fichas girarán.</string>
 	<string name="DONT_SHOW_AGAIN">No mostrar de nuevo.</string>
+	<string name="HOW_TO_PLAY">Cómo jugar</string>
 	<!--ACHEIVEMENTS-->
 	<string name="ACHEIVEMENT_FirstStar">Mi primera estrella</string>
 	<string name="ACHEIVEMENT_StarCollector">Estrellita, ¿dónde estás?</string>

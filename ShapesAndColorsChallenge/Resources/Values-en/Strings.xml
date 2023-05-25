@@ -99,6 +99,7 @@
 	<string name="HTP_BLINK_MODE_PLUS">Find the tile (1) that is only visible for an instant on the grid (2) before the time runs out (3), if the tile is not there click on (4).</string>
 	<string name="HTP_ROTATE_MODE_PLUS">Find the tile (1) on the grid (2) before the time runs out (3), if the tile is not there click on (4), some tiles will rotate.</string>
 	<string name="DONT_SHOW_AGAIN">Don&quot;'t show again.</string>
+	<string name="HOW_TO_PLAY">How to play</string>
 	<!--ACHEIVEMENTS-->
 	<string name="ACHEIVEMENT_FirstStar">My first star</string>
 	<string name="ACHEIVEMENT_StarCollector">Little star, where are you?</string>
