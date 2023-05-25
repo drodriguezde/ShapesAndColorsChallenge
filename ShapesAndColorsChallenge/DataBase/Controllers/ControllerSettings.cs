@@ -34,7 +34,8 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
                 CountryCode = Statics.GetSystemLanguage(),
                 PlayerName = "PLAYER",
                 PlayerCountryCode = Statics.GetSystemLanguage(),
-                ShowHowToPlay = "0000000000000000"
+                ShowHowToPlay = "0000000000000000",
+                PlayerToken = string.Empty
             };
 
             DataBaseManager.Connection.Insert(newUserSettings);

@@ -24,6 +24,7 @@
 using Microsoft.Xna.Framework;
 using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.Management;
+using ShapesAndColorsChallenge.Class.Web;
 using ShapesAndColorsChallenge.Enum;
 using System;
 

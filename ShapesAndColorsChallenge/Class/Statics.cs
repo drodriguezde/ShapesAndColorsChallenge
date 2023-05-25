@@ -34,6 +34,10 @@ using System.Globalization;
 using Android.Widget;
 using AndroidApp = Android.App;
 using Microsoft.Xna.Framework.Graphics;
+using Android.Net;
+using System.Net.Http;
+using Android.Content;
+using System.Threading.Tasks;
 #if ANDROID
 using Java.Util;
 #else
@@ -288,6 +292,42 @@ namespace ShapesAndColorsChallenge.Class
 #else
             
 #endif
+        }
+
+        /// <summary>
+        /// Comprueba si hay coneción a internet
+        /// </summary>
+        /// <returns></returns>
+        internal static bool CheckConectivity()
+        {
+#if ANDROID
+            ConnectivityManager connectivityManager = (ConnectivityManager)Android.App.Application.Context.GetSystemService(Context.ConnectivityService);
+
+            // Comprueba si hay una conexión activa
+            NetworkInfo activeNetworkInfo = connectivityManager.ActiveNetworkInfo;
+            bool isConnected = (activeNetworkInfo != null) && activeNetworkInfo.IsConnected;
+
+            // Verifica si hay una conexión a Internet
+            bool hasInternetConnection = isConnected/* && CheckInternetConnectivity().GetAwaiter().GetResult()*/;
+
+            return hasInternetConnection;
+#else
+            
+#endif
+        }
+
+        static async Task<bool> CheckInternetConnectivity()
+        {
+            try
+            {
+                using HttpClient client = new();
+                using HttpResponseMessage response = await client.GetAsync("https://www.google.com");
+                return response.IsSuccessStatusCode;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         internal static long NewID()

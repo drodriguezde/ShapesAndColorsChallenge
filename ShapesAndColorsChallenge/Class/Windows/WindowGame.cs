@@ -28,6 +28,7 @@ using ShapesAndColorsChallenge.Class.D2;
 using ShapesAndColorsChallenge.Class.EventArguments;
 using ShapesAndColorsChallenge.Class.Interfaces;
 using ShapesAndColorsChallenge.Class.Management;
+using ShapesAndColorsChallenge.Class.Web;
 using ShapesAndColorsChallenge.DataBase.Controllers;
 using ShapesAndColorsChallenge.DataBase.Tables;
 using ShapesAndColorsChallenge.Enum;
@@ -883,6 +884,10 @@ namespace ShapesAndColorsChallenge.Class.Windows
             Grid.Disable();
             PerksPanel.Disable();
             bool newRecord = UpdateScore();
+
+            if (newRecord)/*Si hay nuevo record intentamos guardar en la nube el total del modo*/
+                RestOperator.TryToSaveScore(GameMode);
+
             OrchestratorManager.OpenWindowResultMessage(ref windowResult, new(Points, GameData.GetStarsForThisPoints(Points, OrchestratorManager.LevelNumber/*No tiene que ser el level local*/), newRecord));
             windowResult.OnAccept += WindowResult_OnAccept;
         }

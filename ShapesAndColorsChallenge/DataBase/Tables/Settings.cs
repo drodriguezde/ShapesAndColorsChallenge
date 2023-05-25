@@ -45,5 +45,9 @@ namespace ShapesAndColorsChallenge.DataBase.Tables
 
         [MaxLength(16)]
         public string ShowHowToPlay { get; set; }
+
+
+        [MaxLength(10)]
+        public string PlayerToken { get; set; }
     }
 }
