@@ -25,5 +25,6 @@
         Pause = 20,
         Reward = 21,
         Result = 22,
+        SelectRanking = 23,
     }
 }

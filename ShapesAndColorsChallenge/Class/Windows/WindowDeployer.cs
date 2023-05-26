@@ -44,7 +44,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 WindowType.Language => DeployLanguage(),
                 WindowType.Acheivements => DeployAcheivements(),
                 WindowType.HowToPlay => DeployHowToPlay(parameters),
-                WindowType.Rankings => DeployRankings(),
+                WindowType.Rankings => DeployRankings(parameters),
                 WindowType.Challenges => DeployChallenges(),
                 WindowType.Nationality => DeployNationality(),
                 WindowType.Game => DeployGame(),
@@ -52,6 +52,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 WindowType.Reward => DeployMessageReward(parameters),
                 WindowType.Result => DeployMessageResult(parameters),
                 WindowType.Pause => DeployPause(),
+                WindowType.SelectRanking => DeploySelectRanking(),
                 _ => DeployDanStudios(),
             };
         }
@@ -70,9 +71,15 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         static WindowPause DeployPause()
         {
-            WindowPause window = new() { AddBackButton = false, BacklayerTransparency = 0.9f };
+            WindowPause window = new() { AddBackButton = false, BacklayerTransparency = 0.9f/*Se oscurece un poco más para que no se vean las fichas*/ };
             return window;
         }
+
+        static WindowSelectRanking DeploySelectRanking()
+        {
+            WindowSelectRanking window = new() { AddBackButton = false };
+            return window;
+        }        
 
         static WindowMessageBox DeployMessageBox(object parameters)
         {
@@ -137,9 +144,9 @@ namespace ShapesAndColorsChallenge.Class.Windows
             return window;
         }
 
-        static Window DeployRankings()
+        static Window DeployRankings(object parameters)
         {
-            Window window = new WindowRankings() { AddBottomBackGround = true };
+            Window window = new WindowRankings((bool)parameters) { AddBottomBackGround = true };
             return window;
         }
 

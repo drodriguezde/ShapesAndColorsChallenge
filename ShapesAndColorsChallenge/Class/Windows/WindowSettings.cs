@@ -197,7 +197,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             UserSettingsManager.Music = (sender as CheckBox).Checked;
 
             if (UserSettingsManager.Music)/*Aquí ya se ha realizado el cambio*/
-                SoundManager.PlayMusic(SoundManager.bgm_01);
+                SoundManager.PlayMusic(Statics.GetRandom(1, 10) > 5 ? SoundManager.bgm_01 : SoundManager.bgm_02);
             else
                 SoundManager.StopMusic();
         }

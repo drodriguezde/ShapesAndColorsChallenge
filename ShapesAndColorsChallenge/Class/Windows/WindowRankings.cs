@@ -23,25 +23,29 @@
 
 using Microsoft.Xna.Framework;
 using ShapesAndColorsChallenge.Class.Controls;
+using ShapesAndColorsChallenge.Class.Interfaces;
 using ShapesAndColorsChallenge.Class.Management;
+using ShapesAndColorsChallenge.Class.Web;
 using ShapesAndColorsChallenge.DataBase.Controllers;
 using ShapesAndColorsChallenge.DataBase.Types;
 using ShapesAndColorsChallenge.Enum;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace ShapesAndColorsChallenge.Class.Windows
 {
-    internal class WindowRankings : Window, IDisposable
+    internal class WindowRankings : Window, IMessage, IDisposable
     {
         #region CONST
 
         const int TOP = 300;
-        const int POSITION_WIDTH = 50;
-        const int NAME_WIDTH = 705;
+        const int POSITION_WIDTH = 100;
+        const int NAME_WIDTH = 550;
+        const int POINTS_WIDTH = 120;
         const int FLAG_WIDTH = 150;
-        const int OFFSET_X = 30;
+        const int OFFSET_X = 20;
         const int OFFSET_Y = 6;
         const int INNER_OBJECT_HEIGHT = 100;
         const int ITEM_HEIGHT = 112;
@@ -62,13 +66,20 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         #region VARS        
 
-        readonly List<RankingByGameMode> rankingByGameMode = ControllerRanking.GetWithPlayers(OrchestratorManager.GameMode);
+        List<RankingByGameMode> rankingByGameMode = ControllerRanking.GetWithPlayers(OrchestratorManager.GameMode);
         BackgroundWorker workerLoadRanking;
         ProgressBar progressBar;
+        WindowMessageBox windowMessageBox;
 
         #endregion
 
         #region PROPERTIES
+
+        public Window WindowMessage
+        {
+            get { return windowMessageBox; }
+            set { windowMessageBox = (WindowMessageBox)value; }
+        }
 
         NavigationPanelVertical NavigationPanelVertical { get; set; }
 
@@ -77,14 +88,16 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// </summary>
         int PlayerLocationTop { get; set; }
 
+        bool IsGlobalRanking { get; set; }
+
         #endregion
 
         #region CONSTRUCTORS
 
-        internal WindowRankings()
+        internal WindowRankings(bool isGlobalRanking)
             : base(ModalLevel.Window, BaseBounds.Bounds.Redim(), WindowType.Rankings)
         {
-
+            IsGlobalRanking = isGlobalRanking;
         }
 
         #endregion
@@ -143,8 +156,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// </summary>
         void SubscribeEvents()
         {
-            /*TODO, botón volver*/
-
 
         }
 
@@ -153,14 +164,12 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// </summary>
         void UnsubscribeEvents()
         {
-            /*TODO, botón volver*/
-
 
         }
 
         private void WorkerLoadRanking_DoWork(object sender, DoWorkEventArgs e)
         {
-            AddItemsToPanel();
+            AddItemsToPanelLocalRanking();
         }
 
         private void WorkerLoadRanking_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -175,8 +184,18 @@ namespace ShapesAndColorsChallenge.Class.Windows
             Nuller.Null(ref progressBar);
             progressBar = null;
             NavigationPanelVertical.Locked = false;
-            NavigationPanelVertical.Move(PlayerLocationTop);
+
+            if (!NavigationPanelVertical.NeedMove())/*Esto es necesario para poner arriba los elemento cuando no hay suficientes para llenar el panel*/
+                NavigationPanelVertical.MoveToTop();
+            else
+                NavigationPanelVertical.Move(PlayerLocationTop);
+
             InteractiveObjectManager.SkipUpdate = InteractiveObjectManager.SkipDraw = false;
+        }
+
+        private void WindowMessageBox_OnAccept(object sender, EventArgs e)
+        {
+            OrchestratorManager.CloseMessageBox(windowMessageBox, MessageBoxInvoker.IMessage);/*Cuando acabe la transición se llamará a CloseMessageBox()*/
         }
 
         #endregion
@@ -184,9 +203,52 @@ namespace ShapesAndColorsChallenge.Class.Windows
         #region METHODS
 
         internal override void LoadContent()
-        {            
-            SetPanel();            
-            SubscribeEvents();            
+        {
+            SetPanel();
+            SubscribeEvents();
+
+            if (IsGlobalRanking)
+            {
+                RestOrchestrator.TryToGetRanking(OrchestratorManager.GameMode, this);
+                return;
+            }
+
+            SetRanking();
+            InteractiveObjectManager.Add(NavigationPanelVertical);/*Tiene que ir el último por el lanzamiento de LoadContent*/
+        }
+
+        internal void SetGlobalRanking(GlobalRanking globalRanking)
+        {
+            if (globalRanking == null)/*En caso de un error mostramos el ranking local*/
+            {
+                OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(Resource.String.GENERIC_ERROR.GetString(), MessageBoxButton.Accept, 1));
+                windowMessageBox.OnAccept += WindowMessageBox_OnAccept;
+            }
+            else
+            {
+                RankingByGameMode userRanking = rankingByGameMode.Single(t => t.IsPlayer);
+                rankingByGameMode = new();
+                string playerToken = ControllerSettings.Get().PlayerToken;
+
+                for (int i = 0; i < globalRanking.results.Count; i++)
+                    rankingByGameMode.Add(new RankingByGameMode()
+                    {
+                        Name = globalRanking.results[i].Name,
+                        Country = globalRanking.results[i].Country,
+                        Points = globalRanking.results[i].Score,
+                        IsPlayer = globalRanking.results[i].PlayerToken == playerToken,
+                        Position = i + 1,
+                        Win = 0,
+                    });
+
+                /*Si el usuario no está en el listado lo añadimos al ranking*/
+                if (!rankingByGameMode.Any(t => t.IsPlayer))
+                {
+                    userRanking.Position = rankingByGameMode.Count >= 200 ? 999 : rankingByGameMode.Count + 1;
+                    rankingByGameMode.Add(userRanking);
+                }
+            }
+
             SetRanking();
             InteractiveObjectManager.Add(NavigationPanelVertical);/*Tiene que ir el último por el lanzamiento de LoadContent*/
         }
@@ -231,14 +293,14 @@ namespace ShapesAndColorsChallenge.Class.Windows
             workerLoadRanking.RunWorkerAsync();
         }
 
-        void AddItemsToPanel()
+        void AddItemsToPanelLocalRanking()
         {
             PlayerLocationTop = rankingByGameMode.FindIndex(t => t.IsPlayer) * ITEM_HEIGHT;
 
             for (int i = 0; i < rankingByGameMode.Count; i++)
             {
                 Rectangle bounds = new(BaseBounds.Limits.X, TOP + i * ITEM_HEIGHT, BaseBounds.Limits.Width, ITEM_HEIGHT);/*Bounds del item*/
-                PanelItem panelItem = new(ModalLevel, bounds, GetPositionLabel(rankingByGameMode[i].Position), GetNameLabel(rankingByGameMode[i].Name), GetFlagBackground(), GetFlagImage(rankingByGameMode[i].Country)) { Highlight = rankingByGameMode[i].IsPlayer };
+                PanelItem panelItem = new(ModalLevel, bounds, GetPositionLabel(rankingByGameMode[i].Position), GetNameLabel(rankingByGameMode[i].Name), GetPointsLabel(rankingByGameMode[i].Points), GetFlagBackground(), GetFlagImage(rankingByGameMode[i].Country)) { Highlight = rankingByGameMode[i].IsPlayer };
                 NavigationPanelVertical.Add(panelItem);
                 workerLoadRanking.ReportProgress((int)Math.Ceiling(100f * i / rankingByGameMode.Count));
             }
@@ -254,13 +316,20 @@ namespace ShapesAndColorsChallenge.Class.Windows
         Label GetNameLabel(string name)
         {
             Rectangle bounds = new(POSITION_WIDTH + OFFSET_X, OFFSET_Y, NAME_WIDTH, INNER_OBJECT_HEIGHT);/*relativo al item*/
-            Label labelName = new(ModalLevel, bounds, name, ColorManager.HardGray, ColorManager.LightGray, AlignHorizontal.Center);
-            return labelName;
+            Label label = new(ModalLevel, bounds, name, ColorManager.HardGray, ColorManager.LightGray, AlignHorizontal.Center);
+            return label;
+        }
+
+        Label GetPointsLabel(long points)
+        {
+            Rectangle bounds = new(POSITION_WIDTH + NAME_WIDTH + OFFSET_X.Double(), OFFSET_Y, POINTS_WIDTH, INNER_OBJECT_HEIGHT);/*relativo al item*/
+            Label label = new(ModalLevel, bounds, points.ToString(), ColorManager.HardGray, ColorManager.LightGray, AlignHorizontal.Center);
+            return label;
         }
 
         Image GetFlagImage(string country)
         {
-            Rectangle bounds = new(POSITION_WIDTH + NAME_WIDTH + OFFSET_X.Double(), OFFSET_Y, FLAG_WIDTH, INNER_OBJECT_HEIGHT);/*relativo al item*/
+            Rectangle bounds = new(POSITION_WIDTH + NAME_WIDTH + POINTS_WIDTH + OFFSET_X.Triple(), OFFSET_Y, FLAG_WIDTH, INNER_OBJECT_HEIGHT);/*relativo al item*/
             Image image = new(ModalLevel, bounds, TextureManager.Flag(country), true, 0, false);/*No se hace Dispose*/
             return image;
         }
@@ -268,12 +337,19 @@ namespace ShapesAndColorsChallenge.Class.Windows
         Image GetFlagBackground()
         {
             Rectangle bounds = new(
-                POSITION_WIDTH + NAME_WIDTH + OFFSET_X.Double() - Const.BUTTON_BORDER.Half(),
+                POSITION_WIDTH + NAME_WIDTH + POINTS_WIDTH + OFFSET_X.Triple() - Const.BUTTON_BORDER.Half(),
                 OFFSET_Y - Const.BUTTON_BORDER.Half(),
                 FLAG_WIDTH + Const.BUTTON_BORDER,
                 INNER_OBJECT_HEIGHT + Const.BUTTON_BORDER);/*relativo al item*/
             Image image = new(ModalLevel, bounds, TextureManager.Get(bounds.ToSize(), ColorManager.HardGray, CommonTextureType.Rectangle).Texture);/*No se hace Dispose*/
             return image;
+        }
+
+        public void CloseMessageBox()
+        {
+            windowMessageBox.OnAccept -= WindowMessageBox_OnAccept;
+            WindowManager.Remove(windowMessageBox.ID);
+            windowMessageBox = null;
         }
 
         internal override void Update(GameTime gameTime)

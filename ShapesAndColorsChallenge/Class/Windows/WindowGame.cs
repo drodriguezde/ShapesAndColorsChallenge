@@ -387,7 +387,11 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
             if (IsTheCorrectTile(sender as Tile))
             {
-                /*TODO, añadir efecto y sonido de correcto*/
+                /*TODO, añadir efecto*/
+                if (Statics.GetRandom(1, 10) > 5)
+                    SoundManager.CorrectTile1.PlaySound();
+                else
+                    SoundManager.CorrectTile2.PlaySound();
 
                 SumPoints();
                 PlayPositiveFeedback();
@@ -577,9 +581,8 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 shakeAnimationTile = new AnimationShake(tileMistaken.Image, 500);
                 shakeAnimationMaster.Start();
                 shakeAnimationTile.Start();
+                SoundManager.WrongTile.PlaySound();
             }
-
-            /*TODO, añadir vibración, efecto y sonido de error*/
 
             if (GameMode.IsIncremental())/*Un error en el modo incremental finaliza la partida*/
             {
@@ -722,7 +725,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (GameMode.IsTimeTrial())/*En el modo contrareloj la cantidad de puntos a obtener es fija por encontrar una ficha*/
                 Points += GameData.GetTimeTrialPointsForFindedTile;
             else
-                Points += (RemainingTimeCurrentTile * 1.15f/*15% extra por los reflejos*/).ToInt();
+                Points += (RemainingTimeCurrentTile * 1.1f/*10% extra por los reflejos*/).ToInt();
         }
 
         /// <summary>
@@ -732,7 +735,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         {
             double milis = (DateTime.Now - LastTileFindedAt).TotalMilliseconds;
 
-            if (TIME_FOR_POSITIVE_FEEDBACK + ((GameData.HorizontalTilesNumber(Stage, Level) + GameData.VerticalTilesNumber(Stage, Level)) * 10/*Ajustamos según la dificultad*/) >= milis)
+            if (TIME_FOR_POSITIVE_FEEDBACK + ((GameData.HorizontalTilesNumber(Stage, Level) + GameData.VerticalTilesNumber(Stage, Level)) * 20/*Ajustamos según la dificultad*/) >= milis)
                 SoundManager.PlayRandomVoicePositiveFeedback();
 
             LastTileFindedAt = DateTime.Now;
@@ -830,7 +833,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// </summary>
         void EndProgressCurrentTile()
         {
-            if (RemainingTimeCurrentTile <= 0)/*Si el tiempo para encontrar la ficha finaliza es como si el usuario huniera cometido un error.*/
+            if (RemainingTimeCurrentTile <= 0)/*Si el tiempo para encontrar la ficha finaliza es como si el usuario huhiera cometido un error.*/
             {
                 UserMistake(null);
 
@@ -886,7 +889,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             bool newRecord = UpdateScore();
 
             if (newRecord)/*Si hay nuevo record intentamos guardar en la nube el total del modo*/
-                RestOperator.TryToSaveScore(GameMode);
+                RestOrchestrator.TryToSaveScore(GameMode);
 
             OrchestratorManager.OpenWindowResultMessage(ref windowResult, new(Points, GameData.GetStarsForThisPoints(Points, OrchestratorManager.LevelNumber/*No tiene que ser el level local*/), newRecord));
             windowResult.OnAccept += WindowResult_OnAccept;

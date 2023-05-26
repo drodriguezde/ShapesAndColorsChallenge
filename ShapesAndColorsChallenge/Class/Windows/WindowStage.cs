@@ -49,6 +49,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         #region VARS
 
         /*No se le hace dispose directamente ya que estarán contenidos en InteractiveObjectManager*/
+        WindowSelectRanking windowSelectRanking;
 
         readonly Button[] buttonStage = new Button[12];
         readonly Image[] imageLock = new Image[12];
@@ -225,7 +226,27 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void ButtonRanking_OnClick(object sender, OnClickEventArgs e)
         {
-            CloseMeAndOpenThis(WindowType.Rankings);
+            OrchestratorManager.OpenSelectRanking(ref windowSelectRanking);
+            windowSelectRanking.OnCancel += WindowSelectRanking_OnCancel;
+            windowSelectRanking.OnLocalRanking += WindowSelectRanking_OnLocalRanking;
+            windowSelectRanking.OnGlobalRanking += WindowSelectRanking_OnGlobalRanking;
+        }
+
+        private void WindowSelectRanking_OnCancel(object sender, EventArgs e)
+        {
+            CloseSelectRankingWindow();
+        }
+
+        private void WindowSelectRanking_OnGlobalRanking(object sender, EventArgs e)
+        {
+            CloseSelectRankingWindow();
+            CloseMeAndOpenThis(WindowType.Rankings, true);
+        }
+
+        private void WindowSelectRanking_OnLocalRanking(object sender, EventArgs e)
+        {
+            CloseSelectRankingWindow();
+            CloseMeAndOpenThis(WindowType.Rankings, false);
         }
 
         #endregion
@@ -391,6 +412,15 @@ namespace ShapesAndColorsChallenge.Class.Windows
         Image GetImagePadlockByStage(int stage)
         {
             return imageLock[stage - 1];
+        }
+
+        void CloseSelectRankingWindow()
+        {
+            windowSelectRanking.OnCancel -= WindowSelectRanking_OnCancel;
+            windowSelectRanking.OnLocalRanking -= WindowSelectRanking_OnLocalRanking;
+            windowSelectRanking.OnGlobalRanking -= WindowSelectRanking_OnGlobalRanking;
+            WindowManager.Remove(windowSelectRanking.ID);
+            windowSelectRanking = null;
         }
 
         internal override void Update(GameTime gameTime)

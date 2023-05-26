@@ -96,6 +96,7 @@ namespace ShapesAndColorsChallenge.Class.Management
         static MessageBoxInvoker MessageBoxInvoker { get; set; } = MessageBoxInvoker.None;
 
         static bool Started { get; set; } = false;
+
         static bool IsOpenMessageBox { get; set; } = false;
 
         /// <summary>
@@ -134,7 +135,7 @@ namespace ShapesAndColorsChallenge.Class.Management
                     if (NextWindow == WindowType.None)
                     {
                         if (!SoundManager.IsPlaying/*Si ya está sonando la música no la cortamos para reponerla*/)/*Este if debe ir anidado*/
-                            SoundManager.PlayMusic(SoundManager.bgm_01);
+                            SoundManager.PlayMusic(Statics.GetRandom(1, 10) > 5 ? SoundManager.bgm_01: SoundManager.bgm_02);
                     }
                     else
                         DeployWindow(NextWindow);
@@ -156,11 +157,11 @@ namespace ShapesAndColorsChallenge.Class.Management
                     return;
                 case WindowType.Game:
                     if (NextWindow == WindowType.None)
-                        SoundManager.PlayMusic();/*Hace sonar un música diferente a la actual*/
+                        SoundManager.PlayMusic(2000);/*Hace sonar un música diferente a la actual*/
                     else
                     {
                         DeployWindow(NextWindow);
-                        SoundManager.PlayMusic(SoundManager.bgm_01);
+                        SoundManager.PlayMusic(Statics.GetRandom(1, 10) > 5 ? SoundManager.bgm_01 : SoundManager.bgm_02);
                     }
                     return;
             }
@@ -265,6 +266,16 @@ namespace ShapesAndColorsChallenge.Class.Management
             windowPause = (WindowPause)WindowManager.OpenCloseWindow(WindowType.Pause, ModalLevel.MessageBox);
         }
 
+        /// <summary>
+        /// Abre la ventana de selección de ranking en el juego.
+        /// No hace transición.
+        /// </summary>
+        /// <param name="windowSelectRanking"></param>
+        internal static void OpenSelectRanking(ref WindowSelectRanking windowSelectRanking)
+        {
+            windowSelectRanking = (WindowSelectRanking)WindowManager.OpenCloseWindow(WindowType.SelectRanking, ModalLevel.MessageBox);
+        }
+
         internal static void CloseMessageBox(Window windowMessageBox, MessageBoxInvoker messageBoxInvoker)
         {
             MessageBoxInvoker = messageBoxInvoker;
@@ -342,7 +353,7 @@ namespace ShapesAndColorsChallenge.Class.Management
                     windowHowToPlay.StartTransition(TransitionType.Show, SHORT_TRANSITION_TIME);
                     break;
                 case WindowType.Rankings:
-                    windowRankings = (WindowRankings)WindowManager.OpenCloseWindow(CurrentWindow, ModalLevel.Window);
+                    windowRankings = (WindowRankings)WindowManager.OpenCloseWindow(CurrentWindow, ModalLevel.Window, WindowParams);
                     windowRankings.OnFinishTransition += TransitionWindow_OnFinish;
                     windowRankings.StartTransition(TransitionType.Show, SHORT_TRANSITION_TIME);
                     break;

@@ -15,7 +15,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         /// </summary>
         internal static void Deploy()
         {
-            DataBaseManager.Connection.DropTable<Settings>();
+            //DataBaseManager.Connection.DropTable<Settings>();
             DataBaseManager.Connection.CreateTable<Settings>();
 
             if (Any())

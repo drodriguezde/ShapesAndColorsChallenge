@@ -88,6 +88,13 @@ namespace ShapesAndColorsChallenge.Class.Management
         internal static SoundEffect PanelSlide { get; private set; }
         internal static SoundEffect Padlock { get; private set; }
         internal static SoundEffect Counter { get; private set; }
+        internal static SoundEffect CorrectTile1 { get; private set; }
+        internal static SoundEffect CorrectTile2 { get; private set; }
+        internal static SoundEffect PerkChange { get; private set; }
+        internal static SoundEffect PerkReveal { get; private set; }
+        internal static SoundEffect PerkTimeStop { get; private set; }
+        internal static SoundEffect Switch { get; private set; }
+        internal static SoundEffect WrongTile { get; private set; }
         internal static SoundEffect VoiceNewHighScore { get; private set; }
         internal static SoundEffect VoiceYouLose { get; private set; }
         internal static SoundEffect VoiceYouWin { get; private set; }
@@ -133,13 +140,8 @@ namespace ShapesAndColorsChallenge.Class.Management
                 Thread.Sleep(1);
             }
 
-            e.Result = e.Argument;
-        }
-
-        private static void BackgroundWorkerFadeOutMusic_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {            
             SetVolume();/*Se reestablece el volumen*/
-            PlayMusicAsync(e.Result as MusicFadeOutParams);
+            PlayMusicAsync(e.Argument as MusicFadeOutParams);
         }
 
         #endregion
@@ -201,6 +203,13 @@ namespace ShapesAndColorsChallenge.Class.Management
             PanelSlide = GameContent.ContentSound.Load<SoundEffect>("Sound/Effect/UI/PanelSlide");
             Padlock = GameContent.ContentSound.Load<SoundEffect>("Sound/Effect/UI/Padlock");
             Counter = GameContent.ContentSound.Load<SoundEffect>("Sound/Effect/UI/Counter");
+            CorrectTile1 = GameContent.ContentSound.Load<SoundEffect>("Sound/Effect/UI/CorrectTile1");
+            CorrectTile2 = GameContent.ContentSound.Load<SoundEffect>("Sound/Effect/UI/CorrectTile2");
+            PerkChange = GameContent.ContentSound.Load<SoundEffect>("Sound/Effect/UI/PerkChange");
+            PerkReveal = GameContent.ContentSound.Load<SoundEffect>("Sound/Effect/UI/PerkReveal");
+            PerkTimeStop = GameContent.ContentSound.Load<SoundEffect>("Sound/Effect/UI/PerkTimeStop");
+            Switch = GameContent.ContentSound.Load<SoundEffect>("Sound/Effect/UI/Switch");
+            WrongTile = GameContent.ContentSound.Load<SoundEffect>("Sound/Effect/UI/WrongTile");
         }
 
         static void LoadVoice()
@@ -210,6 +219,10 @@ namespace ShapesAndColorsChallenge.Class.Management
             VoiceYouWin = GameContent.ContentSound.Load<SoundEffect>("Sound/Voice/YouWin");
         }
 
+        /// <summary>
+        /// Se usa para reproducir efectos de sonido.
+        /// </summary>
+        /// <param name="soundEffect"></param>
         internal static void PlaySound(this SoundEffect soundEffect)
         {
             if (UserSettingsManager.Sounds)
@@ -249,7 +262,6 @@ namespace ShapesAndColorsChallenge.Class.Management
         {
             backgroundWorkerFadeOutMusic = new() { WorkerReportsProgress = false, WorkerSupportsCancellation = false };
             backgroundWorkerFadeOutMusic.DoWork += BackgroundWorkerFadeOutMusic_DoWork;
-            backgroundWorkerFadeOutMusic.RunWorkerCompleted += BackgroundWorkerFadeOutMusic_RunWorkerCompleted;
             backgroundWorkerFadeOutMusic.RunWorkerAsync(musicFadeOutParams);
         }
 
@@ -257,12 +269,12 @@ namespace ShapesAndColorsChallenge.Class.Management
         /// Hace sonar una canción aleatoria, y opcionalmente en modo loop.
         /// </summary>
         /// <param name="repeat"></param>
-        internal static void PlayMusic(bool repeat = true)
+        internal static void PlayMusic(int delay = 0, bool repeat = true)
         {
             if (!UserSettingsManager.Music)
                 return;
 
-            MusicFadeOutParams musicFadeOutParams = new(repeat, "", true, false);
+            MusicFadeOutParams musicFadeOutParams = new(repeat, "", true, false, delay);
             StopMusic(musicFadeOutParams);
         }
 
@@ -270,13 +282,14 @@ namespace ShapesAndColorsChallenge.Class.Management
         /// Hace sonar la canción elegida, y opcionalmente en modo loop.
         /// </summary>
         /// <param name="song"></param>
+        /// <param name="delay">tiempo sin sonido entre una canción y otra, en milisegundo</param>
         /// <param name="repeat"></param>
-        internal static void PlayMusic(string song, bool repeat = true)
+        internal static void PlayMusic(string song, int delay = 0, bool repeat = true)
         {
             if (!UserSettingsManager.Music)
                 return;
 
-            MusicFadeOutParams musicFadeOutParams = new(repeat, song, false, false);
+            MusicFadeOutParams musicFadeOutParams = new(repeat, song, false, false, delay);
             StopMusic(musicFadeOutParams);
         }
 
@@ -286,12 +299,12 @@ namespace ShapesAndColorsChallenge.Class.Management
         internal static void StopMusic()
         {
             MediaPlayer.Stop();
-            MusicFadeOutParams musicFadeOutParams = new(false, "", false, true);
+            MusicFadeOutParams musicFadeOutParams = new(false, "", false, true, 0);
             StopMusic(musicFadeOutParams);
         }
 
         /// <summary>
-        /// Reproduce la música de´pues de haber desvanecido la anterior.
+        /// Reproduce la música depués de haber desvanecido la anterior.
         /// </summary>
         /// <param name="musicFadeOutParams"></param>
         static void PlayMusicAsync(MusicFadeOutParams musicFadeOutParams)
@@ -301,6 +314,9 @@ namespace ShapesAndColorsChallenge.Class.Management
 
             MediaPlayer.Stop();
             GameContent.ResetContentMusic();/*Descargamos el content de música*/
+
+            if (musicFadeOutParams.Delay > 0)
+                Statics.TimeStop(musicFadeOutParams.Delay);
 
             if (musicFadeOutParams.Random)
                 SetRandomSong();
@@ -317,7 +333,7 @@ namespace ShapesAndColorsChallenge.Class.Management
         /// <param name="voice"></param>
         internal static void PlayVoice(this SoundEffect voice)
         {
-            if(UserSettingsManager.Voices)
+            if (UserSettingsManager.Voices)
                 voice.Play(VOLUME_FX * VOLUME_MASTER, 0, 0);
         }
 
@@ -326,9 +342,9 @@ namespace ShapesAndColorsChallenge.Class.Management
         /// </summary>
         internal static void PlayRandomVoicePositiveFeedback()
         {
-            int i = Statics.GetRandom(0, 12); 
-            
-            while(LastVoiceSounded == i)/*Para qu eusne otra diferente al anterior*/
+            int i = Statics.GetRandom(0, 12);
+
+            while (LastVoiceSounded == i)/*Para qu eusne otra diferente al anterior*/
                 i = Statics.GetRandom(0, 12);
 
             if (PositiveFeedbackVoices[i] == null)
@@ -347,7 +363,8 @@ namespace ShapesAndColorsChallenge.Class.Management
                     9 => GameContent.ContentSound.Load<SoundEffect>("Sound/Voice/Marvelous"),
                     10 => GameContent.ContentSound.Load<SoundEffect>("Sound/Voice/Unbelievable"),
                     11 => GameContent.ContentSound.Load<SoundEffect>("Sound/Voice/Unstoppable"),
-                    12 => GameContent.ContentSound.Load<SoundEffect>("Sound/Voice/Wonderful")
+                    12 => GameContent.ContentSound.Load<SoundEffect>("Sound/Voice/Wonderful"),
+                    _ => GameContent.ContentSound.Load<SoundEffect>("Sound/Voice/Amazing")
                 };
 
                 PositiveFeedbackVoices[i] = voice;

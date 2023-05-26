@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace ShapesAndColorsChallenge.Class.Web
 {
@@ -35,7 +34,8 @@ namespace ShapesAndColorsChallenge.Class.Web
                 if(!Statics.CheckConectivity())
                     accountToken = new();
 
-                RestClient client = new();
+                RestClientOptions restOptions = new("https://cloud.seatable.io/api2/auth-token/") { MaxTimeout = 10000 };
+                RestClient client = new(restOptions);
                 RestRequest request = new("https://cloud.seatable.io/api2/auth-token/", Method.Post) { AlwaysMultipartFormData = true };
                 request.AddParameter("username", "danielxf@gmail.com");
                 request.AddParameter("password", ")Lt5V92^Z3Yv}A@");
@@ -43,7 +43,7 @@ namespace ShapesAndColorsChallenge.Class.Web
                 var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
                 accountToken = JsonConvert.DeserializeObject<AccountToken>(response.Content);
             }
-            catch
+            catch (Exception ex)
             {
                 accountToken = new();
             }            
@@ -65,7 +65,8 @@ namespace ShapesAndColorsChallenge.Class.Web
                 if (accountToken == null || string.IsNullOrEmpty(accountToken.token))
                     baseToken = new();
 
-                var client = new RestClient();
+                RestClientOptions restOptions = new("https://cloud.seatable.io/api/v2.1/workspace/33837/dtable/SCC/access-token/") { MaxTimeout = 10000 };
+                var client = new RestClient(restOptions);
                 var request = new RestRequest("https://cloud.seatable.io/api/v2.1/workspace/33837/dtable/SCC/access-token/", Method.Get);
                 request.AddHeader("Authorization", $"Token {accountToken.token}");
                 RestResponse response = client.ExecuteGet(request);
@@ -94,7 +95,8 @@ namespace ShapesAndColorsChallenge.Class.Web
                 if (baseToken == null || string.IsNullOrEmpty(baseToken.access_token))
                     return "-1";
 
-                var client = new RestClient();
+                RestClientOptions restOptions = new("https://cloud.seatable.io/dtable-db/api/v1/query/50d19bd4-0507-4ad4-bf2c-995cfc6fbf2d") { MaxTimeout = 10000 };
+                var client = new RestClient(restOptions);
                 var request = new RestRequest("https://cloud.seatable.io/dtable-db/api/v1/query/50d19bd4-0507-4ad4-bf2c-995cfc6fbf2d", Method.Post);
                 request.AddHeader("Authorization", $"Token {baseToken.access_token}");
                 request.AddHeader("Content-Type", "application/json");
@@ -116,7 +118,7 @@ namespace ShapesAndColorsChallenge.Class.Web
         /// </summary>
         /// <param name="gameMode"></param>
         /// <param name="playerToken"></param>
-        internal static (string, long) GetUserScore(GameMode gameMode, string playerToken)
+        static (string, long) GetUserScore(GameMode gameMode, string playerToken)
         {
             try 
             {
@@ -128,7 +130,8 @@ namespace ShapesAndColorsChallenge.Class.Web
                 if (baseToken == null || string.IsNullOrEmpty(baseToken.access_token))
                     return (string.Empty, long.MaxValue);
 
-                var client = new RestClient();
+                RestClientOptions restOptions = new("https://cloud.seatable.io/dtable-db/api/v1/query/50d19bd4-0507-4ad4-bf2c-995cfc6fbf2d") { MaxTimeout = 10000 };
+                var client = new RestClient(restOptions);
                 var request = new RestRequest("https://cloud.seatable.io/dtable-db/api/v1/query/50d19bd4-0507-4ad4-bf2c-995cfc6fbf2d", Method.Post);
                 request.AddHeader("Authorization", $"Token {baseToken.access_token}");
                 request.AddHeader("Content-Type", "application/json");
@@ -147,9 +150,9 @@ namespace ShapesAndColorsChallenge.Class.Web
         }
 
         /// <summary>
-        /// Inserta o actualiza una puntuación de jugador.
+        /// Actualiza una puntuación de jugador.
         /// </summary>
-        internal static void UpsertRanking(GameMode gameMode, string playerToken, long score)
+        internal static void UpdateUserScore(GameMode gameMode, string playerToken, long score)
         {
             try
             {
@@ -166,7 +169,8 @@ namespace ShapesAndColorsChallenge.Class.Web
                 if (score < lastScore)/*No hay nada que guardar, el record actual es inferior*/
                     return;
 
-                var client = new RestClient();
+                RestClientOptions restOptions = new("https://cloud.seatable.io/dtable-server/api/v1/dtables/50d19bd4-0507-4ad4-bf2c-995cfc6fbf2d/rows/") { MaxTimeout = 10000 };
+                var client = new RestClient(restOptions);
                 var request = new RestRequest("https://cloud.seatable.io/dtable-server/api/v1/dtables/50d19bd4-0507-4ad4-bf2c-995cfc6fbf2d/rows/", Method.Put);
                 request.AddHeader("Authorization", $"Token {baseToken.access_token}");
                 request.AddHeader("Content-Type", "application/json");
@@ -181,9 +185,9 @@ namespace ShapesAndColorsChallenge.Class.Web
         }
 
         /// <summary>
-        /// Actualiza o inserta el nombre de usuario y su pais.
+        /// Actualiza el nombre de usuario y su pais.
         /// </summary>
-        internal static void UpsertPlayerNameCountry(string playerToken)
+        internal static void UpdatePlayerNameCountry(string playerToken)
         { 
 
         }
@@ -192,7 +196,7 @@ namespace ShapesAndColorsChallenge.Class.Web
         /// Almacena el progreso del usuario.
         /// </summary>
         /// <param name="playerToken"></param>
-        internal static void UpsertProgress(string playerToken)
+        internal static void UpdateProgress(string playerToken)
         { 
 
         }
@@ -212,7 +216,7 @@ namespace ShapesAndColorsChallenge.Class.Web
         /// </summary>
         /// <param name="playerToken"></param>
         /// <returns></returns>
-        internal static string SetPlayerTokenIfNeeded(string playerToken)
+        static string SetPlayerTokenIfNeeded(string playerToken)
         {
             try 
             {
@@ -251,12 +255,13 @@ namespace ShapesAndColorsChallenge.Class.Web
         {
             try
             {
-                var client = new RestClient();
+                RestClientOptions restOptions = new("https://cloud.seatable.io/dtable-server/api/v1/dtables/50d19bd4-0507-4ad4-bf2c-995cfc6fbf2d/rows/") { MaxTimeout = 10000 };
+                var client = new RestClient(restOptions);
                 var request = new RestRequest("https://cloud.seatable.io/dtable-server/api/v1/dtables/50d19bd4-0507-4ad4-bf2c-995cfc6fbf2d/rows/", Method.Post);
                 request.AddHeader("Authorization", $"Token {baseToken.access_token}");
                 request.AddHeader("Content-Type", "application/json");
                 var body = "{\"row\": {\"PlayerToken\": \"" + playerToken + "\",\"Data\": \"" + string.Empty +  "\", \"Date\": \"" + DateTime.Now.ToString("yyyy-MM-dd") + "\",\"CRC\": \"" + string.Empty + "\"},\"table_name\": \"UserData\"}";
-                request.AddStringBody(body, DataFormat.Json);
+                request.AddStringBody(body, DataFormat.Json);                
                 RestResponse response = client.ExecutePost(request);
 
                 if(!response.IsSuccessful)
@@ -268,11 +273,13 @@ namespace ShapesAndColorsChallenge.Class.Web
                 stringBuilder.Append("{\"rows\":[");
 
                 foreach (GameMode gameMode in System.Enum.GetValues(typeof(GameMode)))
+                    if(gameMode != GameMode.None)
                     rows.Add("{\"PlayerToken\": \"" + playerToken + "\",\"Name\": \"" + settings.PlayerName + "\",\"GameMode\": \"" + gameMode.ToInt() + "\",\"Score\": \"" + 0 + "\",\"Country\": \"" + settings.CountryCode + "\"}");
 
                 stringBuilder.Append(string.Join(',', rows));
                 stringBuilder.Append("],\"table_name\":\"Ranking\"}");
-                client = new RestClient();
+                restOptions = new("https://cloud.seatable.io/dtable-server/api/v1/dtables/50d19bd4-0507-4ad4-bf2c-995cfc6fbf2d/batch-append-rows/") { MaxTimeout = 10000 };
+                client = new RestClient(restOptions);
                 request = new RestRequest("https://cloud.seatable.io/dtable-server/api/v1/dtables/50d19bd4-0507-4ad4-bf2c-995cfc6fbf2d/batch-append-rows/", Method.Post);
                 request.AddHeader("Authorization", $"Token {baseToken.access_token}");
                 request.AddHeader("Content-Type", "application/json");
@@ -310,7 +317,8 @@ namespace ShapesAndColorsChallenge.Class.Web
                 if (baseToken == null || string.IsNullOrEmpty(baseToken.access_token))
                     return null;
 
-                var client = new RestClient();
+                RestClientOptions restOptions = new("https://cloud.seatable.io/dtable-db/api/v1/query/50d19bd4-0507-4ad4-bf2c-995cfc6fbf2d") { MaxTimeout = 10000 };
+                RestClient client = new(restOptions);
                 var request = new RestRequest("https://cloud.seatable.io/dtable-db/api/v1/query/50d19bd4-0507-4ad4-bf2c-995cfc6fbf2d", Method.Post);
                 request.AddHeader("Authorization", $"Token {baseToken.access_token}");
                 request.AddHeader("Content-Type", "application/json");

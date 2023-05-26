@@ -200,6 +200,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
             if (ControllerPerk.Get(PerkType.Change).Amount == 0 || animatedChange.Running/*Para evitar lanzarlo dos veces seguidas*/)
                 return;
 
+            SoundManager.PerkChange.PlaySound();
             ControllerPerk.Discount(PerkType.Change);
             animatedChange.RunOnce();
             OnPerkChangeStart?.Invoke(sender, e);
@@ -212,6 +213,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
             if (ControllerPerk.Get(PerkType.Reveal).Amount == 0 || animatedReveal.Running/*Para evitar lanzarlo dos veces seguidas*/)
                 return;
 
+            SoundManager.PerkReveal.PlaySound();
             ControllerPerk.Discount(PerkType.Reveal);
             animatedReveal.RunOnce();
             OnPerkRevealStart?.Invoke(sender, e);
@@ -225,6 +227,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
             if (ControllerPerk.Get(PerkType.TimeStop).Amount == 0 || animatedTimeStop.Running/*Para evitar lanzarlo dos veces seguidas*/)
                 return;
 
+            SoundManager.PerkTimeStop.PlaySound();
             ControllerPerk.Discount(PerkType.TimeStop);
             animatedTimeStop.RunOnce();
             OnPerkTimeStopStart?.Invoke(sender, e);

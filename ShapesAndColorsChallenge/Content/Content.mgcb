@@ -778,6 +778,18 @@
 /processorParam:TextureFormat=Color
 /build:Image/ButtonAcheivements.png
 
+#begin Image/ButtonAcheivements.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ButtonAcheivements.png
+
 #begin Image/ButtonBack.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -789,6 +801,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Image/ButtonBack.png
+
+#begin Image/ButtonBack.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ButtonBack.png
+
+#begin Image/ButtonCancel.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ButtonCancel.png
 
 #begin Image/ButtonCancel.png
 /importer:TextureImporter
@@ -814,6 +850,18 @@
 /processorParam:TextureFormat=Color
 /build:Image/ButtonChallenges.png
 
+#begin Image/ButtonChallenges.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ButtonChallenges.png
+
 #begin Image/ButtonGift.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -825,6 +873,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Image/ButtonGift.png
+
+#begin Image/ButtonGift.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ButtonGift.png
+
+#begin Image/ButtonInformation.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ButtonInformation.png
 
 #begin Image/ButtonInformation.png
 /importer:TextureImporter
@@ -850,6 +922,18 @@
 /processorParam:TextureFormat=Color
 /build:Image/ButtonOK.png
 
+#begin Image/ButtonOK.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ButtonOK.png
+
 #begin Image/ButtonPause.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -861,6 +945,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Image/ButtonPause.png
+
+#begin Image/ButtonPause.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ButtonPause.png
+
+#begin Image/ButtonPlay.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ButtonPlay.png
 
 #begin Image/ButtonPlay.png
 /importer:TextureImporter
@@ -886,6 +994,18 @@
 /processorParam:TextureFormat=Color
 /build:Image/ButtonRanking.png
 
+#begin Image/ButtonRanking.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ButtonRanking.png
+
 #begin Image/ButtonSettings.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -897,6 +1017,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Image/ButtonSettings.png
+
+#begin Image/ButtonSettings.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ButtonSettings.png
+
+#begin Image/Completed.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/Completed.png
 
 #begin Image/Completed.png
 /importer:TextureImporter
@@ -922,6 +1066,18 @@
 /processorParam:TextureFormat=Color
 /build:Image/DanLogo.png
 
+#begin Image/DanLogo.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/DanLogo.png
+
 #begin Image/EditIcon.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -933,6 +1089,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Image/EditIcon.png
+
+#begin Image/EditIcon.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/EditIcon.png
+
+#begin Image/Forbidden.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/Forbidden.png
 
 #begin Image/Forbidden.png
 /importer:TextureImporter
@@ -958,6 +1138,18 @@
 /processorParam:TextureFormat=Color
 /build:Image/HTPBlink.png
 
+#begin Image/HTPBlink.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/HTPBlink.png
+
 #begin Image/HTPBlinkPlus.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -969,6 +1161,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Image/HTPBlinkPlus.png
+
+#begin Image/HTPBlinkPlus.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/HTPBlinkPlus.png
+
+#begin Image/HTPClassic.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/HTPClassic.png
 
 #begin Image/HTPClassic.png
 /importer:TextureImporter
@@ -994,6 +1210,18 @@
 /processorParam:TextureFormat=Color
 /build:Image/HTPClassicPlus.png
 
+#begin Image/HTPClassicPlus.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/HTPClassicPlus.png
+
 #begin Image/HTPEndless.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1005,6 +1233,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Image/HTPEndless.png
+
+#begin Image/HTPEndless.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/HTPEndless.png
+
+#begin Image/HTPEndlessPlus.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/HTPEndlessPlus.png
 
 #begin Image/HTPEndlessPlus.png
 /importer:TextureImporter
@@ -1030,6 +1282,18 @@
 /processorParam:TextureFormat=Color
 /build:Image/HTPIncremental.png
 
+#begin Image/HTPIncremental.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/HTPIncremental.png
+
 #begin Image/HTPIncrementalPlus.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1041,6 +1305,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Image/HTPIncrementalPlus.png
+
+#begin Image/HTPIncrementalPlus.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/HTPIncrementalPlus.png
+
+#begin Image/HTPMemory.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/HTPMemory.png
 
 #begin Image/HTPMemory.png
 /importer:TextureImporter
@@ -1066,6 +1354,18 @@
 /processorParam:TextureFormat=Color
 /build:Image/HTPMemoryPlus.png
 
+#begin Image/HTPMemoryPlus.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/HTPMemoryPlus.png
+
 #begin Image/HTPMove.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1077,6 +1377,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Image/HTPMove.png
+
+#begin Image/HTPMove.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/HTPMove.png
+
+#begin Image/HTPMovePlus.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/HTPMovePlus.png
 
 #begin Image/HTPMovePlus.png
 /importer:TextureImporter
@@ -1102,6 +1426,18 @@
 /processorParam:TextureFormat=Color
 /build:Image/HTPRotate.png
 
+#begin Image/HTPRotate.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/HTPRotate.png
+
 #begin Image/HTPRotatePlus.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1113,6 +1449,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Image/HTPRotatePlus.png
+
+#begin Image/HTPRotatePlus.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/HTPRotatePlus.png
+
+#begin Image/HTPTimeTrial.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/HTPTimeTrial.png
 
 #begin Image/HTPTimeTrial.png
 /importer:TextureImporter
@@ -1138,6 +1498,18 @@
 /processorParam:TextureFormat=Color
 /build:Image/HTPTimeTrialPlus.png
 
+#begin Image/HTPTimeTrialPlus.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/HTPTimeTrialPlus.png
+
 #begin Image/ModeBlink.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1149,6 +1521,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Image/ModeBlink.png
+
+#begin Image/ModeBlink.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ModeBlink.png
+
+#begin Image/ModeClassic.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ModeClassic.png
 
 #begin Image/ModeClassic.png
 /importer:TextureImporter
@@ -1174,6 +1570,18 @@
 /processorParam:TextureFormat=Color
 /build:Image/ModeEndless.png
 
+#begin Image/ModeEndless.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ModeEndless.png
+
 #begin Image/ModeIncremental.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1185,6 +1593,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Image/ModeIncremental.png
+
+#begin Image/ModeIncremental.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ModeIncremental.png
+
+#begin Image/ModeMemory.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ModeMemory.png
 
 #begin Image/ModeMemory.png
 /importer:TextureImporter
@@ -1210,6 +1642,18 @@
 /processorParam:TextureFormat=Color
 /build:Image/ModeMove.PNG
 
+#begin Image/ModeMove.PNG
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ModeMove.PNG
+
 #begin Image/ModeRotate.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1221,6 +1665,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Image/ModeRotate.png
+
+#begin Image/ModeRotate.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ModeRotate.png
+
+#begin Image/ModeTimeTrial.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ModeTimeTrial.png
 
 #begin Image/ModeTimeTrial.png
 /importer:TextureImporter
@@ -1246,6 +1714,18 @@
 /processorParam:TextureFormat=Color
 /build:Image/Padlock.png
 
+#begin Image/Padlock.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/Padlock.png
+
 #begin Image/PerkChange.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1257,6 +1737,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Image/PerkChange.png
+
+#begin Image/PerkChange.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/PerkChange.png
+
+#begin Image/PerkReveal.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/PerkReveal.png
 
 #begin Image/PerkReveal.png
 /importer:TextureImporter
@@ -1282,6 +1786,42 @@
 /processorParam:TextureFormat=Color
 /build:Image/PerkTimeStop.png
 
+#begin Image/PerkTimeStop.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/PerkTimeStop.png
+
+#begin Image/RankingGlobal.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/RankingGlobal.png
+
+#begin Image/RankingLocal.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/RankingLocal.png
+
 #begin Image/Star.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1293,6 +1833,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Image/Star.png
+
+#begin Image/Star.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/Star.png
+
+#begin Image/StarGray.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/StarGray.png
 
 #begin Image/StarGray.png
 /importer:TextureImporter
@@ -1504,6 +2068,18 @@
 /processorParam:Quality=Best
 /build:Sound/Effect/UI/ButtonClickOpenWindow.wav
 
+#begin Sound/Effect/UI/CorrectTile1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Effect/UI/CorrectTile1.wav
+
+#begin Sound/Effect/UI/CorrectTile2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Effect/UI/CorrectTile2.wav
+
 #begin Sound/Effect/UI/Counter.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -1522,11 +2098,41 @@
 /processorParam:Quality=Best
 /build:Sound/Effect/UI/PanelSlide.wav
 
+#begin Sound/Effect/UI/PerkChange.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Effect/UI/PerkChange.wav
+
+#begin Sound/Effect/UI/PerkReveal.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Effect/UI/PerkReveal.wav
+
+#begin Sound/Effect/UI/PerkTimeStop.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Effect/UI/PerkTimeStop.wav
+
+#begin Sound/Effect/UI/Switch.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Effect/UI/Switch.wav
+
 #begin Sound/Effect/UI/TabClick.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Sound/Effect/UI/TabClick.wav
+
+#begin Sound/Effect/UI/WrongTile.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/Effect/UI/WrongTile.wav
 
 #begin Sound/Music/BGM_01.mp3
 /importer:Mp3Importer

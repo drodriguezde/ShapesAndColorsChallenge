@@ -30,17 +30,23 @@ namespace ShapesAndColorsChallenge.Class.Params
         /// </summary>
         internal bool OnlyStop { get; set; }
 
+        /// <summary>
+        /// Tiempo que habrá sin sonido entre una canción y otra.
+        /// </summary>
+        internal int Delay { get; set; }
+
         #endregion
 
         #region CONSTRUCTORS
 
-        internal MusicFadeOutParams(bool repeat, string song, bool random, bool onlyStop)
-        { 
+        internal MusicFadeOutParams(bool repeat, string song, bool random, bool onlyStop, int delay)
+        {
             Repeat = repeat;
             Song = song;
             Random = random;
             OnlyStop = onlyStop;
-        }
+            Delay = delay;
+         }
 
         #endregion
     }

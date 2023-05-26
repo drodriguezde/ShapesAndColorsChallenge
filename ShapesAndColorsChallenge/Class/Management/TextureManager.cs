@@ -91,6 +91,8 @@ namespace ShapesAndColorsChallenge.Class.Management
         internal static Texture2D TextureCompleted { get; private set; }
         internal static Texture2D TextureForbidden { get; private set; }
         internal static Texture2D TexturePlay { get; private set; }
+        internal static Texture2D TextureRankingGlobal { get; private set; }
+        internal static Texture2D TextureRankingLocal { get; private set; }
 
         static Hashtable LoadedFlags { get; set; } = new();
 
@@ -227,6 +229,8 @@ namespace ShapesAndColorsChallenge.Class.Management
             TextureCompleted = GameContent.ContentImage.Load<Texture2D>("Image/Completed");
             TextureForbidden = GameContent.ContentImage.Load<Texture2D>("Image/Forbidden");
             TexturePlay = GameContent.ContentImage.Load<Texture2D>("Image/ButtonPlay");
+            TextureRankingGlobal = GameContent.ContentImage.Load<Texture2D>("Image/RankingGlobal");
+            TextureRankingLocal = GameContent.ContentImage.Load<Texture2D>("Image/RankingLocal");
         }
 
         /// <summary>

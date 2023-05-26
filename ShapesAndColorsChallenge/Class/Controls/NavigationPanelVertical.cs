@@ -148,6 +148,9 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         private void TouchManager_OnDrag(object sender, DragEventArgs e)
         {
+            if (!NeedMove())
+                return;
+
             if (e.Delta == Vector2.Zero || !WindowManager.ItsMeTheTopMost(ModalLevel))
                 return;
 
@@ -175,6 +178,21 @@ namespace ShapesAndColorsChallenge.Class.Controls
         {
             base.LoadContent();
             SubscribeEvents();
+        }
+
+        /// <summary>
+        /// Comprueba si es necesario mover el panel por su cantidad de elementos.
+        /// </summary>
+        /// <returns></returns>
+        internal bool NeedMove()
+        {
+            if (!PanelItems.Any())
+                return false;
+
+            if (BottomLimit - TopLimit >= PanelItems.Count * PanelItems.First().Bounds.Height)
+                return false;
+
+            return true;
         }
 
         internal void Add(PanelItem panelItem)
@@ -267,6 +285,26 @@ namespace ShapesAndColorsChallenge.Class.Controls
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Desplaza los elemento hacia arriba en caso de no llenar el panel.
+        /// </summary>
+        internal void MoveToTop()
+        {
+            Move();
+
+            if (BottomLimit - TopLimit >= PanelItems.Count * PanelItems.First().Bounds.Height)
+            {
+                int firstTop = PanelItems.First().Location.Y.ToInt();
+                int diff = firstTop - TopLimit;
+
+                for (int i = 0; i < PanelItems.Count; i++)
+                {
+                    PanelItems[i].Location = new(PanelItems[i].Location.X, PanelItems[i].Bounds.Top - diff);
+                    ItemVisibleMove(PanelItems[i]);
+                }
+            }
         }
 
         void ItemVisibleMove(PanelItem panelItem)

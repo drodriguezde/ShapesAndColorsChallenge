@@ -8,7 +8,8 @@
         public string Name { get; set; }
         public string Country { get; set; }
         public bool IsPlayer { get; set; }
-        public int Position { get; set; }
+        public long Points { get; set; }
         public int Win { get; set; }
+        public int Position { get; set; }
     }
 }

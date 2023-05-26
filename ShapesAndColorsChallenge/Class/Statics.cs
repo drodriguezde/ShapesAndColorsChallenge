@@ -38,6 +38,8 @@ using Android.Net;
 using System.Net.Http;
 using Android.Content;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Threading;
 #if ANDROID
 using Java.Util;
 #else
@@ -379,6 +381,33 @@ namespace ShapesAndColorsChallenge.Class
         internal static void ShowToast(string message, ToastLength length)
         {
             Toast.MakeText(AndroidApp.Application.Context, message, length).Show();
+        }
+
+        /// <summary>
+        /// Permanecerá la ejecucíon retenida por el tiempo indicado en milisegundos.
+        /// </summary>
+        /// <returns></returns>
+        internal static void TimeStop(int miliseconds)
+        {
+            if(miliseconds == 0) 
+                return;
+
+            Stopwatch stopwatch = new();
+            stopwatch.Start();
+            DateTime startDate = DateTime.Now;
+
+            while (true)
+            {
+                TimeSpan elapsedTime = stopwatch.Elapsed;
+
+                if (elapsedTime.TotalMilliseconds >= miliseconds)
+                {
+                    stopwatch.Stop();
+                    return;
+                }
+
+                SpinWait.SpinUntil(() => false, 100);
+            }            
         }
 
         #endregion

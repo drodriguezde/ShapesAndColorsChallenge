@@ -434,9 +434,19 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
                         Name = player.Name,
                         Country = player.Country,
                         IsPlayer = player.IsPlayer,
-                        Position = ranking.Win * 3 - ranking.Lose * 2,
+                        Points = ranking.Win * 3 - ranking.Lose * 2,
                         Win = ranking.Win
-                    }).ToList();
+                    })
+                    .Select((item, index) => new RankingByGameMode
+                    {
+                        Position = index + 1,
+                        Name = item.Name,
+                        IsPlayer = item.IsPlayer,
+                        Country = item.Country,
+                        Points = item.Points,
+                        Win = item.Win
+                    })
+                    .ToList();
         }
 
         /// <summary>
@@ -453,7 +463,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
                     {
                         Name = player.Name,
                         Country = player.Country,
-                        Position = ranking.Win * 3 - ranking.Lose * 2,
+                        Points = ranking.Win * 3 - ranking.Lose * 2,
                         Win = ranking.Win
                     }).ToList();
         }
