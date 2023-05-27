@@ -216,7 +216,14 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetBody()
         {
-            BodyBounds = new Rectangle(Bounds.X, Bounds.Y, Bounds.Width, Bounds.Height);
+            if (MessageBoxButton == MessageBoxButton.None)
+            {
+                BodyBounds = new Rectangle(Bounds.X, BaseBounds.Bounds.Height.Half() - 100, Bounds.Width, 200);
+                Bounds = new Rectangle(Bounds.X, BaseBounds.Bounds.Height.Half() - 100, Bounds.Width, 200);
+                MessageBounds = new Rectangle(170, BodyBounds.Top + 40, 710, 120).Redim();
+            }
+            else
+                BodyBounds = new Rectangle(Bounds.X, Bounds.Y, Bounds.Width, Bounds.Height);
         }
 
         void SetBackLayer()

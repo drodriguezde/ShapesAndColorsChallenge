@@ -44,6 +44,22 @@ namespace ShapesAndColorsChallenge.Class.Web
                             ((WindowRankings)parameters[2]).SetGlobalRanking(Rest.GetRanking(gameMode));
                             break;
                         }
+                    case WebOperationType.UpdatePlayerInfo:
+                        {
+                            Rest.UpdatePlayerNameCountry(ControllerSettings.Get().PlayerToken);
+                            break;
+                        }
+                    case WebOperationType.UploadProgress:
+                        {
+                            ((WindowSettings)parameters[1]).SetUploadResult(Rest.UploadProgress(ControllerSettings.Get().PlayerToken));
+                            break;
+                        }
+                    case WebOperationType.DownloadProgress:
+                        {
+                            string playerToken = (string)parameters[2];
+                            ((WindowSettings)parameters[1]).SetDownloadResult(Rest.DownloadProgress(playerToken));
+                            break;
+                        }
                 }
 
                 if (!((BackgroundWorker)sender).CancellationPending)/*Se ha finalizado antes del timeout*/
@@ -94,6 +110,33 @@ namespace ShapesAndColorsChallenge.Class.Web
             Reset();
             worker.RunWorkerAsync(new object[] { WebOperationType.GetRanking, gameMode, windowRankings });
         }
+
+        /// <summary>
+        /// Intentará actualizar la información de usuario.
+        /// </summary>
+        internal static void TryToUpdatePlayerInfo()
+        {
+            Reset();
+            worker.RunWorkerAsync(new object[] { WebOperationType.UpdatePlayerInfo });
+        }
+
+        /// <summary>
+        /// Intentará guardar el progreso en la nube.
+        /// </summary>
+        internal static void TryToUploadProgress(WindowSettings windowSettings)
+        {
+            Reset();
+            worker.RunWorkerAsync(new object[] { WebOperationType.UploadProgress, windowSettings });
+        }
+
+        /// <summary>
+        /// Intentará descargar el progreso en la nube.
+        /// </summary>
+        internal static void TryToDownloadProgress(string playerToken, WindowSettings windowSettings)
+        {
+            Reset();
+            worker.RunWorkerAsync(new object[] { WebOperationType.DownloadProgress, windowSettings, playerToken });
+        }        
 
         #endregion
     }

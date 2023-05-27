@@ -5,7 +5,7 @@ using System;
 namespace ShapesAndColorsChallenge.DataBase.Tables
 {
     [Table("Challenge")]
-    internal class Challenge
+    public class Challenge
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }

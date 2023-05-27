@@ -1,6 +1,6 @@
 ﻿namespace ShapesAndColorsChallenge.Enum
 {
-    enum GameMode : byte
+    public enum GameMode : byte
     {
         None = 0,
         Classic = 1,

@@ -4,7 +4,7 @@ using SQLite;
 namespace ShapesAndColorsChallenge.DataBase.Tables
 {
     [Table("Score")]
-    internal class Score
+    public class Score
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }

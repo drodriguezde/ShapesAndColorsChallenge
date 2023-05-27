@@ -254,7 +254,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
             while (true)
             {
-                ShapeType shapeType = GameData.RandomShape(Stage, Level);
+                ShapeType shapeType = GameData.RandomShape(Stage, Level, OrchestratorManager.GameMode);
                 TileColor tileColor = GameData.RandomColor(Stage, Level);
 
                 if (!IsTileInMe(shapeType, tileColor))

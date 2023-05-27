@@ -3,7 +3,7 @@
 namespace ShapesAndColorsChallenge.DataBase.Tables
 {
     [Table("Player")]
-    internal class Player
+    public class Player
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }

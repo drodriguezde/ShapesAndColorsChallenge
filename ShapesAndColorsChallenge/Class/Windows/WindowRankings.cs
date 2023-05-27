@@ -217,7 +217,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             InteractiveObjectManager.Add(NavigationPanelVertical);/*Tiene que ir el último por el lanzamiento de LoadContent*/
         }
 
-        internal void SetGlobalRanking(GlobalRanking globalRanking)
+        internal void SetGlobalRanking(ResponseGlobalRanking globalRanking)
         {
             if (globalRanking == null)/*En caso de un error mostramos el ranking local*/
             {

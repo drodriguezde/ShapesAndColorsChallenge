@@ -1,6 +1,6 @@
 ﻿namespace ShapesAndColorsChallenge.Enum
 {
-    enum AcheivementType : int
+    public enum AcheivementType : int
     {
         /// <summary>
         /// Cuando se consigue la primera estrella.

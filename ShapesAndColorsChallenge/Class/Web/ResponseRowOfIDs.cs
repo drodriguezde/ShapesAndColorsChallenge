@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShapesAndColorsChallenge.Class.Web
 {
-    public class GlobalRanking
+    public class ResponseRowOfIDs
     {
         [JsonPropertyName("success")]
         public string success { get; set; }
@@ -16,7 +16,7 @@ namespace ShapesAndColorsChallenge.Class.Web
         public string error_message { get; set; }
 
         [JsonPropertyName("results")]
-        public List<PlayerGlobalRanking> results { get; set; }
+        public List<RowID> results { get; set; }
 
         [JsonPropertyName("metadata")]
         public object metadata { get; set; }

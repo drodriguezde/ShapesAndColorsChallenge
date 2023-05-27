@@ -2,8 +2,9 @@
 {
     enum MessageBoxButton : byte
     {
-        Accept = 0,
-        Cancel = 1,
-        AcceptCancel = 2
+        None = 0,
+        Accept = 1,
+        Cancel = 2,
+        AcceptCancel = 3
     }
 }

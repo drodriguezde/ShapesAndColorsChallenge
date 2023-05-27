@@ -107,6 +107,13 @@
 	<string name="DONT_SHOW_AGAIN">Don&quot;'t show again.</string>
 	<string name="HOW_TO_PLAY">How to play</string>
 	<string name="GENERIC_ERROR">An error occurred in the download.</string>
+	<string name="UPLOADING_PROGRESS">Saving progress...</string>
+	<string name="UPLOADING_PROGRESS_OK">Progress saved!</string>
+	<string name="GETTING_DATA">Getting data...</string>
+	<string name="DOWNLOAD_PROGRESS">Download progress</string>
+	<string name="WRITE_ID">Write your saved game ID</string>
+	<string name="INVALID_ID">Invalid game ID</string>
+	<string name="SAVE_PROGRESS">Save progress?</string>
 	<!--ACHEIVEMENTS-->
 	<string name="ACHEIVEMENT_FirstStar">My first star</string>
 	<string name="ACHEIVEMENT_StarCollector">Little star, where are you?</string>

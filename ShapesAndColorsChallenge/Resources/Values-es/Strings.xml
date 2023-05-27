@@ -15,7 +15,7 @@
 	<string name="VIBRATION">Vibración</string>
 	<string name="DARK_MODE">Modo oscuro</string>
 	<string name="ALWAYS_DARK_MODE">Modo oscuro siempre</string>
-	<string name="RESET_PROGRESS">Restablecer progreso</string>
+	<string name="RESET_PROGRESS">Reiniciar progreso</string>
 	<string name="CLASSIC_MODE">Clásico</string>
 	<string name="CLASSIC_MODE_DESCRIPTION">Encuentra la ficha correcta en la cuadrícula lo más rápido que puedas.</string>
 	<string name="ENDLESS_MODE">Interminable</string>
@@ -104,6 +104,13 @@
 	<string name="DONT_SHOW_AGAIN">No mostrar de nuevo.</string>
 	<string name="HOW_TO_PLAY">Cómo jugar</string>
 	<string name="GENERIC_ERROR">Se produjo un error en la descarga.</string>
+	<string name="UPLOADING_PROGRESS">Guardando progreso...</string>
+	<string name="UPLOADING_PROGRESS_OK">¡Progreso guardado!</string>
+	<string name="GETTING_DATA">Obteniendo datos...</string>
+	<string name="DOWNLOAD_PROGRESS">Descargar progreso</string>
+	<string name="WRITE_ID">Escribe tu ID de juego guardado</string>
+	<string name="INVALID_ID">ID de juego invalido</string>
+	<string name="SAVE_PROGRESS">¿Guardar progreso?</string>
 	<!--ACHEIVEMENTS-->
 	<string name="ACHEIVEMENT_FirstStar">Mi primera estrella</string>
 	<string name="ACHEIVEMENT_StarCollector">Estrellita, ¿dónde estás?</string>

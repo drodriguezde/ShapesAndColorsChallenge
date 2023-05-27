@@ -27,8 +27,13 @@ using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.EventArguments;
 using ShapesAndColorsChallenge.Class.Interfaces;
 using ShapesAndColorsChallenge.Class.Management;
+using ShapesAndColorsChallenge.Class.Web;
+using ShapesAndColorsChallenge.DataBase.Controllers;
+using ShapesAndColorsChallenge.DataBase.Tables;
 using ShapesAndColorsChallenge.Enum;
 using System;
+using System.Linq;
+using System.Security.Cryptography;
 
 namespace ShapesAndColorsChallenge.Class.Windows
 {
@@ -57,6 +62,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         Label labelTitle;
         WindowMessageBox windowMessageBox;
         Label labelPlayerName;
+        Label labelID;
         Button buttonPlayerName;
         Image buttonPlayerNationality;
         CheckBox checkBoxMusic;
@@ -65,8 +71,26 @@ namespace ShapesAndColorsChallenge.Class.Windows
         CheckBox checkBoxVibration;
         CheckBox checkBoxDarkMode;
         CheckBox checkBoxAlwaysDarkMode;
-        Image buttonLanguage;
+        Image imageLanguage;
         Button buttonResetProgress;
+        Button buttonUpload;
+        Button buttonDownload;
+
+        Rectangle labelPlayerNameBounds = new(BaseBounds.Limits.X, 400, 500, 100);
+        Rectangle buttonPlayerNameBounds = new(650, 390, 120, 120);
+        Rectangle buttonPlayerNationalityBounds = new(800, 390, 180, 120);
+        Rectangle checkBoxMusicBounds = new(BaseBounds.Limits.X, 600, BaseBounds.CheckBox.Width, BaseBounds.CheckBox.Height);
+        Rectangle checkBoxSoundBounds = new(BaseBounds.Limits.X, 760, BaseBounds.CheckBox.Width, BaseBounds.CheckBox.Height);
+        Rectangle checkBoxVoiceBounds = new(BaseBounds.Limits.X, 920, BaseBounds.CheckBox.Width, BaseBounds.CheckBox.Height);
+        Rectangle checkBoxVibrationBounds = new(BaseBounds.Limits.X, 1080, BaseBounds.CheckBox.Width, BaseBounds.CheckBox.Height);
+        Rectangle checkBoxDarkModeBounds = new(BaseBounds.Limits.X, 1240, BaseBounds.CheckBox.Width, BaseBounds.CheckBox.Height);
+        Rectangle checkBoxAlwaysDarkModeBounds = new(BaseBounds.Limits.X, 1400, BaseBounds.CheckBox.Width, BaseBounds.CheckBox.Height);
+        Rectangle buttonLanguageBounds = new(BaseBounds.Limits.X, 1560, 180, 120);
+        Rectangle buttonResetProgressBounds = new(BaseBounds.Limits.X + 250, BaseBounds.Limits.Bottom - BaseBounds.Button.Height, BaseBounds.Limits.Width - 250, BaseBounds.Button.Height);
+        Rectangle labelResetProgressBounds = new(BaseBounds.Limits.X + 260, BaseBounds.Limits.Bottom - BaseBounds.Button.Height, BaseBounds.Limits.Width - 270, BaseBounds.Button.Height - 20);
+        Rectangle buttonUploadBounds = new(BaseBounds.Limits.Right - 50 - BaseBounds.Button.Width.Double(), BaseBounds.Limits.Bottom - BaseBounds.Button.Height.Double() - 50, BaseBounds.Button.Width, BaseBounds.Button.Height);
+        Rectangle buttonDownloaBounds = new(BaseBounds.Limits.Right - BaseBounds.Button.Width, BaseBounds.Limits.Bottom - BaseBounds.Button.Height.Double() - 50, BaseBounds.Button.Width, BaseBounds.Button.Height);
+        Rectangle labelIdBounds = new(BaseBounds.Limits.X, BaseBounds.Limits.Bottom - BaseBounds.Button.Height - 200, BaseBounds.Limits.Width - 20 - BaseBounds.Button.Width.Double(), 100);
 
         #endregion
 
@@ -82,19 +106,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// Indica si se ha aceptado el reset del progreso.
         /// </summary>
         bool ShowResetConfirmation { get; set; } = false;
-
-        Rectangle LabelPlayerNameBounds { get; set; } = new Rectangle(100, 400, 500, 100).Redim();
-        Rectangle ButtonPlayerNameBounds { get; set; } = new Rectangle(650, 390, 120, 120).Redim();
-        Rectangle ButtonPlayerNationalityBounds { get; set; } = new Rectangle(800, 390, 180, 120).Redim();
-        Rectangle CheckBoxMusicBounds { get; set; } = new Rectangle(100.RedimX(), 600.RedimY(), BaseBounds.CheckBox.Width.RedimX(), BaseBounds.CheckBox.Height.RedimX());
-        Rectangle CheckBoxSoundBounds { get; set; } = new Rectangle(100.RedimX(), 790.RedimY(), BaseBounds.CheckBox.Width.RedimX(), BaseBounds.CheckBox.Height.RedimX());
-        Rectangle CheckBoxVoiceBounds { get; set; } = new Rectangle(100.RedimX(), 980.RedimY(), BaseBounds.CheckBox.Width.RedimX(), BaseBounds.CheckBox.Height.RedimX());
-        Rectangle CheckBoxVibrationBounds { get; set; } = new Rectangle(100.RedimX(), 1170.RedimY(), BaseBounds.CheckBox.Width.RedimX(), BaseBounds.CheckBox.Height.RedimX());
-        Rectangle CheckBoxDarkModeBounds { get; set; } = new Rectangle(100.RedimX(), 1360.RedimY(), BaseBounds.CheckBox.Width.RedimX(), BaseBounds.CheckBox.Height.RedimX());
-        Rectangle CheckBoxAlwaysDarkModeBounds { get; set; } = new Rectangle(100.RedimX(), 1550.RedimY(), BaseBounds.CheckBox.Width.RedimX(), BaseBounds.CheckBox.Height.RedimX());
-        Rectangle ButtonLanguageBounds { get; set; } = new Rectangle(100, 1740, 300, 200).Redim();
-        Rectangle ButtonResetProgressBounds { get; set; } = new Rectangle(BaseBounds.Limits.X + 250, BaseBounds.Limits.Bottom - BaseBounds.Button.Height, BaseBounds.Limits.Width - 250, BaseBounds.Button.Height).Redim();
-        Rectangle LabelResetProgressBounds { get; set; } = new Rectangle(BaseBounds.Limits.X + 260, BaseBounds.Limits.Bottom - BaseBounds.Button.Height, BaseBounds.Limits.Width - 270, BaseBounds.Button.Height - 20).Redim();
 
         #endregion
 
@@ -168,8 +179,10 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
             buttonPlayerName.OnClick += ButtonPlayerName_OnClickAsync;
             buttonPlayerNationality.OnClick += ButtonPlayerNationality_OnClick;
-            buttonLanguage.OnClick += ButtonLanguage_OnClick;
+            imageLanguage.OnClick += ButtonLanguage_OnClick;
             buttonResetProgress.OnClick += ButtonResetProgress_OnClick;
+            buttonUpload.OnClick += ButtonUpload_OnClick;
+            buttonDownload.OnClick += ButtonDownload_OnClick;
         }
 
         void UnsubscribeEvents()
@@ -183,8 +196,10 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
             buttonPlayerName.OnClick -= ButtonPlayerName_OnClickAsync;
             buttonPlayerNationality.OnClick -= ButtonPlayerNationality_OnClick;
-            buttonLanguage.OnClick -= ButtonLanguage_OnClick;
+            imageLanguage.OnClick -= ButtonLanguage_OnClick;
             buttonResetProgress.OnClick -= ButtonResetProgress_OnClick;
+            buttonUpload.OnClick -= ButtonUpload_OnClick;
+            buttonDownload.OnClick -= ButtonDownload_OnClick;
         }
 
         void CheckBoxNotifications_OnCheckedChange(object sender, EventArgs e)
@@ -251,6 +266,12 @@ namespace ShapesAndColorsChallenge.Class.Windows
                     UserSettingsManager.PlayerName = playerName.Trim()[..20];
                 else
                     UserSettingsManager.PlayerName = playerName.Trim();
+
+                /*Tambien hay que actualizar el nombre en la lista de jugadores*/
+                Player player = ControllerPlayer.Get().Single(t => t.IsPlayer);
+                player.Name = UserSettingsManager.PlayerName;
+                ControllerPlayer.Update(player);
+                RestOrchestrator.TryToUpdatePlayerInfo();
             }
 
             InteractiveObjectManager.Remove(labelPlayerName.ID);
@@ -262,6 +283,45 @@ namespace ShapesAndColorsChallenge.Class.Windows
             OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(Resource.String.RESET_PROGRESS_QUESTION.GetString(), MessageBoxButton.AcceptCancel, 2));
             windowMessageBox.OnCancel += WindowConfirmReset_OnCancel;
             windowMessageBox.OnAccept += WindowConfirmReset_OnAccept;
+        }
+
+        async void ButtonDownload_OnClick(object sender, OnClickEventArgs e)
+        {
+            var id = await KeyboardInput.Show(Resource.String.DOWNLOAD_PROGRESS.GetString(), Resource.String.WRITE_ID.GetString(), string.Empty);
+
+            if (id == null || string.IsNullOrEmpty(id.Trim()))
+            {
+                OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(Resource.String.INVALID_ID.GetString(), MessageBoxButton.Accept, 1));
+                windowMessageBox.OnAccept += UploadingDownloadingProgressResult_OnAccept;
+            }
+            else
+            {
+                OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(Resource.String.GETTING_DATA.GetString(), MessageBoxButton.None, 1));
+                RestOrchestrator.TryToDownloadProgress(id, this);
+            }
+        }
+
+        void ButtonUpload_OnClick(object sender, OnClickEventArgs e)
+        {
+            OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(Resource.String.SAVE_PROGRESS.GetString(), MessageBoxButton.AcceptCancel, 1));
+            windowMessageBox.OnCancel += WindowSaveProgress_OnCancel;
+            windowMessageBox.OnAccept += WindowSaveProgress_OnAccept;
+        }
+
+        void WindowSaveProgress_OnCancel(object sender, EventArgs e)
+        {
+            windowMessageBox.OnCancel -= WindowSaveProgress_OnCancel;
+            windowMessageBox.OnAccept -= WindowSaveProgress_OnAccept;
+            WindowManager.Remove(windowMessageBox);
+        }
+
+        void WindowSaveProgress_OnAccept(object sender, EventArgs e)
+        {
+            windowMessageBox.OnCancel -= WindowSaveProgress_OnCancel;
+            windowMessageBox.OnAccept -= WindowSaveProgress_OnAccept;
+            WindowManager.Remove(windowMessageBox);
+            OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(Resource.String.UPLOADING_PROGRESS.GetString(), MessageBoxButton.None, 1));
+            RestOrchestrator.TryToUploadProgress(this);
         }
 
         void WindowConfirmReset_OnAccept(object sender, EventArgs e)
@@ -283,6 +343,12 @@ namespace ShapesAndColorsChallenge.Class.Windows
             OrchestratorManager.CloseMessageBox(windowMessageBox, MessageBoxInvoker.IMessage);/*Cuando acabe la transición se llamará a CloseMessageBox()*/
         }
 
+        void UploadingDownloadingProgressResult_OnAccept(object sender, EventArgs e)
+        {
+            windowMessageBox.OnAccept -= UploadingDownloadingProgressResult_OnAccept;
+            WindowManager.Remove(windowMessageBox);            
+        }
+
         #endregion
 
         #region METHODS
@@ -300,6 +366,9 @@ namespace ShapesAndColorsChallenge.Class.Windows
             SetCheckBoxAlwaysDarkMode();
             SetButtonLanguage();
             SetButtonResetProgress();
+            SetLabelID();
+            SetButtonUpload();
+            SetButtonDownload();
             SubscribeEvents();/*Debe estar al final para evitar que salten los eventos en las inicializaciones de los objetos*/
         }
 
@@ -318,76 +387,96 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetLabelPlayerName()
         {
-            labelPlayerName = new(ModalLevel, LabelPlayerNameBounds, UserSettingsManager.PlayerName, ColorManager.WindowBodyColorDarkMode, ColorManager.WindowBodyColorLightMode);
+            labelPlayerName = new(ModalLevel, labelPlayerNameBounds, UserSettingsManager.PlayerName, ColorManager.WindowBodyColorDarkMode, ColorManager.WindowBodyColorLightMode);
             InteractiveObjectManager.Add(labelPlayerName);
         }
 
         void SetButtonPlayerName()
         {
-            buttonPlayerName = new(ModalLevel, ButtonPlayerNameBounds);
-            Image editPlayerName = new(ModalLevel, ButtonPlayerNameBounds, TextureManager.TextureEditIcon, ColorManager.WindowBodyColorDarkMode, ColorManager.WindowBodyColorLightMode, true, 25);
+            buttonPlayerName = new(ModalLevel, buttonPlayerNameBounds);
+            Image editPlayerName = new(ModalLevel, buttonPlayerNameBounds, TextureManager.TextureEditIcon, ColorManager.WindowBodyColorDarkMode, ColorManager.WindowBodyColorLightMode, true, 25);
             InteractiveObjectManager.Add(buttonPlayerName, editPlayerName);
         }
 
         void SetButtonNationality()
         {
-            buttonPlayerNationality = new(ModalLevel, ButtonPlayerNationalityBounds, TextureManager.Flag(UserSettingsManager.PlayerCountryCode), true, 0, false);
+            buttonPlayerNationality = new(ModalLevel, buttonPlayerNationalityBounds, TextureManager.Flag(UserSettingsManager.PlayerCountryCode), true, 0, false);
             int border = Const.BUTTON_BORDER.RedimX();
-            Rectangle backImageBounds = new(ButtonPlayerNationalityBounds.X - border.Half(), ButtonPlayerNationalityBounds.Y - border.Half(), ButtonPlayerNationalityBounds.Width + border, ButtonPlayerNationalityBounds.Height + border);
+            Rectangle backImageBounds = new(buttonPlayerNationalityBounds.X - border.Half(), buttonPlayerNationalityBounds.Y - border.Half(), buttonPlayerNationalityBounds.Width + border, buttonPlayerNationalityBounds.Height + border);
             Image backImage = new(ModalLevel, backImageBounds, TextureManager.Get(backImageBounds.ToSize(), ColorManager.HardGray, CommonTextureType.Rectangle).Texture);
             InteractiveObjectManager.Add(backImage, buttonPlayerNationality);
         }
 
         void SetCheckBoxMusic()
         {
-            checkBoxMusic = new(ModalLevel, CheckBoxMusicBounds, UserSettingsManager.Music);
+            checkBoxMusic = new(ModalLevel, checkBoxMusicBounds, UserSettingsManager.Music);
             InteractiveObjectManager.Add(checkBoxMusic, checkBoxMusic.GetLabel(Resource.String.MUSIC));
         }
 
         void SetCheckBoxSound()
         {
-            checkBoxSound = new(ModalLevel, CheckBoxSoundBounds, UserSettingsManager.Sounds);
+            checkBoxSound = new(ModalLevel, checkBoxSoundBounds, UserSettingsManager.Sounds);
             InteractiveObjectManager.Add(checkBoxSound, checkBoxSound.GetLabel(Resource.String.SOUND));
         }
 
         void SetCheckBoxVoice()
         {
-            checkBoxVoice = new(ModalLevel, CheckBoxVoiceBounds, UserSettingsManager.Voices);
+            checkBoxVoice = new(ModalLevel, checkBoxVoiceBounds, UserSettingsManager.Voices);
             InteractiveObjectManager.Add(checkBoxVoice, checkBoxVoice.GetLabel(Resource.String.VOICES));
         }
 
         void SetCheckBoxVibration()
         {
-            checkBoxVibration = new(ModalLevel, CheckBoxVibrationBounds, UserSettingsManager.Vibration);
+            checkBoxVibration = new(ModalLevel, checkBoxVibrationBounds, UserSettingsManager.Vibration);
             InteractiveObjectManager.Add(checkBoxVibration, checkBoxVibration.GetLabel(Resource.String.VIBRATION));
         }
 
         void SetCheckBoxDarkMode()
         {
-            checkBoxDarkMode = new(ModalLevel, CheckBoxDarkModeBounds, UserSettingsManager.DarkMode);
+            checkBoxDarkMode = new(ModalLevel, checkBoxDarkModeBounds, UserSettingsManager.DarkMode);
             InteractiveObjectManager.Add(checkBoxDarkMode, checkBoxDarkMode.GetLabel(Resource.String.DARK_MODE));
         }
 
         void SetCheckBoxAlwaysDarkMode()
         {
-            checkBoxAlwaysDarkMode = new(ModalLevel, CheckBoxAlwaysDarkModeBounds, UserSettingsManager.AlwaysDarkMode);
+            checkBoxAlwaysDarkMode = new(ModalLevel, checkBoxAlwaysDarkModeBounds, UserSettingsManager.AlwaysDarkMode);
             InteractiveObjectManager.Add(checkBoxAlwaysDarkMode, checkBoxAlwaysDarkMode.GetLabel(Resource.String.ALWAYS_DARK_MODE));
         }
 
         void SetButtonLanguage()
         {
-            buttonLanguage = new(ModalLevel, ButtonLanguageBounds, TextureManager.Flag(UserSettingsManager.CountryCode));
+            imageLanguage = new(ModalLevel, buttonLanguageBounds, TextureManager.Flag(UserSettingsManager.CountryCode), true, 0 , false);
             int border = Const.BUTTON_BORDER.RedimX();
-            Rectangle backImageBounds = new(ButtonLanguageBounds.X - border.Half(), ButtonLanguageBounds.Y - border.Half(), ButtonLanguageBounds.Width + border, ButtonLanguageBounds.Height + border);
-            Image backImage = new(ModalLevel, backImageBounds, TextureManager.Get(backImageBounds.ToSize(), ColorManager.HardGray, CommonTextureType.Rectangle).Texture);
-            InteractiveObjectManager.Add(backImage, buttonLanguage, buttonLanguage.GetLabel(Resource.String.LANGUAGE));
+            Rectangle backImageBounds = new(buttonLanguageBounds.X - border.Half(), buttonLanguageBounds.Y - border.Half(), buttonLanguageBounds.Width + border, buttonLanguageBounds.Height + border);
+            Image backImage = new(ModalLevel, backImageBounds, TextureManager.Get(backImageBounds.ToSize(), ColorManager.HardGray, CommonTextureType.Rectangle).Texture, true, 0, false);
+            InteractiveObjectManager.Add(backImage, imageLanguage, imageLanguage.GetLabel(Resource.String.LANGUAGE));
         }
 
         void SetButtonResetProgress()
         {
-            buttonResetProgress = new(ModalLevel, ButtonResetProgressBounds) { ColorLightMode = Color.OrangeRed };
-            Label labelReset = new(ModalLevel, LabelResetProgressBounds, Resource.String.RESET_PROGRESS.GetString(), Color.Red, Color.Red, AlignHorizontal.Center);
+            buttonResetProgress = new(ModalLevel, buttonResetProgressBounds) { ColorLightMode = Color.OrangeRed };
+            Label labelReset = new(ModalLevel, labelResetProgressBounds, Resource.String.RESET_PROGRESS.GetString(), Color.Red, Color.Red, AlignHorizontal.Center);
             InteractiveObjectManager.Add(buttonResetProgress, labelReset);
+        }
+
+        void SetLabelID()
+        {
+            labelID = new(ModalLevel, labelIdBounds, $"ID: {ControllerSettings.Get().PlayerToken}", ColorManager.WindowBodyColorDarkMode, ColorManager.WindowBodyColorLightMode);
+            InteractiveObjectManager.Add(labelID);
+        }
+
+        void SetButtonUpload()
+        {
+            buttonUpload = new(ModalLevel, buttonUploadBounds);
+            Image image = new(ModalLevel, buttonUploadBounds, TextureManager.TextureButtonUpload, Color.DarkGray, Color.DarkGray, true, 20, true);
+            InteractiveObjectManager.Add(buttonUpload, image);
+        }
+
+        void SetButtonDownload()
+        {
+            buttonDownload = new(ModalLevel, buttonDownloaBounds);
+            Image image = new(ModalLevel, buttonDownloaBounds, TextureManager.TextureButtonDownload, Color.DarkGray, Color.DarkGray, true, 20, true);
+            InteractiveObjectManager.Add(buttonDownload, image);
         }
 
         public void CloseMessageBox()
@@ -404,6 +493,37 @@ namespace ShapesAndColorsChallenge.Class.Windows
                     OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(Resource.String.PROGRESS_RESET.GetString(), MessageBoxButton.Accept, 1));
                     windowMessageBox.OnAccept += WindowResult_OnAccept;
                 }
+            }
+        }
+
+        public void SetUploadResult(bool result)
+        {
+            WindowManager.Remove(windowMessageBox);
+
+            if (result)
+            {
+                OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(Resource.String.UPLOADING_PROGRESS_OK.GetString(), MessageBoxButton.Accept, 1));
+                windowMessageBox.OnAccept += UploadingDownloadingProgressResult_OnAccept;
+            }
+            else
+            {
+                OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(Resource.String.GENERIC_ERROR.GetString(), MessageBoxButton.Accept, 1));
+                windowMessageBox.OnAccept += UploadingDownloadingProgressResult_OnAccept;
+            }
+        }
+
+        public void SetDownloadResult(UserProgress userProgress)
+        {
+            WindowManager.Remove(windowMessageBox);
+
+            if (userProgress != null)
+            {
+                /*TODO*/
+            }
+            else
+            {
+                OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(Resource.String.GENERIC_ERROR.GetString(), MessageBoxButton.Accept, 1));
+                windowMessageBox.OnAccept += UploadingDownloadingProgressResult_OnAccept;
             }
         }
 

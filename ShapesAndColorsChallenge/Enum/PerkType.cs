@@ -1,6 +1,6 @@
 ﻿namespace ShapesAndColorsChallenge.Enum
 {
-    enum PerkType : int
+    public enum PerkType : int
     {
         None = 0,
         Change = 1,

@@ -748,20 +748,20 @@ namespace ShapesAndColorsChallenge.Class.Windows
         {
             while (true)
             {
-                ShapeType shapeType = GameData.RandomShape(Stage, Level);
+                ShapeType shapeType = GameData.RandomShape(Stage, Level, OrchestratorManager.GameMode);
                 TileColor tileColor = GameData.RandomColor(Stage, Level);
 
                 if (GameMode.IsPlus())/*Si el modo es plus la ficha no tiene porque estar en la parrilla pero si tiene que ser diferente de la anterior*/
                 {
-                    if (shapeType == MasterTile.ShapeType && tileColor == MasterTile.TileColor)
+                    if (shapeType == MasterTile.ShapeType && tileColor == MasterTile.TileColor)/*Se comprueba que sea diferente a la anterior*/
                         continue;
                     else
                     {
-                        SetMasterTile(shapeType, tileColor);
+                        SetMasterTile(shapeType, tileColor);/*Si es diferente se establece*/
                         return;
                     }
                 }
-
+                /*Si es un modo normal no debe ser igual a la anterior y debe estar en en la parrilla*/
                 if ((shapeType == MasterTile.ShapeType && tileColor == MasterTile.TileColor) || !Grid.IsTileInMe(shapeType, tileColor))
                     continue;
 

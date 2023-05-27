@@ -1,6 +1,6 @@
 ﻿namespace ShapesAndColorsChallenge.Enum
 {
-    enum ChallengeType : int
+    public enum ChallengeType : int
     {
         None = 0,
         Stars = 1,

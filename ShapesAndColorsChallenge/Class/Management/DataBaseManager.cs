@@ -21,6 +21,7 @@
 *
 */
 
+using ShapesAndColorsChallenge.Class.Web;
 using ShapesAndColorsChallenge.DataBase.Controllers;
 using ShapesAndColorsChallenge.DataBase.Tables;
 using ShapesAndColorsChallenge.DataBase.Types;
@@ -57,6 +58,7 @@ namespace ShapesAndColorsChallenge.Class.Management
             ControllerRanking.Deploy();
             ControllerPerk.Deploy();
             ControllerAcheivement.Deploy();
+            ControllerChallenge.Deploy();
         }
 
         /// <summary>
@@ -64,10 +66,28 @@ namespace ShapesAndColorsChallenge.Class.Management
         /// </summary>
         internal static void ResetProgress()
         {
-            /*TODO, tambien hay que reiniciar los retos*/
             ControllerScore.Reset();
             ControllerRanking.Reset();
             ControllerSettings.Reset();
+            ControllerChallenge.Reset();
+        }
+
+        /// <summary>
+        /// Obtiene todo el progresos del jugador y su configuración.
+        /// </summary>
+        /// <returns></returns>
+        internal static UserProgress GetUserProgress()
+        {
+            UserProgress userProgress = new()
+            {
+                Acheivements = ControllerAcheivement.Get(),
+                Challenges = ControllerChallenge.Get(),
+                Perks = ControllerPerk.Get(),
+                Rankings = ControllerRanking.Get(),
+                Scores = ControllerScore.Get(),
+                Settings = ControllerSettings.Get()
+            };
+            return userProgress;
         }
 
         /// <summary>

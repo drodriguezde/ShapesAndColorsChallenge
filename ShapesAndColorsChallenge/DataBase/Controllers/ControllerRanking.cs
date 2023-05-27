@@ -387,7 +387,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         /// Obtiene todos los ranking.
         /// </summary>
         /// <returns></returns>
-        static List<Ranking> Get()
+        internal static List<Ranking> Get()
         {
             return DataBaseManager.Connection.Table<Ranking>().ToList();
         }

@@ -1,7 +1,6 @@
 ﻿using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Enum;
 using System;
-using System.Linq;
 
 namespace ShapesAndColorsChallenge.Class
 {
@@ -200,9 +199,25 @@ namespace ShapesAndColorsChallenge.Class
         /// <summary>
         /// Devuelve una forma aleatoria de las posibles para el juego actual.
         /// </summary>
-        internal static ShapeType RandomShape(int stage, int level)
+        internal static ShapeType RandomShape(int stage, int level, GameMode gameMode)
         {
-            return (ShapeType)Statics.GetRandom(1, ShapesNumber(stage, level));
+            ShapeType shape = (ShapeType)Statics.GetRandom(1, ShapesNumber(stage, level));
+
+            if (gameMode.IsRotate())/*Si el modo es rotación hay que cambiar los tres primeros tipos ya que estos no rotan por otros-*/
+            {
+                return shape switch
+                {
+                    ShapeType.Circle => ShapeType.Oval,
+                    ShapeType.Triangle => ShapeType.Rombus,
+                    ShapeType.Square => ShapeType.Heart,
+                    ShapeType.Oval => ShapeType.Circle,
+                    ShapeType.Rombus => ShapeType.Triangle,
+                    ShapeType.Heart => ShapeType.Square,
+                    _ => shape,
+                };
+            }
+            else
+                return shape;
         }
 
         /// <summary>

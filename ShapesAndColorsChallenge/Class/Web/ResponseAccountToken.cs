@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShapesAndColorsChallenge.Class.Web
 {
-    public class AccountToken
+    public class ResponseAccountToken
     {
         [JsonPropertyName("token")]
         public string token { get; set; }

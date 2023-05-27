@@ -24,9 +24,23 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
             return DataBaseManager.Connection.Table<Player>().ToList();
         }
 
+        /// <summary>
+        /// Comprueba si existe algún registro en la tabla.
+        /// </summary>
+        /// <returns></returns>
         internal static bool Any()
         {
             return DataBaseManager.Connection.Table<Player>().Any();
+        }
+
+        /// <summary>
+        /// Actualiza un registro de jugador.
+        /// </summary>
+        /// <param name="player"></param>
+        /// <returns></returns>
+        internal static bool Update(Player player)
+        {
+            return DataBaseManager.Connection.Update(player) > 0;
         }
 
         #endregion

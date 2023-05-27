@@ -2,7 +2,7 @@
 
 namespace ShapesAndColorsChallenge.DataBase.Tables
 {
-    internal class Settings
+    public class Settings
     {
         [PrimaryKey]
         public int Id { get; set; }

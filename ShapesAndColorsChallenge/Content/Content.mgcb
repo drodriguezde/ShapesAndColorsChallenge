@@ -862,6 +862,18 @@
 /processorParam:TextureFormat=Color
 /build:Image/ButtonChallenges.png
 
+#begin Image/ButtonDownload.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ButtonDownload.png
+
 #begin Image/ButtonGift.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1029,6 +1041,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Image/ButtonSettings.png
+
+#begin Image/ButtonUpload.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/ButtonUpload.png
 
 #begin Image/Completed.png
 /importer:TextureImporter
@@ -1809,6 +1833,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Image/RankingGlobal.png
+
+#begin Image/RankingGlobal.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/RankingGlobal.png
+
+#begin Image/RankingLocal.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/RankingLocal.png
 
 #begin Image/RankingLocal.png
 /importer:TextureImporter

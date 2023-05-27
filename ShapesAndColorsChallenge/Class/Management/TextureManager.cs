@@ -93,6 +93,8 @@ namespace ShapesAndColorsChallenge.Class.Management
         internal static Texture2D TexturePlay { get; private set; }
         internal static Texture2D TextureRankingGlobal { get; private set; }
         internal static Texture2D TextureRankingLocal { get; private set; }
+        internal static Texture2D TextureButtonUpload { get; private set; }
+        internal static Texture2D TextureButtonDownload { get; private set; }
 
         static Hashtable LoadedFlags { get; set; } = new();
 
@@ -231,6 +233,8 @@ namespace ShapesAndColorsChallenge.Class.Management
             TexturePlay = GameContent.ContentImage.Load<Texture2D>("Image/ButtonPlay");
             TextureRankingGlobal = GameContent.ContentImage.Load<Texture2D>("Image/RankingGlobal");
             TextureRankingLocal = GameContent.ContentImage.Load<Texture2D>("Image/RankingLocal");
+            TextureButtonUpload = GameContent.ContentImage.Load<Texture2D>("Image/ButtonUpload");
+            TextureButtonDownload = GameContent.ContentImage.Load<Texture2D>("Image/ButtonDownload");
         }
 
         /// <summary>

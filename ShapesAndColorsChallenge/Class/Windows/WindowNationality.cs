@@ -25,9 +25,13 @@ using Microsoft.Xna.Framework;
 using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.EventArguments;
 using ShapesAndColorsChallenge.Class.Management;
+using ShapesAndColorsChallenge.Class.Web;
+using ShapesAndColorsChallenge.DataBase.Controllers;
+using ShapesAndColorsChallenge.DataBase.Tables;
 using ShapesAndColorsChallenge.Enum;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ShapesAndColorsChallenge.Class.Windows
 {
@@ -149,8 +153,16 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void Button_OnClick(object sender, OnClickEventArgs e)
         {
-            if (UserSettingsManager.PlayerCountryCode != (sender as Image).Tag.ToString())
-                UserSettingsManager.PlayerCountryCode = (sender as Image).Tag.ToString();
+            if (UserSettingsManager.PlayerCountryCode != (sender as Image).Tag[0].ToString())
+            {
+                UserSettingsManager.PlayerCountryCode = (sender as Image).Tag[0].ToString();
+
+                /*Tambien hay que actualizar el pais en la lista de jugadores*/
+                Player player = ControllerPlayer.Get().Single(t => t.IsPlayer);
+                player.Country = UserSettingsManager.PlayerCountryCode;
+                ControllerPlayer.Update(player);
+                RestOrchestrator.TryToUpdatePlayerInfo();
+            }
 
             CloseMeAndOpenThis(WindowType.Settings);
         }
