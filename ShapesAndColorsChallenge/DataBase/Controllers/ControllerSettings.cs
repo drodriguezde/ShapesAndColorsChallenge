@@ -41,6 +41,39 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
             DataBaseManager.Connection.Insert(newUserSettings);
         }
 
+        /// <summary>
+        /// Establece la tabla en base a los datos descargados desde una partida guardada en la nube.
+        /// </summary>
+        internal static void Deploy(Settings settings)
+        {
+            DataBaseManager.Connection.DropTable<Settings>();
+            DataBaseManager.Connection.CreateTable<Settings>();
+
+            Settings newUserSettings = new()
+            {
+                Id = 1,
+                Notifications = settings.Notifications,
+                Music = settings.Music,
+                Sounds = settings.Sounds,
+                Voices = settings.Voices,
+                Vibration = settings.Vibration,
+                DarkMode = settings.DarkMode,
+                AlwaysDarkMode = settings.AlwaysDarkMode,
+                CountryCode = settings.CountryCode,
+                PlayerName = settings.PlayerName,
+                PlayerCountryCode = settings.PlayerCountryCode,
+                ShowHowToPlay = settings.ShowHowToPlay,
+                PlayerToken = settings.PlayerToken
+            };
+
+            DataBaseManager.Connection.Insert(newUserSettings);
+
+            Player player = ControllerPlayer.Get().Single(t => t.IsPlayer);
+            player.Name = settings.PlayerName;
+            player.Country = settings.PlayerCountryCode;
+            ControllerPlayer.Update(player);
+        }
+
         internal static void Reset()
         {
             Settings settings = Get();

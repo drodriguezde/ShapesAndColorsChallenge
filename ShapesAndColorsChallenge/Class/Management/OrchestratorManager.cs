@@ -22,8 +22,6 @@
 
 using Microsoft.Xna.Framework;
 using ShapesAndColorsChallenge.Class.EventArguments;
-using ShapesAndColorsChallenge.Class.Interfaces;
-using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Class.Params;
 using ShapesAndColorsChallenge.Class.Windows;
 using ShapesAndColorsChallenge.Enum;
@@ -90,14 +88,7 @@ namespace ShapesAndColorsChallenge.Class.Management
         /// </summary>
         internal static WindowType BackWindow { get; set; } = WindowType.None;
 
-        /// <summary>
-        /// Se usará para poder cerrar el messagebox que haya abierto.
-        /// </summary>
-        static MessageBoxInvoker MessageBoxInvoker { get; set; } = MessageBoxInvoker.None;
-
         static bool Started { get; set; } = false;
-
-        static bool IsOpenMessageBox { get; set; } = false;
 
         /// <summary>
         /// Parámetros que se pasarán a la nueva ventana.
@@ -115,11 +106,7 @@ namespace ShapesAndColorsChallenge.Class.Management
         /// <param name="e"></param>
         static void TransitionWindow_OnFinish(object sender, OnFinishTransitionEventArgs e)
         {
-            if (IsOpenMessageBox)
-            {
-                CloseMessageBox(e);
-                return;
-            }
+            /*Los messagebox no hacen fade out*/
 
             switch (CurrentWindow)
             {
@@ -234,7 +221,6 @@ namespace ShapesAndColorsChallenge.Class.Management
 
         internal static void OpenMessageBox(ref WindowMessageBox windowMessageBox, WindowMessageBoxParams parameters)
         {
-            IsOpenMessageBox = true;
             windowMessageBox = (WindowMessageBox)WindowManager.OpenCloseWindow(WindowType.MessageBox, ModalLevel.MessageBox, parameters);
             windowMessageBox.OnFinishTransition += TransitionWindow_OnFinish;
             windowMessageBox.StartTransition(TransitionType.Show, SHORT_TRANSITION_TIME);
@@ -242,7 +228,6 @@ namespace ShapesAndColorsChallenge.Class.Management
 
         internal static void OpenWindowRewardMessage(ref WindowReward windowReward, WindowRewardParams parameters)
         {
-            IsOpenMessageBox = true;
             windowReward = (WindowReward)WindowManager.OpenCloseWindow(WindowType.Reward, ModalLevel.MessageBox, parameters);
             windowReward.OnFinishTransition += TransitionWindow_OnFinish;
             windowReward.StartTransition(TransitionType.Show, SHORT_TRANSITION_TIME);
@@ -250,7 +235,6 @@ namespace ShapesAndColorsChallenge.Class.Management
 
         internal static void OpenWindowResultMessage(ref WindowResult windowResult, WindowResultParams parameters)
         {
-            IsOpenMessageBox = true;
             windowResult = (WindowResult)WindowManager.OpenCloseWindow(WindowType.Result, ModalLevel.MessageBox, parameters);
             windowResult.OnFinishTransition += TransitionWindow_OnFinish;
             windowResult.StartTransition(TransitionType.Show, SHORT_TRANSITION_TIME);
@@ -274,32 +258,6 @@ namespace ShapesAndColorsChallenge.Class.Management
         internal static void OpenSelectRanking(ref WindowSelectRanking windowSelectRanking)
         {
             windowSelectRanking = (WindowSelectRanking)WindowManager.OpenCloseWindow(WindowType.SelectRanking, ModalLevel.MessageBox);
-        }
-
-        internal static void CloseMessageBox(Window windowMessageBox, MessageBoxInvoker messageBoxInvoker)
-        {
-            MessageBoxInvoker = messageBoxInvoker;
-            windowMessageBox.StartTransition(TransitionType.Hide, SHORT_TRANSITION_TIME);            
-        }
-
-        static void CloseMessageBox(OnFinishTransitionEventArgs e)
-        {
-            if (e.TransitionType == TransitionType.Hide)
-            {
-                IsOpenMessageBox = false;
-                               
-                switch (MessageBoxInvoker)
-                {
-                    case MessageBoxInvoker.ExitManager:
-                        ExitManager.windowMessageExit.OnFinishTransition -= TransitionWindow_OnFinish;
-                        ExitManager.CloseMessageBox();
-                        return;
-                    case MessageBoxInvoker.IMessage:
-                        ((IMessage)WindowManager.GetWindowIMessage()).WindowMessage.OnFinishTransition -= TransitionWindow_OnFinish;
-                        ((IMessage)WindowManager.GetWindowIMessage()).CloseMessageBox();
-                        return;
-                }    
-            }
         }
 
         /// <summary>

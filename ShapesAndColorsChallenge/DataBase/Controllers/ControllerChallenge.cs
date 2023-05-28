@@ -26,6 +26,35 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         }
 
         /// <summary>
+        /// Establece la tabla en base a los datos descargados desde una partida guardada en la nube.
+        /// </summary>
+        /// <param name="challenges"></param>
+        internal static void Deploy(List<Challenge> challenges) 
+        {
+            DataBaseManager.Connection.DropTable<Challenge>();
+            DataBaseManager.Connection.CreateTable<Challenge>();
+            DataBaseManager.Connection.BeginTransaction();
+
+            foreach (Challenge challenge in challenges)
+            {
+                Challenge newChallenge = new()
+                {
+                    PlayerID = challenge.PlayerID,
+                    ChallengeType = challenge.ChallengeType,
+                    GameMode = challenge.GameMode,
+                    StageNumber= challenge.StageNumber,
+                    LevelNumber= challenge.LevelNumber,
+                    StartDate= challenge.StartDate,
+                    IsActive= challenge.IsActive,
+                    Win= challenge.Win,
+                };
+                DataBaseManager.Connection.Insert(newChallenge);
+            }
+
+            DataBaseManager.Connection.Commit();
+        }
+
+        /// <summary>
         /// Vacia el contenido de la tabla.
         /// </summary>
         internal static void Reset()

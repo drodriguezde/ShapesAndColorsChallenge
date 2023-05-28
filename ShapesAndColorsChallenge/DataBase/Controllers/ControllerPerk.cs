@@ -39,6 +39,28 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         }
 
         /// <summary>
+        /// Establece la tabla en base a los datos descargados desde una partida guardada en la nube.
+        /// </summary>
+        internal static void Deploy(List<Perk> perks)
+        {
+            DataBaseManager.Connection.DropTable<Perk>();
+            DataBaseManager.Connection.CreateTable<Perk>();
+            DataBaseManager.Connection.BeginTransaction();/*Usamos una transacción para insertar todos los registros de golpe en bulk*/
+
+            foreach (Perk perk in perks)
+            {
+                Perk newPerk = new()
+                {
+                    Type = perk.Type,
+                    Amount = perk.Amount
+                };
+                DataBaseManager.Connection.Insert(newPerk);
+            }
+
+            DataBaseManager.Connection.Commit();
+        }
+
+        /// <summary>
         /// Obtiene todos los potenciadores.
         /// </summary>
         /// <returns></returns>

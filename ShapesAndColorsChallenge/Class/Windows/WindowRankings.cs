@@ -23,7 +23,6 @@
 
 using Microsoft.Xna.Framework;
 using ShapesAndColorsChallenge.Class.Controls;
-using ShapesAndColorsChallenge.Class.Interfaces;
 using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Class.Web;
 using ShapesAndColorsChallenge.DataBase.Controllers;
@@ -36,7 +35,7 @@ using System.Linq;
 
 namespace ShapesAndColorsChallenge.Class.Windows
 {
-    internal class WindowRankings : Window, IMessage, IDisposable
+    internal class WindowRankings : Window, IDisposable
     {
         #region CONST
 
@@ -74,12 +73,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
         #endregion
 
         #region PROPERTIES
-
-        public Window WindowMessage
-        {
-            get { return windowMessageBox; }
-            set { windowMessageBox = (WindowMessageBox)value; }
-        }
 
         NavigationPanelVertical NavigationPanelVertical { get; set; }
 
@@ -193,9 +186,10 @@ namespace ShapesAndColorsChallenge.Class.Windows
             InteractiveObjectManager.SkipUpdate = InteractiveObjectManager.SkipDraw = false;
         }
 
-        private void WindowMessageBox_OnAccept(object sender, EventArgs e)
+        void WindowMessageBox_OnAccept(object sender, EventArgs e)
         {
-            OrchestratorManager.CloseMessageBox(windowMessageBox, MessageBoxInvoker.IMessage);/*Cuando acabe la transición se llamará a CloseMessageBox()*/
+            WindowManager.Remove(windowMessageBox.ID);
+            windowMessageBox = null;
         }
 
         #endregion
@@ -343,13 +337,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 INNER_OBJECT_HEIGHT + Const.BUTTON_BORDER);/*relativo al item*/
             Image image = new(ModalLevel, bounds, TextureManager.Get(bounds.ToSize(), ColorManager.HardGray, CommonTextureType.Rectangle).Texture);/*No se hace Dispose*/
             return image;
-        }
-
-        public void CloseMessageBox()
-        {
-            windowMessageBox.OnAccept -= WindowMessageBox_OnAccept;
-            WindowManager.Remove(windowMessageBox.ID);
-            windowMessageBox = null;
         }
 
         internal override void Update(GameTime gameTime)

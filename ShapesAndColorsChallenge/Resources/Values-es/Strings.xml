@@ -106,6 +106,7 @@
 	<string name="GENERIC_ERROR">Se produjo un error en la descarga.</string>
 	<string name="UPLOADING_PROGRESS">Guardando progreso...</string>
 	<string name="UPLOADING_PROGRESS_OK">¡Progreso guardado!</string>
+	<string name="DOWNLOADING_PROGRESS_OK">¡Progreso restaurado!</string>
 	<string name="GETTING_DATA">Obteniendo datos...</string>
 	<string name="DOWNLOAD_PROGRESS">Descargar progreso</string>
 	<string name="WRITE_ID">Escribe tu ID de juego guardado</string>

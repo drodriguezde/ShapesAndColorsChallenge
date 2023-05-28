@@ -26,7 +26,6 @@ using ShapesAndColorsChallenge.Class.Animated;
 using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.D2;
 using ShapesAndColorsChallenge.Class.EventArguments;
-using ShapesAndColorsChallenge.Class.Interfaces;
 using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Class.Web;
 using ShapesAndColorsChallenge.DataBase.Controllers;
@@ -41,7 +40,7 @@ using System.Threading;
 
 namespace ShapesAndColorsChallenge.Class.Windows
 {
-    internal class WindowGame : Window, IMessage, IDisposable
+    internal class WindowGame : Window, IDisposable
     {
         #region CONST
 
@@ -115,12 +114,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
         #endregion
 
         #region PROPERTIES
-
-        public Window WindowMessage
-        {
-            get { return windowResult; }
-            set { windowResult = (WindowResult)value; }
-        }
 
         /// <summary>
         /// Parrilla con las fichas.
@@ -464,7 +457,9 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         private void WindowResult_OnAccept(object sender, EventArgs e)
         {
-            OrchestratorManager.CloseMessageBox(windowResult, MessageBoxInvoker.IMessage);/*Cuando acabe la transición se llamará a CloseMessageBox()*/
+            WindowManager.Remove(windowResult.ID);
+            windowResult = null;
+            CloseMeAndOpenThis(OrchestratorManager.GameWindowInvoker);
         }
 
         #endregion
@@ -975,17 +970,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 AcheivementsManager.Refresh();
                 return true;
             }
-        }
-
-        /// <summary>
-        /// Cierra el mensaje de resultado y vuelve a la ventana invocadora.
-        /// </summary>
-        public void CloseMessageBox()
-        {
-            windowResult.OnAccept -= WindowResult_OnAccept;
-            WindowManager.Remove(windowResult.ID);
-            windowResult = null;
-            CloseMeAndOpenThis(OrchestratorManager.GameWindowInvoker);
         }
 
         internal override void Update(GameTime gameTime)

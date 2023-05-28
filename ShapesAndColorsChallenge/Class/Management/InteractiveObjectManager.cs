@@ -152,6 +152,23 @@ namespace ShapesAndColorsChallenge.Class.Management
             }
         }
 
+        internal void Remove(params long[] id)
+        {
+            lock (InteractiveObjects)
+            {
+                for (int i = 0; i < id.Length; i++)
+                {
+                    InteractiveObject interactiveObject = InteractiveObjects.FirstOrDefault(t => t.ID == id[i]);
+
+                    if (interactiveObject != null)
+                    {
+                        InteractiveObjects.Remove(interactiveObject);
+                        Nuller.Null(ref interactiveObject);
+                    }
+                }
+            }
+        }
+
         internal InteractiveObject Get(long id)
         {
             return InteractiveObjects.FirstOrDefault(t => t.ID == id);

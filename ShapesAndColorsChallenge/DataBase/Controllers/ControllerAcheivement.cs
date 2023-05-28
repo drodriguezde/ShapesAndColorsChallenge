@@ -37,6 +37,29 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         }
 
         /// <summary>
+        /// Establece la tabla en base a los datos descargados desde una partida guardada en la nube.
+        /// </summary>
+        /// <param name="acheivements"></param>
+        internal static void Restore(List<Acheivement> acheivements)
+        {
+            DataBaseManager.Connection.DeleteAll<Acheivement>();
+            DataBaseManager.Connection.CreateTable<Acheivement>();
+            DataBaseManager.Connection.BeginTransaction();
+
+            foreach (Acheivement acheivement in acheivements)
+            {
+                Acheivement newAcheivement = new()
+                {
+                    Type = acheivement.Type,
+                    Claimed = acheivement.Claimed
+                };
+                DataBaseManager.Connection.Insert(newAcheivement);
+            }
+
+            DataBaseManager.Connection.Commit();
+        }
+
+        /// <summary>
         /// Obtiene un listado con todos los logros.
         /// </summary>
         /// <returns></returns>

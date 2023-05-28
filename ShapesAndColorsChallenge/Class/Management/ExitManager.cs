@@ -76,7 +76,8 @@ namespace ShapesAndColorsChallenge.Class.Management
         /// <param name="e"></param>
         static void WindowMessageExit_OnCancel(object sender, EventArgs e)
         {
-            OrchestratorManager.CloseMessageBox(windowMessageExit, MessageBoxInvoker.ExitManager);/*Cuando acabe la transición se llamará a CloseMessageBox()*/
+            WindowManager.Remove(windowMessageExit.ID);
+            windowMessageExit = null;
         }
 
         #endregion
@@ -86,17 +87,6 @@ namespace ShapesAndColorsChallenge.Class.Management
         internal static void Initialize(Game game)
         {
             Game = game;
-        }
-
-        internal static void CloseMessageBox()
-        {
-            if (WindowManager.GetTopModalLevel == ModalLevel.MessageBox)
-            {
-                windowMessageExit.OnCancel -= WindowMessageExit_OnCancel;
-                windowMessageExit.OnAccept -= WindowMessageExit_OnAccept;
-                WindowManager.Remove(windowMessageExit.ID);
-                windowMessageExit = null;
-            }
         }
 
         /// <summary>

@@ -103,6 +103,7 @@
 	<string name="GENERIC_ERROR">An error occurred in the download.</string>
 	<string name="UPLOADING_PROGRESS">Saving progress...</string>
 	<string name="UPLOADING_PROGRESS_OK">Progress saved!</string>
+	<string name="DOWNLOADING_PROGRESS_OK">Progress restored!</string>
 	<string name="GETTING_DATA">Getting data...</string>
 	<string name="DOWNLOAD_PROGRESS">Download progress</string>
 	<string name="WRITE_ID">Write your saved game ID</string>

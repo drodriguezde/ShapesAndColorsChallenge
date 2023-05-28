@@ -22,7 +22,6 @@
 */
 
 using Microsoft.Xna.Framework;
-using ShapesAndColorsChallenge.Class.Interfaces;
 using ShapesAndColorsChallenge.Enum;
 using System;
 using System.Collections.Generic;
@@ -231,11 +230,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 Remove(Windows[i]);
 
             Windows.Clear();
-        }
-
-        internal static Window GetWindowIMessage()
-        {
-            return Windows.FirstOrDefault(t => t is IMessage);
         }
 
         internal static Window GetWindow(WindowType windowType)

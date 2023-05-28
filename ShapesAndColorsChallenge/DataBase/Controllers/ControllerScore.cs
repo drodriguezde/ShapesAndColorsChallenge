@@ -44,6 +44,31 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         }
 
         /// <summary>
+        /// Establece la tabla en base a los datos descargados desde una partida guardada en la nube.
+        /// </summary>
+        internal static void Deploy(List<Score> scores)
+        {
+            DataBaseManager.Connection.DropTable<Score>();
+            DataBaseManager.Connection.CreateTable<Score>();
+            DataBaseManager.Connection.BeginTransaction();
+
+            foreach (Score score in scores)
+            {
+                Score newUserScore = new()
+                {
+                    GameMode = score.GameMode,
+                    StageNumber = score.StageNumber,
+                    LevelNumber = score.LevelNumber,
+                    UserScore = score.UserScore,
+                    Stars = score.Stars
+                };
+                DataBaseManager.Connection.Insert(newUserScore);
+            }
+
+            DataBaseManager.Connection.Commit();
+        }
+        
+        /// <summary>
         /// Obtiene un listado con todas las puntuaciones del usuario.
         /// </summary>
         /// <returns></returns>

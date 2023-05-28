@@ -25,7 +25,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.EventArguments;
-using ShapesAndColorsChallenge.Class.Interfaces;
 using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Class.Params;
 using ShapesAndColorsChallenge.DataBase.Controllers;
@@ -38,7 +37,7 @@ using System.Linq;
 
 namespace ShapesAndColorsChallenge.Class.Windows
 {
-    internal class WindowAcheivements : Window, IMessage, IDisposable
+    internal class WindowAcheivements : Window, IDisposable
     {
         #region CONST
 
@@ -75,12 +74,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
         #region PROPERTIES
 
         NavigationPanelVertical NavigationPanelVertical { get; set; }
-
-        public Window WindowMessage
-        {
-            get { return windowReward; }
-            set { windowReward = (WindowReward)value; }
-        }
 
         #endregion
 
@@ -206,7 +199,8 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         private void WindowReward_OnAccept(object sender, EventArgs e)
         {
-            OrchestratorManager.CloseMessageBox(windowReward, MessageBoxInvoker.IMessage);/*Cuando acabe la transición se llamará a CloseMessageBox()*/
+            WindowManager.Remove(windowReward.ID);
+            windowReward = null;
         }
 
         #endregion
@@ -330,13 +324,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
             }
             else/*Muestra imagen o texto de pendiente*/
                 SetIncompleted(item);
-        }
-
-        public void CloseMessageBox()
-        {
-            windowReward.OnAccept -= WindowReward_OnAccept;
-            WindowManager.Remove(windowReward.ID);
-            windowReward = null;
         }
 
         internal override void Update(GameTime gameTime)

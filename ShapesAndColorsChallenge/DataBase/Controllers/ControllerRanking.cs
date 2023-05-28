@@ -384,6 +384,30 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         }
 
         /// <summary>
+        /// Establece la tabla en base a los datos descargados desde una partida guardada en la nube.
+        /// </summary>
+        internal static void Deploy(List<Ranking> rankings)
+        {
+            DataBaseManager.Connection.DropTable<Ranking>();
+            DataBaseManager.Connection.CreateTable<Ranking>();
+            DataBaseManager.Connection.BeginTransaction();/*Usamos una transacción para insertar todos los registros de golpe en bulk*/
+
+            foreach (Ranking ranking in rankings)
+            {
+                Ranking newRanking = new()
+                {
+                    PlayerID = ranking.PlayerID,
+                    GameMode = ranking.GameMode,
+                    Win = ranking.Win,
+                    Lose = ranking.Lose
+                };
+                DataBaseManager.Connection.Insert(newRanking);
+            }
+
+            DataBaseManager.Connection.Commit();
+        }
+
+        /// <summary>
         /// Obtiene todos los ranking.
         /// </summary>
         /// <returns></returns>

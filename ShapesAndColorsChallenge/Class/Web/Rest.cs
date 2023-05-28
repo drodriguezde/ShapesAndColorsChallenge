@@ -326,10 +326,11 @@ namespace ShapesAndColorsChallenge.Class.Web
 
                 string base64 = Encoding.UTF8.GetString(Convert.FromBase64String(responseUserProgress.results[0].Data));
                 UserProgress userProgress = JsonConvert.DeserializeObject<UserProgress>(base64);
+                base64 = null;
 
                 return userProgress;
             }
-            catch (Exception ex)
+            catch
             {
                 return null;
             }
