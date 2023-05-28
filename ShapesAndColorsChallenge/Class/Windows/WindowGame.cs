@@ -369,8 +369,12 @@ namespace ShapesAndColorsChallenge.Class.Windows
         private void PerksPanel_OnPerkChangeStart(object sender, EventArgs e)
         {
             TrySetMasterTile();
-            RemainingTimeCurrentTile = GameData.TimeCurrentLevel(Level);
-            Stopwatch.Restart();
+
+            if (!GameMode.IsTimeTrial())/*En contrareloj no se resetea el tiempo ya que volvería al total de todas las fichas*/
+            {
+                RemainingTimeCurrentTile = GameData.TimeCurrentLevel(Level);
+                Stopwatch.Restart();
+            }
         }
 
         internal void Tile_OnClick(object sender, OnClickEventArgs e)
@@ -816,7 +820,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             long timeElapsed = Stopwatch.ElapsedMilliseconds;
 
             if (GameMode.IsTimeTrial())/*En contrareloj el tiempo a descontar es el total de la partida no de la ficha*/
-                RemainingTimeCurrentTile = GameData.TimeTrialModeTime(Level) - (int)timeElapsed;
+                RemainingTimeCurrentTile = GameData.TimeTrialModeTime(Level).Half()/*Se reduce a la mitad*/ - (int)timeElapsed;
             else
                 RemainingTimeCurrentTile = GameData.TimeCurrentLevel(Level) - (int)timeElapsed;
 
@@ -993,7 +997,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 Playing = true;
 
                 if (GameMode.IsTimeTrial())/*En el modo contrareloj el tiempo no es por ficha, es para todas las que sea capaz de encontrar el usuario*/
-                    RemainingTimeCurrentTile = GameData.TimeTrialModeTime(Level);
+                    RemainingTimeCurrentTile = GameData.TimeTrialModeTime(Level).Half();/*Se reduce el tiempo a la mitad*/
 
                 SetNextTile();
                 EnableUI();

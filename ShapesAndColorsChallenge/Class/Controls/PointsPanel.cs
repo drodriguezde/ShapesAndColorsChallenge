@@ -36,10 +36,10 @@ namespace ShapesAndColorsChallenge.Class.Controls
         #region CONST
 
         const int TOP = 180;
-        const int HEIGHT = 100;
-        const int LEFT = 490;
-        const int DIGIT_WIDTH = 30;
-        const int DIGIT_OFFSET = 4;
+        const int HEIGHT = 120;
+        const int LEFT = 360;
+        const int DIGIT_WIDTH = 40;
+        const int DIGIT_OFFSET = 3;
         const long MAX_POINTS = 9999999999;
 
         #endregion
@@ -127,7 +127,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         void SetLabelPoints()
         {
-            Rectangle bounds = new Rectangle(LEFT, TOP, 200, HEIGHT).Redim();
+            Rectangle bounds = new Rectangle(LEFT, TOP, 240, HEIGHT).Redim();
             labelPoints = new(ModalLevel.Window, bounds, $"{Resource.String.POINTS.GetString()}  "/*dos espacio en blanco*/, ColorManager.HardGray, ColorManager.HardGray);
         }
 
