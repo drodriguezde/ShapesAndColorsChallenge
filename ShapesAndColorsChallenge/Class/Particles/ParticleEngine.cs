@@ -52,9 +52,10 @@ namespace ShapesAndColorsChallenge.Class.Particles
 
         #region METHODS
 
-        internal static void Start(ParticleType particleType)
+        internal static void Start(ParticleType particleType, int startRatioFrames = 100)
         {
             ParticleType = particleType;
+            StartRatioFrames = startRatioFrames;
             Reset();
             Running = true;
         }
