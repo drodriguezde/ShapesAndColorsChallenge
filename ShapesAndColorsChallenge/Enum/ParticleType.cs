@@ -1,6 +1,6 @@
 ﻿namespace ShapesAndColorsChallenge.Enum
 {
-    enum ConfettiType : int
+    enum ParticleType : int
     {
         Falling = 1,
         Fireworks = 2

@@ -257,7 +257,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             {
                 NewRecordPlayed = true;
                 SoundManager.VoiceNewHighScore.PlayVoice();
-                ParticleEngine.Start(ConfettiType.Fireworks);
+                ParticleEngine.Start(ParticleType.Fireworks);
             }
 
             ParticleEngine.Update(gameTime);

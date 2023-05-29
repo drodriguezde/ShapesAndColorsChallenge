@@ -27,34 +27,34 @@ using ShapesAndColorsChallenge.Class.Entities;
 using ShapesAndColorsChallenge.Enum;
 using System;
 
-namespace ShapesAndColorsChallenge.Class.Particles.ConfettiParticle
+namespace ShapesAndColorsChallenge.Class.Particles
 {
-    internal class ConfettiPaper : Entity
+    internal class Particle : Entity
     {
         #region PROPERTIES
 
         /// <summary>
-        /// Textura que tendrá el confeti.
+        /// Textura que tendrá la partícula.
         /// </summary>
         internal Texture2D Texture { get; set; }
 
         /// <summary>
-        /// Escala de tamaño del confeti.
+        /// Escala de tamaño de la partícula.
         /// </summary>
         internal Vector2 Scale { get; set; } = Vector2.One;
 
         /// <summary>
-        /// Cantidad de transparencia del confeti.
+        /// Cantidad de transparencia de la partícula.
         /// </summary>
         internal float Transparency { get; set; } = 1.0f;
 
         /// <summary>
-        /// Color del confeti.
+        /// Color de la partícula.
         /// </summary>
         internal Color Color { get; set; } = Color.White;
 
         /// <summary>
-        /// Velocidad del confeti, de movimiento y de rotación, en x y en y.
+        /// Velocidad de la partícula, de movimiento y de rotación, en x y en y.
         /// </summary>
         internal Vector2 Speed { get; set; }
 
@@ -71,7 +71,7 @@ namespace ShapesAndColorsChallenge.Class.Particles.ConfettiParticle
         /// Constructor de la imagen mediante una imagen previamente construida.
         /// </summary>
         /// <param name="texture"></param>
-        internal ConfettiPaper(Texture2D texture, Vector2 location, Color color, Vector2 scale, Vector2 speed, Vector2 speedIncrement) : base()
+        internal Particle(Texture2D texture, Vector2 location, Color color, Vector2 scale, Vector2 speed, Vector2 speedIncrement) : base()
         {
             Texture = texture;
             Location = location;

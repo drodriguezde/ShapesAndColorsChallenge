@@ -240,7 +240,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             InitializePlayButton();
             InitializePlayText();
             SubscribeEvents();
-            ParticleEngine.Start(ConfettiType.Falling);
+            ParticleEngine.Start(ParticleType.Falling);
         }
 
         internal override void Update(GameTime gameTime)

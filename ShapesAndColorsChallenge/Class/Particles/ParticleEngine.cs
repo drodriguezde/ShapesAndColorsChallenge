@@ -21,7 +21,6 @@
 */
 using Microsoft.Xna.Framework;
 using ShapesAndColorsChallenge.Class.Management;
-using ShapesAndColorsChallenge.Class.Particles.ConfettiParticle;
 using ShapesAndColorsChallenge.Enum;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,23 +38,23 @@ namespace ShapesAndColorsChallenge.Class.Particles
         #region PROPERTIES
 
         /// <summary>
-        /// Cada cuantos frames hay que lanzar más confeti.
+        /// Cada cuantos frames hay que lanzar más partículas.
         /// </summary>
         static int StartRatioFrames { get; set; } = 100;
 
-        static List<Confetti> Confettis = new();
+        static List<ParticlePack> ParticlePacks = new();
 
         static bool Running { get; set; }
 
-        static ConfettiType ConfettiType { get; set; } = ConfettiType.Falling;
+        static ParticleType ParticleType { get; set; } = ParticleType.Falling;
 
         #endregion
 
         #region METHODS
 
-        internal static void Start(ConfettiType confettiType)
+        internal static void Start(ParticleType particleType)
         {
-            ConfettiType = confettiType;
+            ParticleType = particleType;
             Reset();
             Running = true;
         }
@@ -68,27 +67,27 @@ namespace ShapesAndColorsChallenge.Class.Particles
 
         static void Reset()
         {
-            Confettis.Clear();
+            ParticlePacks.Clear();
             counter = 0;
         }
 
         static void DoParticles()
         {
-            Confettis.RemoveAll(t => !t.Running);
+            ParticlePacks.RemoveAll(t => !t.Running);
 
             if (counter % StartRatioFrames == 0)
             {
-                if (ConfettiType == ConfettiType.Falling)
-                    Confettis.Add(new(ConfettiType.Falling, ShapeType.Oval, TileColor.Orange, new(0, -BaseBounds.Bounds.Height, BaseBounds.Bounds.Width, BaseBounds.Bounds.Height), new(0, -BaseBounds.Bounds.Height, BaseBounds.Bounds.Width, BaseBounds.Bounds.Height.Double()), true, true, 30));
+                if (ParticleType == ParticleType.Falling)
+                    ParticlePacks.Add(new(ParticleType.Falling, ShapeType.Oval, TileColor.Orange, new(0, -BaseBounds.Bounds.Height, BaseBounds.Bounds.Width, BaseBounds.Bounds.Height), new(0, -BaseBounds.Bounds.Height, BaseBounds.Bounds.Width, BaseBounds.Bounds.Height.Double()), true, true, 30));
                 else
                 {
-                    Confettis.Add(new(ConfettiType, ShapeType.None, TileColor.None, new(BaseBounds.Limits.X, 200, BaseBounds.Limits.Width, BaseBounds.Bounds.Height - 600), BaseBounds.Bounds, true, true, 20));
+                    ParticlePacks.Add(new(ParticleType, ShapeType.None, TileColor.None, new(BaseBounds.Limits.X, 200, BaseBounds.Limits.Width, BaseBounds.Bounds.Height - 600), BaseBounds.Bounds, true, true, 20));
                     StartRatioFrames = Statics.GetRandom(10, 80);
                     SoundManager.PlayBallonPop();
                     counter = 1;
                 }
 
-                Confettis.Last().Start();
+                ParticlePacks.Last().Start();
             }
 
             counter++;
@@ -101,8 +100,8 @@ namespace ShapesAndColorsChallenge.Class.Particles
 
             DoParticles();
 
-            for (int i = 0; i < Confettis.Count; i++)
-                Confettis[i].Update(gameTime);
+            for (int i = 0; i < ParticlePacks.Count; i++)
+                ParticlePacks[i].Update(gameTime);
         }
 
         internal static void Draw(GameTime gameTime)
@@ -110,8 +109,8 @@ namespace ShapesAndColorsChallenge.Class.Particles
             if (!Running)
                 return;
 
-            for (int i = 0; i < Confettis.Count; i++)
-                Confettis[i].Draw(gameTime);
+            for (int i = 0; i < ParticlePacks.Count; i++)
+                ParticlePacks[i].Draw(gameTime);
         }
 
         #endregion

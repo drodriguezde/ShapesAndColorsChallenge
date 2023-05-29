@@ -27,9 +27,9 @@ using ShapesAndColorsChallenge.Enum;
 using System;
 using System.Collections.Generic;
 
-namespace ShapesAndColorsChallenge.Class.Particles.ConfettiParticle
+namespace ShapesAndColorsChallenge.Class.Particles
 {
-    internal class Confetti
+    internal class ParticlePack
     {
         #region CONST
 
@@ -40,7 +40,7 @@ namespace ShapesAndColorsChallenge.Class.Particles.ConfettiParticle
 
         #region VARS
 
-        List<ConfettiPaper> papers = new();
+        List<Particle> papers = new();
         float scale = 1f;
         Vector2 startLocation = Vector2.Zero;
 
@@ -49,9 +49,9 @@ namespace ShapesAndColorsChallenge.Class.Particles.ConfettiParticle
         #region PROPERTIES
 
         /// <summary>
-        /// Tipo de confeti.
+        /// Tipo de partículas.
         /// </summary>
-        ConfettiType ConfettiType { get; set; }
+        ParticleType ParticleType { get; set; }
 
         /// <summary>
         /// Forma del papel.
@@ -89,9 +89,9 @@ namespace ShapesAndColorsChallenge.Class.Particles.ConfettiParticle
         bool RandomColor { get; set; }
 
         /// <summary>
-        /// Cantidad de papeles del confeti.
+        /// Cantidad de partículas.
         /// </summary>
-        int PapersNumber { get; set; }
+        int ParticlesNumber { get; set; }
 
         /// <summary>
         /// Indica si está activa la particula.
@@ -105,23 +105,23 @@ namespace ShapesAndColorsChallenge.Class.Particles.ConfettiParticle
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="confettiType"></param>
+        /// <param name="particleType"></param>
         /// <param name="shapeType"></param>
         /// <param name="tileColor"></param>
         /// <param name="locationLimits">Área de la pantalla dónde pueden aparecer</param>
         /// <param name="randomShape"></param>
         /// <param name="randomColor"></param>
         /// <param name="papersNumber"></param>
-        internal Confetti(ConfettiType confettiType, ShapeType shapeType, TileColor tileColor, Rectangle startLocationLimits, Rectangle locationLimits, bool randomShape = false, bool randomColor = false, int papersNumber = 20)
+        internal ParticlePack(ParticleType particleType, ShapeType shapeType, TileColor tileColor, Rectangle startLocationLimits, Rectangle locationLimits, bool randomShape = false, bool randomColor = false, int papersNumber = 20)
         {
-            ConfettiType = confettiType;
+            ParticleType = particleType;
             ShapeType = shapeType;
             TileColor = tileColor;
             StartLocationLimits = startLocationLimits;
             LocationLimits = locationLimits;
             RandomShape = randomShape;
             RandomColor = randomColor;
-            PapersNumber = papersNumber;            
+            ParticlesNumber = papersNumber;
             Initialize();
         }
 
@@ -131,15 +131,15 @@ namespace ShapesAndColorsChallenge.Class.Particles.ConfettiParticle
 
         internal void Initialize()
         {
-            if (ConfettiType == ConfettiType.Falling)
+            if (ParticleType == ParticleType.Falling)
                 InitializeFalling();
             else
                 InitializeFireworks();
         }
 
         void InitializeFalling()
-        { 
-            for(int i = 0; i < PapersNumber; i++) 
+        {
+            for (int i = 0; i < ParticlesNumber; i++)
             {
                 SetPaper();
                 float speedX = Statics.GetRandom(-10, 10) / 5f;
@@ -159,7 +159,7 @@ namespace ShapesAndColorsChallenge.Class.Particles.ConfettiParticle
         {
             Vector2 location = StartLocationLimits.GetRandomLocation();
 
-            for (int i = 0; i < PapersNumber; i++)
+            for (int i = 0; i < ParticlesNumber; i++)
             {
                 SetPaper();
                 float angle = i + 1;
@@ -193,7 +193,7 @@ namespace ShapesAndColorsChallenge.Class.Particles.ConfettiParticle
 
         internal void Stop()
         {
-            Running = false;                           
+            Running = false;
         }
 
         internal void Update(GameTime gameTime)
@@ -221,7 +221,7 @@ namespace ShapesAndColorsChallenge.Class.Particles.ConfettiParticle
                 return;
 
             for (int i = 0; i < papers.Count; i++)
-                if(papers[i].Visible)
+                if (papers[i].Visible)
                     papers[i].Draw(gameTime);
         }
 
