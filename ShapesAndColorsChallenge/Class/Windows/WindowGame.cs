@@ -27,7 +27,6 @@ using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.D2;
 using ShapesAndColorsChallenge.Class.EventArguments;
 using ShapesAndColorsChallenge.Class.Management;
-using ShapesAndColorsChallenge.Class.Particles;
 using ShapesAndColorsChallenge.Class.Web;
 using ShapesAndColorsChallenge.DataBase.Controllers;
 using ShapesAndColorsChallenge.DataBase.Tables;

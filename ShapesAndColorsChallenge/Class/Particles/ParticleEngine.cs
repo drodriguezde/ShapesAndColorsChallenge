@@ -83,8 +83,7 @@ namespace ShapesAndColorsChallenge.Class.Particles
                 else
                 {
                     ParticlePacks.Add(new(ParticleType, ShapeType.None, TileColor.None, new(BaseBounds.Limits.X, 200, BaseBounds.Limits.Width, BaseBounds.Bounds.Height - 600), BaseBounds.Bounds, true, true, 20));
-                    StartRatioFrames = Statics.GetRandom(10, 80);
-                    SoundManager.PlayBallonPop();
+                    StartRatioFrames = Statics.GetRandom(10, 80);                    
                     counter = 1;
                 }
 

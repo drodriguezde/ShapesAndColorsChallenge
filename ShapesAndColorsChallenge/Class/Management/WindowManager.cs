@@ -22,12 +22,13 @@
 */
 
 using Microsoft.Xna.Framework;
+using ShapesAndColorsChallenge.Class.Windows;
 using ShapesAndColorsChallenge.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ShapesAndColorsChallenge.Class.Windows
+namespace ShapesAndColorsChallenge.Class.Management
 {
     internal static class WindowManager
     {

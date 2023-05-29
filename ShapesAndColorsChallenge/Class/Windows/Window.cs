@@ -320,7 +320,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             {
                 TransitionType currentTransition = TransitionType;
                 TransitionType = TransitionType.None;/*Tiene que ir antes*/
-                OnFinishTransition.Invoke(this, new OnFinishTransitionEventArgs(currentTransition));
+                OnFinishTransition?.Invoke(this, new OnFinishTransitionEventArgs(currentTransition));
                 return true;
             }
 

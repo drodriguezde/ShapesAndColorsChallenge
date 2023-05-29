@@ -25,7 +25,6 @@ using Microsoft.Xna.Framework;
 using ShapesAndColorsChallenge.Class.Entities;
 using ShapesAndColorsChallenge.Class.EventArguments;
 using ShapesAndColorsChallenge.Class.Management;
-using ShapesAndColorsChallenge.Class.Windows;
 using ShapesAndColorsChallenge.Enum;
 using System;
 using System.Collections.Generic;

@@ -73,6 +73,7 @@ namespace ShapesAndColorsChallenge.Class.Management
         internal static Texture2D TexturePadLock { get; private set; }
         internal static Texture2D TextureLogo { get; private set; }
         internal static Texture2D TextureStar { get; private set; }
+        internal static Texture2D TextureStarMini { get; private set; }
         internal static Texture2D TextureStarGray { get; private set; }
         internal static Texture2D TextureEditIcon { get; private set; }
         internal static Texture2D TextureBackButton { get; private set; }
@@ -215,6 +216,7 @@ namespace ShapesAndColorsChallenge.Class.Management
             TexturePadLock = GameContent.ContentImage.Load<Texture2D>("Image/Padlock");
             TextureLogo = GameContent.ContentImage.Load<Texture2D>("Image/DanLogo");
             TextureStar = GameContent.ContentImage.Load<Texture2D>("Image/Star");
+            TextureStarMini = GameContent.ContentImage.Load<Texture2D>("Image/StarMini");
             TextureStarGray = GameContent.ContentImage.Load<Texture2D>("Image/StarGray");
             TextureEditIcon = GameContent.ContentImage.Load<Texture2D>("Image/EditIcon");
             TextureBackButton = GameContent.ContentImage.Load<Texture2D>("Image/ButtonBack");

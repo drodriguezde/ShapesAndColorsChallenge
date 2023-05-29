@@ -234,6 +234,11 @@ namespace ShapesAndColorsChallenge.Class
             return Convert.ToInt32(value);
         }
 
+        internal static Vector2 ToInt(this Vector2 value)
+        {
+            return new(value.X.ToInt(), value.Y.ToInt());
+        }
+
         internal static bool ToBool(this string value)
         {
             return Convert.ToBoolean(value.ToInt());
@@ -483,9 +488,47 @@ namespace ShapesAndColorsChallenge.Class
         /// </summary>
         /// <param name="rectangle"></param>
         /// <returns></returns>
-        public static Vector2 GetRandomLocation(this Rectangle rectangle)
+        public static Vector2 GetRandomLocationInside(this Rectangle rectangle)
         {
             return new(Statics.GetRandom(rectangle.X, rectangle.Right), Statics.GetRandom(rectangle.Y, rectangle.Bottom));
+        }
+
+        /// <summary>
+        /// Obtiene una coordenada fuera del rectángulo.
+        /// </summary>
+        /// <param name="rectangle"></param>
+        /// <param name="offset"></param>
+        /// <returns></returns>
+        public static Vector2 GetRandomLocationOutside(this Rectangle rectangle, int offset = 50)
+        {
+            int side = Statics.GetRandom(0, 3);
+
+            return side switch
+            {
+                /*Izquierda*/
+                0 => new(rectangle.X - offset, Statics.GetRandom(rectangle.Y, rectangle.Bottom)),
+                /*Derecha*/
+                1 => new(rectangle.Right + offset, Statics.GetRandom(rectangle.Y, rectangle.Bottom)),
+                /*Arriba*/
+                2 => new(Statics.GetRandom(rectangle.X, rectangle.Right), rectangle.Y - offset),
+                /*Abajo*/
+                3 => new(Statics.GetRandom(rectangle.X, rectangle.Right), rectangle.Bottom + offset),
+                _ => Vector2.Zero,
+            };
+        }
+
+        /// <summary>
+        /// Comprueba si un vector es aproximadamente otro.
+        /// </summary>
+        /// <param name="v1"></param>
+        /// <param name="v2"></param>
+        /// <param name="tolerance"></param>
+        /// <returns></returns>
+        public static bool IsAproximate(this Vector2 v1, Vector2 v2, float tolerance)
+        {
+            float sqrMagnitude = (v1 - v2).LengthSquared();
+            float sqrTolerance = tolerance * tolerance;
+            return sqrMagnitude <= sqrTolerance;
         }
 
         #endregion

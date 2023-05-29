@@ -1366,6 +1366,18 @@
 /processorParam:TextureFormat=Color
 /build:Image/StarGray.png
 
+#begin Image/StarMini.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/StarMini.png
+
 #begin Shader/Bloom.fx
 /importer:EffectImporter
 /processor:EffectProcessor
@@ -1738,29 +1750,11 @@
 /processorParam:Quality=Best
 /build:Sound/Effect/UI/BoxClick.wav
 
-#begin Sound/Effect/UI/BoxClick.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Sound/Effect/UI/BoxClick.wav
-
 #begin Sound/Effect/UI/ButtonClickCloseWindow.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Sound/Effect/UI/ButtonClickCloseWindow.wav
-
-#begin Sound/Effect/UI/ButtonClickCloseWindow.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Sound/Effect/UI/ButtonClickCloseWindow.wav
-
-#begin Sound/Effect/UI/ButtonClickOpenWindow.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Sound/Effect/UI/ButtonClickOpenWindow.wav
 
 #begin Sound/Effect/UI/ButtonClickOpenWindow.wav
 /importer:WavImporter
@@ -1774,29 +1768,11 @@
 /processorParam:Quality=Best
 /build:Sound/Effect/UI/CorrectTile1.wav
 
-#begin Sound/Effect/UI/CorrectTile1.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Sound/Effect/UI/CorrectTile1.wav
-
 #begin Sound/Effect/UI/CorrectTile2.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Sound/Effect/UI/CorrectTile2.wav
-
-#begin Sound/Effect/UI/CorrectTile2.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Sound/Effect/UI/CorrectTile2.wav
-
-#begin Sound/Effect/UI/Counter.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Sound/Effect/UI/Counter.wav
 
 #begin Sound/Effect/UI/Counter.wav
 /importer:WavImporter
@@ -1810,29 +1786,11 @@
 /processorParam:Quality=Best
 /build:Sound/Effect/UI/Padlock.wav
 
-#begin Sound/Effect/UI/Padlock.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Sound/Effect/UI/Padlock.wav
-
 #begin Sound/Effect/UI/PanelSlide.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Sound/Effect/UI/PanelSlide.wav
-
-#begin Sound/Effect/UI/PanelSlide.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Sound/Effect/UI/PanelSlide.wav
-
-#begin Sound/Effect/UI/PerkChange.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Sound/Effect/UI/PerkChange.wav
 
 #begin Sound/Effect/UI/PerkChange.wav
 /importer:WavImporter
@@ -1846,18 +1804,6 @@
 /processorParam:Quality=Best
 /build:Sound/Effect/UI/PerkReveal.wav
 
-#begin Sound/Effect/UI/PerkReveal.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Sound/Effect/UI/PerkReveal.wav
-
-#begin Sound/Effect/UI/PerkTimeStop.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Sound/Effect/UI/PerkTimeStop.wav
-
 #begin Sound/Effect/UI/PerkTimeStop.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -1870,29 +1816,11 @@
 /processorParam:Quality=Best
 /build:Sound/Effect/UI/Switch.wav
 
-#begin Sound/Effect/UI/Switch.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Sound/Effect/UI/Switch.wav
-
 #begin Sound/Effect/UI/TabClick.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Sound/Effect/UI/TabClick.wav
-
-#begin Sound/Effect/UI/TabClick.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Sound/Effect/UI/TabClick.wav
-
-#begin Sound/Effect/UI/WrongTile.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Sound/Effect/UI/WrongTile.wav
 
 #begin Sound/Effect/UI/WrongTile.wav
 /importer:WavImporter

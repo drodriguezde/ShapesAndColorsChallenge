@@ -236,7 +236,7 @@ namespace ShapesAndColorsChallenge.Class.Management
         internal static void OpenWindowResultMessage(ref WindowResult windowResult, WindowResultParams parameters)
         {
             windowResult = (WindowResult)WindowManager.OpenCloseWindow(WindowType.Result, ModalLevel.MessageBox, parameters);
-            windowResult.OnFinishTransition += TransitionWindow_OnFinish;
+            /*windowResult.OnFinishTransition += TransitionWindow_OnFinish;*//*La ventana de result no necesita lanzar OnFinishTransition*/
             windowResult.StartTransition(TransitionType.Show, SHORT_TRANSITION_TIME);
         }
 

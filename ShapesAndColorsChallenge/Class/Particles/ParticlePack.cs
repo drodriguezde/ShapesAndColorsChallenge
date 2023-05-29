@@ -43,6 +43,7 @@ namespace ShapesAndColorsChallenge.Class.Particles
         List<Particle> papers = new();
         float scale = 1f;
         Vector2 startLocation = Vector2.Zero;
+        ShootingStar shootingStar;
 
         #endregion
 
@@ -97,6 +98,11 @@ namespace ShapesAndColorsChallenge.Class.Particles
         /// Indica si está activa la particula.
         /// </summary>
         internal bool Running { get; private set; } = true;
+
+        /// <summary>
+        /// Ubicación destino.
+        /// </summary>
+        Vector2 TargetLocation { get; set; }
 
         #endregion
 
@@ -157,7 +163,8 @@ namespace ShapesAndColorsChallenge.Class.Particles
 
         void InitializeFireworks()
         {
-            Vector2 location = StartLocationLimits.GetRandomLocation();
+            TargetLocation = StartLocationLimits.GetRandomLocationInside();
+            shootingStar = new(BaseBounds.Bounds.GetRandomLocationOutside(), TargetLocation);
 
             for (int i = 0; i < ParticlesNumber; i++)
             {
@@ -166,7 +173,7 @@ namespace ShapesAndColorsChallenge.Class.Particles
 
                 papers.Add(new(
                     TextureManager.GetShapeMini(ShapeType),
-                    location,
+                    TargetLocation,
                     ColorManager.GetShapeColor(TileColor),
                     new(scale, scale),
                     new(SPEED_Y * Math.Cos(angle).ToSingle(), SPEED_Y * Math.Sin(angle).ToSingle()),
@@ -182,7 +189,7 @@ namespace ShapesAndColorsChallenge.Class.Particles
             if (RandomColor)
                 TileColor = GameData.RandomColor(GameData.LEVELS, GameData.STAGES);
 
-            startLocation = StartLocationLimits.GetRandomLocation();
+            startLocation = StartLocationLimits.GetRandomLocationInside();
             scale = Statics.GetRandom(5, 15) / 10f;
         }
 
@@ -200,6 +207,12 @@ namespace ShapesAndColorsChallenge.Class.Particles
         {
             if (!Running)
                 return;
+
+            if (ParticleType == ParticleType.Fireworks && !shootingStar.End)
+            {
+                shootingStar.Update(gameTime);
+                return;
+            }
 
             bool active = false;
 
@@ -219,6 +232,12 @@ namespace ShapesAndColorsChallenge.Class.Particles
         {
             if (!Running)
                 return;
+
+            if (ParticleType == ParticleType.Fireworks && !shootingStar.End)
+            {
+                shootingStar.Draw(gameTime);
+                return;
+            }
 
             for (int i = 0; i < papers.Count; i++)
                 if (papers[i].Visible)

@@ -22,7 +22,6 @@
 
 using Microsoft.Xna.Framework;
 using ShapesAndColorsChallenge.Class.Management;
-using ShapesAndColorsChallenge.Class.Windows;
 using System;
 
 namespace ShapesAndColorsChallenge.Class

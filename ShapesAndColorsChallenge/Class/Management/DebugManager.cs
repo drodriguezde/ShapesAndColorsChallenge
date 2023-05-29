@@ -26,7 +26,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input.Touch;
 using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.D2;
-using ShapesAndColorsChallenge.Class.Windows;
 using ShapesAndColorsChallenge.Enum;
 using System;
 using System.Collections.Generic;
