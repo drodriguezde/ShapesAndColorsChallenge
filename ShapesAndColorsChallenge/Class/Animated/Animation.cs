@@ -301,7 +301,7 @@ namespace ShapesAndColorsChallenge.Class.Animated
         {
             if (!RunningOnce)
                 return false;
-                
+
             Visible = false;
             Running = false;
             RunningOnce = false;

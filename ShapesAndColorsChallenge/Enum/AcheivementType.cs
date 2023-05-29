@@ -23,7 +23,7 @@
         AllInRotate = 10,
         AllInClassicPlus = 11,
         AllInEndlessPlus = 12,
-        AllInMemoryPlus = 13,        
+        AllInMemoryPlus = 13,
         AllInTimeTrialPlus = 14,
         AllInIncrementalPlus = 15,
         AllInMovePlus = 16,

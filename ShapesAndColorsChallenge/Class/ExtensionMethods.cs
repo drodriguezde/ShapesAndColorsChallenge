@@ -361,9 +361,9 @@ namespace ShapesAndColorsChallenge.Class
         public static Rectangle CenterMe(this Rectangle value, float width, float height)
         {
             return new(
-                (value.X + value.Width.Half() - width.Half()).ToInt(), 
-                (value.Y + value.Height.Half() - height.Half()).ToInt(), 
-                width.ToInt(), 
+                (value.X + value.Width.Half() - width.Half()).ToInt(),
+                (value.Y + value.Height.Half() - height.Half()).ToInt(),
+                width.ToInt(),
                 height.ToInt());
         }
 
@@ -476,8 +476,18 @@ namespace ShapesAndColorsChallenge.Class
                                 Enum.ShapeType.Asterisk,
                                 Enum.ShapeType.SixStar,
                                 Enum.ShapeType.None);
-        }                     
-                              
-        #endregion            
+        }
+
+        /// <summary>
+        /// Devuelve una ubicación aleatoria dentro de un rectángulo.
+        /// </summary>
+        /// <param name="rectangle"></param>
+        /// <returns></returns>
+        public static Vector2 GetRandomLocation(this Rectangle rectangle)
+        {
+            return new(Statics.GetRandom(rectangle.X, rectangle.Right), Statics.GetRandom(rectangle.Y, rectangle.Bottom));
+        }
+
+        #endregion
     }
 }

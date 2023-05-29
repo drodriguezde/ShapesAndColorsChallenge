@@ -88,7 +88,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         /// <param name="acheivement"></param>
         /// <returns></returns>
         internal static bool Update(Acheivement acheivement)
-        { 
+        {
             return DataBaseManager.Connection.Update(acheivement) > 0;
         }
 

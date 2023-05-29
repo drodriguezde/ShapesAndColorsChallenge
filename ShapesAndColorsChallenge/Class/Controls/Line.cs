@@ -34,7 +34,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         internal int Thickness { get; set; } = 1;
 
-        internal int P1X { get; set; } = 0;        
+        internal int P1X { get; set; } = 0;
         internal int P1Y { get; set; } = 0;
         internal int P2X { get; set; } = 0;
         internal int P2Y { get; set; } = 0;

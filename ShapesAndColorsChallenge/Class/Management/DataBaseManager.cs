@@ -23,7 +23,6 @@
 
 using ShapesAndColorsChallenge.Class.Web;
 using ShapesAndColorsChallenge.DataBase.Controllers;
-using ShapesAndColorsChallenge.DataBase.Tables;
 using ShapesAndColorsChallenge.DataBase.Types;
 using ShapesAndColorsChallenge.Enum;
 using SQLite;

@@ -170,7 +170,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
                         animatedStar[i].Start();/*La primera estrella inicia normal*/
                     else
                     {
-                        if(animatedStar.First().CurrentFrame == 0 && !animatedStar[i].Running)
+                        if (animatedStar.First().CurrentFrame == 0 && !animatedStar[i].Running)
                             animatedStar[i].Start(animatedStar.First().LastFrameTime);/*Las siguientes estrellas se sincronizan con la primera para girar igual*/
                     }
                 }

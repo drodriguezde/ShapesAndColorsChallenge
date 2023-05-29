@@ -60,7 +60,7 @@ namespace ShapesAndColorsChallenge.Class.Management
         #region EVENTS
 
         internal static void LoadContent()
-        { 
+        {
             BloomFilter = new();
             BloomFilter.Load(Screen.GraphicsDevice, GameContent.ContentShader, Screen.Resolution.Width, Screen.Resolution.Height);
         }

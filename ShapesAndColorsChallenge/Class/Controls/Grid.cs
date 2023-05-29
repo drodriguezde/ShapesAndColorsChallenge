@@ -194,7 +194,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
             for (int h = 0; h < horizontalTiles; h++)
                 for (int v = 0; v < verticalTiles; v++)
                 {
-                    (ShapeType shapeType, TileColor tileColor) = GetColorAndShape(positionPlusTile, positionCurrentTile);                    
+                    (ShapeType shapeType, TileColor tileColor) = GetColorAndShape(positionPlusTile, positionCurrentTile);
                     Rectangle bounds = new Rectangle(GetTileLocationLeft(h) + TILE_PADDING, GetTileLocationTop(v) + TILE_PADDING, TileSize - TILE_PADDING.Double(), TileSize - TILE_PADDING.Double()).Redim();
                     Tile tile = new(ModalLevel, bounds, h, v, tileColor, shapeType) { AllowClickWhenNotVisible = true };
                     Image imageTile = new(ModalLevel, bounds, TextureManager.GetShape(shapeType), ColorManager.GetShapeColor(tileColor), true) { EnableOnClick = false };
@@ -321,8 +321,8 @@ namespace ShapesAndColorsChallenge.Class.Controls
         }
 
         internal void Enable()
-        { 
-            for(int i = 0; i < Tiles.Count; i++)
+        {
+            for (int i = 0; i < Tiles.Count; i++)
                 Tiles[i].Active = true;
         }
 
@@ -343,7 +343,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
         {
             Rectangle tileLocation = Rectangle.Empty;
 
-            for(int i = 0; i < Tiles.Count; i++)
+            for (int i = 0; i < Tiles.Count; i++)
             {
                 if (Tiles[i].ShapeType == tile.ShapeType && Tiles[i].TileColor == tile.TileColor)
                 {
@@ -378,7 +378,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         internal override void Update(GameTime gameTime)
         {
-            
+
         }
 
         #endregion

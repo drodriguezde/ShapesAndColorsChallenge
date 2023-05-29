@@ -23,7 +23,6 @@
 
 using Android.OS;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
 using ShapesAndColorsChallenge.Class.Windows;
 using ShapesAndColorsChallenge.Enum;
 using System;

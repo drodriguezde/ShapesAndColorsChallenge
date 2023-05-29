@@ -124,7 +124,7 @@ namespace ShapesAndColorsChallenge.Class.Effects.Bloom
             get { return _bloomPreset; }
             set
             {
-                if (_bloomPreset == value) 
+                if (_bloomPreset == value)
                     return;
 
                 _bloomPreset = value;
@@ -386,7 +386,7 @@ namespace ShapesAndColorsChallenge.Class.Effects.Bloom
         #endregion
 
         internal void SetValues(BloomValues bloomValues)
-        {                        
+        {
             BloomPreset = bloomValues.BloomPreset;
             HalfResolution = bloomValues.HalfResolution;
             BloomThreshold = bloomValues.BloomThreshold;

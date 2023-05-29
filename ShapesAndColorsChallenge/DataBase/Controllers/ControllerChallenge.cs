@@ -1,5 +1,4 @@
-﻿using Android.App.Admin;
-using ShapesAndColorsChallenge.Class.Management;
+﻿using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.DataBase.Tables;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +28,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         /// Establece la tabla en base a los datos descargados desde una partida guardada en la nube.
         /// </summary>
         /// <param name="challenges"></param>
-        internal static void Deploy(List<Challenge> challenges) 
+        internal static void Deploy(List<Challenge> challenges)
         {
             DataBaseManager.Connection.DropTable<Challenge>();
             DataBaseManager.Connection.CreateTable<Challenge>();
@@ -42,11 +41,11 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
                     PlayerID = challenge.PlayerID,
                     ChallengeType = challenge.ChallengeType,
                     GameMode = challenge.GameMode,
-                    StageNumber= challenge.StageNumber,
-                    LevelNumber= challenge.LevelNumber,
-                    StartDate= challenge.StartDate,
-                    IsActive= challenge.IsActive,
-                    Win= challenge.Win,
+                    StageNumber = challenge.StageNumber,
+                    LevelNumber = challenge.LevelNumber,
+                    StartDate = challenge.StartDate,
+                    IsActive = challenge.IsActive,
+                    Win = challenge.Win,
                 };
                 DataBaseManager.Connection.Insert(newChallenge);
             }

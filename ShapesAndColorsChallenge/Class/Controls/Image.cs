@@ -21,10 +21,8 @@
 *
 */
 
-using Android.Icu.Number;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Enum;
 using System;
 

@@ -15,7 +15,7 @@ namespace ShapesAndColorsChallenge.DataBase.Tables
         /// </summary>
         public int PlayerID { get; set; }
 
-        public ChallengeType ChallengeType  { get; set; }
+        public ChallengeType ChallengeType { get; set; }
 
         public GameMode GameMode { get; set; }
 

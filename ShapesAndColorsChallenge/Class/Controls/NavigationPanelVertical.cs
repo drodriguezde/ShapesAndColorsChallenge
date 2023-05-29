@@ -23,13 +23,11 @@
 
 using InputHelper;
 using Microsoft.Xna.Framework;
-using ShapesAndColorsChallenge.Class.Effects.Bloom;
 using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Class.Windows;
 using ShapesAndColorsChallenge.Enum;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 
 namespace ShapesAndColorsChallenge.Class.Controls
@@ -316,7 +314,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
             foreach (InteractiveObject interactiveObject in panelItem.InteractiveObjects)
             {
-                if(!interactiveObject.VisibleForNavigationPanel)
+                if (!interactiveObject.VisibleForNavigationPanel)
                     interactiveObject.Visible = false;
                 else
                     interactiveObject.Visible = visible;

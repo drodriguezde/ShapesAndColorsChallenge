@@ -27,6 +27,7 @@ using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.D2;
 using ShapesAndColorsChallenge.Class.EventArguments;
 using ShapesAndColorsChallenge.Class.Management;
+using ShapesAndColorsChallenge.Class.Particles;
 using ShapesAndColorsChallenge.Class.Web;
 using ShapesAndColorsChallenge.DataBase.Controllers;
 using ShapesAndColorsChallenge.DataBase.Tables;
@@ -639,7 +640,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             RemainingTimeCurrentTile = GameData.TimeCurrentLevel(Level);
             Stopwatch = new Stopwatch();
 
-            if(!PerksPanel.IsTimeStopRunning)/*Si está lanzado este potenciador, Stopwatch estará detenido, y así debe seguir hasta que finalice el potenciador*/
+            if (!PerksPanel.IsTimeStopRunning)/*Si está lanzado este potenciador, Stopwatch estará detenido, y así debe seguir hasta que finalice el potenciador*/
                 Stopwatch.Restart();
 
             Thread threadCurrenTile = new(() => ProgressCurrentTile());
@@ -1015,7 +1016,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             shakeAnimationMaster?.Update(gameTime);
             shakeAnimationTile?.Update(gameTime);
 
-            for(int i = 0; i < rotateAnimationTiles.Count; i++)
+            for (int i = 0; i < rotateAnimationTiles.Count; i++)
                 rotateAnimationTiles[i].Update(gameTime);
         }
 
@@ -1079,8 +1080,8 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// </summary>
         void UpdateRemainingTiles()
         {
-            if(GameMode.HasUnlimitedTiles())/*En estos modos no hay límite de fichas a encontrar*/
-                RemainingTilesLabel.Text = $"{Resource.String.REMAINING_TILES.GetString()} {(TilesCounter.ToString().Length == 1 ? string.Concat(" ", TilesCounter.ToString()) : TilesCounter.ToString())}/∞";            
+            if (GameMode.HasUnlimitedTiles())/*En estos modos no hay límite de fichas a encontrar*/
+                RemainingTilesLabel.Text = $"{Resource.String.REMAINING_TILES.GetString()} {(TilesCounter.ToString().Length == 1 ? string.Concat(" ", TilesCounter.ToString()) : TilesCounter.ToString())}/∞";
             else
                 RemainingTilesLabel.Text = $"{Resource.String.REMAINING_TILES.GetString()} {(TilesCounter.ToString().Length == 1 ? string.Concat(" ", TilesCounter.ToString()) : TilesCounter.ToString())}/{GameData.TilesCurrenStage}";
         }
@@ -1135,7 +1136,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 return;
 
             counterPlayed[counterIndex] = true;
-            SoundManager.Counter.PlaySound();            
+            SoundManager.Counter.PlaySound();
         }
 
         #endregion

@@ -21,11 +21,9 @@
 *
 */
 
-using Android.Icu.Number;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ShapesAndColorsChallenge.Class.Animated;
-using ShapesAndColorsChallenge.Class.Effects.Bloom;
 using ShapesAndColorsChallenge.Class.Entities;
 using ShapesAndColorsChallenge.Class.EventArguments;
 using ShapesAndColorsChallenge.Class.Management;
@@ -184,7 +182,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
         void SubscribeEvents()
         {
             buttonChange.OnClick += ButtonChange_OnClick;
-            buttonReveal.OnClick += ButtonReveal_OnClick;            
+            buttonReveal.OnClick += ButtonReveal_OnClick;
             buttonTimeStop.OnClick += ButtonTimeStop_OnClick;
         }
 

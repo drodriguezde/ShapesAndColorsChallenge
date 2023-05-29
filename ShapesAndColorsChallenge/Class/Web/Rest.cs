@@ -1,6 +1,4 @@
-﻿using Android.Graphics;
-using Force.Crc32;
-using MonoGame.Framework.Utilities.Deflate;
+﻿using Force.Crc32;
 using Newtonsoft.Json;
 using RestSharp;
 using ShapesAndColorsChallenge.Class.Management;
@@ -34,7 +32,7 @@ namespace ShapesAndColorsChallenge.Class.Web
         {
             try
             {
-                if(!Statics.CheckConectivity())
+                if (!Statics.CheckConectivity())
                     accountToken = new();
 
                 RestClientOptions restOptions = new("https://cloud.seatable.io/api2/auth-token/") { MaxTimeout = 10000 };
@@ -49,7 +47,7 @@ namespace ShapesAndColorsChallenge.Class.Web
             catch
             {
                 accountToken = new();
-            }            
+            }
         }
 
         /// <summary>
@@ -123,7 +121,7 @@ namespace ShapesAndColorsChallenge.Class.Web
         /// <param name="playerToken"></param>
         static (string, long) GetUserScore(GameMode gameMode, string playerToken)
         {
-            try 
+            try
             {
                 if (!Statics.CheckConectivity())
                     return (string.Empty, long.MaxValue);
@@ -182,7 +180,7 @@ namespace ShapesAndColorsChallenge.Class.Web
                 request.AddStringBody(body, DataFormat.Json);
                 RestResponse response = client.ExecutePut(request);
             }
-            catch 
+            catch
             {
 
             }
@@ -247,7 +245,7 @@ namespace ShapesAndColorsChallenge.Class.Web
         /// <param name="playerToken"></param>
         internal static bool UploadProgress(string playerToken)
         {
-            try 
+            try
             {
                 if (!Statics.CheckConectivity())
                     return false;
@@ -286,7 +284,7 @@ namespace ShapesAndColorsChallenge.Class.Web
 
                 return response.IsSuccessful;
             }
-            catch 
+            catch
             {
                 return false;
             }
@@ -299,7 +297,7 @@ namespace ShapesAndColorsChallenge.Class.Web
         /// <returns></returns>
         internal static UserProgress DownloadProgress(string playerToken)
         {
-            try 
+            try
             {
                 if (!Statics.CheckConectivity())
                     return null;
@@ -320,8 +318,8 @@ namespace ShapesAndColorsChallenge.Class.Web
 
                 ResponseUserProgress responseUserProgress = JsonConvert.DeserializeObject<ResponseUserProgress>(response.Content);
                 string crc = Crc32Algorithm.Compute(Encoding.UTF8.GetBytes(responseUserProgress.results[0].Data)).ToString();
-                
-                if(crc != responseUserProgress.results[0].CRC)
+
+                if (crc != responseUserProgress.results[0].CRC)
                     return null;
 
                 string base64 = Encoding.UTF8.GetString(Convert.FromBase64String(responseUserProgress.results[0].Data));
@@ -343,7 +341,7 @@ namespace ShapesAndColorsChallenge.Class.Web
         /// <returns></returns>
         static string SetPlayerTokenIfNeeded(string playerToken)
         {
-            try 
+            try
             {
                 if (!string.IsNullOrEmpty(playerToken))
                     return playerToken;
@@ -359,7 +357,7 @@ namespace ShapesAndColorsChallenge.Class.Web
                     if (currentPlayerToken == "-1")/*No se ha podido obtener el playerToken actual, salimos*/
                         return string.Empty;
 
-                    if(currentPlayerToken == newPlayerToken)/*Si se da el caso de que el token nuevo sea igual que el de otro usuario*/
+                    if (currentPlayerToken == newPlayerToken)/*Si se da el caso de que el token nuevo sea igual que el de otro usuario*/
                         tries++;
 
                     return !SetNewPlayerData(newPlayerToken) ? string.Empty : newPlayerToken;
@@ -385,11 +383,11 @@ namespace ShapesAndColorsChallenge.Class.Web
                 var request = new RestRequest("https://cloud.seatable.io/dtable-server/api/v1/dtables/50d19bd4-0507-4ad4-bf2c-995cfc6fbf2d/rows/", Method.Post);
                 request.AddHeader("Authorization", $"Token {baseToken.access_token}");
                 request.AddHeader("Content-Type", "application/json");
-                var body = "{\"row\": {\"PlayerToken\": \"" + playerToken + "\",\"Data\": \"" + string.Empty +  "\", \"Date\": \"" + DateTime.Now.ToString("yyyy-MM-dd") + "\",\"CRC\": \"" + string.Empty + "\"},\"table_name\": \"UserData\"}";
-                request.AddStringBody(body, DataFormat.Json);                
+                var body = "{\"row\": {\"PlayerToken\": \"" + playerToken + "\",\"Data\": \"" + string.Empty + "\", \"Date\": \"" + DateTime.Now.ToString("yyyy-MM-dd") + "\",\"CRC\": \"" + string.Empty + "\"},\"table_name\": \"UserData\"}";
+                request.AddStringBody(body, DataFormat.Json);
                 RestResponse response = client.ExecutePost(request);
 
-                if(!response.IsSuccessful)
+                if (!response.IsSuccessful)
                     return false;
 
                 Settings settings = ControllerSettings.Get();
@@ -398,8 +396,8 @@ namespace ShapesAndColorsChallenge.Class.Web
                 stringBuilder.Append("{\"rows\":[");
 
                 foreach (GameMode gameMode in System.Enum.GetValues(typeof(GameMode)))
-                    if(gameMode != GameMode.None)
-                    rows.Add("{\"PlayerToken\": \"" + playerToken + "\",\"Name\": \"" + settings.PlayerName + "\",\"GameMode\": \"" + gameMode.ToInt() + "\",\"Score\": \"" + 0 + "\",\"Country\": \"" + settings.CountryCode + "\"}");
+                    if (gameMode != GameMode.None)
+                        rows.Add("{\"PlayerToken\": \"" + playerToken + "\",\"Name\": \"" + settings.PlayerName + "\",\"GameMode\": \"" + gameMode.ToInt() + "\",\"Score\": \"" + 0 + "\",\"Country\": \"" + settings.CountryCode + "\"}");
 
                 stringBuilder.Append(string.Join(',', rows));
                 stringBuilder.Append("],\"table_name\":\"Ranking\"}");

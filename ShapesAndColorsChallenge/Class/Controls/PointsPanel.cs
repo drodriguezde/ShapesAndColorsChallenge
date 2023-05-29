@@ -27,7 +27,6 @@ using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Class.Windows;
 using ShapesAndColorsChallenge.Enum;
 using System;
-using System.Reflection.Emit;
 
 namespace ShapesAndColorsChallenge.Class.Controls
 {
@@ -64,7 +63,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
         #region CONSTRUCTORS
 
         internal PointsPanel(ModalLevel modalLevel, Window window) : base(modalLevel)
-        { 
+        {
             Window = window;
         }
 

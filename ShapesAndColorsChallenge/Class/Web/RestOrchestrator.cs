@@ -1,13 +1,8 @@
 ﻿using ShapesAndColorsChallenge.Class.Windows;
 using ShapesAndColorsChallenge.DataBase.Controllers;
 using ShapesAndColorsChallenge.Enum;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace ShapesAndColorsChallenge.Class.Web
 {
@@ -65,7 +60,7 @@ namespace ShapesAndColorsChallenge.Class.Web
                 if (!((BackgroundWorker)sender).CancellationPending)/*Se ha finalizado antes del timeout*/
                     ((BackgroundWorker)sender).CancelAsync();
             }
-            catch 
+            catch
             {
             }
         }
@@ -136,7 +131,7 @@ namespace ShapesAndColorsChallenge.Class.Web
         {
             Reset();
             worker.RunWorkerAsync(new object[] { WebOperationType.DownloadProgress, windowSettings, playerToken });
-        }        
+        }
 
         #endregion
     }

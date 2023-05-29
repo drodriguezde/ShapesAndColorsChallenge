@@ -21,7 +21,6 @@
 *
 */
 
-using FontStashSharp;
 using Microsoft.Xna.Framework;
 using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.Management;

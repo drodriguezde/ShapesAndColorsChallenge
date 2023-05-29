@@ -1,5 +1,4 @@
-﻿using Android.Telecom;
-using ShapesAndColorsChallenge.Class.Management;
+﻿using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.DataBase.Tables;
 using ShapesAndColorsChallenge.Enum;
 using System.Collections.Generic;
@@ -67,7 +66,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
 
             DataBaseManager.Connection.Commit();
         }
-        
+
         /// <summary>
         /// Obtiene un listado con todas las puntuaciones del usuario.
         /// </summary>
@@ -118,7 +117,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         /// <param name="score"></param>
         /// <returns></returns>
         internal static bool Update(Score score)
-        { 
+        {
             return DataBaseManager.Connection.Update(score) > 0;
         }
 

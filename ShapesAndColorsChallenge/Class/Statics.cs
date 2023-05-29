@@ -389,7 +389,7 @@ namespace ShapesAndColorsChallenge.Class
         /// <returns></returns>
         internal static void TimeStop(int miliseconds)
         {
-            if(miliseconds == 0) 
+            if (miliseconds == 0)
                 return;
 
             Stopwatch stopwatch = new();
@@ -407,7 +407,7 @@ namespace ShapesAndColorsChallenge.Class
                 }
 
                 SpinWait.SpinUntil(() => false, 100);
-            }            
+            }
         }
 
         #endregion

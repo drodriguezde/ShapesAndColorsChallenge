@@ -261,7 +261,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
             IndexShowPanelTransition = GetNextPanel(transitionPanelDirection);
             PanelObjects.Where(t => t.PanelIndex == IndexShowPanelTransition).ToList().ForEach(t =>
             {
-                if((t.AddedObject as InteractiveObject).VisibleForNavigationPanel)
+                if ((t.AddedObject as InteractiveObject).VisibleForNavigationPanel)
                     (t.AddedObject as InteractiveObject).Visible = true;
 
                 MasterTransparency = 0f;

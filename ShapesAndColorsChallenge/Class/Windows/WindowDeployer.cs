@@ -23,7 +23,6 @@
 
 using ShapesAndColorsChallenge.Class.Params;
 using ShapesAndColorsChallenge.Enum;
-using System.Collections.Generic;
 
 namespace ShapesAndColorsChallenge.Class.Windows
 {
@@ -79,14 +78,15 @@ namespace ShapesAndColorsChallenge.Class.Windows
         {
             WindowSelectRanking window = new() { AddBackButton = false };
             return window;
-        }        
+        }
 
         static WindowMessageBox DeployMessageBox(object parameters)
         {
             WindowMessageBox window = new(
                 ((WindowMessageBoxParams)parameters).MessageBoxButton,
                 ((WindowMessageBoxParams)parameters).Message,
-                ((WindowMessageBoxParams)parameters).LinesNumber) { AddBackButton = false };
+                ((WindowMessageBoxParams)parameters).LinesNumber)
+            { AddBackButton = false };
             return window;
         }
 

@@ -139,7 +139,7 @@ namespace ShapesAndColorsChallenge.Class
         {
             AcheivementsManager.Refresh();
             FontManager.LoadContent();/*Se mantiene durante toda la vida la aplicación*/
-            TextureManager.LoadContent();/*Se mantiene durante toda la vida la aplicación*/            
+            TextureManager.LoadContent();/*Se mantiene durante toda la vida la aplicación*/
             SoundManager.LoadContent();/*Cada vez que se reproduce una canción se reinicia el content de música para reducir el consumo de memoria*/
         }
 
@@ -170,7 +170,7 @@ namespace ShapesAndColorsChallenge.Class
             Screen.SpriteBatchBeginUI();
             WindowManager.Draw(gameTime);
 #if DEBUG
-            DebugManager.Draw(gameTime, false, false, false, false, false, false, false);
+            DebugManager.Draw(gameTime, false, true, false, false, false, false, false);
 #endif
             Screen.SpriteBatchEnd();
             base.Draw(gameTime);

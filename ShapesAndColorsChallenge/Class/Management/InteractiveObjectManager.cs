@@ -189,7 +189,7 @@ namespace ShapesAndColorsChallenge.Class.Management
 
         internal override void Update(GameTime gameTime)
         {
-            if(SkipUpdate) 
+            if (SkipUpdate)
                 return;
 
             lock (InteractiveObjects)

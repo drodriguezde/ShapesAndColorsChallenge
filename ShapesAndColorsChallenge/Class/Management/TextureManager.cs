@@ -95,6 +95,7 @@ namespace ShapesAndColorsChallenge.Class.Management
         internal static Texture2D TextureRankingLocal { get; private set; }
         internal static Texture2D TextureButtonUpload { get; private set; }
         internal static Texture2D TextureButtonDownload { get; private set; }
+        internal static List<Texture2D> MiniShapes { get; private set; } = new();
 
         static Hashtable LoadedFlags { get; set; } = new();
 
@@ -176,7 +177,8 @@ namespace ShapesAndColorsChallenge.Class.Management
         internal static void LoadContent()
         {
             LoadAsync();
-            LoadTextures();            
+            LoadTextures();
+            LoadMiniShapes();
             LoadOthers();
             LoadModes();
         }
@@ -237,13 +239,32 @@ namespace ShapesAndColorsChallenge.Class.Management
             TextureButtonDownload = GameContent.ContentImage.Load<Texture2D>("Image/ButtonDownload");
         }
 
+        static void LoadMiniShapes()
+        {
+            MiniShapes.Add(GameContent.ContentImage.Load<Texture2D>("Image/ForbiddenMini"));
+            MiniShapes.Add(GameContent.ContentImage.Load<Texture2D>("Shape/ShapeAsteriskMini"));
+            MiniShapes.Add(GameContent.ContentImage.Load<Texture2D>("Shape/ShapeCircleMini"));
+            MiniShapes.Add(GameContent.ContentImage.Load<Texture2D>("Shape/ShapeCrossMini"));
+            MiniShapes.Add(GameContent.ContentImage.Load<Texture2D>("Shape/ShapeDiamondMini"));
+            MiniShapes.Add(GameContent.ContentImage.Load<Texture2D>("Shape/ShapeHeartMini"));
+            MiniShapes.Add(GameContent.ContentImage.Load<Texture2D>("Shape/ShapeMoonMini"));
+            MiniShapes.Add(GameContent.ContentImage.Load<Texture2D>("Shape/ShapeOvalMini"));
+            MiniShapes.Add(GameContent.ContentImage.Load<Texture2D>("Shape/ShapePentagonMini"));
+            MiniShapes.Add(GameContent.ContentImage.Load<Texture2D>("Shape/ShapeRightTriangleMini"));
+            MiniShapes.Add(GameContent.ContentImage.Load<Texture2D>("Shape/ShapeRombusMini"));
+            MiniShapes.Add(GameContent.ContentImage.Load<Texture2D>("Shape/ShapeSixStarMini"));
+            MiniShapes.Add(GameContent.ContentImage.Load<Texture2D>("Shape/ShapeSquareMini"));
+            MiniShapes.Add(GameContent.ContentImage.Load<Texture2D>("Shape/ShapeStarMini"));
+            MiniShapes.Add(GameContent.ContentImage.Load<Texture2D>("Shape/ShapeTriangleMini"));
+        }
+
         /// <summary>
         /// Devuelve una textura a demanda.
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
         internal static Texture2D GetTexture(string path)
-        { 
+        {
             return GameContent.ContentImage.Load<Texture2D>(path);
         }
 
@@ -275,6 +296,7 @@ namespace ShapesAndColorsChallenge.Class.Management
             ShapeSquare = GameContent.ContentImage.Load<Texture2D>("Shape/ShapeSquare");
             ShapeStar = GameContent.ContentImage.Load<Texture2D>("Shape/ShapeStar");
             ShapeTriangle = GameContent.ContentImage.Load<Texture2D>("Shape/ShapeTriangle");
+
             shapesLoading = false;
         }
 
@@ -323,8 +345,8 @@ namespace ShapesAndColorsChallenge.Class.Management
         /// </summary>
 
         static void LoadFlagsAsync()
-        { 
-            foreach(string code in Const.ALL_FLAGS)
+        {
+            foreach (string code in Const.ALL_FLAGS)
                 LoadedFlags.Add(code, GameContent.ContentImage.Load<Texture2D>($"UI/Flag/flag_{code}"));
         }
 
@@ -375,6 +397,11 @@ namespace ShapesAndColorsChallenge.Class.Management
                 ShapeType.Triangle => ShapeTriangle,
                 _ => null,
             };
+        }
+
+        internal static Texture2D GetShapeMini(ShapeType type)
+        {
+            return MiniShapes[(int)type];
         }
 
         /// <summary>

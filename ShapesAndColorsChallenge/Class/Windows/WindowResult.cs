@@ -25,6 +25,7 @@ using Microsoft.Xna.Framework;
 using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Class.Params;
+using ShapesAndColorsChallenge.Class.Particles;
 using ShapesAndColorsChallenge.Enum;
 using System;
 
@@ -151,7 +152,8 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         private void ButtonAccept_OnClick(object sender, EventArgs e)
         {
-            OnAccept?.Invoke(sender, e);
+            ParticleEngine.End();
+            OnAccept?.Invoke(sender, e);            
         }
 
         #endregion
@@ -204,7 +206,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         {
             if (!WindowResultParams.NewRecord)
                 return;
-            
+
             Rectangle bounds = new(Bounds.X, Bounds.Y + 340, Bounds.Width, 100);
             Label label = new(ModalLevel, bounds, Resource.String.NEW_RECORD.GetString(), ColorManager.LightGreen, ColorManager.LightGreen, AlignHorizontal.Center);
             InteractiveObjectManager.Add(label);
@@ -255,7 +257,10 @@ namespace ShapesAndColorsChallenge.Class.Windows
             {
                 NewRecordPlayed = true;
                 SoundManager.VoiceNewHighScore.PlayVoice();
+                ParticleEngine.Start(ConfettiType.Fireworks);
             }
+
+            ParticleEngine.Update(gameTime);
         }
 
         internal override void Draw(GameTime gameTime)
@@ -265,7 +270,8 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
             Screen.SpriteBatch.Draw(TextureBackLayer, Screen.Bounds, Color.White * BacklayerTransparency);
             Screen.SpriteBatch.Draw(BodyTexture, Location, Color.White * BodyTransparency);
-            base.Draw(gameTime);
+            base.Draw(gameTime); 
+            ParticleEngine.Draw(gameTime);
         }
 
         #endregion

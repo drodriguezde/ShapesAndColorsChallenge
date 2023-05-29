@@ -122,7 +122,7 @@ namespace ShapesAndColorsChallenge.Class.Management
                     if (NextWindow == WindowType.None)
                     {
                         if (!SoundManager.IsPlaying/*Si ya está sonando la música no la cortamos para reponerla*/)/*Este if debe ir anidado*/
-                            SoundManager.PlayMusic(Statics.GetRandom(1, 10) > 5 ? SoundManager.bgm_01: SoundManager.bgm_02);
+                            SoundManager.PlayMusic(Statics.GetRandom(1, 10) > 5 ? SoundManager.bgm_01 : SoundManager.bgm_02);
                     }
                     else
                         DeployWindow(NextWindow);

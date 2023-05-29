@@ -83,17 +83,17 @@ namespace ShapesAndColorsChallenge.Class
         /// <returns></returns>
         static bool IsNullable<T>(T obj)
         {
-            if (obj == null) 
+            if (obj == null)
                 return true;
 
             Type type = typeof(T);
 
-            if (!type.IsValueType) 
+            if (!type.IsValueType)
                 return true; // Tipo por referencia
 
-            if (Nullable.GetUnderlyingType(type) != null) 
+            if (Nullable.GetUnderlyingType(type) != null)
                 return true; // Nullable<T>
-            
+
             return false; // Tipo por valor
         }
 

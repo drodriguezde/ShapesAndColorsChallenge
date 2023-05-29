@@ -437,7 +437,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetButtonLanguage()
         {
-            imageLanguage = new(ModalLevel, buttonLanguageBounds, TextureManager.Flag(UserSettingsManager.CountryCode), true, 0 , false);
+            imageLanguage = new(ModalLevel, buttonLanguageBounds, TextureManager.Flag(UserSettingsManager.CountryCode), true, 0, false);
             int border = Const.BUTTON_BORDER.RedimX();
             Rectangle backImageBounds = new(buttonLanguageBounds.X - border.Half(), buttonLanguageBounds.Y - border.Half(), buttonLanguageBounds.Width + border, buttonLanguageBounds.Height + border);
             Image backImage = new(ModalLevel, backImageBounds, TextureManager.Get(backImageBounds.ToSize(), ColorManager.HardGray, CommonTextureType.Rectangle).Texture, true, 0, false);

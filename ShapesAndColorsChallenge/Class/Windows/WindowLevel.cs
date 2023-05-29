@@ -106,7 +106,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             new Rectangle(70, 1810, 425, 80),
             new Rectangle(585, 1810, 425, 80)
         };
-       
+
         #endregion
 
         #region CONSTRUCTORS
@@ -208,6 +208,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         internal override void LoadContent()
         {
             base.LoadContent();
+            TextureManager.LoadShapes();
             SetTitle();
             SetStages();
             SetTotalStars();
@@ -222,7 +223,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetStages()
         {
-            for(int i = 0; i < GameData.LEVELS; i++)
+            for (int i = 0; i < GameData.LEVELS; i++)
                 SetLevel(i);
         }
 
@@ -292,9 +293,9 @@ namespace ShapesAndColorsChallenge.Class.Windows
             Vector2 origin = TextureManager.TextureStar.Bounds.Size.ToVector2() / 2f;
 
             Rectangle rectangleImage = new(
-                starsBounds[index].X + 88, 
-                starsBounds[index].Y + 40, 
-                80, 
+                starsBounds[index].X + 88,
+                starsBounds[index].Y + 40,
+                80,
                 80);
             image[0] = new Image(ModalLevel, rectangleImage, currentStarsLevel > 0 ? TextureManager.TextureStar : TextureManager.TextureStarGray, -ROTATION_STAR.ToRadians(), origin, true);
 
@@ -335,8 +336,8 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 OrchestratorManager.BackWindow = WindowType;
                 OrchestratorManager.GameWindowInvoker = WindowType.Level;
 
-                if(ControllerSettings.GetShowHowToPlay(OrchestratorManager.GameMode))
-                    CloseMeAndOpenThis(WindowType.Game);                
+                if (ControllerSettings.GetShowHowToPlay(OrchestratorManager.GameMode))
+                    CloseMeAndOpenThis(WindowType.Game);
                 else
                     CloseMeAndOpenThis(WindowType.HowToPlay, new WindowHowToPlayParams(OrchestratorManager.GameMode, false));
             }

@@ -22,18 +22,13 @@
 */
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
 using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.EventArguments;
 using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Class.Params;
-using ShapesAndColorsChallenge.DataBase.Controllers;
-using ShapesAndColorsChallenge.DataBase.Tables;
-using ShapesAndColorsChallenge.DataBase.Types;
 using ShapesAndColorsChallenge.Enum;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ShapesAndColorsChallenge.Class.Windows
 {
@@ -115,7 +110,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             /*Objetos administrados aquí*/
             if (disposing)
             {
-                UnsubscribeEvents();                
+                UnsubscribeEvents();
             }
 
             /*Objetos no administrados aquí*/
@@ -209,7 +204,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         internal override void LoadContent()
         {
-            SetPanel();            
+            SetPanel();
             SetAcheivements();
             SubscribeEvents();
             InteractiveObjectManager.Add(NavigationPanelVertical);
@@ -314,8 +309,8 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 Rectangle bounds = new(item.Bounds.Width - BUTTON_WH - OFFSET_X, ITEM_HEIGHT.Half() - BUTTON_WH.Half(), BUTTON_WH, BUTTON_WH); /*relativo al item*/
                 Button button = new(ModalLevel, bounds);
                 bounds = new(bounds.X + BUTTON_WH.Half() - IMAGE_WH.Half(), ITEM_HEIGHT.Half() - IMAGE_WH.Half(), IMAGE_WH, IMAGE_WH);
-                Image image = new(ModalLevel, bounds, TextureManager.TextureGift, true) { ColorDarkMode = ColorManager.HardGray, ColorLightMode = ColorManager.HardGray };                
-                buttons.Add(button);                
+                Image image = new(ModalLevel, bounds, TextureManager.TextureGift, true) { ColorDarkMode = ColorManager.HardGray, ColorLightMode = ColorManager.HardGray };
+                buttons.Add(button);
                 Image completedImage = SetCompleted(item);/*Imagen de completo, se mostrará al obtener la recompensa*/
                 Image incompletedImage = SetIncompleted(item);/*Imagen de incompleto, se mostrará al obtener la recompensa*/
                 completedImage.Visible = incompletedImage.Visible = completedImage.VisibleForNavigationPanel = incompletedImage.VisibleForNavigationPanel = false;

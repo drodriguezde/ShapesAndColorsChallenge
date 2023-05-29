@@ -1,8 +1,6 @@
-﻿using ShapesAndColorsChallenge.Class;
-using ShapesAndColorsChallenge.Class.Management;
+﻿using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.DataBase.Tables;
 using ShapesAndColorsChallenge.Enum;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -86,7 +84,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         internal static void Discount(PerkType perkType)
         {
             Perk perk = Get(perkType);
-            
+
             if (perk.Amount == 0)
                 return;
 

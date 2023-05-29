@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ShapesAndColorsChallenge.Class.Params
+﻿namespace ShapesAndColorsChallenge.Class.Params
 {
     internal class MusicFadeOutParams
     {
@@ -46,7 +40,7 @@ namespace ShapesAndColorsChallenge.Class.Params
             Random = random;
             OnlyStop = onlyStop;
             Delay = delay;
-         }
+        }
 
         #endregion
     }

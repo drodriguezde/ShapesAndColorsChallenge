@@ -63,7 +63,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             new Rectangle(BaseBounds.Limits.X.Double() + 465, 1080, 465, 340).Redim(),
             new Rectangle(BaseBounds.Limits.X.Double() + 465, 1460, 465, 340).Redim(),
         };
-        
+
         readonly Rectangle[] imageBounds = new Rectangle[] { /*No necesita RedimMatrix, las Image se redimensionan en su propio Draw*/
             new Rectangle(BaseBounds.Limits.X + 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 410, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
             new Rectangle(BaseBounds.Limits.X + 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 790, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
@@ -74,7 +74,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             new Rectangle(BaseBounds.Limits.X.Double() + 465.Double() - 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 1170, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
             new Rectangle(BaseBounds.Limits.X.Double() + 465.Double() - 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 1550, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
         };
-        
+
         readonly Rectangle[] titleBounds = new Rectangle[]
         {
             new Rectangle(BaseBounds.Limits.X, 310, 465, 80).Redim(),
@@ -86,7 +86,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             new Rectangle(BaseBounds.Limits.X.Double() + 465, 1070, 465, 80).Redim(),
             new Rectangle(BaseBounds.Limits.X.Double() + 465, 1450, 465, 80).Redim(),
         };
-        
+
         readonly Rectangle[] imageChallengesBounds = new Rectangle[] {/*No necesita RedimMatrix, las Image se redimensionan en su propio Draw*/
             new Rectangle(BaseBounds.Limits.X + 20, 410 + SEPARATOR_TITLE_LINE.RedimY(), Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
             new Rectangle(BaseBounds.Limits.X + 20, 790 + SEPARATOR_TITLE_LINE.RedimY(), Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
@@ -97,7 +97,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             new Rectangle(BaseBounds.Limits.X.Double() + 20 + 460, 1170 + SEPARATOR_TITLE_LINE.RedimY(), Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
             new Rectangle(BaseBounds.Limits.X.Double() + 20 + 460, 1550 + SEPARATOR_TITLE_LINE.RedimY(), Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER)
         };
-        
+
         readonly Rectangle[] labelChallengesBounds = new Rectangle[] {
             new Rectangle(BaseBounds.Limits.X + 20 + 18, 410 + SEPARATOR_TITLE_LINE.RedimY(), Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
             new Rectangle(BaseBounds.Limits.X + 20 + 18, 790 + SEPARATOR_TITLE_LINE.RedimY(), Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
@@ -253,8 +253,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         internal override void LoadContent()
         {
-            base.LoadContent();
-            TextureManager.LoadShapes();
+            base.LoadContent();            
             SetTextures();
             SetPanel();
             SetTitle();
@@ -292,7 +291,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             SetMode(ref buttonMove, buttonBounds[5], GameMode.Move, imageBounds[5], TextureManager.ModeMove, titleBounds[5], Resource.String.MOVE_MODE.GetString(), imageChallengesBounds[5], labelChallengesBounds[5], 1, ref imageMove);
             SetMode(ref buttonBlink, buttonBounds[6], GameMode.Blink, imageBounds[6], TextureManager.ModeBlink, titleBounds[6], Resource.String.BLINK_MODE.GetString(), imageChallengesBounds[6], labelChallengesBounds[6], 1, ref imageBlink);
             SetMode(ref buttonRotate, buttonBounds[7], GameMode.Rotate, imageBounds[7], TextureManager.ModeRotate, titleBounds[7], Resource.String.ROTATE_MODE.GetString(), imageChallengesBounds[7], labelChallengesBounds[7], 1, ref imageRotate);
-            
+
             SetMode(ref buttonClassicPlus, buttonBounds[0], GameMode.ClassicPlus, imageBounds[0], TextureManager.ModeClassic, titleBounds[0], Resource.String.CLASSIC_MODE_PLUS.GetString(), imageChallengesBounds[0], labelChallengesBounds[0], 2, ref imageClassicPlus);
             SetMode(ref buttonEndlessPlus, buttonBounds[1], GameMode.EndlessPlus, imageBounds[1], TextureManager.ModeEndless, titleBounds[1], Resource.String.ENDLESS_MODE_PLUS.GetString(), imageChallengesBounds[1], labelChallengesBounds[1], 2, ref imageEndlessPlus);
             SetMode(ref buttonMemoryPlus, buttonBounds[2], GameMode.MemoryPlus, imageBounds[2], TextureManager.ModeMemory, titleBounds[2], Resource.String.MEMORY_MODE_PLUS.GetString(), imageChallengesBounds[2], labelChallengesBounds[2], 2, ref imageMemoryPlus);
@@ -341,8 +340,8 @@ namespace ShapesAndColorsChallenge.Class.Windows
             (Image imageChallenges, Label labelChallenges) = SetChallengesBubble(locked, challengesBounds, challengesLabelBounds);
             InteractiveObjectManager.Add(button, imageMode, labelMode, lineMode, imageChallenges, imageChallenges, labelChallenges);
             navigationPanelHorizontal.Add(panel, button, imageMode, labelMode, lineMode, imageChallenges, imageChallenges, labelChallenges);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
-            
-            if(!locked)
+
+            if (!locked)
                 SetStarsByGameMode(gameMode, panel, imageBounds);
         }
 

@@ -28,8 +28,11 @@ using ShapesAndColorsChallenge.Class.Animated;
 using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.EventArguments;
 using ShapesAndColorsChallenge.Class.Management;
+using ShapesAndColorsChallenge.Class.Particles;
 using ShapesAndColorsChallenge.Enum;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ShapesAndColorsChallenge.Class.Windows
 {
@@ -182,6 +185,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void ButtonPlay_OnClick(object sender, OnClickEventArgs e)
         {
+            ParticleEngine.End();
             CloseMeAndOpenThis(WindowType.GameMode);
         }
 
@@ -236,17 +240,20 @@ namespace ShapesAndColorsChallenge.Class.Windows
             InitializePlayButton();
             InitializePlayText();
             SubscribeEvents();
+            ParticleEngine.Start(ConfettiType.Falling);
         }
 
         internal override void Update(GameTime gameTime)
-        {
+        {            
             animationHeartBeat.Update(gameTime);
             base.Update(gameTime);
+            ParticleEngine.Update(gameTime);
         }
 
         internal override void Draw(GameTime gameTime)
         {
             base.Draw(gameTime);/*Tiene que ir antes*/
+            ParticleEngine.Draw(gameTime);
         }
 
         #endregion

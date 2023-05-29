@@ -24,7 +24,6 @@
 using Microsoft.Xna.Framework;
 using ShapesAndColorsChallenge.Class.D2;
 using ShapesAndColorsChallenge.Enum;
-using System;
 using System.Collections.Generic;
 
 namespace ShapesAndColorsChallenge.Class.Controls
@@ -64,7 +63,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         internal override void LoadContent()
         {
-            
+
         }
 
         internal void Add(InteractiveObject control)
@@ -86,7 +85,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
                 return;
 
             foreach (InteractiveObject control in InteractiveObjects)
-            {                
+            {
                 if (control.GetType().Name == typeof(Line).Name)
                 {
                     (control as Line).P1X = Location.X.ToInt() + (control as Line).OriginalP1X;

@@ -22,9 +22,7 @@
 */
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using ShapesAndColorsChallenge.Class.Controls;
-using System;
 
 namespace ShapesAndColorsChallenge.Class.Animated
 {
@@ -126,7 +124,7 @@ namespace ShapesAndColorsChallenge.Class.Animated
 
             Object.Location = new(Object.OriginalLocation.X + Object.OriginalBounds.Width.ToSingle().Half(), Object.OriginalLocation.Y + Object.OriginalBounds.Height.ToSingle().Half());
             Object.Origin = new(
-                Object.Bounds.Width - Object.Bounds.Width.ToSingle().Half(), 
+                Object.Bounds.Width - Object.Bounds.Width.ToSingle().Half(),
                 Object.Bounds.Height - Object.Bounds.Height.ToSingle().Half());
             Object.Origin /= Object.Scale;
         }

@@ -21,7 +21,6 @@
 */
 
 using Microsoft.Xna.Framework;
-using ShapesAndColorsChallenge.Class;
 using ShapesAndColorsChallenge.Enum;
 
 namespace ShapesAndColorsChallenge.Class.Management

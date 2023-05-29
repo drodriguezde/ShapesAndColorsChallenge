@@ -1,9 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
-using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Enum;
 
-namespace ShapesAndColorsChallenge.Class
+namespace ShapesAndColorsChallenge.Class.Controls
 {
     internal class Tile : InteractiveObject
     {

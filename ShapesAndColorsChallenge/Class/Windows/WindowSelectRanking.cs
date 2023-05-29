@@ -22,11 +22,8 @@
 */
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using ShapesAndColorsChallenge.Class.Controls;
-using ShapesAndColorsChallenge.Class.EventArguments;
 using ShapesAndColorsChallenge.Class.Management;
-using ShapesAndColorsChallenge.Class.Params;
 using ShapesAndColorsChallenge.Enum;
 using System;
 
@@ -131,7 +128,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// </summary>
         void SubscribeEvents()
         {
-            if(buttonCancel != null)
+            if (buttonCancel != null)
                 buttonCancel.OnClick += ButtonCancel_OnClick;
 
             if (buttonLocal != null)
@@ -195,7 +192,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         {
             TextureBackLayer = TextureManager.Get(new Size(Bounds.Width, Bounds.Height), Color.Black, CommonTextureType.Rectangle).Texture;
         }
-            
+
         void SetButtonCancel()
         {
             buttonCancel = new Button(ModalLevel, buttonCancelBounds);

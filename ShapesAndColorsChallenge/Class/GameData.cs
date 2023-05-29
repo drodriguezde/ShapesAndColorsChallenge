@@ -109,7 +109,7 @@ namespace ShapesAndColorsChallenge.Class
 
         internal static int StarsToUnlockMode
         {
-            get 
+            get
             {
                 return STAGES * LEVELS * STARS_PER_LEVEL / 3 * 2;
             }

@@ -21,8 +21,6 @@
 *
 */
 
-using Android.Icu.Number;
-using Android.Text.Method;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ShapesAndColorsChallenge.Class.Controls;

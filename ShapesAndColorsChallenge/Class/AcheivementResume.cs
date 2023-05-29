@@ -42,12 +42,12 @@ namespace ShapesAndColorsChallenge.Class
         /// <summary>
         /// Tipo de recompensa por el logro.
         /// </summary>
-        internal RewardType RewardType{ get; set; } = RewardType.None;
+        internal RewardType RewardType { get; set; } = RewardType.None;
 
         /// <summary>
         /// Indica si un logro está completa, es decir, reclamado en su totalidad.
         /// </summary>
-        internal bool Completed 
+        internal bool Completed
         {
             get { return Max == Claimed; }
         }

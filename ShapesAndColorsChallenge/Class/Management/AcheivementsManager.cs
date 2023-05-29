@@ -48,8 +48,8 @@ namespace ShapesAndColorsChallenge.Class.Management
         internal static List<AcheivementResume> GetResume
         {
             get
-            { 
-                if(loading)
+            {
+                if (loading)
                     Thread.SpinWait(1);
 
                 return AcheivementResumes;
@@ -268,7 +268,7 @@ namespace ShapesAndColorsChallenge.Class.Management
                 Max = 1,
                 Acheived = scores.Where(t => t.GameMode == gameMode).Sum(t => t.Stars) == maxStars ? 1 : 0
             };
-            
+
             return acheivementResume;
         }
 
@@ -520,7 +520,7 @@ namespace ShapesAndColorsChallenge.Class.Management
 
                 return windowRewardParams;
             }
-            
+
             if (change.NotIsZero())
                 return new(PerkType.Change, change, PerkType.TimeStop, timeStop, PerkType.Reveal, reveal);
             else

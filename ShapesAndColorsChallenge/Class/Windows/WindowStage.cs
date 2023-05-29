@@ -62,9 +62,9 @@ namespace ShapesAndColorsChallenge.Class.Windows
         readonly List<StarsByStage> starsByStage = GetUserStarsGroupByStage(OrchestratorManager.GameMode);
 
         readonly Rectangle buttonRankingBounds = new Rectangle(
-            BaseBounds.Limits.X + (BaseBounds.Limits.Width - BaseBounds.Button.Width * 4) / 3 + BaseBounds.Button.Width, 
-            BaseBounds.Limits.Bottom - BaseBounds.Button.Height, 
-            BaseBounds.Button.Width, 
+            BaseBounds.Limits.X + (BaseBounds.Limits.Width - BaseBounds.Button.Width * 4) / 3 + BaseBounds.Button.Width,
+            BaseBounds.Limits.Bottom - BaseBounds.Button.Height,
+            BaseBounds.Button.Width,
             BaseBounds.Button.Height).Redim();
 
         readonly Rectangle buttonChallengesBounds = new Rectangle(
@@ -381,7 +381,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 starsBounds[index].Y - 10,
                 90,
                 90);
-            Image image = new (ModalLevel, rectangle, TextureManager.TextureStar, true);
+            Image image = new(ModalLevel, rectangle, TextureManager.TextureStar, true);
 
             rectangle = new(rectangle.X + 110, rectangle.Y - 5, 200, 110);
             Label label = new(ModalLevel, rectangle, starsByStage.Where(t => t.Stage == index + 1).Sum(t => t.Stars).ToString(), Color.GreenYellow, Color.GreenYellow, AlignHorizontal.Left);

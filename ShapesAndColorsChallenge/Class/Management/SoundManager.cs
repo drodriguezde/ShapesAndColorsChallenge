@@ -120,6 +120,11 @@ namespace ShapesAndColorsChallenge.Class.Management
         /// </summary>
         static SoundEffect[] PositiveFeedbackVoices = new SoundEffect[13];
 
+        /// <summary>
+        /// Colección de explosión de globo.
+        /// </summary>
+        static SoundEffect[] BallonPop = new SoundEffect[3];
+
         #endregion
 
         #region EVENTS
@@ -337,6 +342,26 @@ namespace ShapesAndColorsChallenge.Class.Management
                 voice.Play(VOLUME_FX * VOLUME_MASTER, 0, 0);
         }
 
+        internal static void PlayBallonPop()
+        {
+            int i = Statics.GetRandom(0, 2);
+
+            if (BallonPop[i] == null)
+            {
+                SoundEffect sound = i switch
+                {
+                    0 => GameContent.ContentSound.Load<SoundEffect>("Sound/Effect/UI/BalloonPop1"),
+                    1 => GameContent.ContentSound.Load<SoundEffect>("Sound/Effect/UI/BalloonPop2"),
+                    2 => GameContent.ContentSound.Load<SoundEffect>("Sound/Effect/UI/BalloonPop3"),
+                    _ => GameContent.ContentSound.Load<SoundEffect>("Sound/Effect/UI/BalloonPop1")
+                };
+
+                BallonPop[i] = sound;
+            }
+
+            BallonPop[i].PlaySound();
+        }
+
         /// <summary>
         /// Reproduce una voz con un mensaje positivo aleatorio.
         /// </summary>
@@ -344,12 +369,12 @@ namespace ShapesAndColorsChallenge.Class.Management
         {
             int i = Statics.GetRandom(0, 12);
 
-            while (LastVoiceSounded == i)/*Para qu eusne otra diferente al anterior*/
+            while (LastVoiceSounded == i)/*Para que reproduzca otra diferente al anterior*/
                 i = Statics.GetRandom(0, 12);
 
             if (PositiveFeedbackVoices[i] == null)
             {
-                SoundEffect voice = i switch
+                SoundEffect sound = i switch
                 {
                     0 => GameContent.ContentSound.Load<SoundEffect>("Sound/Voice/Amazing"),
                     1 => GameContent.ContentSound.Load<SoundEffect>("Sound/Voice/Atomic"),
@@ -367,7 +392,7 @@ namespace ShapesAndColorsChallenge.Class.Management
                     _ => GameContent.ContentSound.Load<SoundEffect>("Sound/Voice/Amazing")
                 };
 
-                PositiveFeedbackVoices[i] = voice;
+                PositiveFeedbackVoices[i] = sound;
             }
 
             if (DateTime.Now.Ticks > LastVoiceEnded + PositiveFeedbackVoices[i].Duration.Ticks)/*Para que no se solapen los mensajes*/
