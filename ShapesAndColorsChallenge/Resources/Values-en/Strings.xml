@@ -109,6 +109,14 @@
 	<string name="WRITE_ID">Write your saved game ID</string>
 	<string name="INVALID_ID">Invalid game ID</string>
 	<string name="SAVE_PROGRESS">Save progress?</string>
+	<!--CHALLENGES-->
+	<string name="CHALLENGE_STARS">Get more stars on level %1$d of stage %2$d.</string>
+	<string name="CHALLENGE_POINTS">Beat your points on level %1$d of stage %2$d.</string>
+	<string name="CHALLENGE_NOPOWERUPS">Get 2 stars on level %1$d of stage %2$d without using any power-ups.</string>
+	<string name="CHALLENGE_NOMISTAKES">Complete level %1$d of stage %2$d without any failures.</string>
+	<string name="CHALLENGE_SHAPES">Find more tiles on level %1$d of stage %2$d.</string>
+	<string name="CHALLENGE_INFO">Complete challenges to get power-ups!</string>
+	<string name="CHALLENGE_LEAVE">If you quit you will lose the challenge!</string>
 	<!--ACHEIVEMENTS-->
 	<string name="ACHEIVEMENT_FirstStar">My first star</string>
 	<string name="ACHEIVEMENT_StarCollector">Little star, where are you?</string>

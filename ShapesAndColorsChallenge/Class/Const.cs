@@ -66,6 +66,11 @@ namespace ShapesAndColorsChallenge.Class
         /// </summary>
         internal const int BUBBLE_INFO_DIAMETER = 58;
 
+        /// <summary>
+        /// Padding de la imagen de la ficha con respecto a su contenedor.
+        /// </summary>
+        internal const int TILE_PADDING = 10;
+
         internal static readonly List<string> ALL_FLAGS = new() {
             "af",
             "ag",

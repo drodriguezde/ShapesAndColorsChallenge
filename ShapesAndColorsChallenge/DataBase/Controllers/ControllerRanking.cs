@@ -385,7 +385,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         /// <summary>
         /// Establece la tabla en base a los datos descargados desde una partida guardada en la nube.
         /// </summary>
-        internal static void Deploy(List<Ranking> rankings)
+        internal static void Restore(List<Ranking> rankings)
         {
             DataBaseManager.Connection.DropTable<Ranking>();
             DataBaseManager.Connection.CreateTable<Ranking>();
@@ -454,6 +454,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
                     orderby ranking.Win * 3 - ranking.Lose * 2 descending/*El primero el que tiene mayor puntuación*/
                     select new RankingByGameMode
                     {
+                        PlayerID = player.PlayerID,
                         Name = player.Name,
                         Country = player.Country,
                         IsPlayer = player.IsPlayer,
@@ -463,6 +464,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
                     .Select((item, index) => new RankingByGameMode
                     {
                         Position = index + 1,
+                        PlayerID = item.PlayerID,
                         Name = item.Name,
                         IsPlayer = item.IsPlayer,
                         Country = item.Country,
@@ -484,6 +486,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
                     where player.IsPlayer
                     select new RankingByGameMode
                     {
+                        PlayerID = player.PlayerID,
                         Name = player.Name,
                         Country = player.Country,
                         Points = ranking.Win * 3 - ranking.Lose * 2,

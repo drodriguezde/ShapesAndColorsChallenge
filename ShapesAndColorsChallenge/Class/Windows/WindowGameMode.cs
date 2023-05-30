@@ -27,6 +27,7 @@ using ShapesAndColorsChallenge.Class.Animated;
 using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.EventArguments;
 using ShapesAndColorsChallenge.Class.Management;
+using ShapesAndColorsChallenge.DataBase.Controllers;
 using ShapesAndColorsChallenge.DataBase.Types;
 using ShapesAndColorsChallenge.Enum;
 using System;
@@ -253,7 +254,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         internal override void LoadContent()
         {
-            base.LoadContent();            
+            base.LoadContent();
             SetTextures();
             SetPanel();
             SetTitle();
@@ -337,7 +338,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             imageMode = new(ModalLevel, imageBounds, locked ? TextureManager.TexturePadLock : textureMode, Color.DarkGray, Color.DarkGray, true, 30);
             Label labelMode = new(ModalLevel, labelModeBounds, title, ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
             Line lineMode = new(ModalLevel, new Point(labelModeBounds.Left, labelModeBounds.Bottom + SEPARATOR_TITLE_LINE.RedimY()), new Point(labelModeBounds.Right, labelModeBounds.Bottom + SEPARATOR_TITLE_LINE.RedimY()), ColorManager.HardGray, ColorManager.HardGray, 1);
-            (Image imageChallenges, Label labelChallenges) = SetChallengesBubble(locked, challengesBounds, challengesLabelBounds);
+            (Image imageChallenges, Label labelChallenges) = SetChallengesBubble(locked, gameMode, challengesBounds, challengesLabelBounds);
             InteractiveObjectManager.Add(button, imageMode, labelMode, lineMode, imageChallenges, imageChallenges, labelChallenges);
             navigationPanelHorizontal.Add(panel, button, imageMode, labelMode, lineMode, imageChallenges, imageChallenges, labelChallenges);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
 
@@ -345,9 +346,9 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 SetStarsByGameMode(gameMode, panel, imageBounds);
         }
 
-        (Image, Label) SetChallengesBubble(bool locked, Rectangle challengesBounds, Rectangle challengesLabelBounds)
+        (Image, Label) SetChallengesBubble(bool locked, GameMode gameMode, Rectangle challengesBounds, Rectangle challengesLabelBounds)
         {
-            int challenges = Statics.GetRandom(0, 9);
+            int challenges = ControllerChallenge.Get().Count(t => t.IsActive && t.GameMode == gameMode);
             Image image = new(ModalLevel, challengesBounds, textureChallenges) { VisibleForNavigationPanel = !locked && challenges.NotIsZero(), Visible = !locked && challenges.NotIsZero() };
             Label label = new(ModalLevel, challengesLabelBounds, challenges.ToString(), Color.White, Color.Black) { VisibleForNavigationPanel = !locked && challenges.NotIsZero(), Visible = !locked && challenges.NotIsZero() };
             return (image, label);

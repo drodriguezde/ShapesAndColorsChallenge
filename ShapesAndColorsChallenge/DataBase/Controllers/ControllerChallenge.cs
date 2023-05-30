@@ -28,7 +28,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         /// Establece la tabla en base a los datos descargados desde una partida guardada en la nube.
         /// </summary>
         /// <param name="challenges"></param>
-        internal static void Deploy(List<Challenge> challenges)
+        internal static void Restore(List<Challenge> challenges)
         {
             DataBaseManager.Connection.DropTable<Challenge>();
             DataBaseManager.Connection.CreateTable<Challenge>();
@@ -88,6 +88,26 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         internal static bool Update(Challenge challenge)
         {
             return DataBaseManager.Connection.Update(challenge) > 0;
+        }
+
+        /// <summary>
+        /// Elimina un reto de la base de datos.
+        /// </summary>
+        /// <param name="challenge"></param>
+        /// <returns></returns>
+        internal static bool Delete(Challenge challenge)
+        {
+            return DataBaseManager.Connection.Delete(challenge) > 0;
+        }
+
+        /// <summary>
+        /// Inserta un registro de reto.
+        /// </summary>
+        /// <param name="challenge"></param>
+        /// <returns></returns>
+        internal static bool Insert(Challenge challenge)
+        {
+            return DataBaseManager.Connection.Insert(challenge) > 0;
         }
 
         #endregion

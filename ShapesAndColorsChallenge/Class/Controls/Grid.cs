@@ -18,11 +18,6 @@ namespace ShapesAndColorsChallenge.Class.Controls
         const int MAX_GRID_HEIGHT = 1120;
 
         /// <summary>
-        /// Padding de la imagen de la ficha con respecto a su contenedor.
-        /// </summary>
-        const int TILE_PADDING = 10;
-
-        /// <summary>
         /// Indica donde se empezarán a colocar las fichas por arriba.
         /// </summary>
         const int TopLimit = 730;/*No hay que hacer redim aquí*/
@@ -82,6 +77,11 @@ namespace ShapesAndColorsChallenge.Class.Controls
         /// Fichas de la parrilla.
         /// </summary>
         internal List<Tile> Tiles = new();
+
+        /// <summary>
+        /// Fichas que se deben resaltar.
+        /// </summary>
+        internal List<HighlightTile> Highlights = new();
 
         #endregion
 
@@ -195,7 +195,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
                 for (int v = 0; v < verticalTiles; v++)
                 {
                     (ShapeType shapeType, TileColor tileColor) = GetColorAndShape(positionPlusTile, positionCurrentTile);
-                    Rectangle bounds = new Rectangle(GetTileLocationLeft(h) + TILE_PADDING, GetTileLocationTop(v) + TILE_PADDING, TileSize - TILE_PADDING.Double(), TileSize - TILE_PADDING.Double()).Redim();
+                    Rectangle bounds = new Rectangle(GetTileLocationLeft(h) + Const.TILE_PADDING, GetTileLocationTop(v) + Const.TILE_PADDING, TileSize - Const.TILE_PADDING.Double(), TileSize - Const.TILE_PADDING.Double()).Redim();
                     Tile tile = new(ModalLevel, bounds, h, v, tileColor, shapeType) { AllowClickWhenNotVisible = true };
                     Image imageTile = new(ModalLevel, bounds, TextureManager.GetShape(shapeType), ColorManager.GetShapeColor(tileColor), true) { EnableOnClick = false };
                     tile.OnClick += WindowGame.Tile_OnClick;
@@ -347,18 +347,31 @@ namespace ShapesAndColorsChallenge.Class.Controls
             {
                 if (Tiles[i].ShapeType == tile.ShapeType && Tiles[i].TileColor == tile.TileColor)
                 {
-                    Rectangle bounds = new Rectangle(GetTileLocationLeft(Tiles[i].HorizontalLocation) + TILE_PADDING, GetTileLocationTop(Tiles[i].VerticalLocation) + TILE_PADDING, TileSize - TILE_PADDING.Double(), TileSize - TILE_PADDING.Double()).Redim();
-                    return new(bounds.X.ToInt() - TILE_PADDING + offset, bounds.Y.ToInt() - TILE_PADDING - offset.Half(), bounds.Width + TILE_PADDING.Double(), bounds.Height + TILE_PADDING.Double());
+                    Rectangle bounds = new Rectangle(GetTileLocationLeft(Tiles[i].HorizontalLocation) + Const.TILE_PADDING, GetTileLocationTop(Tiles[i].VerticalLocation) + Const.TILE_PADDING, TileSize - Const.TILE_PADDING.Double(), TileSize - Const.TILE_PADDING.Double()).Redim();
+                    return new(bounds.X.ToInt() - Const.TILE_PADDING + offset, bounds.Y.ToInt() - Const.TILE_PADDING - offset.Half(), bounds.Width + Const.TILE_PADDING.Double(), bounds.Height + Const.TILE_PADDING.Double());
                 }
 
                 if (Tiles[i].ShapeType == ShapeType.None)/*Se devolverá la última en caso de no haber otra.*/
                 {
-                    Rectangle bounds = new Rectangle(GetTileLocationLeft(Tiles[i].HorizontalLocation) + TILE_PADDING, GetTileLocationTop(Tiles[i].VerticalLocation) + TILE_PADDING, TileSize - TILE_PADDING.Double(), TileSize - TILE_PADDING.Double()).Redim();
-                    tileLocation = new(bounds.X.ToInt() - TILE_PADDING + offset, bounds.Y.ToInt() - TILE_PADDING - offset.Half(), bounds.Width + TILE_PADDING.Double(), bounds.Height + TILE_PADDING.Double());
+                    Rectangle bounds = new Rectangle(GetTileLocationLeft(Tiles[i].HorizontalLocation) + Const.TILE_PADDING, GetTileLocationTop(Tiles[i].VerticalLocation) + Const.TILE_PADDING, TileSize - Const.TILE_PADDING.Double(), TileSize - Const.TILE_PADDING.Double()).Redim();
+                    tileLocation = new(bounds.X.ToInt() - Const.TILE_PADDING + offset, bounds.Y.ToInt() - Const.TILE_PADDING - offset.Half(), bounds.Width + Const.TILE_PADDING.Double(), bounds.Height + Const.TILE_PADDING.Double());
                 }
             }
 
             return tileLocation;
+        }
+
+        internal void SetHighLight(Tile tile, bool isCorrect)
+        {
+            Highlights.Add(new(tile, isCorrect, GetTileLocationLeft(tile.HorizontalLocation), GetTileLocationTop(tile.VerticalLocation)));
+        }
+
+        internal override void Update(GameTime gameTime)
+        {
+            Highlights.RemoveAll(t => t.Transparency <= 0);
+
+            for (int i = 0; i < Highlights.Count; i++)
+                Highlights[i].Update(gameTime);
         }
 
         internal override void Draw(GameTime gameTime)
@@ -374,11 +387,9 @@ namespace ShapesAndColorsChallenge.Class.Controls
                     new Vector2(DrawStartLocation.X + i * TileSize, DrawStartLocation.Y).Redim(),
                     new Vector2(DrawStartLocation.X + i * TileSize, DrawStartLocation.Y + GameData.VerticalTilesNumber(Stage, Level) * TileSize).Redim(),
                     ColorManager.VeryHardGray, 1);
-        }
 
-        internal override void Update(GameTime gameTime)
-        {
-
+            for (int i = 0; i < Highlights.Count; i++)
+                Highlights[i].Draw(gameTime);
         }
 
         #endregion

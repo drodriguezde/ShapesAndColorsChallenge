@@ -112,6 +112,14 @@
 	<string name="WRITE_ID">Escribe tu ID de juego guardado</string>
 	<string name="INVALID_ID">ID de juego invalido</string>
 	<string name="SAVE_PROGRESS">¿Guardar progreso?</string>
+	<!--CHALLENGES-->
+	<string name="CHALLENGE_STARS">Consigue más estrellas en el nivel %1$d de la etapa %2$d.</string>
+	<string name="CHALLENGE_POINTS">Supera tus puntos en el nivel %1$d de la etapa %2$d.</string>
+	<string name="CHALLENGE_NOPOWERUPS">Consigue 2 estrellas en el nivel %1$d de la etapa %2$d sin usar potenciadores.</string>
+	<string name="CHALLENGE_NOMISTAKES">Completa el nivel %1$d de la etapa %2$d sin ningún fallo.</string>
+	<string name="CHALLENGE_SHAPES">Encuentra más fichas el nivel %1$d de la etapa %2$d.</string>
+	<string name="CHALLENGE_INFO">¡Supera retos para conseguir potenciadores!</string>
+	<string name="CHALLENGE_LEAVE">¡Si abandonas perderás el reto!</string>
 	<!--ACHEIVEMENTS-->
 	<string name="ACHEIVEMENT_FirstStar">Mi primera estrella</string>
 	<string name="ACHEIVEMENT_StarCollector">Estrellita, ¿dónde estás?</string>

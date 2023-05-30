@@ -230,6 +230,11 @@ namespace ShapesAndColorsChallenge.Class.Windows
         int Level { get; set; }
 
         /// <summary>
+        /// Reto en curso.
+        /// </summary>
+        Challenge Challenge { get; set; } = null;
+
+        /// <summary>
         /// Indica si se está en el momento del modo memoria que no se ve la ficha maestra y solo la parrilla, justo antes de invertir la visualización, ver la ficha maestra pero no la parrilla.
         /// </summary>
         bool MemoryModePrevisualizating { get; set; }
@@ -249,6 +254,21 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// </summary>
         Rectangle RevealPerkBounds { get; set; }
 
+        /// <summary>
+        /// Cantidad de fichas encontradas por el usuario.
+        /// </summary>
+        int TilesFinded { get; set; }
+
+        /// <summary>
+        /// Cantidad de fallos que ha cometido el usuario.
+        /// </summary>
+        int UserMistakes { get; set; }
+
+        /// <summary>
+        /// Cantidad de potenciadores usados por el usuario.
+        /// </summary>
+        int PowerUpsUsed { get; set; }
+
         #endregion
 
         #region CONSTRUCTORS
@@ -259,6 +279,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             GameMode = OrchestratorManager.GameMode;
             Stage = OrchestratorManager.StageNumber;
             Level = OrchestratorManager.LevelNumber;
+            Challenge = OrchestratorManager.Challenge;
             BlockBack = true;
         }
 
@@ -347,6 +368,8 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         private void PerksPanel_OnPerkTimeStopStart(object sender, EventArgs e)
         {
+            PowerUpsUsed++;
+
             if (GameMode.IsTimeTrial())/*El tiempo es el total para todas, se le detiene pero no se reinicia*/
                 Stopwatch.Stop();
             else
@@ -358,12 +381,13 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         private void PerksPanel_OnPerkTimeStopEnd(object sender, EventArgs e)
         {
+            PowerUpsUsed++;
             Stopwatch.Start();
         }
 
         private void PerksPanel_OnPerkRevealStart(object sender, EventArgs e)
         {
-
+            PowerUpsUsed++;
         }
 
         private void PerksPanel_OnPerkChangeStart(object sender, EventArgs e)
@@ -383,25 +407,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 return;
 
             if (IsTheCorrectTile(sender as Tile))
-            {
-                /*TODO, añadir efecto*/
-                if (Statics.GetRandom(1, 10) > 5)
-                    SoundManager.CorrectTile1.PlaySound();
-                else
-                    SoundManager.CorrectTile2.PlaySound();
-
-                SumPoints();
-                PlayPositiveFeedback();
-                RunningRevealPerk();
-
-                if (GameMode.IsTimeTrial())/*Si es contrareloj solo se puede finalizar por tiempo, no por ficha*/
-                    SetNextTile();
-                else
-                {
-                    CurrentEndThreadToken = EndThreadTokens.Last();
-                    End();
-                }
-            }
+                UserCorrect(sender as Tile);
             else/*Se ha equivocado*/
                 UserMistake(sender as Tile);
         }
@@ -416,7 +422,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             Stopwatch.Stop();
             Paused = true;
             PerksPanel.Pause(Paused);
-            OrchestratorManager.OpenPause(ref windowPause);
+            OrchestratorManager.OpenPause(ref windowPause, Challenge != null);
             windowPause.OnResume += WindowPause_OnResume;
             windowPause.OnQuit += WindowPause_OnQuit;
         }
@@ -543,6 +549,17 @@ namespace ShapesAndColorsChallenge.Class.Windows
             StartNextTile();
         }
 
+        void StopAnimations()
+        {
+            shakeAnimationMaster?.Stop();
+            shakeAnimationTile?.Stop();
+
+            for (int i = 0; i < rotateAnimationTiles.Count; i++)
+                rotateAnimationTiles[i].Stop();
+
+            rotateAnimationTiles.Clear();
+        }
+
         /// <summary>
         /// Comprueba si la ficha pulsada por el usuario es la correcta.
         /// </summary>
@@ -555,29 +572,49 @@ namespace ShapesAndColorsChallenge.Class.Windows
         }
 
         /// <summary>
+        /// El usuario ha acertado.
+        /// </summary>
+        /// <param name="tile"></param>
+        void UserCorrect(Tile tile)
+        {
+            TilesFinded++;
+            StopAnimations();
+
+            if (!GameMode.IsIncremental() || TilesCounter % 3 != 0)/*El resaltado no se muestra en los cambios de incremental ya que la parrilla cambia de tamaño y el resaltado no queda bien*/
+                Grid.SetHighLight(tile, true);/*Solo se muestra el resaltado cuando no se va a cambiar la parrilla de tamaño*/
+
+            if (Statics.GetRandom(1, 10) > 5)
+                SoundManager.CorrectTile1.PlaySound();
+            else
+                SoundManager.CorrectTile2.PlaySound();
+
+            SumPoints();
+            PlayPositiveFeedback();
+            RunningRevealPerk();
+
+            if (GameMode.IsTimeTrial())/*Si es contrareloj solo se puede finalizar por tiempo, no por ficha*/
+                SetNextTile();
+            else
+            {
+                CurrentEndThreadToken = EndThreadTokens.Last();
+                End();
+            }
+        }
+
+        /// <summary>
         /// El usuario ha cometido un error.
         /// </summary>
-        void UserMistake(Tile tileMistaken)
+        void UserMistake(Tile tile)
         {
+            StopAnimations();
             Statics.Vibrate(VibrationDuration.Short);
+            UserMistakes++;
 
-            if (tileMistaken != null)/*Si el usuario no ha pulsado en el tiempo límite esta variable será nula*/
+            if (tile != null)/*Si el usuario no ha pulsado en el tiempo límite esta variable será nula*/
             {
-                shakeAnimationMaster?.Stop();
-                shakeAnimationTile?.Stop();
-
-                if (rotateAnimationTiles.Any(t => t.Object.ID == MasterTileImage.ID))
-                {
-                    rotateAnimationTiles.Single(t => t.Object.ID == MasterTileImage.ID).Stop();
-                    MasterTileImage.Origin = Vector2.Zero;
-                }
-
-                for (int i = 0; i < rotateAnimationTiles.Count; i++)
-                    if (rotateAnimationTiles[i].Object.ID == tileMistaken.Image.ID)
-                        rotateAnimationTiles[i].Stop();
-
+                Grid.SetHighLight(tile, false);
                 shakeAnimationMaster = new AnimationShake(MasterTileImage, 500);
-                shakeAnimationTile = new AnimationShake(tileMistaken.Image, 500);
+                shakeAnimationTile = new AnimationShake(tile.Image, 500);
                 shakeAnimationMaster.Start();
                 shakeAnimationTile.Start();
                 SoundManager.WrongTile.PlaySound();
@@ -657,7 +694,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
             /*La dificultad aumenta primero por el nivel y cuando ha llegado al máximo cambia de etapa en el nivel más bajo, cada 3 fichas encontradas*/
             /*La dificultad se podría representar como unos dientes de sierra que van ascendiendo cada vez más*/
-            if (TilesCounter % 3 != 0)
+            if (TilesCounter == 1 || (TilesCounter - 1) % 3 != 0)
                 return;
 
             if (Level < GameData.LEVELS)
@@ -855,6 +892,8 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (userQuitGame && !userQuitButSaveScore)/*Se ha terminado el juego porque el usuario a abandonado*/
             {
                 CloseMeAndOpenThis(OrchestratorManager.GameWindowInvoker);
+                Challenge?.ChallengeFailed();/*Si está en un reto directamente lo ha fallado*/
+                ChallengesManager.Refresh();/*Añadimos retos si es posible*/
                 return;
             }
             else if (userQuitGame && userQuitButSaveScore)/*Se ha terminado el juego porque el usuario a abandonado pero es un modo interminable y entonces sí se guarda la puntuación ya que no hay otra forma de salir*/
@@ -879,9 +918,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SaveScoreAndProgress()
         {
-            for (int i = 0; i < rotateAnimationTiles.Count; i++)
-                rotateAnimationTiles[i].Stop();
-
+            StopAnimations();
             GameEnded = true;
             Grid.Disable();
             PerksPanel.Disable();
@@ -890,7 +927,17 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (newRecord)/*Si hay nuevo record intentamos guardar en la nube el total del modo*/
                 RestOrchestrator.TryToSaveScore(GameMode);
 
-            OrchestratorManager.OpenWindowResultMessage(ref windowResult, new(Points, GameData.GetStarsForThisPoints(Points, OrchestratorManager.LevelNumber/*No tiene que ser el level local*/), newRecord));
+            ChallengesManager.Refresh();/*Añadimos retos si es posible*/
+            OrchestratorManager.OpenWindowResultMessage(
+                ref windowResult, 
+                new(
+                    Points, 
+                    GameData.GetStarsForThisPoints(Points, OrchestratorManager.LevelNumber/*No tiene que ser el level local*/), 
+                    newRecord,
+                    Challenge,
+                    TilesFinded,
+                    UserMistakes,
+                    PowerUpsUsed));
             windowResult.OnAccept += WindowResult_OnAccept;
         }
 
@@ -970,6 +1017,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             {
                 score.UserScore = Points;
                 score.Stars = GameData.GetStarsForThisPoints(Points, OrchestratorManager.LevelNumber);/*Hay que usar los valores de OrchestratorManager, no los locales ya que estos cambian en el modo incremental*/
+                score.TilesFinded = TilesFinded;
                 ControllerScore.Update(score);
                 AcheivementsManager.Refresh();
                 return true;
@@ -1008,6 +1056,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             UpdatePoints(gameTime);
             UpdateAnimations(gameTime);
             UpdateRevealPerk();
+            Grid.Update(gameTime);
         }
 
         void UpdateAnimations(GameTime gameTime)

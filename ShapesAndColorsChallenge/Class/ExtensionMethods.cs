@@ -46,11 +46,23 @@ namespace ShapesAndColorsChallenge.Class
         /// Obtiene una cadena de texto de un recurso de cadenas con un parámetro a sustituir.
         /// </summary>
         /// <param name="id">Identificador entero único de la cadena</param>
-        /// <param name="param">Parámetro que se sustituirá</param>
+        /// <param name="param1">Parámetro que se sustituirá</param>
         /// <returns>texto asociado al identificador</returns>
-        internal static string GetString(this int id, int param)
+        internal static string GetString(this int id, int param1)
         {
-            return Application.Context.Resources.GetString(id, param);
+            return Application.Context.Resources.GetString(id, param1);
+        }
+
+        /// <summary>
+        /// Obtiene una cadena de texto de un recurso de cadenas con un parámetro a sustituir.
+        /// </summary>
+        /// <param name="id">Identificador entero único de la cadena</param>
+        /// <param name="param1">Parámetro que se sustituirá</param>
+        /// <param name="param2">Parámetro que se sustituirá</param>
+        /// <returns>texto asociado al identificador</returns>
+        internal static string GetString(this int id, int param1, int param2)
+        {
+            return Application.Context.Resources.GetString(id, param1, param2);
         }
 
         /// <summary>

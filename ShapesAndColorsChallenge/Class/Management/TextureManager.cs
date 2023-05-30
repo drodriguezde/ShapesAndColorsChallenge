@@ -97,6 +97,8 @@ namespace ShapesAndColorsChallenge.Class.Management
         internal static Texture2D TextureButtonUpload { get; private set; }
         internal static Texture2D TextureButtonDownload { get; private set; }
         internal static List<Texture2D> MiniShapes { get; private set; } = new();
+        internal static Texture2D TextureGreenSquare { get; private set; }
+        internal static Texture2D TextureRedSquare { get; private set; }
 
         static Hashtable LoadedFlags { get; set; } = new();
 
@@ -298,6 +300,8 @@ namespace ShapesAndColorsChallenge.Class.Management
             ShapeSquare = GameContent.ContentImage.Load<Texture2D>("Shape/ShapeSquare");
             ShapeStar = GameContent.ContentImage.Load<Texture2D>("Shape/ShapeStar");
             ShapeTriangle = GameContent.ContentImage.Load<Texture2D>("Shape/ShapeTriangle");
+            TextureGreenSquare = GameContent.ContentImage.Load<Texture2D>("Image/GreenSquare");
+            TextureRedSquare = GameContent.ContentImage.Load<Texture2D>("Image/RedSquare");
 
             shapesLoading = false;
         }

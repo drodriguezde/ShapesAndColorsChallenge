@@ -29,10 +29,12 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         internal Tile() : base(ModalLevel.None, Rectangle.Empty)
         {
+            Transparency = 0;
         }
 
         internal Tile(ModalLevel modalLevel, Rectangle bounds, TileColor tileColor, ShapeType shapeType) : base(modalLevel, bounds)
         {
+            Transparency = 0;
             TileColor = tileColor;
             ShapeType = shapeType;
             SetImage(bounds, tileColor, shapeType);
@@ -40,6 +42,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         internal Tile(ModalLevel modalLevel, Rectangle bounds, int horizontalLocation, int verticalLocation, TileColor tileColor, ShapeType shapeType) : base(modalLevel, bounds)
         {
+            Transparency = 0;
             HorizontalLocation = horizontalLocation;
             VerticalLocation = verticalLocation;
             TileColor = tileColor;

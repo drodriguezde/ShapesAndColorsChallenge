@@ -20,7 +20,6 @@
 *
 */
 using Microsoft.Xna.Framework;
-using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Enum;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,11 +78,11 @@ namespace ShapesAndColorsChallenge.Class.Particles
             if (counter % StartRatioFrames == 0)
             {
                 if (ParticleType == ParticleType.Falling)
-                    ParticlePacks.Add(new(ParticleType.Falling, ShapeType.Oval, TileColor.Orange, new(0, -BaseBounds.Bounds.Height, BaseBounds.Bounds.Width, BaseBounds.Bounds.Height), new(0, -BaseBounds.Bounds.Height, BaseBounds.Bounds.Width, BaseBounds.Bounds.Height.Double()), true, true, 30));
+                    ParticlePacks.Add(new(ParticleType.Falling, ShapeType.Oval, TileColor.Orange, new(0, -BaseBounds.Bounds.Height, BaseBounds.Bounds.Width, BaseBounds.Bounds.Height), new(0, -BaseBounds.Bounds.Height, BaseBounds.Bounds.Width, BaseBounds.Bounds.Height.Double()), true, true, 20));
                 else
                 {
                     ParticlePacks.Add(new(ParticleType, ShapeType.None, TileColor.None, new(BaseBounds.Limits.X, 200, BaseBounds.Limits.Width, BaseBounds.Bounds.Height - 600), BaseBounds.Bounds, true, true, 20));
-                    StartRatioFrames = Statics.GetRandom(10, 80);                    
+                    StartRatioFrames = Statics.GetRandom(10, 80);
                     counter = 1;
                 }
 

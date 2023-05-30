@@ -24,7 +24,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ShapesAndColorsChallenge.Class.Entities;
-using ShapesAndColorsChallenge.Enum;
 using System;
 
 namespace ShapesAndColorsChallenge.Class.Particles

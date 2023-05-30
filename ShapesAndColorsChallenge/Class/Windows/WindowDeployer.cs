@@ -50,7 +50,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 WindowType.MessageBox => DeployMessageBox(parameters),
                 WindowType.Reward => DeployMessageReward(parameters),
                 WindowType.Result => DeployMessageResult(parameters),
-                WindowType.Pause => DeployPause(),
+                WindowType.Pause => DeployPause(parameters),
                 WindowType.SelectRanking => DeploySelectRanking(),
                 _ => DeployDanStudios(),
             };
@@ -68,9 +68,9 @@ namespace ShapesAndColorsChallenge.Class.Windows
             return window;
         }
 
-        static WindowPause DeployPause()
+        static WindowPause DeployPause(object parameters)
         {
-            WindowPause window = new() { AddBackButton = false, BacklayerTransparency = 0.9f/*Se oscurece un poco más para que no se vean las fichas*/ };
+            WindowPause window = new((bool)parameters/*Informa si se está ugado un reto*/) { AddBackButton = false, BacklayerTransparency = 0.9f/*Se oscurece un poco más para que no se vean las fichas*/ };
             return window;
         }
 
@@ -152,7 +152,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         static Window DeployChallenges()
         {
-            Window window = new WindowChallenges();
+            Window window = new WindowChallenges() { AddBottomBackGround = true };
             return window;
         }
 

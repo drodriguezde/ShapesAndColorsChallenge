@@ -126,6 +126,8 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// </summary>
         internal bool BlockBack { get; set; } = false;
 
+        internal InteractiveObject PostObject { get; set; } = null;
+
         #endregion
 
         #region CONSTRUCTORS
@@ -227,6 +229,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         internal override void LoadContent()
         {
             SetBackButton();
+            AddPostObject();
         }
 
         void SetBackButton()
@@ -242,6 +245,15 @@ namespace ShapesAndColorsChallenge.Class.Windows
             Image imageBack = new(ModalLevel, buttonBackBounds, TextureManager.TextureBackButton, Color.DarkGray, Color.DarkGray, true);
             InteractiveObjectManager.Add(buttonBack, imageBack);
             SubscribeEvents();
+        }
+
+        /// <summary>
+        /// Sirva para poner algún objeto encima de la imageBack inferior.
+        /// </summary>
+        void AddPostObject()
+        {
+            if (PostObject != null)
+                interactiveObjectManager.Add(PostObject);
         }
 
         void SetBottomBackGround()

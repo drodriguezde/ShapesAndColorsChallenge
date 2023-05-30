@@ -178,7 +178,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             progressBar = null;
             NavigationPanelVertical.Locked = false;
 
-            if (!NavigationPanelVertical.NeedMove())/*Esto es necesario para poner arriba los elemento cuando no hay suficientes para llenar el panel*/
+            if (!NavigationPanelVertical.NeedMove())/*Esto es necesario para poner arriba los elementos cuando no hay suficientes para llenar el panel*/
                 NavigationPanelVertical.MoveToTop();
             else
                 NavigationPanelVertical.Move(PlayerLocationTop);

@@ -24,6 +24,7 @@ using Microsoft.Xna.Framework;
 using ShapesAndColorsChallenge.Class.EventArguments;
 using ShapesAndColorsChallenge.Class.Params;
 using ShapesAndColorsChallenge.Class.Windows;
+using ShapesAndColorsChallenge.DataBase.Tables;
 using ShapesAndColorsChallenge.Enum;
 
 namespace ShapesAndColorsChallenge.Class.Management
@@ -78,6 +79,11 @@ namespace ShapesAndColorsChallenge.Class.Management
         /// Fase del modo de juego actualmente seleccionada.
         /// </summary>
         internal static int LevelNumber { get; set; } = 0;
+
+        /// <summary>
+        /// Reto en curso en caso de iniciarlo.
+        /// </summary>
+        internal static Challenge Challenge { get; set; } = null;
 
         static WindowType CurrentWindow { get; set; } = WindowType.None;
 
@@ -245,9 +251,9 @@ namespace ShapesAndColorsChallenge.Class.Management
         /// No hace transición.
         /// </summary>
         /// <param name="windowPause"></param>
-        internal static void OpenPause(ref WindowPause windowPause)
+        internal static void OpenPause(ref WindowPause windowPause, bool isInChallenge)
         {
-            windowPause = (WindowPause)WindowManager.OpenCloseWindow(WindowType.Pause, ModalLevel.MessageBox);
+            windowPause = (WindowPause)WindowManager.OpenCloseWindow(WindowType.Pause, ModalLevel.MessageBox, isInChallenge);
         }
 
         /// <summary>

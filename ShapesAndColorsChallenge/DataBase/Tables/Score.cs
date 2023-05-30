@@ -22,5 +22,7 @@ namespace ShapesAndColorsChallenge.DataBase.Tables
 
         [MaxLength(1)]
         public int Stars { get; set; }
+
+        public int TilesFinded { get; set; }
     }
 }

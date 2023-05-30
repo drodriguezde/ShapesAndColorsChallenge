@@ -111,6 +111,17 @@ namespace ShapesAndColorsChallenge.Class.Management
                     select new StarsByStage { Stage = g.Key.StageNumber, Stars = g.Sum() }).ToList();
         }
 
+        /// <summary>
+        /// Obtiene los retos activos de cada modo de juego.
+        /// </summary>
+        /// <returns></returns>
+        internal static List<ChallengesByGameMode> GetUserChallengesByGameMode()
+        {
+            return (from challenge in ControllerChallenge.Get().Where(t => t.IsActive)
+                    group challenge.GameMode by new { challenge.GameMode } into g
+                    select new ChallengesByGameMode { GameMode = g.Key.GameMode, Counter = g.Count() }).ToList();
+        }
+
         #endregion
     }
 }

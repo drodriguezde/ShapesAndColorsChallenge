@@ -186,21 +186,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
             CheckLockedLevel(level);
         }
 
-        void ButtonHowToPlay_OnClick(object sender, OnClickEventArgs e)
-        {
-
-        }
-
-        void ButtonChallenge_OnClick(object sender, OnClickEventArgs e)
-        {
-            CloseMeAndOpenThis(WindowType.Challenges);
-        }
-
-        void ButtonRanking_OnClick(object sender, OnClickEventArgs e)
-        {
-            CloseMeAndOpenThis(WindowType.Rankings);
-        }
-
         #endregion
 
         #region METHODS
@@ -335,6 +320,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 OrchestratorManager.LevelNumber = level;
                 OrchestratorManager.BackWindow = WindowType;
                 OrchestratorManager.GameWindowInvoker = WindowType.Level;
+                OrchestratorManager.Challenge = null;
 
                 if (ControllerSettings.GetShowHowToPlay(OrchestratorManager.GameMode))
                     CloseMeAndOpenThis(WindowType.Game);

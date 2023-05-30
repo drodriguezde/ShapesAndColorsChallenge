@@ -5,6 +5,7 @@
     /// </summary>
     internal class RankingByGameMode
     {
+        public int PlayerID { get; set; }
         public string Name { get; set; }
         public string Country { get; set; }
         public bool IsPlayer { get; set; }

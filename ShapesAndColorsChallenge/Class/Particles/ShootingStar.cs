@@ -23,11 +23,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ShapesAndColorsChallenge.Class.Entities;
 using ShapesAndColorsChallenge.Class.Management;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShapesAndColorsChallenge.Class.Particles
 {
@@ -52,9 +47,9 @@ namespace ShapesAndColorsChallenge.Class.Particles
         /// <summary>
         /// Tiempo que tendrá el la estrella de ir del inicio al final.
         /// </summary>
-        float Speed 
-        { 
-            get 
+        float Speed
+        {
+            get
             {
                 return BaseBounds.Bounds.Height / 60f;/*Debe recorrer el largo de la pantalla en 1 segundo (60 frames)*/
             }
@@ -138,7 +133,7 @@ namespace ShapesAndColorsChallenge.Class.Particles
 
         internal override void Draw(GameTime gameTime)
         {
-            if(!End)
+            if (!End)
                 Screen.SpriteBatch.Draw(Star, CurrentPosition, null, Color.White, RotationAngle, new(Star.Width.Half(), Star.Height.Half()), Scale, SpriteEffects.None, 0f);
         }
 

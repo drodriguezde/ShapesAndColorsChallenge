@@ -47,18 +47,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         #endregion
 
-        #region IMPORTS
-
-
-
-        #endregion
-
-        #region DELEGATES
-
-
-
-        #endregion
-
         #region VARS
 
         List<Button> buttons = new();

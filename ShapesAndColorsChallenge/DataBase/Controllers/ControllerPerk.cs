@@ -39,7 +39,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         /// <summary>
         /// Establece la tabla en base a los datos descargados desde una partida guardada en la nube.
         /// </summary>
-        internal static void Deploy(List<Perk> perks)
+        internal static void Restore(List<Perk> perks)
         {
             DataBaseManager.Connection.DropTable<Perk>();
             DataBaseManager.Connection.CreateTable<Perk>();

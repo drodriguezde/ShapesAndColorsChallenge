@@ -4,9 +4,9 @@
     {
         None = 0,
         Stars = 1,
-        Time = 2,
-        Points = 3,
-        Shapes = 4,
-        Mistakes = 5
+        Points = 2,
+        NoPowerUps = 3,
+        NoMistakes = 4,
+        Shapes = 5,/*Interminable, contrareloj, incremental*/
     }
 }

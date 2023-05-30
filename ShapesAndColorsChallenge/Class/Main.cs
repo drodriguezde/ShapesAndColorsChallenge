@@ -137,6 +137,7 @@ namespace ShapesAndColorsChallenge.Class
         protected override void LoadContent()
         {
             AcheivementsManager.Refresh();
+            ChallengesManager.Refresh();/*Añadimos retos si es posible*/
             FontManager.LoadContent();/*Se mantiene durante toda la vida la aplicación*/
             TextureManager.LoadContent();/*Se mantiene durante toda la vida la aplicación*/
             SoundManager.LoadContent();/*Cada vez que se reproduce una canción se reinicia el content de música para reducir el consumo de memoria*/

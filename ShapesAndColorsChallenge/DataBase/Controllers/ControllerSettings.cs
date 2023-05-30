@@ -44,7 +44,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         /// <summary>
         /// Establece la tabla en base a los datos descargados desde una partida guardada en la nube.
         /// </summary>
-        internal static void Deploy(Settings settings)
+        internal static void Restore(Settings settings)
         {
             DataBaseManager.Connection.DropTable<Settings>();
             DataBaseManager.Connection.CreateTable<Settings>();

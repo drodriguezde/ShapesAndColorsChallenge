@@ -28,6 +28,7 @@ using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.EventArguments;
 using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Class.Params;
+using ShapesAndColorsChallenge.DataBase.Controllers;
 using ShapesAndColorsChallenge.DataBase.Types;
 using ShapesAndColorsChallenge.Enum;
 using System;
@@ -309,7 +310,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetChallengesBubble()
         {
-            int challenges = Statics.GetRandom(0, 9);
+            int challenges = ControllerChallenge.Get().Count(t => t.IsActive && t.GameMode == OrchestratorManager.GameMode);
 
             if (challenges.IsZero())
                 return;

@@ -153,7 +153,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         private void ButtonAccept_OnClick(object sender, EventArgs e)
         {
             ParticleEngine.End();
-            OnAccept?.Invoke(sender, e);            
+            OnAccept?.Invoke(sender, e);
         }
 
         #endregion
@@ -214,7 +214,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetPoints()
         {
-            string text = $"{Resource.String.POINTS.GetString()}{WindowResultParams.Points}";
+            string text = $"{Resource.String.POINTS.GetString()} {WindowResultParams.Points}";
             Rectangle bounds = new(Bounds.X, Bounds.Y + 250, Bounds.Width, 100);
             Label label = new(ModalLevel, bounds, text, ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
             InteractiveObjectManager.Add(label);
@@ -270,7 +270,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
             Screen.SpriteBatch.Draw(TextureBackLayer, Screen.Bounds, Color.White * BacklayerTransparency);
             Screen.SpriteBatch.Draw(BodyTexture, Location, Color.White * BodyTransparency);
-            base.Draw(gameTime); 
+            base.Draw(gameTime);
             ParticleEngine.Draw(gameTime);
         }
 

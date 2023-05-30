@@ -982,6 +982,18 @@
 /processorParam:TextureFormat=Color
 /build:Image/ForbiddenMini.png
 
+#begin Image/GreenSquare.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/GreenSquare.png
+
 #begin Image/HTPBlink.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1341,6 +1353,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Image/RankingLocal.png
+
+#begin Image/RedSquare.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Image/RedSquare.png
 
 #begin Image/Star.png
 /importer:TextureImporter

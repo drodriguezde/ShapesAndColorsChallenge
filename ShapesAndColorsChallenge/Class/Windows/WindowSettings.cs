@@ -497,11 +497,11 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (userProgress != null)
             {
                 ControllerAcheivement.Restore(userProgress.Acheivements);
-                ControllerChallenge.Deploy(userProgress.Challenges);
-                ControllerPerk.Deploy(userProgress.Perks);
-                ControllerRanking.Deploy(userProgress.Rankings);
-                ControllerScore.Deploy(userProgress.Scores);
-                ControllerSettings.Deploy(userProgress.Settings);
+                ControllerChallenge.Restore(userProgress.Challenges);
+                ControllerPerk.Restore(userProgress.Perks);
+                ControllerRanking.Restore(userProgress.Rankings);
+                ControllerScore.Restore(userProgress.Scores);
+                ControllerSettings.Restore(userProgress.Settings);
                 userProgress = null;
                 ResetContent();
 

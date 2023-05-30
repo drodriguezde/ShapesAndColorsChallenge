@@ -74,6 +74,8 @@ namespace ShapesAndColorsChallenge.Class.Animated
         internal override void Start()
         {
             Object.Rotation = 0;
+            Object.Location = new(Object.Location.X + Object.Bounds.Width.ToSingle().Half(), Object.Location.Y + Object.Bounds.Height.ToSingle().Half());
+            Object.Origin = new(Object.Bounds.Width.ToSingle().Half(), Object.Bounds.Height.ToSingle().Half());
             Running = true;
         }
 
@@ -100,6 +102,8 @@ namespace ShapesAndColorsChallenge.Class.Animated
         {
             Running = false;
             Object.Rotation = 0;
+            Object.Location = Object.OriginalLocation;
+            Object.Origin = Vector2.Zero;
         }
 
         internal override void Update(GameTime gameTime)
@@ -121,12 +125,6 @@ namespace ShapesAndColorsChallenge.Class.Animated
                 if (Object.Rotation <= -MathHelper.TwoPi)
                     Object.Rotation = 0f;
             }
-
-            Object.Location = new(Object.OriginalLocation.X + Object.OriginalBounds.Width.ToSingle().Half(), Object.OriginalLocation.Y + Object.OriginalBounds.Height.ToSingle().Half());
-            Object.Origin = new(
-                Object.Bounds.Width - Object.Bounds.Width.ToSingle().Half(),
-                Object.Bounds.Height - Object.Bounds.Height.ToSingle().Half());
-            Object.Origin /= Object.Scale;
         }
 
         #endregion

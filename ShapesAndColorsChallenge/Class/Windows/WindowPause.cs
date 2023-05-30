@@ -51,27 +51,40 @@ namespace ShapesAndColorsChallenge.Class.Windows
         Button buttonResume;
         Button buttonQuit;
         Label labelMessage;
-
-        static Rectangle messageBoxBounds = new Rectangle(BaseBounds.Limits.X + 50, BaseBounds.Bounds.Height.Half() - 950.Half(), BaseBounds.Limits.Width - 100, 950).Redim();/*Tiene que ser estática*/
-
-        Rectangle titleBounds = new Rectangle(170, 690, 710, 150).Redim();
+        static Rectangle messageBoxBounds = new(BaseBounds.Limits.X + 50, BaseBounds.Bounds.Height.Half() - 950.Half(), BaseBounds.Limits.Width - 100, 880);/*Tiene que ser estática*/
+        Rectangle titleBounds = new(170, 690, 700, 150);
+        Rectangle infoChallengeLabel = new(BaseBounds.Limits.X + 100, 830, BaseBounds.Limits.Width - 200, 100);
 
         /// <summary>
-        /// Tamaño y posición de botoón continuar.
+        /// Tamaño y posición de botón continuar.
         /// </summary>
-        Rectangle buttonResumeBounds = new Rectangle(BaseBounds.Limits.X + 100, 940, BaseBounds.Limits.Width - 200, BaseBounds.Button.Height).Redim();
+        Rectangle buttonResumeBounds = new(BaseBounds.Limits.X + 100, 960, BaseBounds.Limits.Width - 200, BaseBounds.Button.Height);
 
         /// <summary>
         /// Tamaño y posición de botón abandonar.
         /// </summary>
-        Rectangle buttonQuitBounds = new Rectangle(BaseBounds.Limits.X + 100, 1290, BaseBounds.Limits.Width - 200, BaseBounds.Button.Height).Redim();
+        Rectangle buttonQuitBounds = new(BaseBounds.Limits.X + 100, 1250, BaseBounds.Limits.Width - 200, BaseBounds.Button.Height);        
+
+        #endregion
+
+        #region PROPERTIES
+
+        /// <summary>
+        /// Indica si se está jugado un reto.
+        /// </summary>
+        bool IsInChallenge { get; set; }
 
         #endregion
 
         #region CONSTRUCTORS
 
-        internal WindowPause() : base(ModalLevel.MessageBox, messageBoxBounds, WindowType.MessageBox)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="isInChallenge">Indica si se está jugado un reto.</param>
+        internal WindowPause(bool isInChallenge) : base(ModalLevel.MessageBox, messageBoxBounds, WindowType.MessageBox)
         {
+            IsInChallenge = isInChallenge;
         }
 
         #endregion
@@ -171,6 +184,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             SetBackLayer();
             InitializeButtons();
             SetTitle();
+            SetInfoChallenge();
             SubscribeEvents();
         }
 
@@ -202,6 +216,15 @@ namespace ShapesAndColorsChallenge.Class.Windows
         {
             labelMessage = new Label(ModalLevel, titleBounds, Resource.String.PAUSE.GetString(), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
             InteractiveObjectManager.Add(labelMessage);
+        }
+
+        void SetInfoChallenge()
+        {
+            if (!IsInChallenge)
+                return;
+
+            Label label = new(ModalLevel, infoChallengeLabel, Resource.String.CHALLENGE_LEAVE.GetString(), Color.Red, Color.Red, AlignHorizontal.Center);
+            InteractiveObjectManager.Add(label);
         }
 
         internal override void Update(GameTime gameTime)

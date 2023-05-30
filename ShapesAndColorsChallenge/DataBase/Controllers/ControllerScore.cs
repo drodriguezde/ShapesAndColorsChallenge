@@ -34,7 +34,8 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
                                 StageNumber = stageNumber,
                                 LevelNumber = levelNumber,
                                 UserScore = 0,
-                                Stars = 0
+                                Stars = 0,
+                                TilesFinded = 0,
                             };
                             DataBaseManager.Connection.Insert(newUserScore);
                         }
@@ -45,7 +46,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         /// <summary>
         /// Establece la tabla en base a los datos descargados desde una partida guardada en la nube.
         /// </summary>
-        internal static void Deploy(List<Score> scores)
+        internal static void Restore(List<Score> scores)
         {
             DataBaseManager.Connection.DropTable<Score>();
             DataBaseManager.Connection.CreateTable<Score>();
@@ -59,7 +60,8 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
                     StageNumber = score.StageNumber,
                     LevelNumber = score.LevelNumber,
                     UserScore = score.UserScore,
-                    Stars = score.Stars
+                    Stars = score.Stars,
+                    TilesFinded = score.TilesFinded,
                 };
                 DataBaseManager.Connection.Insert(newUserScore);
             }
@@ -129,6 +131,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
             {
                 userScore.UserScore = 0;
                 userScore.Stars = 0;
+                userScore.TilesFinded = 0;
             }
 
             DataBaseManager.Connection.UpdateAll(userScores, true);

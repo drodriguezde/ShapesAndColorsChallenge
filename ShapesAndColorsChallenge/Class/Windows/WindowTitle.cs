@@ -31,8 +31,6 @@ using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Class.Particles;
 using ShapesAndColorsChallenge.Enum;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace ShapesAndColorsChallenge.Class.Windows
 {
@@ -244,7 +242,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         }
 
         internal override void Update(GameTime gameTime)
-        {            
+        {
             animationHeartBeat.Update(gameTime);
             base.Update(gameTime);
             ParticleEngine.Update(gameTime);
