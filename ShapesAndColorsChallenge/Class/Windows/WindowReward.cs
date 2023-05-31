@@ -22,7 +22,6 @@
 */
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Class.Params;
@@ -231,7 +230,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 labelMessage.Bounds.Bottom + OFFSET,
                 BaseBounds.Button.Width,
                 BaseBounds.Button.Height);
-            Image imagePerk = new(ModalLevel, imageBounds, GetPerkImage(WindowRewardParams.Reward1), ColorManager.HardGray, ColorManager.HardGray, true);
+            Image imagePerk = new(ModalLevel, imageBounds, Statics.GetPerkImage(WindowRewardParams.Reward1), ColorManager.HardGray, ColorManager.HardGray, true);
             Rectangle labelBounds = new(
                 bounds.X + bounds.Width.Half() + OFFSET.Double(),
                 labelMessage.Bounds.Bottom + OFFSET + BaseBounds.Button.Height.Half() - MESSAGE_LABEL_HEIGHT.Half(),
@@ -249,7 +248,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (WindowRewardParams.Amount2.IsZero())
                 return;
 
-            Image imagePerk = new(ModalLevel, new(imageBounds.X, imageBounds.Y + BaseBounds.Button.Height + OFFSET, imageBounds.Width, imageBounds.Height), GetPerkImage(WindowRewardParams.Reward2), ColorManager.HardGray, ColorManager.HardGray, true);
+            Image imagePerk = new(ModalLevel, new(imageBounds.X, imageBounds.Y + BaseBounds.Button.Height + OFFSET, imageBounds.Width, imageBounds.Height), Statics.GetPerkImage(WindowRewardParams.Reward2), ColorManager.HardGray, ColorManager.HardGray, true);
             Label labelAmount = new(ModalLevel, new(labelBounds.X, labelBounds.Y + BaseBounds.Button.Height + OFFSET, labelBounds.Width, labelBounds.Height), $"x {WindowRewardParams.Amount2}", ColorManager.HardGray, ColorManager.HardGray);
             InteractiveObjectManager.Add(imagePerk, labelAmount);
         }
@@ -259,21 +258,10 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (WindowRewardParams.Amount3.IsZero())
                 return;
 
-            Image imagePerk = new(ModalLevel, new(imageBounds.X, imageBounds.Y + (BaseBounds.Button.Height + OFFSET).Double(), imageBounds.Width, imageBounds.Height), GetPerkImage(WindowRewardParams.Reward3), ColorManager.HardGray, ColorManager.HardGray, true);
+            Image imagePerk = new(ModalLevel, new(imageBounds.X, imageBounds.Y + (BaseBounds.Button.Height + OFFSET).Double(), imageBounds.Width, imageBounds.Height), Statics.GetPerkImage(WindowRewardParams.Reward3), ColorManager.HardGray, ColorManager.HardGray, true);
             Label labelAmount = new(ModalLevel, new(labelBounds.X, labelBounds.Y + (BaseBounds.Button.Height + OFFSET).Double(), labelBounds.Width, labelBounds.Height), $"x {WindowRewardParams.Amount3}", ColorManager.HardGray, ColorManager.HardGray);
             InteractiveObjectManager.Add(imagePerk, labelAmount);
 
-        }
-
-        static Texture2D GetPerkImage(PerkType perkType)
-        {
-            return perkType switch
-            {
-                PerkType.Reveal => TextureManager.TexturePerkReveal,
-                PerkType.TimeStop => TextureManager.TexturePerkTimeStop,
-                PerkType.Change => TextureManager.TexturePerkChange,
-                _ => null,
-            };
         }
 
         internal override void Update(GameTime gameTime)

@@ -381,7 +381,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         private void PerksPanel_OnPerkTimeStopEnd(object sender, EventArgs e)
         {
-            PowerUpsUsed++;
             Stopwatch.Start();
         }
 
@@ -392,6 +391,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         private void PerksPanel_OnPerkChangeStart(object sender, EventArgs e)
         {
+            PowerUpsUsed++;
             TrySetMasterTile();
 
             if (!GameMode.IsTimeTrial())/*En contrareloj no se resetea el tiempo ya que volvería al total de todas las fichas*/
@@ -927,17 +927,18 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (newRecord)/*Si hay nuevo record intentamos guardar en la nube el total del modo*/
                 RestOrchestrator.TryToSaveScore(GameMode);
 
+            int stars = GameData.GetStarsForThisPoints(Points, OrchestratorManager.LevelNumber/*No tiene que ser el level local*/);
             ChallengesManager.Refresh();/*Añadimos retos si es posible*/
+
             OrchestratorManager.OpenWindowResultMessage(
-                ref windowResult, 
+                ref windowResult,
                 new(
-                    Points, 
-                    GameData.GetStarsForThisPoints(Points, OrchestratorManager.LevelNumber/*No tiene que ser el level local*/), 
+                    Points,
+                    stars,
                     newRecord,
                     Challenge,
-                    TilesFinded,
-                    UserMistakes,
-                    PowerUpsUsed));
+                    Challenge != null,
+                    ChallengesManager.IsChallengeCompleted(Challenge, Points, stars, TilesFinded, UserMistakes, PowerUpsUsed)));
             windowResult.OnAccept += WindowResult_OnAccept;
         }
 
@@ -1019,7 +1020,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 score.Stars = GameData.GetStarsForThisPoints(Points, OrchestratorManager.LevelNumber);/*Hay que usar los valores de OrchestratorManager, no los locales ya que estos cambian en el modo incremental*/
                 score.TilesFinded = TilesFinded;
                 ControllerScore.Update(score);
-                AcheivementsManager.Refresh();
                 return true;
             }
         }

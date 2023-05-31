@@ -26,8 +26,11 @@ using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Class.Params;
 using ShapesAndColorsChallenge.Class.Particles;
+using ShapesAndColorsChallenge.DataBase.Controllers;
+using ShapesAndColorsChallenge.DataBase.Tables;
 using ShapesAndColorsChallenge.Enum;
 using System;
+using System.Linq;
 
 namespace ShapesAndColorsChallenge.Class.Windows
 {
@@ -56,7 +59,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /*No se le hace dispose directamente ya que estarán contenidos en InteractiveObjectManager*/
 
         Button buttonAccept;
-        Label labelMessage;
+        PerkType perkType = (PerkType)Statics.GetRandom(1, 3);
 
         #endregion
 
@@ -69,14 +72,13 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         WindowResultParams WindowResultParams { get; set; }
 
-        bool NewRecordPlayed { get; set; } = false;
+        bool VoicePlayed { get; set; } = false;
 
         #endregion
 
         #region CONSTRUCTORS
 
-        internal WindowResult(WindowResultParams windowResultParams)
-            : base(ModalLevel.MessageBox, Rectangle.Empty, WindowType.Result)
+        internal WindowResult(WindowResultParams windowResultParams) : base(ModalLevel.MessageBox, Rectangle.Empty, WindowType.Result)
         {
             WindowResultParams = windowResultParams;
         }
@@ -167,9 +169,19 @@ namespace ShapesAndColorsChallenge.Class.Windows
             SetColorMode();
             SetBackLayer();
             SetButtonOK();
-            SetMessage();
-            SetPoints();
-            SetStars();
+
+            if (WindowResultParams.IsChallenge)
+            {
+                SetMessageChallenge();
+                SetReward();
+            }
+            else
+            {
+                SetMessage();
+                SetPoints();
+                SetStars();
+            }
+
             SubscribeEvents();
         }
 
@@ -212,6 +224,19 @@ namespace ShapesAndColorsChallenge.Class.Windows
             InteractiveObjectManager.Add(label);
         }
 
+        void SetMessageChallenge()
+        {
+            Rectangle bounds = new(Bounds.X, Bounds.Y + 340, Bounds.Width, 100);
+            Label label;
+
+            if (WindowResultParams.ChallengeCompleted)
+                label = new(ModalLevel, bounds, Resource.String.CHALLENGE_COMPLETED.GetString(), ColorManager.LightGreen, ColorManager.LightGreen, AlignHorizontal.Center);
+            else
+                label = new(ModalLevel, bounds, Resource.String.CHALLENGE_FAILED.GetString(), ColorManager.Red, ColorManager.Red, AlignHorizontal.Center);
+
+            InteractiveObjectManager.Add(label);
+        }
+
         void SetPoints()
         {
             string text = $"{Resource.String.POINTS.GetString()} {WindowResultParams.Points}";
@@ -249,15 +274,61 @@ namespace ShapesAndColorsChallenge.Class.Windows
             InteractiveObjectManager.Add(image[0], image[1], image[2]);
         }
 
+        void SetReward()
+        {
+            Rectangle bounds = new(Bounds.X + Bounds.Width.Half() - 250.Half(), Bounds.Y + 30, 200, 200);
+            Rectangle imageBounds = new(BaseBounds.Bounds.Width.Half() - BaseBounds.Perk.Width + 50,
+                Bounds.Top + OFFSET,
+                BaseBounds.Perk.Width,
+                BaseBounds.Perk.Height);
+            Image imagePerk = new(ModalLevel, imageBounds, Statics.GetPerkImage(perkType), ColorManager.HardGray, ColorManager.HardGray, true);
+            Rectangle labelBounds = new(
+                BaseBounds.Bounds.Width.Half() + 100,
+                imageBounds.Top + imageBounds.Height.Half() - MESSAGE_LABEL_HEIGHT.Half(),
+                300,
+                MESSAGE_LABEL_HEIGHT);
+            Label labelAmount;
+
+            if (WindowResultParams.ChallengeCompleted)
+                labelAmount = new(ModalLevel, labelBounds, "x 1", ColorManager.Green, ColorManager.Green);
+            else
+                labelAmount = new(ModalLevel, labelBounds, "x 0", ColorManager.Red, ColorManager.Red);
+
+            AcheivementsManager.Refresh();
+            InteractiveObjectManager.Add(imagePerk, labelAmount);
+        }
+
         internal override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
 
-            if (!NewRecordPlayed && WindowResultParams.NewRecord)
+            if (WindowResultParams.IsChallenge && !VoicePlayed)/*Si es un reto.*/
             {
-                NewRecordPlayed = true;
-                SoundManager.VoiceNewHighScore.PlayVoice();
-                ParticleEngine.Start(ParticleType.Fireworks);
+                VoicePlayed = true;
+
+                if (WindowResultParams.ChallengeCompleted)
+                {
+                    Perk perk = ControllerPerk.Get().Single(t => t.Type == perkType);
+                    perk.Amount++;
+                    SoundManager.VoiceYouWin.PlayVoice();
+                    ParticleEngine.Start(ParticleType.Fireworks);
+                    ControllerPerk.Update(perk);
+                    ChallengesManager.ChallengeSuccess(WindowResultParams.Challenge);
+                }
+                else
+                {
+                    SoundManager.VoiceYouLose.PlayVoice();
+                    ChallengesManager.ChallengeFailed(WindowResultParams.Challenge);
+                }
+            }
+            else
+            {
+                if (!VoicePlayed && WindowResultParams.NewRecord)
+                {
+                    VoicePlayed = true;
+                    SoundManager.VoiceNewHighScore.PlayVoice();
+                    ParticleEngine.Start(ParticleType.Fireworks);
+                }
             }
 
             ParticleEngine.Update(gameTime);

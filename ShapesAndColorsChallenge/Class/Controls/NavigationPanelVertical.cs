@@ -240,6 +240,9 @@ namespace ShapesAndColorsChallenge.Class.Controls
             if (Locked)
                 return;
 
+            if (!PanelItems.Any())
+                return;
+
             if (CheckFirstLastVisible(diff))
                 return;
 
@@ -291,6 +294,9 @@ namespace ShapesAndColorsChallenge.Class.Controls
         internal void MoveToTop()
         {
             Move();
+
+            if (!PanelItems.Any())
+                return;
 
             if (BottomLimit - TopLimit >= PanelItems.Count * PanelItems.First().Bounds.Height)
             {

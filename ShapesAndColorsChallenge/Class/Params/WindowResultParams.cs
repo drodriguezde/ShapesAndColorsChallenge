@@ -14,11 +14,9 @@ namespace ShapesAndColorsChallenge.Class.Params
 
         internal Challenge Challenge { get; private set; } = null;
 
-        internal int TilesFinded { get; private set; }
+        internal bool IsChallenge { get; private set; } = false;
 
-        internal int UserMistakes { get; private set; }
-
-        internal int PowerUpsUsed { get; private set; }
+        internal bool ChallengeCompleted { get; private set; } = false;
 
         #endregion
 
@@ -29,15 +27,14 @@ namespace ShapesAndColorsChallenge.Class.Params
 
         }
 
-        internal WindowResultParams(long points, int stars, bool newRecord, Challenge challenge, int tilesFinded, int userMistakes, int powerUpsUsed)
+        internal WindowResultParams(long points, int stars, bool newRecord, Challenge challenge, bool isChallenge, bool challengeCompleted)
         {
             Points = points;
             Stars = stars;
             NewRecord = newRecord;
             Challenge = challenge;
-            TilesFinded = tilesFinded;
-            UserMistakes = userMistakes;
-            PowerUpsUsed = powerUpsUsed;
+            IsChallenge = isChallenge;
+            ChallengeCompleted = challengeCompleted;
         }
 
         #endregion

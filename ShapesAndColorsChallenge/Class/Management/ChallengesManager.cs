@@ -13,15 +13,21 @@ namespace ShapesAndColorsChallenge.Class.Management
     {
         #region VARS
 
-        static BackgroundWorker workerLoadAsync;
+        static BackgroundWorker workerRefreshAsync;
+        static BackgroundWorker workerStephAsync;
 
         #endregion
 
         #region EVENTS
 
-        private static void WorkerLoadAsync_DoWork(object sender, DoWorkEventArgs e)
+        static void WorkerRefreshAsync_DoWork(object sender, DoWorkEventArgs e)
         {
             TryToAddChallenge();
+        }
+
+        static void WorkerStepAsync_DoWork(object sender, DoWorkEventArgs e)
+        {
+            StepPlayerRanking(e.Argument);
         }
 
         #endregion
@@ -30,13 +36,24 @@ namespace ShapesAndColorsChallenge.Class.Management
 
         internal static void Refresh()
         {
-            workerLoadAsync = new()
+            workerRefreshAsync = new()
             {
                 WorkerReportsProgress = false,
                 WorkerSupportsCancellation = false
             };
-            workerLoadAsync.DoWork += WorkerLoadAsync_DoWork;
-            workerLoadAsync.RunWorkerAsync();
+            workerRefreshAsync.DoWork += WorkerRefreshAsync_DoWork;
+            workerRefreshAsync.RunWorkerAsync();
+        }
+
+        static void Step(Challenge challenge)
+        {
+            workerStephAsync = new()
+            {
+                WorkerReportsProgress = false,
+                WorkerSupportsCancellation = false
+            };
+            workerStephAsync.DoWork += WorkerStepAsync_DoWork;
+            workerStephAsync.RunWorkerAsync(challenge);
         }
 
         static void TryToAddChallenge()
@@ -74,15 +91,12 @@ namespace ShapesAndColorsChallenge.Class.Management
 
             if (!selectableGameModes.Any()) /*Ya tiene el máximo de retos por modo de juego*/
                 return;
-            else if(selectableGameModes.Count == 1)
+            else if (selectableGameModes.Count == 1)
                 challengeGameMode = selectableGameModes[0];
             else
                 challengeGameMode = selectableGameModes[Statics.GetRandom(0, selectableGameModes.Count - 1)];
 
             GetChallengeData(challengeGameMode, out int playerID, out ChallengeType challengeType, out Score score);
-
-            if (challengeType == ChallengeType.Stars && ControllerScore.Get().Single(t => t.GameMode == challengeGameMode && t.StageNumber == score.StageNumber && t.LevelNumber == score.LevelNumber).Stars == 3)
-                return;/*Si el reto que se va a proponer es de encontrar estrellas y el jugador ya tiene las 3 posibles no lo añadimos y salimos, es un reto imposible*/
 
             if (challengeType == ChallengeType.NoMistakes && challengeGameMode.IsIncremental())
                 return;/*Los modos incrementales no pueden basarse en fallos, ya que al primer fallo se acaba la partida*/
@@ -129,7 +143,7 @@ namespace ShapesAndColorsChallenge.Class.Management
             if (playerIndex < 20)
                 return rankingByGameModes[Statics.GetRandom(playerIndex + 1, playerIndex + 10)].PlayerID;
             else if (playerIndex > rankingByGameModes.Count - 20)
-                return rankingByGameModes[Statics.GetRandom(playerIndex - 1, playerIndex - 10)].PlayerID;
+                return rankingByGameModes[Statics.GetRandom(playerIndex - 10, playerIndex - 1)].PlayerID;
             else
                 return rankingByGameModes[Statics.GetRandom(playerIndex + 1, playerIndex + 10)].PlayerID;
         }
@@ -141,7 +155,7 @@ namespace ShapesAndColorsChallenge.Class.Management
         static Score GetStageLevelByGameMode(GameMode gameMode)
         {
             List<Score> scores = ControllerScore.Get(gameMode).Where(t => t.UserScore > 0).ToList();
-            
+
             if (scores.Count == 1)/*Si hemos llegado hasta aquí es que al menos hay uno*/
                 return scores[0];
             else
@@ -155,10 +169,18 @@ namespace ShapesAndColorsChallenge.Class.Management
         /// <returns></returns>
         static ChallengeType GetChallengeTypeByGameMode(GameMode gameMode)
         {
-            if (gameMode.HasUnlimitedTiles())/*Si no tiene número total de fichas también se le puede retar por número de fichas*/
-                return (ChallengeType)Statics.GetRandom(1, 5);
+            int number = Statics.GetRandom(1, 50);
+
+            if (number <= 10)
+                return ChallengeType.Stars;
+            else if (number <= 20)
+                return ChallengeType.Points;
+            else if (number <= 30)
+                return ChallengeType.NoPowerUps;
+            else if (number <= 40)
+                return ChallengeType.NoMistakes;
             else
-                return (ChallengeType)Statics.GetRandom(1, 4);
+                return gameMode.HasUnlimitedTiles() ? ChallengeType.Shapes : ChallengeType.Points;/*Si no tiene número total de fichas el modo*/
         }
 
         /// <summary>
@@ -180,29 +202,95 @@ namespace ShapesAndColorsChallenge.Class.Management
         }
 
         /// <summary>
-        /// 
+        /// Comprueba si un reto ha sido superado.
         /// </summary>
-        internal static void ChallengeFailed(this Challenge challenge)
+        /// <returns></returns>
+        internal static bool IsChallengeCompleted(Challenge challenge, long points, int stars, int tilesFinded, int userMistakes, int powerUpsUsed)
         {
+            if (challenge == null)
+                return false;
 
-            StepPlayerRanking(challenge);
+            return challenge.ChallengeType switch
+            {
+                ChallengeType.Stars => stars == 3,
+                ChallengeType.Points => ControllerScore.Get(challenge.GameMode, challenge.StageNumber, challenge.LevelNumber).UserScore <= points,/* <= porque los puntos se actualizan antes*/
+                ChallengeType.NoPowerUps => powerUpsUsed.IsZero() && stars >= 2,
+                ChallengeType.NoMistakes => userMistakes.IsZero() && stars >= 2,
+                ChallengeType.Shapes => ControllerScore.Get(challenge.GameMode, challenge.StageNumber, challenge.LevelNumber).TilesFinded <= tilesFinded,/* <= porque los puntos se actualizan antes*/
+                _ => false,
+            };
         }
 
         /// <summary>
-        /// 
+        /// El jugador gana 3 puntos y el retador pierde 2.
         /// </summary>
         internal static void ChallengeSuccess(this Challenge challenge)
         {
+            challenge.IsActive = false;
+            challenge.Win = true;
+            ControllerChallenge.Update(challenge);
+            Ranking ranking = ControllerRanking.Get(challenge.GameMode, 1/*El jugador siempre tiene id = 1*/);
+            ranking.Win++;
+            ControllerRanking.Update(ranking);
+            ranking = ControllerRanking.Get(challenge.GameMode, challenge.PlayerID);
+            ranking.Lose++;
+            ControllerRanking.Update(ranking);
+            Step(challenge);
+        }
 
-            StepPlayerRanking(challenge);
+        /// <summary>
+        /// El retador gana 3 puntos y el jugador pierde 2.
+        /// </summary>
+        internal static void ChallengeFailed(this Challenge challenge)
+        {
+            challenge.IsActive = false;
+            challenge.Win = false;
+            ControllerChallenge.Update(challenge);
+            Ranking ranking = ControllerRanking.Get(challenge.GameMode, 1/*El jugador siempre tiene id = 1*/);
+            ranking.Lose++;
+            ControllerRanking.Update(ranking);
+            ranking = ControllerRanking.Get(challenge.GameMode, challenge.PlayerID);
+            ranking.Win++;
+            ControllerRanking.Update(ranking);
+            Step(challenge);
         }
 
         /// <summary>
         /// Actualiza el ranking del modo de juego como si todos hubieran jugado menos el del propio jugador y su retador que se habrá hecho en ChallengeFailed y ChallengeSuccess.
         /// </summary>
-        static void StepPlayerRanking(Challenge challenge)
-        { 
+        static void StepPlayerRanking(object param)
+        {
+            Challenge challenge = (Challenge)param;/*El id del retador no hay que actualizar, se habrá hecho antes*/
+            /*El jugador no hay que actualizarlo, se habrá hecho antes*/
 
+            List<Ranking> rankings = ControllerRanking.Get(challenge.GameMode);
+            List<RankingByGameMode> orderedRanking = ControllerRanking.GetWithPlayers(challenge.GameMode);
+            bool win = false;
+
+            DataBaseManager.Connection.BeginTransaction();/*Usamos una transacción para insertar todos los registros de golpe en bulk*/
+
+            for (int i = 0; i < orderedRanking.Count; i++)
+            {
+                if (orderedRanking[i].PlayerID == challenge.PlayerID/*El retador*/ || orderedRanking[i].PlayerID == 1/*El jugador*/)
+                    continue;
+
+                if (i < 10)/*Los 10 primeros tienen una probabilidad mayor de obtener una vistoria*/
+                    win = Statics.GetRandom(1, 10) > 3;
+                else
+                    win = Statics.GetRandom(1, 10) > 5;
+
+                Ranking ranking = rankings.Single(t => t.PlayerID == orderedRanking[i].PlayerID);
+
+                if (win)
+                    ranking.Win++;
+                else
+                    ranking.Lose++;
+
+                ControllerRanking.Update(ranking);
+                /*Como también hay abandonos no es necesario que haya igual número de victorias que de derrotas*/
+            }
+
+            DataBaseManager.Connection.Commit();
         }
 
         #endregion

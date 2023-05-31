@@ -7,7 +7,7 @@
 	<string name="SETTINGS">Settings</string>
 	<string name="ACHEIVEMENTS">Acheivements</string>
 	<string name="GAME">Game</string>
-	<string name="LANGUAGE">Language</string>		
+	<string name="LANGUAGE">Language</string>
 	<string name="MUSIC">Music</string>
 	<string name="SOUND">Sounds</string>
 	<string name="VOICES">Voices</string>
@@ -34,28 +34,28 @@
 	<string name="ROTATE_MODE_DESCRIPTION">Some figures will be rotated.</string>
 	<string name="CLASSIC_MODE_PLUS">Classic+</string>
 	<string name="CLASSIC_MODE_PLUS_LOCKED">You need to collect %1$d stars in Classic mode to unlock this mode.</string>
-	<string name="CLASSIC_MODE_PLUS_DESCRIPTION">Classic mode but the token may not be on the grid or may be on the grid multiple times.</string>
+	<string name="CLASSIC_MODE_PLUS_DESCRIPTION">Classic mode, but the token may not be on the grid or may be on the grid multiple times.</string>
 	<string name="ENDLESS_MODE_PLUS">Endless+</string>
 	<string name="ENDLESS_MODE_PLUS_LOCKED">You need to collect %1$d stars in Endless mode to unlock this mode.</string>
-	<string name="ENDLESS_MODE_PLUS_DESCRIPTION">Endless mode but the token may not be on the grid or may be on the grid multiple times.</string>
+	<string name="ENDLESS_MODE_PLUS_DESCRIPTION">Endless mode, but the token may not be on the grid or may be on the grid multiple times.</string>
 	<string name="MEMORY_MODE_PLUS">Memory+</string>
 	<string name="MEMORY_MODE_PLUS_LOCKED">You need to collect %1$d stars in Memory mode to unlock this mode.</string>
-	<string name="MEMORY_MODE_PLUS_DESCRIPTION">Memory mode but the token may not be on the grid or may be on the grid multiple times.</string>
+	<string name="MEMORY_MODE_PLUS_DESCRIPTION">Memory mode, but the token may not be on the grid or may be on the grid multiple times.</string>
 	<string name="TIMETRIAL_MODE_PLUS">Time Trial+</string>
 	<string name="TIMETRIAL_MODE_PLUS_LOCKED">You need to collect %1$d stars in Time Trial mode to unlock this mode.</string>
-	<string name="TIMETRIAL_MODE_PLUS_DESCRIPTION">Time Trial mode but the token may not be on the grid or may be on the grid multiple times.</string>
+	<string name="TIMETRIAL_MODE_PLUS_DESCRIPTION">Time Trial mode, but the token may not be on the grid or may be on the grid multiple times.</string>
 	<string name="INCREMENTAL_MODE_PLUS">Incremental+</string>
 	<string name="INCREMENTAL_MODE_PLUS_LOCKED">You need to collect %1$d stars in Incremental mode to unlock this mode.</string>
-	<string name="INCREMENTAL_MODE_PLUS_DESCRIPTION">Incremental mode but the token may not be on the grid or may be on the grid multiple times.</string>
+	<string name="INCREMENTAL_MODE_PLUS_DESCRIPTION">Incremental mode, but the token may not be on the grid or may be on the grid multiple times.</string>
 	<string name="MOVE_MODE_PLUS">Move+</string>
 	<string name="MOVE_MODE_PLUS_LOCKED">You need to collect %1$d stars in Move mode to unlock this mode.</string>
-	<string name="MOVE_MODE_PLUS_DESCRIPTION">Move mode but the token may not be on the grid or may be on the grid multiple times.</string>
+	<string name="MOVE_MODE_PLUS_DESCRIPTION">Move mode, but the token may not be on the grid or may be on the grid multiple times.</string>
 	<string name="BLINK_MODE_PLUS">Blink+</string>
 	<string name="BLINK_MODE_PLUS_LOCKED">You need to collect %1$d stars in Blink mode to unlock this mode.</string>
-	<string name="BLINK_MODE_PLUS_DESCRIPTION">Blink mode but the token may not be on the grid or may be on the grid multiple times.</string>
+	<string name="BLINK_MODE_PLUS_DESCRIPTION">Blink mode, but the token may not be on the grid or may be on the grid multiple times.</string>
 	<string name="ROTATE_MODE_PLUS">Rotate+</string>
 	<string name="ROTATE_MODE_PLUS_LOCKED">You need to collect %1$d stars in Rotate mode to unlock this mode.</string>
-	<string name="ROTATE_MODE_PLUS_DESCRIPTION">Rotate mode but the token may not be on the grid or may be on the grid multiple times.</string>
+	<string name="ROTATE_MODE_PLUS_DESCRIPTION">Rotate mode, but the token may not be on the grid or may be on the grid multiple times.</string>
 	<string name="ERROR_SAVING_SETTINGS">An error occurred while trying to save settings.</string>
 	<string name="EXIT_GAME_QUESTION">Close the game?</string>
 	<string name="BACK_TO_MAIN_MENU_QUESTION">Back to main menu?</string>
@@ -116,13 +116,15 @@
 	<string name="INVALID_ID">Invalid game ID</string>
 	<string name="SAVE_PROGRESS">Save progress?</string>
 	<!--CHALLENGES-->
-	<string name="CHALLENGE_STARS">Get more stars on level %1$d of stage %2$d.</string>
+	<string name="CHALLENGE_STARS">Get 3 stars on level %1$d of stage %2$d.</string>
 	<string name="CHALLENGE_POINTS">Beat your points on level %1$d of stage %2$d.</string>
 	<string name="CHALLENGE_NOPOWERUPS">Get 2 stars on level %1$d of stage %2$d without using any power-ups.</string>
-	<string name="CHALLENGE_NOMISTAKES">Complete level %1$d of stage %2$d without any failures.</string>
+	<string name="CHALLENGE_NOMISTAKES">Get 2 stars on level %1$d of stage %2$d without any failures.</string>
 	<string name="CHALLENGE_SHAPES">Find more tiles on level %1$d of stage %2$d.</string>
 	<string name="CHALLENGE_INFO">Complete challenges to get power-ups!</string>
 	<string name="CHALLENGE_LEAVE">If you quit you will lose the challenge!</string>
+	<string name="CHALLENGE_FAILED">Challenge failed!</string>
+	<string name="CHALLENGE_COMPLETED">Challenge completed!</string>
 	<!--ACHEIVEMENTS-->
 	<string name="ACHEIVEMENT_FirstStar">My first star</string>
 	<string name="ACHEIVEMENT_StarCollector">Little star, where are you?</string>
@@ -167,7 +169,6 @@
 	<string name="ACHEIVEMENT_FirstInAll">Here we go!</string>
 	<string name="ACHEIVEMENT_FirstChallenge">First down</string>
 	<string name="ACHEIVEMENT_Challenger">You can not with me</string>
-
 	<string name="ACHEIVEMENT_FirstStar_DES">Get a star</string>
 	<string name="ACHEIVEMENT_StarCollector_DES">Collect stars</string>
 	<string name="ACHEIVEMENT_AllInMode_DES">Get all stars in %1$s mode</string>

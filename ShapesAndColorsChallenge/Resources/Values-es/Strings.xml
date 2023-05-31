@@ -72,6 +72,9 @@
 	<string name="INFORMATION">Información</string>
 	<string name="RANKING">Ranking</string>
 	<string name="CHALLENGES">Retos</string>
+	<string name="CHANGE_PLAYER_NAME">Cambiar nombre de jugador</string>
+	<string name="PLAYER_NAME">Nombre de jugador</string>
+	<string name="TYPE_NAME">Escribe tu nombre</string>
 	<string name="REMAINING_TIME">Tiempo: </string>
 	<string name="REMAINING_TILES">Fichas: </string>
 	<string name="POINTS">Puntos: </string>
@@ -113,13 +116,15 @@
 	<string name="INVALID_ID">ID de juego invalido</string>
 	<string name="SAVE_PROGRESS">¿Guardar progreso?</string>
 	<!--CHALLENGES-->
-	<string name="CHALLENGE_STARS">Consigue más estrellas en el nivel %1$d de la etapa %2$d.</string>
+	<string name="CHALLENGE_STARS">Consigue 3 estrellas en el nivel %1$d de la etapa %2$d.</string>
 	<string name="CHALLENGE_POINTS">Supera tus puntos en el nivel %1$d de la etapa %2$d.</string>
 	<string name="CHALLENGE_NOPOWERUPS">Consigue 2 estrellas en el nivel %1$d de la etapa %2$d sin usar potenciadores.</string>
-	<string name="CHALLENGE_NOMISTAKES">Completa el nivel %1$d de la etapa %2$d sin ningún fallo.</string>
+	<string name="CHALLENGE_NOMISTAKES">Consigue 2 estrellas en el nivel %1$d de la etapa %2$d sin ningún fallo.</string>
 	<string name="CHALLENGE_SHAPES">Encuentra más fichas el nivel %1$d de la etapa %2$d.</string>
 	<string name="CHALLENGE_INFO">¡Supera retos para conseguir potenciadores!</string>
 	<string name="CHALLENGE_LEAVE">¡Si abandonas perderás el reto!</string>
+	<string name="CHALLENGE_FAILED">¡Reto fallado!</string>
+	<string name="CHALLENGE_COMPLETED">¡Reto superado!</string>
 	<!--ACHEIVEMENTS-->
 	<string name="ACHEIVEMENT_FirstStar">Mi primera estrella</string>
 	<string name="ACHEIVEMENT_StarCollector">Estrellita, ¿dónde estás?</string>
@@ -164,7 +169,6 @@
 	<string name="ACHEIVEMENT_FirstInAll">¡Allá vamos!</string>
 	<string name="ACHEIVEMENT_FirstChallenge">Primera baja</string>
 	<string name="ACHEIVEMENT_Challenger">No podréis conmigo</string>
-
 	<string name="ACHEIVEMENT_FirstStar_DES">Consigue una estrella</string>
 	<string name="ACHEIVEMENT_StarCollector_DES">Recolecta estrellas</string>
 	<string name="ACHEIVEMENT_AllInMode_DES">Consigue todas las estrellas en el modo %1$s</string>

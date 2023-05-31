@@ -410,6 +410,17 @@ namespace ShapesAndColorsChallenge.Class
             }
         }
 
+        internal static Texture2D GetPerkImage(PerkType perkType)
+        {
+            return perkType switch
+            {
+                PerkType.Reveal => TextureManager.TexturePerkReveal,
+                PerkType.TimeStop => TextureManager.TexturePerkTimeStop,
+                PerkType.Change => TextureManager.TexturePerkChange,
+                _ => null,
+            };
+        }
+
         #endregion
     }
 }

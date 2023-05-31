@@ -419,7 +419,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         /// Obtiene un listado con todos los ranking filtrados por modo de juego.
         /// </summary>
         /// <returns></returns>
-        static List<Ranking> Get(GameMode gameMode)
+        internal static List<Ranking> Get(GameMode gameMode)
         {
             return DataBaseManager.Connection.Table<Ranking>().Where(t => t.GameMode == gameMode).ToList();
         }
@@ -440,6 +440,17 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
             }
 
             DataBaseManager.Connection.UpdateAll(rankings, true);
+        }
+
+        /// <summary>
+        /// Obtiene el ranking de un determinado jugador.
+        /// </summary>
+        /// <param name="gameMode"></param>
+        /// <param name="playerID"></param>
+        /// <returns></returns>
+        internal static Ranking Get(GameMode gameMode, int playerID)
+        {
+            return DataBaseManager.Connection.Table<Ranking>().Where(t => t.GameMode == gameMode && t.PlayerID == playerID).First();
         }
 
         /// <summary>
@@ -492,6 +503,11 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
                         Points = ranking.Win * 3 - ranking.Lose * 2,
                         Win = ranking.Win
                     }).ToList();
+        }
+
+        internal static bool Update(Ranking ranking)
+        {
+            return DataBaseManager.Connection.Update(ranking) > 0;
         }
 
         #endregion

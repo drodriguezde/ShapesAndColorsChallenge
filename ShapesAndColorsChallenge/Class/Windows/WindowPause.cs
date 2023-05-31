@@ -63,7 +63,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// <summary>
         /// Tamaño y posición de botón abandonar.
         /// </summary>
-        Rectangle buttonQuitBounds = new(BaseBounds.Limits.X + 100, 1250, BaseBounds.Limits.Width - 200, BaseBounds.Button.Height);        
+        Rectangle buttonQuitBounds = new(BaseBounds.Limits.X + 100, 1250, BaseBounds.Limits.Width - 200, BaseBounds.Button.Height);
 
         #endregion
 

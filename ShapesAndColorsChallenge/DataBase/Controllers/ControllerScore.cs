@@ -105,7 +105,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
         /// <returns></returns>
         internal static Score Get(GameMode gameMode, int stageNumber, int levelNumber)
         {
-            return Get().Single(t => t.GameMode == gameMode && t.StageNumber == stageNumber && t.LevelNumber == levelNumber);
+            return DataBaseManager.Connection.Table<Score>().Where(t => t.GameMode == gameMode && t.StageNumber == stageNumber && t.LevelNumber == levelNumber).First();
         }
 
         internal static bool Any()

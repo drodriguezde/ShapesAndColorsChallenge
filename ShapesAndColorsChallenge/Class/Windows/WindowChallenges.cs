@@ -143,7 +143,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void ButtonPlay_OnClick(object sender, OnClickEventArgs e)
         {
-            Challenge challenge = (Challenge)(sender as Button).Tag[0];            
+            Challenge challenge = (Challenge)(sender as Button).Tag[0];
             OrchestratorManager.StageNumber = challenge.StageNumber;
             OrchestratorManager.LevelNumber = challenge.LevelNumber;
             OrchestratorManager.BackWindow = WindowType;
@@ -240,7 +240,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         }
 
         Label GetPlayerName(string name)
-        {            
+        {
             Rectangle bounds = new(OFFSET_X.Double() + IMAGE_WH, OFFSET_Y.Double(), BaseBounds.Limits.Width - OFFSET_X.Multi(4) - IMAGE_WH - BUTTON_WH, TITLE_HEIGHT); /*relativo al item*/
             Label label = new(ModalLevel, bounds, name, Color.DarkGray, Color.DarkGray, AlignHorizontal.Center);
             return label;
@@ -254,7 +254,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         }
 
         void SetButtonPlay(PanelItem item, Challenge challenge)
-        {            
+        {
             Rectangle bounds = new(item.Bounds.Width - BUTTON_WH - OFFSET_X, ITEM_HEIGHT.Half() - BUTTON_WH.Half(), BUTTON_WH, BUTTON_WH); /*relativo al item*/
             Button button = new(ModalLevel, bounds);
             bounds = new(bounds.X + BUTTON_WH.Half() - IMAGE_WH.Half(), ITEM_HEIGHT.Half() - IMAGE_WH.Half(), IMAGE_WH, IMAGE_WH);
@@ -267,9 +267,9 @@ namespace ShapesAndColorsChallenge.Class.Windows
         void SetInfoLabel()
         {
             Rectangle bounds = new(
-                BaseBounds.Limits.X + BaseBounds.Button.Width + 50, 
+                BaseBounds.Limits.X + BaseBounds.Button.Width + 50,
                 BaseBounds.Limits.Bottom - BaseBounds.Button.Height,
-                BaseBounds.Limits.Width - BaseBounds.Limits.X - BaseBounds.Button.Width - 50, 
+                BaseBounds.Limits.Width - BaseBounds.Limits.X - BaseBounds.Button.Width - 50,
                 BaseBounds.Button.Height);
             Label label = new(ModalLevel, bounds, Resource.String.CHALLENGE_INFO.GetString(), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Left, 2);
             PostObject = label;/*Se lo enviamos al padre para poder ponerlo encimo del panel inferior que oculta el listado*/
