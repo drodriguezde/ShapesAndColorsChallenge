@@ -35,6 +35,11 @@ namespace ShapesAndColorsChallenge.Class
         internal static readonly Rectangle Bounds = new(0, 0, 1080, 2264);
 
         /// <summary>
+        /// Dendisas de puntos por pulgada base.
+        /// </summary>
+        internal static readonly int DPI = 392;
+
+        /// <summary>
         /// Límites de la ventana, los elementos deben estar dentro de estos limites.
         /// </summary>
         internal static readonly Rectangle Limits = new(50, 50, 980, 2164);

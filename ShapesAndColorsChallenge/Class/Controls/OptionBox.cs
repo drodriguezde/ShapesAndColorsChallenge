@@ -168,9 +168,9 @@ namespace ShapesAndColorsChallenge.Class.Controls
         internal override void Draw(GameTime gameTime)
         {
             if (Checked)
-                Screen.SpriteBatch.Draw(TextureChecked, Bounds.Redim(), Color.White * CurrentTransparency);
+                Screen.SpriteBatch.Draw(TextureChecked, Bounds, Color.White * CurrentTransparency);
             else
-                Screen.SpriteBatch.Draw(TextureUnChecked, Bounds.Redim(), Color.White * CurrentTransparency);
+                Screen.SpriteBatch.Draw(TextureUnChecked, Bounds, Color.White * CurrentTransparency);
 
             base.Draw(gameTime);
         }

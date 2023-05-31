@@ -30,24 +30,6 @@ namespace ShapesAndColorsChallenge.Class.Controls
 {
     internal class Image : InteractiveObject, IDisposable
     {
-        #region CONST
-
-
-
-        #endregion
-
-        #region IMPORTS
-
-
-
-        #endregion
-
-        #region DELEGATES
-
-
-
-        #endregion
-
         #region PROPERTIES
 
         internal Texture2D Texture { get; set; }
@@ -223,7 +205,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
         internal override void Draw(GameTime gameTime)
         {
             if (Visible)
-                Screen.SpriteBatch.Draw(Texture, Location.Redim(), null, ColorMode * CurrentTransparency, Rotation, Origin, CurrentScale, SpriteEffects.None, 0f);
+                Screen.SpriteBatch.Draw(Texture, Location, null, ColorMode * CurrentTransparency, Rotation, Origin, CurrentScale, SpriteEffects.None, 0f);
 
             base.Draw(gameTime);
         }

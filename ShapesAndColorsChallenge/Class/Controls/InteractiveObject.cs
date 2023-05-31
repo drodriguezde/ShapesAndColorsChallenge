@@ -33,18 +33,6 @@ namespace ShapesAndColorsChallenge.Class.Controls
 {
     internal class InteractiveObject : Entity, IDisposable
     {
-        #region CONST
-
-
-
-        #endregion
-
-        #region IMPORTS
-
-
-
-        #endregion
-
         #region DELEGATES
 
         internal event EventHandler OnHover;
@@ -52,12 +40,6 @@ namespace ShapesAndColorsChallenge.Class.Controls
         internal event EventHandler<OnClickEventArgs> OnClick;
         internal event EventHandler<OnDragEventArgs> OnDrag;
         internal event EventHandler<OnDropEventArgs> OnDrop;
-
-        #endregion
-
-        #region VARS
-
-
 
         #endregion
 
@@ -118,7 +100,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
         {
             get
             {
-                return Screen.RedimMatrix * Scale * MasterScale;
+                return Scale * MasterScale;
             }
         }
 
@@ -251,10 +233,10 @@ namespace ShapesAndColorsChallenge.Class.Controls
             return new(
                         ModalLevel,
                         new Rectangle(
-                            Bounds.Right + 20.RedimX(),
-                            Bounds.Top + Bounds.Height.Half() - 40.RedimY(),
-                            700.RedimX(),
-                            80.RedimY()),
+                            Bounds.Right + 20,
+                            Bounds.Top + Bounds.Height.Half() - 40,
+                            700,
+                            80),
                         text.GetString(),
                         ColorManager.HardGray,
                         ColorManager.HardGray);

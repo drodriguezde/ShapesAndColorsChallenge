@@ -112,7 +112,7 @@ namespace ShapesAndColorsChallenge.Class.Management
 
             FontManager.DrawString(
                 listFieldInfoLanguage[fieldsTested].GetValue(null).ToInt().GetString(),
-                new Rectangle(0, 0, Screen.Bounds.Width, (Screen.Bounds.Height * 0.04f).ToInt()),
+                new Rectangle(0, 0, BaseBounds.Bounds.Width, (BaseBounds.Bounds.Height * 0.04f).ToInt()),
                 1f,
                 ColorManager.VersionLightMode * 1f,
                 1,
@@ -123,16 +123,16 @@ namespace ShapesAndColorsChallenge.Class.Management
         static void ChangeDarkMode(GameTime gameTime)
         {
             Screen.SpriteBatch.DrawRectangle(new Rectangle(
-                (Screen.Bounds.Width - Screen.Bounds.Width * 0.3f).ToInt(),
-                (Screen.Bounds.Height - (Screen.Bounds.Height * 0.1f).ToInt()),
-                (Screen.Bounds.Width * 0.3f).ToInt(),
-                (Screen.Bounds.Height * 0.1f).ToInt()), Color.Orange, 1f);
-            Vector2 position = new((Screen.Bounds.Width - Screen.Bounds.Width * 0.3f).ToInt() + 35, (Screen.Bounds.Height - (Screen.Bounds.Height * 0.06f)).ToInt());
+                (BaseBounds.Bounds.Width - BaseBounds.Bounds.Width * 0.3f).ToInt(),
+                (BaseBounds.Bounds.Height - (BaseBounds.Bounds.Height * 0.1f).ToInt()),
+                (BaseBounds.Bounds.Width * 0.3f).ToInt(),
+                (BaseBounds.Bounds.Height * 0.1f).ToInt()), Color.Orange, 1f);
+            Vector2 position = new((BaseBounds.Bounds.Width - BaseBounds.Bounds.Width * 0.3f).ToInt() + 35, (BaseBounds.Bounds.Height - (BaseBounds.Bounds.Height * 0.06f)).ToInt());
             FontManager.GetFont().Write("DARK MODE", position, FontBuddyLib.Justify.Left, 1f, Color.Orange, Screen.SpriteBatch, null);
 
             foreach (TouchLocation touchLocation in TouchPanel.GetState())
                 if (touchLocation.State == TouchLocationState.Pressed || touchLocation.State == TouchLocationState.Released || touchLocation.State == TouchLocationState.Moved)
-                    if (touchLocation.Position.X > (Screen.Bounds.Width - Screen.Bounds.Width * 0.3f) && touchLocation.Position.Y > Screen.Bounds.Height - (Screen.Bounds.Height * 0.1f))
+                    if (touchLocation.Position.X > (BaseBounds.Bounds.Width - BaseBounds.Bounds.Width * 0.3f) && touchLocation.Position.Y > BaseBounds.Bounds.Height - (BaseBounds.Bounds.Height * 0.1f))
                     {
                         if (gameTime.TotalGameTime.Subtract(LastDarkModeChange).TotalMilliseconds < 500)
                             return;
@@ -154,28 +154,28 @@ namespace ShapesAndColorsChallenge.Class.Management
 
             FontManager.GetFont().Write(Coords, position, FontBuddyLib.Justify.Left, 1f, Color.Green, Screen.SpriteBatch, null);
 
-            position = new Vector2(Screen.Bounds.Width.Half(), Screen.Bounds.Height * 0.04f);
+            position = new Vector2(BaseBounds.Bounds.Width.Half(), BaseBounds.Bounds.Height * 0.04f);
             FontManager.GetFont().Write(string.Format("Highlights: {0}", TouchComponent.Highlights.Count), position, FontBuddyLib.Justify.Left, 1f, ColorManager.LinkDarkMode, Screen.SpriteBatch, null);
 
-            position = new Vector2(Screen.Bounds.Width.Half(), Screen.Bounds.Height * 0.04f + 50f);
+            position = new Vector2(BaseBounds.Bounds.Width.Half(), BaseBounds.Bounds.Height * 0.04f + 50f);
             FontManager.GetFont().Write(string.Format("Clicks: {0}", TouchComponent.Clicks.Count), position, FontBuddyLib.Justify.Left, 1f, ColorManager.LinkDarkMode, Screen.SpriteBatch, null);
 
-            position = new Vector2(Screen.Bounds.Width.Half(), Screen.Bounds.Height * 0.04f + 100f);
+            position = new Vector2(BaseBounds.Bounds.Width.Half(), BaseBounds.Bounds.Height * 0.04f + 100f);
             FontManager.GetFont().Write(string.Format("Drags: {0}", TouchComponent.Drags.Count), position, FontBuddyLib.Justify.Left, 1f, ColorManager.LinkDarkMode, Screen.SpriteBatch, null);
 
-            position = new Vector2(Screen.Bounds.Width.Half(), Screen.Bounds.Height * 0.04f + 150f);
+            position = new Vector2(BaseBounds.Bounds.Width.Half(), BaseBounds.Bounds.Height * 0.04f + 150f);
             FontManager.GetFont().Write(string.Format("Drops: {0}", TouchComponent.Drops.Count), position, FontBuddyLib.Justify.Left, 1f, ColorManager.LinkDarkMode, Screen.SpriteBatch, null);
 
-            position = new Vector2(Screen.Bounds.Width.Half(), Screen.Bounds.Height * 0.04f + 200f);
+            position = new Vector2(BaseBounds.Bounds.Width.Half(), BaseBounds.Bounds.Height * 0.04f + 200f);
             FontManager.GetFont().Write(string.Format("Holds: {0}", TouchComponent.Holds.Count), position, FontBuddyLib.Justify.Left, 1f, ColorManager.LinkDarkMode, Screen.SpriteBatch, null);
 
             if (TouchComponent.Pinches.Count > 0)/*Dos o más dedos a la vez*/
             {
                 var pinch = TouchComponent.Pinches.First();
-                position = new Vector2(Screen.Bounds.Width.Half(), Screen.Bounds.Height * 0.04f + 250f);
+                position = new Vector2(BaseBounds.Bounds.Width.Half(), BaseBounds.Bounds.Height * 0.04f + 250f);
                 FontManager.GetFont().Write(string.Format("Pinch Delta: {0}", pinch.Delta.ToString()), position, FontBuddyLib.Justify.Left, 1f, ColorManager.LinkDarkMode, Screen.SpriteBatch, null);
 
-                position = new Vector2(Screen.Bounds.Width.Half(), Screen.Bounds.Height * 0.04f + 300f);
+                position = new Vector2(BaseBounds.Bounds.Width.Half(), BaseBounds.Bounds.Height * 0.04f + 300f);
                 FontManager.GetFont().Write(pinch.Delta < 0f ? "Zoom out" : "Zoom in", position, FontBuddyLib.Justify.Left, 1f, ColorManager.LinkDarkMode, Screen.SpriteBatch, null);
             }
         }
@@ -183,21 +183,21 @@ namespace ShapesAndColorsChallenge.Class.Management
         static void ShowLimitLines()
         {
             /*Linea vertical*/
-            Screen.SpriteBatch.DrawLine(Screen.Bounds.Width.Half(), Screen.Bounds.Top, Screen.Bounds.Width.Half(), Screen.Bounds.Bottom, ColorManager.VersionColor, 1f, 1);
+            Screen.SpriteBatch.DrawLine(BaseBounds.Bounds.Width.Half(), BaseBounds.Bounds.Top, BaseBounds.Bounds.Width.Half(), BaseBounds.Bounds.Bottom, ColorManager.VersionColor, 1f, 1);
             /*Linean horizontal*/
-            Screen.SpriteBatch.DrawLine(Screen.Bounds.Left, Screen.Bounds.Height.Half(), Screen.Bounds.Right, Screen.Bounds.Height.Half(), ColorManager.VersionColor, 1f, 1);
+            Screen.SpriteBatch.DrawLine(BaseBounds.Bounds.Left, BaseBounds.Bounds.Height.Half(), BaseBounds.Bounds.Right, BaseBounds.Bounds.Height.Half(), ColorManager.VersionColor, 1f, 1);
             /*Área*/
             Screen.SpriteBatch.DrawRectangle(new Rectangle(
-                (Screen.Bounds.X + Screen.Bounds.Width * 0.025f).ToInt(),
-                (Screen.Bounds.Y + Screen.Bounds.Width * 0.05f).ToInt(),
-                (Screen.Bounds.Width - Screen.Bounds.Width * 0.05f).ToInt(),
-                (Screen.Bounds.Height - Screen.Bounds.Width * 0.1f).ToInt()), ColorManager.LinkDarkMode, 1);
+                (BaseBounds.Bounds.X + BaseBounds.Bounds.Width * 0.025f).ToInt(),
+                (BaseBounds.Bounds.Y + BaseBounds.Bounds.Width * 0.05f).ToInt(),
+                (BaseBounds.Bounds.Width - BaseBounds.Bounds.Width * 0.05f).ToInt(),
+                (BaseBounds.Bounds.Height - BaseBounds.Bounds.Width * 0.1f).ToInt()), ColorManager.LinkDarkMode, 1);
         }
 
         static void ShowWindows()
         {
             /*Windows*/
-            Vector2 position = new(50f, Screen.Bounds.Height * 0.03f + 260f);
+            Vector2 position = new(50f, BaseBounds.Bounds.Height * 0.03f + 260f);
             FontManager.GetFont().Write(string.Format("Windows: {0}", WindowManager.Windows.Count), position, FontBuddyLib.Justify.Left, 1f, Color.OrangeRed, Screen.SpriteBatch, null);
         }
 
@@ -205,7 +205,7 @@ namespace ShapesAndColorsChallenge.Class.Management
         {
             for (int i = 0; i < WindowManager.Windows.Count; i++)
             {
-                Vector2 position = new(Screen.Bounds.Width.Half() - Screen.Bounds.Width.Half() * 0.2f, 40);
+                Vector2 position = new(BaseBounds.Bounds.Width.Half() - BaseBounds.Bounds.Width.Half() * 0.2f, 40);
                 FontManager.GetFont().Write(WindowManager.Windows[i].WindowType.ToString(), position, FontBuddyLib.Justify.Left, 1f, Color.Orange, Screen.SpriteBatch, null);
 
                 foreach (InteractiveObject interactiveObject in WindowManager.Windows[i].InteractiveObjectManager.InteractiveObjects)

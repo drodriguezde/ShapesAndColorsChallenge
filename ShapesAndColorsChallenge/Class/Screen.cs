@@ -23,7 +23,6 @@
 using Android.App;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using ShapesAndColorsChallenge.Enum;
 using System;
 
 namespace ShapesAndColorsChallenge.Class
@@ -51,12 +50,12 @@ namespace ShapesAndColorsChallenge.Class
         internal static Size Resolution { get; set; }
 
         /// <summary>
-        /// Matriz de redimensionado, sirve para escalar los sprites y otros objetos Con respecto a la densidad base xxxhdpi.
-        /// Es decir, los objetos que tienen valores establecidos para xxxhdpi, como las ventanas  o los sprites.
+        /// Matriz de redimensionado, sirve para escalar los sprites y otros objetos con respecto a la densidad base 440.
+        /// Es decir, los objetos que tienen valores establecidos para 440, como las ventanas  o los sprites.
         /// </summary>
-        internal static Vector2 RedimMatrix { get; private set; }
+        static Matrix RedimMatrix { get; set; }
 
-        internal static Rectangle Bounds { get { return GraphicsDevice.Viewport.Bounds; } }
+        static Rectangle Bounds { get { return GraphicsDevice.Viewport.Bounds; } }
 
         internal static SpriteBatch SpriteBatch { get; set; }
 
@@ -72,24 +71,11 @@ namespace ShapesAndColorsChallenge.Class
         /// <summary>
         /// Obtiene la densidad de puntos por pulgada de la pantalla del dispositivo.
         /// </summary>
-        internal static DPI GetDPI
+        internal static int GetDPI
         {
             get
             {
-                int dpi = (int)Application.Context.Resources.DisplayMetrics.DensityDpi;
-
-                if (dpi <= 120)
-                    return DPI.ldpi;
-                else if (dpi <= 160)
-                    return DPI.mdpi;
-                else if (dpi <= 240)
-                    return DPI.hdpi;
-                else if (dpi <= 320)
-                    return DPI.xhdpi;
-                else if (dpi <= 480)
-                    return DPI.xxhdpi;
-                else
-                    return DPI.xxxhdpi;
+                return (int)Application.Context.Resources.DisplayMetrics.DensityDpi;
             }
         }
 
@@ -104,27 +90,36 @@ namespace ShapesAndColorsChallenge.Class
 
         internal static void SpriteBatchBeginUI()
         {
+            SetRedimMatrix();
             SpriteBatch.Begin(
                 SpriteSortMode.Deferred,
                 BlendState.AlphaBlend/*Si se cambia no funcionan los onhover*/,
-                SamplerState.AnisotropicClamp/*Escalado sin flurry, pixel perfecto, wrap para tiles*/);
+                SamplerState.AnisotropicClamp/*Escalado sin flurry, pixel perfecto, wrap para tiles*/,
+                transformMatrix: RedimMatrix);
         }
 
         static void SpriteBatchBeginSprite()
         {
+            SetRedimMatrix();
             SpriteBatch.Begin(
                 SpriteSortMode.Immediate,
                 BlendState.AlphaBlend/*Si se cambia no funcionan los onhover*/,
-                SamplerState.PointClamp/*Escalado sin flurry, pixel perfecto, wrap para tiles*/);
+                SamplerState.PointClamp/*Escalado sin flurry, pixel perfecto, wrap para tiles*/,
+                transformMatrix: RedimMatrix);
         }
 
         static void SpriteBatchBeginShader()
         {
-            SpriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive);
+            SetRedimMatrix();
+            SpriteBatch.Begin(
+                SpriteSortMode.Deferred,
+                BlendState.Additive,
+                transformMatrix: RedimMatrix);
         }
 
         static void SpriteBatchBegin(Effect effect)
         {
+            SetRedimMatrix();
             SpriteBatch.Begin(
                 SpriteSortMode.Immediate,
                 BlendState.AlphaBlend/*Si se cambia no funcionan los onhover*/,
@@ -132,11 +127,12 @@ namespace ShapesAndColorsChallenge.Class
                 null,
                 null,
                 effect,
-                null);
+                transformMatrix: RedimMatrix);
         }
 
         static void SpriteBatchBegin(Matrix matrix)
         {
+            SetRedimMatrix();
             SpriteBatch.Begin(
                 SpriteSortMode.Immediate,
                 BlendState.AlphaBlend/*Si se cambia no funcionan los onhover*/,
@@ -202,32 +198,17 @@ namespace ShapesAndColorsChallenge.Class
             SpriteBatchBegin(effect);
         }
 
-        /// <summary>
-        /// Obtiene la escala de redimensionado dependiendo de la densidad de puntos por pulgada del dispositivo.
-        /// Todos los Sprite son para el tamaño máximo xxxhdpi, por lo que el dpi actual es menor hay que reescalar a un tamaño menor el spite.
-        /// </summary>
-        /// <returns></returns>
-        internal static Vector2 GetDPIScale()
+        internal static void SetResolution()
         {
-            DPI dPI = GetDPI;
-
-            return dPI switch
-            {
-                DPI.ldpi => new Vector2(0.1875f, 0.1875f),
-                DPI.mdpi => new Vector2(0.25f, 0.25f),
-                DPI.hdpi => new Vector2(0.375f, 0.375f),
-                DPI.xhdpi => new Vector2(0.5f, 0.5f),
-                DPI.xxhdpi => new Vector2(0.75f, 0.75f),
-                DPI.xxxhdpi => Vector2.One,
-                _ => Vector2.One,
-            };
+            Resolution = new Size(Graphics.PreferredBackBufferHeight, Graphics.PreferredBackBufferWidth);
+            SetRedimMatrix();
         }
 
         internal static void SetRedimMatrix()
         {
-            RedimMatrix = new Vector2(
-                Bounds.Width.ToSingle() / BaseBounds.Bounds.Width.ToSingle(),
-                Bounds.Height.ToSingle() / BaseBounds.Bounds.Height.ToSingle());
+            float scaleX = (Bounds.Width / GetDPI) / (BaseBounds.Bounds.Width / BaseBounds.DPI);
+            float scaleY = (Bounds.Height / GetDPI) / (BaseBounds.Bounds.Height / BaseBounds.DPI);
+            RedimMatrix = Matrix.CreateScale(scaleX, scaleY, 1f);
         }
 
         /// <summary>
@@ -263,70 +244,6 @@ namespace ShapesAndColorsChallenge.Class
             {
                 Statics.TraceException(exception.Message);
             }
-        }
-
-        internal static Vector2 Redim(this Vector2 value)
-        {
-            return new Vector2(value.X * RedimMatrix.X, value.Y * RedimMatrix.Y);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="value">Valor original en 1920x1060</param>
-        /// <returns>Valor convertido a la nueva resolución</returns>
-        internal static Rectangle Redim(this Rectangle value)
-        {
-            return new Rectangle(
-                (value.X * RedimMatrix.X).ToInt(),
-                (value.Y * RedimMatrix.Y).ToInt(),
-                (value.Width * RedimMatrix.X).ToInt(),
-                (value.Height * RedimMatrix.Y).ToInt());
-        }
-
-        internal static int RedimX(this int value)
-        {
-            return (value * RedimMatrix.X).ToInt();
-        }
-
-        internal static int RedimY(this int value)
-        {
-            return (value * RedimMatrix.Y).ToInt();
-        }
-
-        internal static int RedimY(this long value)
-        {
-            return (value * RedimMatrix.Y).ToInt();
-        }
-
-        internal static float RedimX(this float value)
-        {
-            return value * RedimMatrix.X;
-        }
-
-        internal static float RedimY(this float value)
-        {
-            return value * RedimMatrix.Y;
-        }
-
-        internal static Point RedimToPoint(this Vector2 value)
-        {
-            return new Point((value.X * RedimMatrix.X).ToInt(), (value.Y * RedimMatrix.Y).ToInt());
-        }
-
-        internal static Vector2 RedimToVector2(this Point value)
-        {
-            return new Vector2(value.X * RedimMatrix.X, value.Y * RedimMatrix.Y);
-        }
-
-        internal static Point Redim(this Point value)
-        {
-            return new Point((value.X * RedimMatrix.X).ToInt(), (value.Y * RedimMatrix.Y).ToInt());
-        }
-
-        internal static VertexPositionColor Redim(this VertexPositionColor value)
-        {
-            return new VertexPositionColor(new Vector3(RedimX(value.Position.X), RedimY(value.Position.Y), value.Position.Z), value.Color);
         }
 
         internal static Texture2D ToBorderedRectangle(Rectangle bounds, Color innerColor, Color borderColor)
@@ -475,22 +392,6 @@ namespace ShapesAndColorsChallenge.Class
         internal static Vector2 GetScaleToFit(Vector2 origin, Vector2 destination)
         {
             return new Vector2(destination.X / origin.X, destination.Y / origin.Y);
-        }
-
-        /// <summary>
-        /// Reescala un rectángulo.
-        /// </summary>
-        /// <param name="rectangle"></param>
-        /// <param name="scale"></param>
-        /// <returns></returns>
-        internal static Rectangle RescaleRectangle(this Rectangle rectangle, float scale)
-        {
-            float newWidth = rectangle.Width.ToSingle() * scale;
-            float newHeight = rectangle.Height.ToSingle() * scale;
-            float newX = rectangle.X - (newWidth - rectangle.Width.ToSingle()) / 2;
-            float newY = rectangle.Y - (newHeight - rectangle.Height.ToSingle()) / 2;
-
-            return new Rectangle(newX.ToInt(), newY.ToInt(), newWidth.ToInt(), newHeight.ToInt());
         }
 
         #endregion

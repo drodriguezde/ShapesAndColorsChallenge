@@ -97,7 +97,7 @@ namespace ShapesAndColorsChallenge.Class.Particles
 
         internal override void Draw(GameTime gameTime)
         {
-            Screen.SpriteBatch.Draw(Texture, Location.Redim(), null, Color * Transparency, Math.Atan2(Speed.X, -Speed.Y).ToSingle(), new(Texture.Width.Half(), Texture.Height.Half()), Scale, SpriteEffects.None, 0f);
+            Screen.SpriteBatch.Draw(Texture, Location, null, Color * Transparency, Math.Atan2(Speed.X, -Speed.Y).ToSingle(), new(Texture.Width.Half(), Texture.Height.Half()), Scale, SpriteEffects.None, 0f);
         }
 
         #endregion

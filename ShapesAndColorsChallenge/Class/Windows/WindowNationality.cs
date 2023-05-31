@@ -67,23 +67,23 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         #region PROPERTIES
 
-        Rectangle BoundsColumn1Row1 = new Rectangle(115, 150, 300, 200).Redim();
-        Rectangle BoundsColumn1Row2 = new Rectangle(115, 500, 300, 200).Redim();
-        Rectangle BoundsColumn1Row3 = new Rectangle(115, 850, 300, 200).Redim();
-        Rectangle BoundsColumn1Row4 = new Rectangle(115, 1200, 300, 200).Redim();
-        Rectangle BoundsColumn1Row5 = new Rectangle(115, 1550, 300, 200).Redim();
-        Rectangle BoundsColumn2Row1 = new Rectangle(655, 150, 300, 200).Redim();
-        Rectangle BoundsColumn2Row2 = new Rectangle(655, 500, 300, 200).Redim();
-        Rectangle BoundsColumn2Row3 = new Rectangle(655, 850, 300, 200).Redim();
-        Rectangle BoundsColumn2Row4 = new Rectangle(655, 1200, 300, 200).Redim();
-        Rectangle BoundsColumn2Row5 = new Rectangle(655, 1550, 300, 200).Redim();
+        Rectangle BoundsColumn1Row1 = new Rectangle(115, 150, 300, 200);
+        Rectangle BoundsColumn1Row2 = new Rectangle(115, 500, 300, 200);
+        Rectangle BoundsColumn1Row3 = new Rectangle(115, 850, 300, 200);
+        Rectangle BoundsColumn1Row4 = new Rectangle(115, 1200, 300, 200);
+        Rectangle BoundsColumn1Row5 = new Rectangle(115, 1550, 300, 200);
+        Rectangle BoundsColumn2Row1 = new Rectangle(655, 150, 300, 200);
+        Rectangle BoundsColumn2Row2 = new Rectangle(655, 500, 300, 200);
+        Rectangle BoundsColumn2Row3 = new Rectangle(655, 850, 300, 200);
+        Rectangle BoundsColumn2Row4 = new Rectangle(655, 1200, 300, 200);
+        Rectangle BoundsColumn2Row5 = new Rectangle(655, 1550, 300, 200);
 
         #endregion
 
         #region CONSTRUCTORS
 
         internal WindowNationality()
-            : base(ModalLevel.Window, BaseBounds.Bounds.Redim(), WindowType.Nationality)
+            : base(ModalLevel.Window, BaseBounds.Bounds, WindowType.Nationality)
         {
 
         }
@@ -182,7 +182,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetPanel()
         {
-            navigationPanelHorizontal = new NavigationPanelHorizontal(ModalLevel, Bounds, NAVIGATION_PANEL_BOTTOM_BUTTONS.RedimY(), this);
+            navigationPanelHorizontal = new NavigationPanelHorizontal(ModalLevel, Bounds, NAVIGATION_PANEL_BOTTOM_BUTTONS, this);
             InteractiveObjectManager.Add(navigationPanelHorizontal);
         }
 
@@ -223,7 +223,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         Image FlagBackground(string language, Rectangle flagBounds)
         {
-            int borderSize = UserSettingsManager.PlayerCountryCode == language ? Const.BUTTON_BORDER.Multi(8).RedimX() : Const.BUTTON_BORDER.RedimX();
+            int borderSize = UserSettingsManager.PlayerCountryCode == language ? Const.BUTTON_BORDER.Multi(8) : Const.BUTTON_BORDER;
             Color color = UserSettingsManager.PlayerCountryCode == language ? Color.Cyan : ColorManager.HardGray;
             Rectangle bounds = new(flagBounds.X - borderSize.Half(), flagBounds.Y - borderSize.Half(), flagBounds.Width + borderSize, flagBounds.Height + borderSize);
             return new(ModalLevel, bounds, TextureManager.Get(bounds.ToSize(), color, CommonTextureType.Rectangle).Texture);

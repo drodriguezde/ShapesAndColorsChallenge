@@ -50,13 +50,13 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// <summary>
         /// Tamaño y posición de botoón ok cuando está junto con el botón cancelar para la resolución base.
         /// </summary>
-        Rectangle buttonCancelBounds { get; set; } = new Rectangle(BaseBounds.Bounds.Width.Half() - 306.Half(), BaseBounds.Bounds.Height.Half() + 50, 306, 256).Redim();
+        Rectangle buttonCancelBounds { get; set; } = new Rectangle(BaseBounds.Bounds.Width.Half() - 306.Half(), BaseBounds.Bounds.Height.Half() + 50, 306, 256);
 
-        Rectangle buttonLocalBounds { get; set; } = new Rectangle(BaseBounds.Bounds.Width.Half() - 306, BaseBounds.Bounds.Height.Half() - 275, 256, 256).Redim();
+        Rectangle buttonLocalBounds { get; set; } = new Rectangle(BaseBounds.Bounds.Width.Half() - 306, BaseBounds.Bounds.Height.Half() - 275, 256, 256);
 
-        Rectangle buttonGlobalBounds { get; set; } = new Rectangle(BaseBounds.Bounds.Width.Half() + 50, BaseBounds.Bounds.Height.Half() - 275, 256, 256).Redim();
+        Rectangle buttonGlobalBounds { get; set; } = new Rectangle(BaseBounds.Bounds.Width.Half() + 50, BaseBounds.Bounds.Height.Half() - 275, 256, 256);
 
-        static Rectangle messageBoxBounds = new Rectangle(BaseBounds.Limits.X + 100, BaseBounds.Bounds.Height.Half() - 700.Half(), BaseBounds.Limits.Width - 200, 700).Redim();/*Tiene que ser estática*/
+        static Rectangle messageBoxBounds = new Rectangle(BaseBounds.Limits.X + 100, BaseBounds.Bounds.Height.Half() - 700.Half(), BaseBounds.Limits.Width - 200, 700);/*Tiene que ser estática*/
 
 
         #endregion
@@ -224,7 +224,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (!Visible)
                 return;
 
-            Screen.SpriteBatch.Draw(TextureBackLayer, Screen.Bounds, Color.White * BacklayerTransparency);
+            Screen.SpriteBatch.Draw(TextureBackLayer, BaseBounds.Bounds, Color.White * BacklayerTransparency);
             Screen.SpriteBatch.Draw(BodyTexture, Location, Color.White * BodyTransparency);
             base.Draw(gameTime);
         }

@@ -78,24 +78,24 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         int LinesNumber { get; set; } = 1;
 
-        static Rectangle MessageBoxBounds { get; set; } = new Rectangle(BaseBounds.Limits.X + 50, 840, BaseBounds.Limits.Width - 100, 570).Redim();/*Tiene que ser estática*/
+        static Rectangle MessageBoxBounds { get; set; } = new Rectangle(BaseBounds.Limits.X + 50, 840, BaseBounds.Limits.Width - 100, 570);/*Tiene que ser estática*/
 
         /// <summary>
         /// Tamaño y posición de botoón ok cuando está junto con el botón cancelar para la resolución base.
         /// </summary>
-        Rectangle ButtonOKBounds { get; set; } = new Rectangle(BaseBounds.Bounds.Width.Half() - 712.Half(), 1082, 306, 256).Redim();
+        Rectangle ButtonOKBounds { get; set; } = new Rectangle(BaseBounds.Bounds.Width.Half() - 712.Half(), 1082, 306, 256);
 
         /// <summary>
         /// Tamaño y posición de botoón cancelar cuando está junto con el botón ok para la resolución base.
         /// </summary>
-        Rectangle ButtonCancelBounds { get; set; } = new Rectangle(BaseBounds.Bounds.Width.Half() + 50, 1082, 306, 256).Redim();
+        Rectangle ButtonCancelBounds { get; set; } = new Rectangle(BaseBounds.Bounds.Width.Half() + 50, 1082, 306, 256);
 
         /// <summary>
         /// Tamaño y posición de botón ok o cancelar cuando está solo.
         /// </summary>
-        Rectangle ButtonAloneBounds { get; set; } = new Rectangle(BaseBounds.Bounds.Width.Half() - 306.Half(), 1082, 306, 256).Redim();
+        Rectangle ButtonAloneBounds { get; set; } = new Rectangle(BaseBounds.Bounds.Width.Half() - 306.Half(), 1082, 306, 256);
 
-        Rectangle MessageBounds { get; set; } = new Rectangle(170, 887, 710, 120).Redim();
+        Rectangle MessageBounds { get; set; } = new Rectangle(170, 887, 710, 120);
 
         #endregion
 
@@ -220,7 +220,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             {
                 BodyBounds = new Rectangle(Bounds.X, BaseBounds.Bounds.Height.Half() - 100, Bounds.Width, 200);
                 Bounds = new Rectangle(Bounds.X, BaseBounds.Bounds.Height.Half() - 100, Bounds.Width, 200);
-                MessageBounds = new Rectangle(170, BodyBounds.Top + 40, 710, 120).Redim();
+                MessageBounds = new Rectangle(170, BodyBounds.Top + 40, 710, 120);
             }
             else
                 BodyBounds = new Rectangle(Bounds.X, Bounds.Y, Bounds.Width, Bounds.Height);
@@ -271,7 +271,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (!Visible)
                 return;
 
-            Screen.SpriteBatch.Draw(TextureBackLayer, Screen.Bounds, Color.White * BacklayerTransparency);
+            Screen.SpriteBatch.Draw(TextureBackLayer, BaseBounds.Bounds, Color.White * BacklayerTransparency);
             Screen.SpriteBatch.Draw(BodyTexture, Location, Color.White * BodyTransparency);
             base.Draw(gameTime);
         }

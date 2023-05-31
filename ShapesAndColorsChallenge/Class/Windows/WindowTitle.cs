@@ -70,30 +70,30 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// Posición y tamaño para la resolución base.
         /// Se recalculará.
         /// </summary>
-        Rectangle ButtonPlayBounds { get; set; } = new Rectangle(BaseBounds.Limits.X, 770, BaseBounds.Limits.Width, BaseBounds.Bounds.Height - 770.Double()).Redim();
+        Rectangle ButtonPlayBounds { get; set; } = new Rectangle(BaseBounds.Limits.X, 770, BaseBounds.Limits.Width, BaseBounds.Bounds.Height - 770.Double());
 
         /// <summary>
         /// Tamaño y posición inicial de la primera linea de título de la aplicación para la resolución base.
         /// </summary>
-        Rectangle TitleFirstLineBounds { get; set; } = new Rectangle(BaseBounds.Limits.X, 330, BaseBounds.Limits.Width, 250).Redim();
+        Rectangle TitleFirstLineBounds { get; set; } = new Rectangle(BaseBounds.Limits.X, 330, BaseBounds.Limits.Width, 250);
 
         /// <summary>
         /// Tamaño y posición inicial de la segunda linea de título de la aplicación para la resolución base.
         /// </summary>
-        Rectangle TitleSecondLineBounds { get; set; } = new Rectangle(BaseBounds.Limits.X, 480, BaseBounds.Limits.Width, 250).Redim();
+        Rectangle TitleSecondLineBounds { get; set; } = new Rectangle(BaseBounds.Limits.X, 480, BaseBounds.Limits.Width, 250);
 
-        Rectangle LinkBounds { get; set; } = new Rectangle(675, BaseBounds.Limits.Bottom - 180, 250, 80).Redim();
+        Rectangle LinkBounds { get; set; } = new Rectangle(675, BaseBounds.Limits.Bottom - 180, 250, 80);
 
-        Rectangle LabelVersionBounds { get; set; } = new Rectangle(650, BaseBounds.Limits.Bottom - 90, 300, 90).Redim();
+        Rectangle LabelVersionBounds { get; set; } = new Rectangle(650, BaseBounds.Limits.Bottom - 90, 300, 90);
 
-        Rectangle PlayTextBounds = new Rectangle(BaseBounds.Limits.X, BaseBounds.Bounds.Height.Half() - 150.Half(), BaseBounds.Limits.Width, 150).Redim();
+        Rectangle PlayTextBounds = new Rectangle(BaseBounds.Limits.X, BaseBounds.Bounds.Height.Half() - 150.Half(), BaseBounds.Limits.Width, 150);
 
         #endregion
 
         #region CONSTRUCTORS
 
         internal WindowTitle()
-            : base(ModalLevel.Window, BaseBounds.Bounds.Redim(), WindowType.Title)
+            : base(ModalLevel.Window, BaseBounds.Bounds, WindowType.Title)
         {
 
         }

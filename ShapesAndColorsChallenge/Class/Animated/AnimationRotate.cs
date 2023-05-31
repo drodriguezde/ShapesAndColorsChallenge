@@ -28,12 +28,6 @@ namespace ShapesAndColorsChallenge.Class.Animated
 {
     internal class AnimationRotate : Animation
     {
-        #region CONST
-
-
-
-        #endregion
-
         #region PROPERTIES
 
         float RotationSpeed { get; set; } = 0f;

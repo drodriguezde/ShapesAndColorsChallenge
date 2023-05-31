@@ -237,7 +237,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (!Visible)
                 return;
 
-            Screen.SpriteBatch.Draw(TextureBackLayer, Screen.Bounds, Color.White * BacklayerTransparency);
+            Screen.SpriteBatch.Draw(TextureBackLayer, BaseBounds.Bounds, Color.White * BacklayerTransparency);
             Screen.SpriteBatch.Draw(BodyTexture, Location, Color.White * BodyTransparency);
             base.Draw(gameTime);
         }

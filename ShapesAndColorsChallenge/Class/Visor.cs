@@ -102,7 +102,6 @@ namespace ShapesAndColorsChallenge.Class
 
             /*Objetos no administrados aquí*/
 
-
             disposed = true;
         }
 
@@ -127,8 +126,7 @@ namespace ShapesAndColorsChallenge.Class
         /// <param name="e"></param>
         private void Graphics_DeviceReset(object sender, EventArgs e)
         {
-            Screen.Resolution = new Size(Screen.Graphics.PreferredBackBufferHeight, Screen.Graphics.PreferredBackBufferWidth);
-            Screen.SetRedimMatrix();
+            Screen.SetResolution();
         }
 
         #endregion
@@ -157,8 +155,7 @@ namespace ShapesAndColorsChallenge.Class
                 GameContent.ContentStage = Game.Content;
                 GameContent.ContentAnimation = Game.Content;
                 GameContent.ContentShader = Game.Content;
-                Screen.Resolution = new Size(Screen.Graphics.PreferredBackBufferHeight, Screen.Graphics.PreferredBackBufferWidth);
-                Screen.SetRedimMatrix();
+                Screen.SetResolution();
                 ResetAllContent();
             }
             catch (Exception exception)

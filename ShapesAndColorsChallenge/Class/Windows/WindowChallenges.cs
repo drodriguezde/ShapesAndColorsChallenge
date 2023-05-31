@@ -67,7 +67,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         #region CONSTRUCTORS
 
         internal WindowChallenges()
-            : base(ModalLevel.Window, BaseBounds.Bounds.Redim(), WindowType.Challenges)
+            : base(ModalLevel.Window, BaseBounds.Bounds, WindowType.Challenges)
         {
 
         }

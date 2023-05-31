@@ -126,7 +126,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         void SetLabelPoints()
         {
-            Rectangle bounds = new Rectangle(LEFT, TOP, 240, HEIGHT).Redim();
+            Rectangle bounds = new Rectangle(LEFT, TOP, 240, HEIGHT);
             labelPoints = new(ModalLevel.Window, bounds, $"{Resource.String.POINTS.GetString()}  "/*dos espacio en blanco*/, ColorManager.HardGray, ColorManager.HardGray);
         }
 

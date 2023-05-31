@@ -148,13 +148,13 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         void LoadStars()
         {
-            Vector2 scale = Screen.GetScaleToFit(new Vector2(256, 256), new Vector2(Bounds.Height, Bounds.Height).Redim());
+            Vector2 scale = Screen.GetScaleToFit(new Vector2(256, 256), new Vector2(Bounds.Height, Bounds.Height));
 
             animatedStar = new Animation[3]
             {
-                new Animation(TextureManager.AnimatedStar, Const.ANIMATED_STAR_LOOP, GetStarLocation(0, scale.X).Redim(), scale) { Visible = true, BloomEnabled = true, BloomEnabledOnlyInMotion = true, BloomValues = new BloomValues().SetStarInMotionBloom() },
-                new Animation(TextureManager.AnimatedStar, Const.ANIMATED_STAR_LOOP, GetStarLocation(1, scale.X).Redim(), scale) { Visible = true, BloomEnabled = true, BloomEnabledOnlyInMotion = true, BloomValues = new BloomValues().SetStarInMotionBloom() },
-                new Animation(TextureManager.AnimatedStar, Const.ANIMATED_STAR_LOOP, GetStarLocation(2, scale.X).Redim(), scale) { Visible = true, BloomEnabled = true, BloomEnabledOnlyInMotion = true, BloomValues = new BloomValues().SetStarInMotionBloom() }
+                new Animation(TextureManager.AnimatedStar, Const.ANIMATED_STAR_LOOP, GetStarLocation(0, scale.X), scale) { Visible = true, BloomEnabled = true, BloomEnabledOnlyInMotion = true, BloomValues = new BloomValues().SetStarInMotionBloom() },
+                new Animation(TextureManager.AnimatedStar, Const.ANIMATED_STAR_LOOP, GetStarLocation(1, scale.X), scale) { Visible = true, BloomEnabled = true, BloomEnabledOnlyInMotion = true, BloomValues = new BloomValues().SetStarInMotionBloom() },
+                new Animation(TextureManager.AnimatedStar, Const.ANIMATED_STAR_LOOP, GetStarLocation(2, scale.X), scale) { Visible = true, BloomEnabled = true, BloomEnabledOnlyInMotion = true, BloomValues = new BloomValues().SetStarInMotionBloom() }
             };
         }
 

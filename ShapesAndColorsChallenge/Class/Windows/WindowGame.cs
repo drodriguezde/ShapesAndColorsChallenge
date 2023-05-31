@@ -44,7 +44,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
     {
         #region CONST
 
-        readonly Rectangle counterRectangle = BaseBounds.Bounds.Redim().RescaleRectangle(0.12f);
+        readonly Rectangle counterRectangle = BaseBounds.Bounds.RescaleRectangle(0.12f);
 
         /// <summary>
         /// Tiempo en milisegundos disponible por el usuario para ver la parrilla de fichas.
@@ -107,9 +107,9 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// <summary>
         /// Ubicación y tamaño del botón volver en la pantalla de juego.
         /// </summary>
-        Rectangle buttonPauseBounds = new Rectangle(BaseBounds.Limits.X, 350 + BaseBounds.TileSize.Height - BaseBounds.Button.Height, BaseBounds.Button.Width, BaseBounds.Button.Height).Redim();
+        Rectangle buttonPauseBounds = new Rectangle(BaseBounds.Limits.X, 350 + BaseBounds.TileSize.Height - BaseBounds.Button.Height, BaseBounds.Button.Width, BaseBounds.Button.Height);
 
-        static Rectangle masterTileBounds = new Rectangle(BaseBounds.Bounds.Width.Half() - 128, 350, BaseBounds.TileSize.Width, BaseBounds.TileSize.Height).Redim();
+        static Rectangle masterTileBounds = new Rectangle(BaseBounds.Bounds.Width.Half() - 128, 350, BaseBounds.TileSize.Width, BaseBounds.TileSize.Height);
 
         #endregion
 
@@ -274,7 +274,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         #region CONSTRUCTORS
 
         internal WindowGame()
-            : base(ModalLevel.Window, BaseBounds.Bounds.Redim(), WindowType.Game)
+            : base(ModalLevel.Window, BaseBounds.Bounds, WindowType.Game)
         {
             GameMode = OrchestratorManager.GameMode;
             Stage = OrchestratorManager.StageNumber;
@@ -957,12 +957,12 @@ namespace ShapesAndColorsChallenge.Class.Windows
         void SetRemainingTimeLabelBounds()
         {
             Vector2 strinsSize = FontManager.GetFont().MeasureString($"{Resource.String.REMAINING_TIME.GetString()} 0.0");
-            int x = BaseBounds.Limits.Right - strinsSize.X.RedimX().ToInt();
+            int x = BaseBounds.Limits.Right - strinsSize.X.ToInt();
             RemainingTimeLabelBounds = new Rectangle(
                 x,
-                masterTileBounds.Bottom - 60.RedimY(),
-                BaseBounds.Limits.Right.RedimX() - x,
-                60.RedimY());
+                masterTileBounds.Bottom - 60,
+                BaseBounds.Limits.Right - x,
+                60);
             RemainingTimeLabel.Bounds = RemainingTimeLabelBounds;
         }
 
@@ -972,12 +972,12 @@ namespace ShapesAndColorsChallenge.Class.Windows
         void SetRemainingTilesLabelBounds()
         {
             Vector2 strinsSize = FontManager.GetFont().MeasureString($"{Resource.String.REMAINING_TILES.GetString()} 99/99");
-            int x = BaseBounds.Limits.Right - strinsSize.X.RedimX().ToInt();
+            int x = BaseBounds.Limits.Right - strinsSize.X.ToInt();
             RemainingTilesLabelBounds = new Rectangle(
                 x,
                 masterTileBounds.Top,
-                BaseBounds.Limits.Right.RedimX() - x,
-                60.RedimY());
+                BaseBounds.Limits.Right - x,
+                60);
             RemainingTilesLabel.Bounds = RemainingTilesLabelBounds;
         }
 

@@ -64,7 +64,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         #region CONSTRUCTORS
 
         internal WindowDanStudios()
-            : base(ModalLevel.Window, BaseBounds.Bounds.Redim(), WindowType.DanStudios)
+            : base(ModalLevel.Window, BaseBounds.Bounds, WindowType.DanStudios)
         {
 
         }
@@ -138,7 +138,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 BaseBounds.Bounds.Width.Half() - TextureManager.TextureLogo.Width.Half(),
                 BaseBounds.Bounds.Height.Half() - TextureManager.TextureLogo.Height.Half(),
                 TextureManager.TextureLogo.Width,
-                TextureManager.TextureLogo.Height).Redim();
+                TextureManager.TextureLogo.Height);
             Image imageLogo = new(ModalLevel, bounds, TextureManager.TextureLogo);
             InteractiveObjectManager.Add(imageLogo);
         }

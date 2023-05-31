@@ -60,9 +60,9 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         #region VARS
 
-        Rectangle buttonChangeBounds = new Rectangle(BaseBounds.Limits.Right - BaseBounds.Perk.Width, BaseBounds.Limits.Bottom - BaseBounds.Perk.Height, BaseBounds.Perk.Width, BaseBounds.Perk.Height).Redim();
-        Rectangle buttonRevealBounds = new Rectangle(BaseBounds.Limits.X + BaseBounds.Limits.Width.Half() - BaseBounds.Perk.Width.Half(), BaseBounds.Limits.Bottom - BaseBounds.Perk.Height, BaseBounds.Perk.Width, BaseBounds.Perk.Height).Redim();
-        Rectangle buttonTimeStopBounds = new Rectangle(BaseBounds.Limits.X, BaseBounds.Limits.Bottom - BaseBounds.Perk.Height, BaseBounds.Perk.Width, BaseBounds.Perk.Height).Redim();
+        Rectangle buttonChangeBounds = new Rectangle(BaseBounds.Limits.Right - BaseBounds.Perk.Width, BaseBounds.Limits.Bottom - BaseBounds.Perk.Height, BaseBounds.Perk.Width, BaseBounds.Perk.Height);
+        Rectangle buttonRevealBounds = new Rectangle(BaseBounds.Limits.X + BaseBounds.Limits.Width.Half() - BaseBounds.Perk.Width.Half(), BaseBounds.Limits.Bottom - BaseBounds.Perk.Height, BaseBounds.Perk.Width, BaseBounds.Perk.Height);
+        Rectangle buttonTimeStopBounds = new Rectangle(BaseBounds.Limits.X, BaseBounds.Limits.Bottom - BaseBounds.Perk.Height, BaseBounds.Perk.Width, BaseBounds.Perk.Height);
         Button buttonReveal, buttonChange, buttonTimeStop;
         Image imageReveal, imageChange, imageTimeStop;
         Image imageBubbleReveal, imageBubbleChange, imageBubbleTimeStop;
@@ -254,9 +254,9 @@ namespace ShapesAndColorsChallenge.Class.Controls
         void SetAnimations()
         {
             Vector2 diff = BaseBounds.PerkImage.ToVector2() / 2 - BaseBounds.Perk.ToVector2() / 2;
-            animatedChange = new Animation(TextureManager.PerkChange, Const.ANIMATED_PERK_CHANGE, (buttonChangeBounds.Location.ToVector2() - diff).Redim()) { Visible = false };
-            animatedReveal = new Animation(TextureManager.PerkReveal, Const.ANIMATED_PERK_REVEAL, (buttonRevealBounds.Location.ToVector2() - diff).Redim()) { Visible = false };
-            animatedTimeStop = new Animation(TextureManager.PerkTimeStop, Const.ANIMATED_PERK_TIME_STOP, (buttonTimeStopBounds.Location.ToVector2() - diff).Redim()) { Visible = false };
+            animatedChange = new Animation(TextureManager.PerkChange, Const.ANIMATED_PERK_CHANGE, (buttonChangeBounds.Location.ToVector2() - diff)) { Visible = false };
+            animatedReveal = new Animation(TextureManager.PerkReveal, Const.ANIMATED_PERK_REVEAL, (buttonRevealBounds.Location.ToVector2() - diff)) { Visible = false };
+            animatedTimeStop = new Animation(TextureManager.PerkTimeStop, Const.ANIMATED_PERK_TIME_STOP, (buttonTimeStopBounds.Location.ToVector2() - diff)) { Visible = false };
         }
 
         /// <summary>

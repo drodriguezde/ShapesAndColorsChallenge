@@ -24,24 +24,6 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         #endregion
 
-        #region IMPORTS
-
-
-
-        #endregion
-
-        #region DELEGATES
-
-
-
-        #endregion
-
-        #region VARS
-
-
-
-        #endregion
-
         #region PROPERTIES
 
         /// <summary>
@@ -195,7 +177,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
                 for (int v = 0; v < verticalTiles; v++)
                 {
                     (ShapeType shapeType, TileColor tileColor) = GetColorAndShape(positionPlusTile, positionCurrentTile);
-                    Rectangle bounds = new Rectangle(GetTileLocationLeft(h) + Const.TILE_PADDING, GetTileLocationTop(v) + Const.TILE_PADDING, TileSize - Const.TILE_PADDING.Double(), TileSize - Const.TILE_PADDING.Double()).Redim();
+                    Rectangle bounds = new(GetTileLocationLeft(h) + Const.TILE_PADDING, GetTileLocationTop(v) + Const.TILE_PADDING, TileSize - Const.TILE_PADDING.Double(), TileSize - Const.TILE_PADDING.Double());
                     Tile tile = new(ModalLevel, bounds, h, v, tileColor, shapeType) { AllowClickWhenNotVisible = true };
                     Image imageTile = new(ModalLevel, bounds, TextureManager.GetShape(shapeType), ColorManager.GetShapeColor(tileColor), true) { EnableOnClick = false };
                     tile.OnClick += WindowGame.Tile_OnClick;
@@ -347,13 +329,13 @@ namespace ShapesAndColorsChallenge.Class.Controls
             {
                 if (Tiles[i].ShapeType == tile.ShapeType && Tiles[i].TileColor == tile.TileColor)
                 {
-                    Rectangle bounds = new Rectangle(GetTileLocationLeft(Tiles[i].HorizontalLocation) + Const.TILE_PADDING, GetTileLocationTop(Tiles[i].VerticalLocation) + Const.TILE_PADDING, TileSize - Const.TILE_PADDING.Double(), TileSize - Const.TILE_PADDING.Double()).Redim();
+                    Rectangle bounds = new(GetTileLocationLeft(Tiles[i].HorizontalLocation) + Const.TILE_PADDING, GetTileLocationTop(Tiles[i].VerticalLocation) + Const.TILE_PADDING, TileSize - Const.TILE_PADDING.Double(), TileSize - Const.TILE_PADDING.Double());
                     return new(bounds.X.ToInt() - Const.TILE_PADDING + offset, bounds.Y.ToInt() - Const.TILE_PADDING - offset.Half(), bounds.Width + Const.TILE_PADDING.Double(), bounds.Height + Const.TILE_PADDING.Double());
                 }
 
                 if (Tiles[i].ShapeType == ShapeType.None)/*Se devolverá la última en caso de no haber otra.*/
                 {
-                    Rectangle bounds = new Rectangle(GetTileLocationLeft(Tiles[i].HorizontalLocation) + Const.TILE_PADDING, GetTileLocationTop(Tiles[i].VerticalLocation) + Const.TILE_PADDING, TileSize - Const.TILE_PADDING.Double(), TileSize - Const.TILE_PADDING.Double()).Redim();
+                    Rectangle bounds = new(GetTileLocationLeft(Tiles[i].HorizontalLocation) + Const.TILE_PADDING, GetTileLocationTop(Tiles[i].VerticalLocation) + Const.TILE_PADDING, TileSize - Const.TILE_PADDING.Double(), TileSize - Const.TILE_PADDING.Double());
                     tileLocation = new(bounds.X.ToInt() - Const.TILE_PADDING + offset, bounds.Y.ToInt() - Const.TILE_PADDING - offset.Half(), bounds.Width + Const.TILE_PADDING.Double(), bounds.Height + Const.TILE_PADDING.Double());
                 }
             }
@@ -378,14 +360,14 @@ namespace ShapesAndColorsChallenge.Class.Controls
         {
             for (int i = 0; i <= GameData.VerticalTilesNumber(Stage, Level); i++)
                 Screen.SpriteBatch.DrawLine(
-                    new Vector2(DrawStartLocation.X, DrawStartLocation.Y + i * TileSize).Redim(),
-                    new Vector2(DrawStartLocation.X + GameData.HorizontalTilesNumber(Stage, Level) * TileSize, DrawStartLocation.Y + i * TileSize).Redim(),
+                    new Vector2(DrawStartLocation.X, DrawStartLocation.Y + i * TileSize),
+                    new Vector2(DrawStartLocation.X + GameData.HorizontalTilesNumber(Stage, Level) * TileSize, DrawStartLocation.Y + i * TileSize),
                     ColorManager.VeryHardGray, 1);
 
             for (int i = 0; i <= GameData.HorizontalTilesNumber(Stage, Level); i++)
                 Screen.SpriteBatch.DrawLine(
-                    new Vector2(DrawStartLocation.X + i * TileSize, DrawStartLocation.Y).Redim(),
-                    new Vector2(DrawStartLocation.X + i * TileSize, DrawStartLocation.Y + GameData.VerticalTilesNumber(Stage, Level) * TileSize).Redim(),
+                    new Vector2(DrawStartLocation.X + i * TileSize, DrawStartLocation.Y),
+                    new Vector2(DrawStartLocation.X + i * TileSize, DrawStartLocation.Y + GameData.VerticalTilesNumber(Stage, Level) * TileSize),
                     ColorManager.VeryHardGray, 1);
 
             for (int i = 0; i < Highlights.Count; i++)

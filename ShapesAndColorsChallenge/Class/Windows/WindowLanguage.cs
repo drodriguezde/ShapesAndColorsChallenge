@@ -68,22 +68,22 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         #region PROPERTIES
 
-        Rectangle BoundsES = new Rectangle(115, 150, 300, 200).Redim();
-        Rectangle BoundsDA = new Rectangle(115, 500, 300, 200).Redim();
-        Rectangle BoundsDE = new Rectangle(115, 850, 300, 200).Redim();
-        Rectangle BoundsEN = new Rectangle(115, 1200, 300, 200).Redim();
-        Rectangle BoundsKO = new Rectangle(115, 1550, 300, 200).Redim();
-        Rectangle BoundsJA = new Rectangle(655, 150, 300, 200).Redim();
-        Rectangle BoundsFR = new Rectangle(655, 500, 300, 200).Redim();
-        Rectangle BoundsIT = new Rectangle(655, 850, 300, 200).Redim();
-        Rectangle BoundsZH = new Rectangle(655, 1200, 300, 200).Redim();
+        Rectangle BoundsES = new Rectangle(115, 150, 300, 200);
+        Rectangle BoundsDA = new Rectangle(115, 500, 300, 200);
+        Rectangle BoundsDE = new Rectangle(115, 850, 300, 200);
+        Rectangle BoundsEN = new Rectangle(115, 1200, 300, 200);
+        Rectangle BoundsKO = new Rectangle(115, 1550, 300, 200);
+        Rectangle BoundsJA = new Rectangle(655, 150, 300, 200);
+        Rectangle BoundsFR = new Rectangle(655, 500, 300, 200);
+        Rectangle BoundsIT = new Rectangle(655, 850, 300, 200);
+        Rectangle BoundsZH = new Rectangle(655, 1200, 300, 200);
 
         #endregion
 
         #region CONSTRUCTORS
 
         internal WindowLanguage()
-            : base(ModalLevel.Window, BaseBounds.Bounds.Redim(), WindowType.Language)
+            : base(ModalLevel.Window, BaseBounds.Bounds, WindowType.Language)
         {
 
         }
@@ -205,7 +205,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         Image FlagBackground(Language language, Rectangle flagBounds)
         {
-            int borderSize = UserSettingsManager.CountryCode == language.ToString() ? Const.BUTTON_BORDER.Multi(8).RedimX() : Const.BUTTON_BORDER.RedimX();
+            int borderSize = UserSettingsManager.CountryCode == language.ToString() ? Const.BUTTON_BORDER.Multi(8) : Const.BUTTON_BORDER;
             Color color = UserSettingsManager.CountryCode == language.ToString() ? Color.Cyan : ColorManager.HardGray;
             Rectangle bounds = new(flagBounds.X - borderSize.Half(), flagBounds.Y - borderSize.Half(), flagBounds.Width + borderSize, flagBounds.Height + borderSize);
             return new Image(ModalLevel, bounds, TextureManager.Get(bounds.ToSize(), color, CommonTextureType.Rectangle).Texture);

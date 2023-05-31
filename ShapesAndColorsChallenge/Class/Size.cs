@@ -27,12 +27,6 @@ namespace ShapesAndColorsChallenge.Class
 {
     internal class Size : IDisposable, IEquatable<Size>
     {
-        #region CONST
-
-
-
-        #endregion
-
         #region IMPORTS
 
 
@@ -112,22 +106,6 @@ namespace ShapesAndColorsChallenge.Class
         ~Size()
         {
             Dispose(false);
-        }
-
-        #endregion
-
-        #region EVENTS
-
-
-
-        #endregion
-
-        #region METHODS
-
-        internal void Redim()
-        {
-            Width *= Screen.RedimMatrix.X.ToInt();
-            Height *= Screen.RedimMatrix.Y.ToInt();
         }
 
         #endregion

@@ -61,7 +61,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             BaseBounds.Limits.X + (BaseBounds.Limits.Width - BaseBounds.Button.Width * 4) + BaseBounds.Button.Width.Multi(3),
             BaseBounds.Limits.Bottom - BaseBounds.Button.Height,
             BaseBounds.Button.Width,
-            BaseBounds.Button.Height).Redim();
+            BaseBounds.Button.Height);
 
         #endregion
 
@@ -74,7 +74,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         #region CONSTRUCTORS
 
         internal WindowHowToPlay(WindowHowToPlayParams parameters)
-            : base(ModalLevel.Window, BaseBounds.Bounds.Redim(), WindowType.HowToPlay)
+            : base(ModalLevel.Window, BaseBounds.Bounds, WindowType.HowToPlay)
         {
             WindowHowToPlayParams = parameters;
             AddBackButton = WindowHowToPlayParams.OriginInfoButton;
@@ -183,7 +183,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetPanel()
         {
-            navigationPanelHorizontal = new(ModalLevel, Bounds, BaseBounds.Limits.Bottom - BaseBounds.Button.Height - 150.RedimY(), this);
+            navigationPanelHorizontal = new(ModalLevel, Bounds, BaseBounds.Limits.Bottom - BaseBounds.Button.Height - 150, this);
             InteractiveObjectManager.Add(navigationPanelHorizontal);
         }
 

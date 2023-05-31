@@ -88,7 +88,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         #region CONSTRUCTORS
 
         internal WindowRankings(bool isGlobalRanking)
-            : base(ModalLevel.Window, BaseBounds.Bounds.Redim(), WindowType.Rankings)
+            : base(ModalLevel.Window, BaseBounds.Bounds, WindowType.Rankings)
         {
             IsGlobalRanking = isGlobalRanking;
         }

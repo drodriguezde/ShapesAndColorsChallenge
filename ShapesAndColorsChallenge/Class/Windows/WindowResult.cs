@@ -68,7 +68,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// <summary>
         /// Tamaño y posición de botoón ok cuando está junto con el botón cancelar para la resolución base.
         /// </summary>
-        Rectangle ButtonOKBounds { get; set; } = new Rectangle(0, 0, 300, 256).Redim();
+        Rectangle ButtonOKBounds { get; set; } = new Rectangle(0, 0, 300, 256);
 
         WindowResultParams WindowResultParams { get; set; }
 
@@ -194,7 +194,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         {
             int height = OFFSET + MESSAGE_LABEL_HEIGHT + OFFSET + BaseBounds.Button.Height + OFFSET + ButtonOKBounds.Height + OFFSET;
 
-            return new Rectangle(BaseBounds.Limits.X + 50, BaseBounds.Bounds.Height.Half() - height.Half(), BaseBounds.Limits.Width - 100, height).Redim();
+            return new Rectangle(BaseBounds.Limits.X + 50, BaseBounds.Bounds.Height.Half() - height.Half(), BaseBounds.Limits.Width - 100, height);
         }
 
         void SetBackLayer()
@@ -339,7 +339,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (!Visible)
                 return;
 
-            Screen.SpriteBatch.Draw(TextureBackLayer, Screen.Bounds, Color.White * BacklayerTransparency);
+            Screen.SpriteBatch.Draw(TextureBackLayer, BaseBounds.Bounds, Color.White * BacklayerTransparency);
             Screen.SpriteBatch.Draw(BodyTexture, Location, Color.White * BodyTransparency);
             base.Draw(gameTime);
             ParticleEngine.Draw(gameTime);

@@ -59,7 +59,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// <summary>
         /// Ubicación y tamaño del botón volver.
         /// </summary>
-        Rectangle buttonBackBounds = new Rectangle(BaseBounds.Limits.X, BaseBounds.Limits.Bottom - BaseBounds.Button.Height, BaseBounds.Button.Width, BaseBounds.Button.Height).Redim();
+        Rectangle buttonBackBounds = new(BaseBounds.Limits.X, BaseBounds.Limits.Bottom - BaseBounds.Button.Height, BaseBounds.Button.Width, BaseBounds.Button.Height);
 
         InteractiveObjectManager interactiveObjectManager;
         Button buttonBack;

@@ -35,45 +35,27 @@ namespace ShapesAndColorsChallenge.Class.Controls
 {
     internal class NavigationPanelHorizontal : InteractiveObject, IDisposable
     {
-        #region CONST
-
-
-
-        #endregion
-
-        #region IMPORTS
-
-
-
-        #endregion
-
-        #region DELEGATES
-
-
-
-        #endregion
-
         #region VARS
 
         /// <summary>
         /// Separación que hay entre el último elemento del primer panel y los puntos de navegación.
         /// </summary>
-        int dotsTopSeparation = 90.RedimY();
+        readonly int dotsTopSeparation = 90;
 
         /// <summary>
         /// Separación que hay entre los puntos de navegación.
         /// </summary>
-        int dotsSeparation = 60.RedimX();
+        readonly int dotsSeparation = 60;
 
         /// <summary>
         /// Diametro del punto de navegación habilitado.
         /// </summary>
-        int enabledDotDiameter = 36.RedimX();
+        readonly int enabledDotDiameter = 36;
 
         /// <summary>
         /// Diametro del punto de navegación deshabilitado.
         /// </summary>
-        int disabledDotDiameter = 20.RedimX();
+        readonly int disabledDotDiameter = 20;
 
         /// <summary>
         /// Textura del punto de navegación del panel actualmente activo.
@@ -360,9 +342,9 @@ namespace ShapesAndColorsChallenge.Class.Controls
                 Vector2 locationCurrentlyActive = PanelDots[IndexHidePanelTransition - 1].Location;
                 Vector2 locationNextActive = PanelDots[IndexShowPanelTransition - 1].Location;
                 Vector2 tempLocation = locationCurrentlyActive;
-                PanelDots[IndexHidePanelTransition - 1].Bounds = new Rectangle((locationNextActive.X + disabledDotDiameter.Half() - enabledDotDiameter.Half()).ToInt(), (locationNextActive.Y + disabledDotDiameter.Half() - enabledDotDiameter.Half()).ToInt(), enabledDotDiameter, enabledDotDiameter);
+                PanelDots[IndexHidePanelTransition - 1].Bounds = new((locationNextActive.X + disabledDotDiameter.Half() - enabledDotDiameter.Half()).ToInt(), (locationNextActive.Y + disabledDotDiameter.Half() - enabledDotDiameter.Half()).ToInt(), enabledDotDiameter, enabledDotDiameter);
                 PanelDots[IndexHidePanelTransition - 1].Tag[0] = false;
-                PanelDots[IndexShowPanelTransition - 1].Bounds = new Rectangle((tempLocation.X - disabledDotDiameter.Half() + enabledDotDiameter.Half()).ToInt(), (tempLocation.Y - disabledDotDiameter.Half() + enabledDotDiameter.Half()).ToInt(), disabledDotDiameter, disabledDotDiameter);
+                PanelDots[IndexShowPanelTransition - 1].Bounds = new((tempLocation.X - disabledDotDiameter.Half() + enabledDotDiameter.Half()).ToInt(), (tempLocation.Y - disabledDotDiameter.Half() + enabledDotDiameter.Half()).ToInt(), disabledDotDiameter, disabledDotDiameter);
                 PanelDots[IndexShowPanelTransition - 1].Tag[0] = true;
                 Image image = PanelDots[IndexHidePanelTransition - 1];
                 PanelDots[IndexHidePanelTransition - 1] = PanelDots[IndexShowPanelTransition - 1];

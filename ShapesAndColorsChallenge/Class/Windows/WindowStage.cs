@@ -42,7 +42,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
     {
         #region CONST
 
-        readonly int SEPARATOR_TITLE_LINE = 5.RedimY();
+        readonly int SEPARATOR_TITLE_LINE = 5;
         const int TOTAL_STARS_TOP = 250;/*Es para una imagen, no necesita Redim*/
 
         #endregion
@@ -66,50 +66,50 @@ namespace ShapesAndColorsChallenge.Class.Windows
             BaseBounds.Limits.X + (BaseBounds.Limits.Width - BaseBounds.Button.Width * 4) / 3 + BaseBounds.Button.Width,
             BaseBounds.Limits.Bottom - BaseBounds.Button.Height,
             BaseBounds.Button.Width,
-            BaseBounds.Button.Height).Redim();
+            BaseBounds.Button.Height);
 
         readonly Rectangle buttonChallengesBounds = new Rectangle(
             BaseBounds.Limits.X + ((BaseBounds.Limits.Width - BaseBounds.Button.Width * 4) / 3).Double() + BaseBounds.Button.Width.Double(),
             BaseBounds.Limits.Bottom - BaseBounds.Button.Height,
             BaseBounds.Button.Width,
-            BaseBounds.Button.Height).Redim();
+            BaseBounds.Button.Height);
 
         readonly Rectangle buttonHowToPlayBounds = new Rectangle(
             BaseBounds.Limits.X + (BaseBounds.Limits.Width - BaseBounds.Button.Width * 4) + BaseBounds.Button.Width.Multi(3),
             BaseBounds.Limits.Bottom - BaseBounds.Button.Height,
             BaseBounds.Button.Width,
-            BaseBounds.Button.Height).Redim();
+            BaseBounds.Button.Height);
 
         readonly Rectangle[] buttonStageBounds = new Rectangle[12]
         {
-            new Rectangle(50, 400, 465, 210).Redim(),
-            new Rectangle(565, 400, 465, 210).Redim(),
-            new Rectangle(50, 660, 465, 210).Redim(),
-            new Rectangle(565, 660, 465, 210).Redim(),
-            new Rectangle(50, 920, 465, 210).Redim(),
-            new Rectangle(565, 920, 465, 210).Redim(),
-            new Rectangle(50, 1180, 465, 210).Redim(),
-            new Rectangle(565, 1180, 465, 210).Redim(),
-            new Rectangle(50, 1440, 465, 210).Redim(),
-            new Rectangle(565, 1440, 465, 210).Redim(),
-            new Rectangle(50, 1700, 465, 210).Redim(),
-            new Rectangle(565, 1700, 465, 210).Redim()
+            new Rectangle(50, 400, 465, 210),
+            new Rectangle(565, 400, 465, 210),
+            new Rectangle(50, 660, 465, 210),
+            new Rectangle(565, 660, 465, 210),
+            new Rectangle(50, 920, 465, 210),
+            new Rectangle(565, 920, 465, 210),
+            new Rectangle(50, 1180, 465, 210),
+            new Rectangle(565, 1180, 465, 210),
+            new Rectangle(50, 1440, 465, 210),
+            new Rectangle(565, 1440, 465, 210),
+            new Rectangle(50, 1700, 465, 210),
+            new Rectangle(565, 1700, 465, 210)
         };
 
         readonly Rectangle[] labelStageBounds = new Rectangle[12]
         {
-            new Rectangle(60, 405, 445, 90).Redim(),
-            new Rectangle(575, 405, 445, 90).Redim(),
-            new Rectangle(60, 665, 445, 90).Redim(),
-            new Rectangle(575, 665, 445, 90).Redim(),
-            new Rectangle(60, 925, 445, 90).Redim(),
-            new Rectangle(575, 925, 445, 90).Redim(),
-            new Rectangle(60, 1185, 445, 90).Redim(),
-            new Rectangle(575, 1185, 445, 90).Redim(),
-            new Rectangle(60, 1445, 445, 90).Redim(),
-            new Rectangle(575, 1445, 445, 90).Redim(),
-            new Rectangle(60, 1705, 445, 90).Redim(),
-            new Rectangle(575, 1705, 445, 90).Redim()
+            new Rectangle(60, 405, 445, 90),
+            new Rectangle(575, 405, 445, 90),
+            new Rectangle(60, 665, 445, 90),
+            new Rectangle(575, 665, 445, 90),
+            new Rectangle(60, 925, 445, 90),
+            new Rectangle(575, 925, 445, 90),
+            new Rectangle(60, 1185, 445, 90),
+            new Rectangle(575, 1185, 445, 90),
+            new Rectangle(60, 1445, 445, 90),
+            new Rectangle(575, 1445, 445, 90),
+            new Rectangle(60, 1705, 445, 90),
+            new Rectangle(575, 1705, 445, 90)
         };
 
         readonly Rectangle[] starsBounds = new Rectangle[12]
@@ -133,7 +133,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         #region CONSTRUCTORS
 
         internal WindowStage()
-            : base(ModalLevel.Window, BaseBounds.Bounds.Redim(), WindowType.Stage)
+            : base(ModalLevel.Window, BaseBounds.Bounds, WindowType.Stage)
         {
 
         }
@@ -289,7 +289,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             int currentStars = starsByStage.Sum(t => t.Stars);
             Rectangle bounds = new(BaseBounds.Bounds.Width.Half() - 80, TOTAL_STARS_TOP, 80, 80);
             Image imageStar = new(ModalLevel, bounds, TextureManager.TextureStar, true);
-            Label labelStars = new(ModalLevel, new Rectangle(bounds.Right + 10, TOTAL_STARS_TOP - 5, 100, 100).Redim(), currentStars.ToString(), Color.GreenYellow, Color.GreenYellow, AlignHorizontal.Left);
+            Label labelStars = new(ModalLevel, new Rectangle(bounds.Right + 10, TOTAL_STARS_TOP - 5, 100, 100), currentStars.ToString(), Color.GreenYellow, Color.GreenYellow, AlignHorizontal.Left);
             InteractiveObjectManager.Add(imageStar, labelStars);
         }
 

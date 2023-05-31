@@ -543,6 +543,22 @@ namespace ShapesAndColorsChallenge.Class
             return sqrMagnitude <= sqrTolerance;
         }
 
+        /// <summary>
+        /// Reescala un rectángulo.
+        /// </summary>
+        /// <param name="rectangle"></param>
+        /// <param name="scale"></param>
+        /// <returns></returns>
+        internal static Rectangle RescaleRectangle(this Rectangle rectangle, float scale)
+        {
+            float newWidth = rectangle.Width.ToSingle() * scale;
+            float newHeight = rectangle.Height.ToSingle() * scale;
+            float newX = rectangle.X - (newWidth - rectangle.Width.ToSingle()) / 2;
+            float newY = rectangle.Y - (newHeight - rectangle.Height.ToSingle()) / 2;
+
+            return new Rectangle(newX.ToInt(), newY.ToInt(), newWidth.ToInt(), newHeight.ToInt());
+        }
+
         #endregion
     }
 }
