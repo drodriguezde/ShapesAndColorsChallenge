@@ -200,7 +200,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetBackLayer()
         {
-            TextureBackLayer = TextureManager.Get(new Size(Bounds.Width, Bounds.Height), Color.Black, CommonTextureType.Rectangle).Texture;
+            TextureBackLayer = TextureManager.Get(new Size(1, 1), Color.Black, CommonTextureType.Rectangle).Texture;
         }
 
         void InitializeButtons()
@@ -237,7 +237,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (!Visible)
                 return;
 
-            Screen.SpriteBatch.Draw(TextureBackLayer, BaseBounds.Bounds, Color.White * BacklayerTransparency);
+            Screen.SpriteBatch.Draw(TextureBackLayer, Screen.BacklayerBounds, Color.White * BacklayerTransparency);
             Screen.SpriteBatch.Draw(BodyTexture, Location, Color.White * BodyTransparency);
             base.Draw(gameTime);
         }

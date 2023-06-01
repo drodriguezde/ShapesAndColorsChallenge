@@ -31,7 +31,8 @@ namespace ShapesAndColorsChallenge.Class
     {
         #region VARS
 
-
+        static float offsetX = 0f;
+        static float offsetY = 0f;
 
         #endregion
 
@@ -42,12 +43,12 @@ namespace ShapesAndColorsChallenge.Class
 
         #region PROPERTIES
 
-        static Main Main { get; set; }
-
         /// <summary>
         /// Esta es la resolución real final, no siempre pone la deseada, por la barra de herramientas.
         /// </summary>
         internal static Size Resolution { get; set; }
+
+        internal static float OffsetX { get { return offsetX; } }
 
         /// <summary>
         /// Matriz de redimensionado, sirve para escalar los sprites y otros objetos con respecto a la densidad base 440.
@@ -55,7 +56,15 @@ namespace ShapesAndColorsChallenge.Class
         /// </summary>
         static Matrix RedimMatrix { get; set; }
 
-        static Rectangle Bounds { get { return GraphicsDevice.Viewport.Bounds; } }
+        internal static Rectangle Bounds { get { return GraphicsDevice.Viewport.Bounds; } }
+
+        internal static Rectangle BacklayerBounds { get { return new(-1000, -1000, Bounds.Width + 2000, Bounds.Height + 2000); } }
+
+        /// <summary>
+        /// Cuando la pantalla es de diferente tamaño a la BaseBounds para que no se deformen los objetos se aplica un offset arriba y a la derecha para centrar todo.
+        /// BoundsOffset añade el offset para no perderlo en cada dibujado.  
+        /// </summary>
+        internal static Rectangle BoundsOffset { get { return new(Bounds.X - offsetX.ToInt(), Bounds.Y - offsetY.ToInt(), Bounds.Width, Bounds.Height); } }
 
         internal static SpriteBatch SpriteBatch { get; set; }
 
@@ -71,11 +80,11 @@ namespace ShapesAndColorsChallenge.Class
         /// <summary>
         /// Obtiene la densidad de puntos por pulgada de la pantalla del dispositivo.
         /// </summary>
-        internal static int GetDPI
+        internal static float GetDPI
         {
             get
             {
-                return (int)Application.Context.Resources.DisplayMetrics.DensityDpi;
+                return (float)Application.Context.Resources.DisplayMetrics.DensityDpi;
             }
         }
 
@@ -83,9 +92,8 @@ namespace ShapesAndColorsChallenge.Class
 
         #region METHODS
 
-        internal static void Initialize(Main main)
+        internal static void Initialize()
         {
-            Main = main;
         }
 
         internal static void SpriteBatchBeginUI()
@@ -206,9 +214,14 @@ namespace ShapesAndColorsChallenge.Class
 
         internal static void SetRedimMatrix()
         {
-            float scaleX = (Bounds.Width / GetDPI) / (BaseBounds.Bounds.Width / BaseBounds.DPI);
-            float scaleY = (Bounds.Height / GetDPI) / (BaseBounds.Bounds.Height / BaseBounds.DPI);
-            RedimMatrix = Matrix.CreateScale(scaleX, scaleY, 1f);
+            float scaleX = Bounds.Width.ToSingle() / BaseBounds.Bounds.Width.ToSingle();
+            float scaleY = Bounds.Height.ToSingle() / BaseBounds.Bounds.Height.ToSingle();
+            float minScale = Math.Min(scaleX, scaleY);
+            offsetX = (Bounds.Width.ToSingle() - (BaseBounds.Bounds.Width.ToSingle() * minScale)) / 2f;
+            offsetY = (Bounds.Height.ToSingle() - (BaseBounds.Bounds.Height.ToSingle() * minScale)) / 2f;
+            Matrix translationMatrix = Matrix.CreateTranslation(offsetX, offsetY, 0f);
+            Matrix scaleMatrix = Matrix.CreateScale(minScale, minScale, 1f);
+            RedimMatrix = scaleMatrix * translationMatrix;
         }
 
         /// <summary>
@@ -246,143 +259,28 @@ namespace ShapesAndColorsChallenge.Class
             }
         }
 
-        internal static Texture2D ToBorderedRectangle(Rectangle bounds, Color innerColor, Color borderColor)
+        internal static Rectangle Rescale(this Rectangle rectangle)
         {
-            Texture2D rectangle = new(GraphicsDevice, bounds.Width, bounds.Height);
-            Color[] dataColor = new Color[bounds.Width * bounds.Height];
+            Vector2 topLeft = new Vector2(rectangle.Left, rectangle.Top);
+            Vector2 topRight = new Vector2(rectangle.Right, rectangle.Top);
+            Vector2 bottomLeft = new Vector2(rectangle.Left, rectangle.Bottom);
+            Vector2 bottomRight = new Vector2(rectangle.Right, rectangle.Bottom);
+            topLeft = Vector2.Transform(topLeft, RedimMatrix);
+            topRight = Vector2.Transform(topRight, RedimMatrix);
+            bottomLeft = Vector2.Transform(bottomLeft, RedimMatrix);
+            bottomRight = Vector2.Transform(bottomRight, RedimMatrix);
 
-            for (int i = 0; i < dataColor.Length; i++)/*Todo del color interior*/
-                dataColor[i] = innerColor;
+            float minX = Math.Min(Math.Min(topLeft.X, topRight.X), Math.Min(bottomLeft.X, bottomRight.X));
+            float minY = Math.Min(Math.Min(topLeft.Y, topRight.Y), Math.Min(bottomLeft.Y, bottomRight.Y));
+            float maxX = Math.Max(Math.Max(topLeft.X, topRight.X), Math.Max(bottomLeft.X, bottomRight.X));
+            float maxY = Math.Max(Math.Max(topLeft.Y, topRight.Y), Math.Max(bottomLeft.Y, bottomRight.Y));
 
-            for (int i = 0; i < bounds.Width; i++)/*Borde superior*/
-                dataColor[i] = borderColor;
+            int newWidth = (int)Math.Round(maxX - minX);
+            int newHeight = (int)Math.Round(maxY - minY);
+            int newX = (int)Math.Round(minX);
+            int newY = (int)Math.Round(minY);
 
-            for (int i = dataColor.Length - 1; i > dataColor.Length - 1 - bounds.Width; i--)/*Borde inferior*/
-                dataColor[i] = borderColor;
-
-            for (int i = 0; i < dataColor.Length; i += bounds.Width)/*Borde derecho*/
-                dataColor[i] = borderColor;
-
-            for (int i = bounds.Width - 1; i < dataColor.Length; i += bounds.Width)/*Borde izquierdo*/
-                dataColor[i] = borderColor;
-
-            rectangle.SetData(dataColor);
-            return rectangle;
-        }
-
-        internal static Texture2D ToCircle(int radius, Color color)
-        {
-            int outerRadius = radius * 2 + 2; // So circle doesn't go out of bounds
-            Texture2D texture = new(GraphicsDevice, outerRadius, outerRadius);
-            Color[] data = new Color[outerRadius * outerRadius];
-
-            // Colour the entire texture transparent first.
-            for (int i = 0; i < data.Length; i++)
-                data[i] = Color.Transparent;
-
-            // Work out the minimum step necessary using trigonometry + sine approximation.
-            double angleStep = 1f / radius;
-
-            for (double angle = 0; angle < Math.PI * 2; angle += angleStep)
-            {
-                // Use the parametric definition of a circle: http://en.wikipedia.org/wiki/Circle#Cartesian_coordinates
-                int x = (int)Math.Round(radius + radius * Math.Cos(angle));
-                int y = (int)Math.Round(radius + radius * Math.Sin(angle));
-                data[y * outerRadius + x + 1] = color;
-            }
-
-            texture.SetData(data);
-            return texture;
-        }
-
-        internal static Texture2D ToCircle(int radius, Color innerColor, Color borderColor)
-        {
-            int outerRadius = radius * 2 + 2; // So circle doesn't go out of bounds
-            Texture2D texture = new(GraphicsDevice, outerRadius, outerRadius);
-            Color[] data = new Color[outerRadius * outerRadius];
-
-            // Colour the entire texture transparent first.
-            for (int i = 0; i < data.Length; i++)
-                data[i] = Color.Transparent;
-
-            // Work out the minimum step necessary using trigonometry + sine approximation.
-            double angleStep = 1f / radius;
-
-            for (double angle = 0; angle < Math.PI * 2; angle += angleStep)
-            {
-                // Use the parametric definition of a circle: http://en.wikipedia.org/wiki/Circle#Cartesian_coordinates
-                int x = (int)Math.Round(radius + radius * Math.Cos(angle));
-                int y = (int)Math.Round(radius + radius * Math.Sin(angle));
-
-                data[y * outerRadius + x + 1] = borderColor;
-            }
-
-            //width
-            for (int i = 0; i < outerRadius; i++)
-            {
-                int yStart = -1;
-                int yEnd = -1;
-
-                //loop through height to find start and end to fill
-                for (int j = 0; j < outerRadius; j++)
-                {
-                    if (yStart == -1)
-                    {
-                        if (j == outerRadius - 1)
-                        {
-                            //last row so there is no row below to compare to
-                            break;
-                        }
-
-                        //start is indicated by Color followed by Transparent
-                        if (data[i + (j * outerRadius)] == borderColor && data[i + ((j + 1) * outerRadius)] == Color.Transparent)
-                        {
-                            yStart = j + 1;
-                            continue;
-                        }
-                    }
-                    else if (data[i + (j * outerRadius)] == borderColor)
-                    {
-                        yEnd = j;
-                        break;
-                    }
-                }
-
-                //if we found a valid start and end position
-                if (yStart != -1 && yEnd != -1)
-                    //height
-                    for (int j = yStart; j < yEnd; j++)
-                        data[i + (j * outerRadius)] = innerColor;
-            }
-
-            texture.SetData(data);
-            return texture;
-        }
-
-        internal static Texture2D CreateTexture(int width, int height, Func<int, Color> paint)
-        {
-            Texture2D texture = new(GraphicsDevice, width, height);
-            Color[] data = new Color[width * height];
-
-            for (int pixel = 0; pixel < data.Length; pixel++)
-                data[pixel] = paint(pixel);
-
-            texture.SetData(data);
-            return texture;
-        }
-
-        /// <summary>
-        /// Obtiene una textura con la imagen actual mostrada por el juego.
-        /// </summary>
-        /// <returns></returns>
-        internal static Texture2D TakeScreenshot()
-        {
-            RenderTarget2D screenshot;
-            screenshot = new RenderTarget2D(GraphicsDevice, Bounds.Width, Bounds.Height, false, SurfaceFormat.Color, DepthFormat.None);
-            GraphicsDevice.SetRenderTarget(screenshot);
-            Main.TakeScreenshot(new GameTime());
-            GraphicsDevice.SetRenderTarget(null);
-            return screenshot;
+            return new(newX, newY, newWidth, newHeight);
         }
 
         /// <summary>

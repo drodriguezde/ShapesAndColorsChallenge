@@ -25,6 +25,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ShapesAndColorsChallenge.Class.D2;
 using ShapesAndColorsChallenge.Enum;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -467,15 +468,140 @@ namespace ShapesAndColorsChallenge.Class.Management
             switch (commonTexture.CommonTextureType)
             {
                 case CommonTextureType.Circle:
-                    commonTexture.Texture = Screen.ToCircle(commonTexture.Size.Width.Half(), commonTexture.Color, commonTexture.BorderColor);
+                    commonTexture.Texture = ToCircle(commonTexture.Size.Width.Half(), commonTexture.Color, commonTexture.BorderColor);
                     break;
                 case CommonTextureType.Rectangle:
-                    commonTexture.Texture = Screen.ToBorderedRectangle(new Rectangle(0, 0, commonTexture.Size.Width, commonTexture.Size.Height), commonTexture.Color, commonTexture.BorderColor);
+                    commonTexture.Texture = ToBorderedRectangle(new Rectangle(0, 0, commonTexture.Size.Width, commonTexture.Size.Height), commonTexture.Color, commonTexture.BorderColor);
                     break;
                 case CommonTextureType.RoundedRectangle:
                     commonTexture.Texture = Screen.SpriteBatch.DrawRoundedRectangle(commonTexture.Size.Width, commonTexture.Size.Height, 3, 25, 4, new List<Color>() { commonTexture.Color }, new List<Color>() { commonTexture.BorderColor }, 0.2f, 0.1f);
                     break;
             }
+        }
+
+        internal static Texture2D ToBorderedRectangle(Rectangle bounds, Color innerColor, Color borderColor)
+        {
+            Texture2D rectangle = new(Screen.GraphicsDevice, bounds.Width, bounds.Height);
+            Color[] dataColor = new Color[bounds.Width * bounds.Height];
+
+            for (int i = 0; i < dataColor.Length; i++)/*Todo del color interior*/
+                dataColor[i] = innerColor;
+
+            for (int i = 0; i < bounds.Width; i++)/*Borde superior*/
+                dataColor[i] = borderColor;
+
+            for (int i = dataColor.Length - 1; i > dataColor.Length - 1 - bounds.Width; i--)/*Borde inferior*/
+                dataColor[i] = borderColor;
+
+            for (int i = 0; i < dataColor.Length; i += bounds.Width)/*Borde derecho*/
+                dataColor[i] = borderColor;
+
+            for (int i = bounds.Width - 1; i < dataColor.Length; i += bounds.Width)/*Borde izquierdo*/
+                dataColor[i] = borderColor;
+
+            rectangle.SetData(dataColor);
+            return rectangle;
+        }
+
+        internal static Texture2D ToCircle(int radius, Color color)
+        {
+            int outerRadius = radius * 2 + 2; // So circle doesn't go out of bounds
+            Texture2D texture = new(Screen.GraphicsDevice, outerRadius, outerRadius);
+            Color[] data = new Color[outerRadius * outerRadius];
+
+            // Colour the entire texture transparent first.
+            for (int i = 0; i < data.Length; i++)
+                data[i] = Color.Transparent;
+
+            // Work out the minimum step necessary using trigonometry + sine approximation.
+            double angleStep = 1f / radius;
+
+            for (double angle = 0; angle < Math.PI * 2; angle += angleStep)
+            {
+                // Use the parametric definition of a circle: http://en.wikipedia.org/wiki/Circle#Cartesian_coordinates
+                int x = (int)Math.Round(radius + radius * Math.Cos(angle));
+                int y = (int)Math.Round(radius + radius * Math.Sin(angle));
+                data[y * outerRadius + x + 1] = color;
+            }
+
+            texture.SetData(data);
+            return texture;
+        }
+
+        internal static Texture2D ToCircle(int radius, Color innerColor, Color borderColor)
+        {
+            int outerRadius = radius * 2 + 2; // So circle doesn't go out of bounds
+            Texture2D texture = new(Screen.GraphicsDevice, outerRadius, outerRadius);
+            Color[] data = new Color[outerRadius * outerRadius];
+
+            // Colour the entire texture transparent first.
+            for (int i = 0; i < data.Length; i++)
+                data[i] = Color.Transparent;
+
+            // Work out the minimum step necessary using trigonometry + sine approximation.
+            double angleStep = 1f / radius;
+
+            for (double angle = 0; angle < Math.PI * 2; angle += angleStep)
+            {
+                // Use the parametric definition of a circle: http://en.wikipedia.org/wiki/Circle#Cartesian_coordinates
+                int x = (int)Math.Round(radius + radius * Math.Cos(angle));
+                int y = (int)Math.Round(radius + radius * Math.Sin(angle));
+
+                data[y * outerRadius + x + 1] = borderColor;
+            }
+
+            //width
+            for (int i = 0; i < outerRadius; i++)
+            {
+                int yStart = -1;
+                int yEnd = -1;
+
+                //loop through height to find start and end to fill
+                for (int j = 0; j < outerRadius; j++)
+                {
+                    if (yStart == -1)
+                    {
+                        if (j == outerRadius - 1)
+                        {
+                            //last row so there is no row below to compare to
+                            break;
+                        }
+
+                        //start is indicated by Color followed by Transparent
+                        if (data[i + (j * outerRadius)] == borderColor && data[i + ((j + 1) * outerRadius)] == Color.Transparent)
+                        {
+                            yStart = j + 1;
+                            continue;
+                        }
+                    }
+                    else if (data[i + (j * outerRadius)] == borderColor)
+                    {
+                        yEnd = j;
+                        break;
+                    }
+                }
+
+                //if we found a valid start and end position
+                if (yStart != -1 && yEnd != -1)
+                    //height
+                    for (int j = yStart; j < yEnd; j++)
+                        data[i + (j * outerRadius)] = innerColor;
+            }
+
+            texture.SetData(data);
+            return texture;
+        }
+
+        internal static Texture2D CreateTexture(int width, int height, Func<int, Color> paint)
+        {
+            Texture2D texture = new(Screen.GraphicsDevice, width, height);
+            Color[] data = new Color[width * height];
+
+            for (int pixel = 0; pixel < data.Length; pixel++)
+                data[pixel] = paint(pixel);
+
+            texture.SetData(data);
+            return texture;
         }
 
         #endregion

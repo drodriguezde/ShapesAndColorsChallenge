@@ -36,7 +36,7 @@ namespace ShapesAndColorsChallenge.Class.Animated
 
         #region PROPERTIES
 
-        readonly float ShakeRange = BaseBounds.Bounds.Width * 0.005f < 1 ? 1 : BaseBounds.Bounds.Width * 0.005f;/*0.5% del ancho de la pantalla*/
+        readonly float ShakeRange = Screen.Bounds.Width * 0.005f < 1 ? 1 : Screen.Bounds.Width * 0.005f;/*0.5% del ancho de la pantalla*/
 
         #endregion
 

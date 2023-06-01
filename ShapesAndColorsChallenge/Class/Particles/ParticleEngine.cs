@@ -78,10 +78,10 @@ namespace ShapesAndColorsChallenge.Class.Particles
             if (counter % StartRatioFrames == 0)
             {
                 if (ParticleType == ParticleType.Falling)
-                    ParticlePacks.Add(new(ParticleType.Falling, ShapeType.Oval, TileColor.Orange, new(0, -BaseBounds.Bounds.Height, BaseBounds.Bounds.Width, BaseBounds.Bounds.Height), new(0, -BaseBounds.Bounds.Height, BaseBounds.Bounds.Width, BaseBounds.Bounds.Height.Double()), true, true, 20));
+                    ParticlePacks.Add(new(ParticleType.Falling, ShapeType.Oval, TileColor.Orange, new(Screen.BoundsOffset.X, -Screen.Bounds.Height, Screen.Bounds.Width, Screen.Bounds.Height), new(0, -Screen.Bounds.Height, Screen.Bounds.Width, Screen.Bounds.Height.Double()), true, true, 20));
                 else
                 {
-                    ParticlePacks.Add(new(ParticleType, ShapeType.None, TileColor.None, new(BaseBounds.Limits.X, 200, BaseBounds.Limits.Width, BaseBounds.Bounds.Height - 600), BaseBounds.Bounds, true, true, 20));
+                    ParticlePacks.Add(new(ParticleType, ShapeType.None, TileColor.None, new(Screen.BoundsOffset.X, 200, BaseBounds.Limits.Width, Screen.Bounds.Height - 600), Screen.Bounds, true, true, 20));
                     StartRatioFrames = Statics.GetRandom(10, 80);
                     counter = 1;
                 }

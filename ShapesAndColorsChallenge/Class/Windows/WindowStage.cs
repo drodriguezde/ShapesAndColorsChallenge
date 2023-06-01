@@ -62,19 +62,19 @@ namespace ShapesAndColorsChallenge.Class.Windows
         AnimationShake shakeAnimation;
         readonly List<StarsByStage> starsByStage = GetUserStarsGroupByStage(OrchestratorManager.GameMode);
 
-        readonly Rectangle buttonRankingBounds = new Rectangle(
+        readonly Rectangle buttonRankingBounds = new(
             BaseBounds.Limits.X + (BaseBounds.Limits.Width - BaseBounds.Button.Width * 4) / 3 + BaseBounds.Button.Width,
             BaseBounds.Limits.Bottom - BaseBounds.Button.Height,
             BaseBounds.Button.Width,
             BaseBounds.Button.Height);
 
-        readonly Rectangle buttonChallengesBounds = new Rectangle(
+        readonly Rectangle buttonChallengesBounds = new(
             BaseBounds.Limits.X + ((BaseBounds.Limits.Width - BaseBounds.Button.Width * 4) / 3).Double() + BaseBounds.Button.Width.Double(),
             BaseBounds.Limits.Bottom - BaseBounds.Button.Height,
             BaseBounds.Button.Width,
             BaseBounds.Button.Height);
 
-        readonly Rectangle buttonHowToPlayBounds = new Rectangle(
+        readonly Rectangle buttonHowToPlayBounds = new(
             BaseBounds.Limits.X + (BaseBounds.Limits.Width - BaseBounds.Button.Width * 4) + BaseBounds.Button.Width.Multi(3),
             BaseBounds.Limits.Bottom - BaseBounds.Button.Height,
             BaseBounds.Button.Width,

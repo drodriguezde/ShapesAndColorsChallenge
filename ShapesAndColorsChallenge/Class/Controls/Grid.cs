@@ -283,7 +283,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
         }
 
         /// <summary>
-        /// Deveulve el límite por arriba en que se puede comenzar a pintar la parrilla.
+        /// Devuelve el límite por arriba en que se puede comenzar a pintar la parrilla.
         /// </summary>
         /// <returns></returns>
         int GetTopLimit()

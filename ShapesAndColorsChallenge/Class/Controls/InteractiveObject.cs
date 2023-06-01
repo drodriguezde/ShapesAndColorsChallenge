@@ -249,7 +249,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
         /// <returns>True, está dentro</returns>
         bool CursorInsideMe(Vector2 position)
         {
-            Rectangle bounds = Bounds;
+            Rectangle bounds = Bounds.Rescale();
 
             return IsCircle
                 ? Math.Pow(position.X - bounds.X - bounds.Width.Half(), 2) + Math.Pow(position.Y - bounds.Y - bounds.Height.Half(), 2) <= Math.Pow(bounds.Height.Half(), 2)

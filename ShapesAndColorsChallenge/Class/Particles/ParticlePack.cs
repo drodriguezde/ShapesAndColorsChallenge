@@ -164,7 +164,7 @@ namespace ShapesAndColorsChallenge.Class.Particles
         void InitializeFireworks()
         {
             TargetLocation = StartLocationLimits.GetRandomLocationInside();
-            shootingStar = new(BaseBounds.Bounds.GetRandomLocationOutside(), TargetLocation);
+            shootingStar = new(Screen.BoundsOffset.GetRandomLocationOutside(), TargetLocation);
 
             for (int i = 0; i < ParticlesNumber; i++)
             {
@@ -217,7 +217,7 @@ namespace ShapesAndColorsChallenge.Class.Particles
             bool active = false;
 
             for (int i = 0; i < papers.Count; i++)
-                if (papers[i].Visible && LocationLimits.Contains(papers[i].Bounds))
+                if (papers[i].Visible && LocationLimits.Y < papers[i].Location.Y)
                 {
                     papers[i].Update(gameTime);
                     active = true;

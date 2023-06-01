@@ -64,7 +64,7 @@ namespace ShapesAndColorsChallenge.Class
         {
             Visor = new Visor(this);
             GameContent.SetVisor(Visor);
-            Screen.Initialize(this);
+            Screen.Initialize();
             DataBaseManager.Initialize();/*Debe ser la primera en inicializar*/
             UserSettingsManager.Initialize();/*Debe estar después de DataBaseManager.Initialize*/
             TouchManager.Initialize(this);

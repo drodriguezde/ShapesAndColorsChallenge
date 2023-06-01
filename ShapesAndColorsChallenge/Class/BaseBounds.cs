@@ -37,7 +37,7 @@ namespace ShapesAndColorsChallenge.Class
         /// <summary>
         /// Dendisas de puntos por pulgada base.
         /// </summary>
-        internal static readonly int DPI = 392;
+        internal static readonly float DPI = 440;
 
         /// <summary>
         /// Límites de la ventana, los elementos deben estar dentro de estos limites.

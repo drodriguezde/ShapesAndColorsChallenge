@@ -175,10 +175,16 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// <param name="e"></param>
         void LinkToDanSite_OnClick(object sender, OnClickEventArgs e)
         {
-            var uri = Android.Net.Uri.Parse(Const.DAN_SITE_URL);
-            var intent = new Intent(Intent.ActionView, uri);
-            intent.AddFlags(ActivityFlags.NewTask);
-            Application.Context.StartActivity(intent);
+            try
+            {
+                var uri = Android.Net.Uri.Parse(Const.DAN_SITE_URL);
+                var intent = new Intent(Intent.ActionView, uri);
+                intent.AddFlags(ActivityFlags.NewTask);
+                Application.Context.StartActivity(intent);
+            }
+            catch
+            {
+            }
         }
 
         void ButtonPlay_OnClick(object sender, OnClickEventArgs e)
