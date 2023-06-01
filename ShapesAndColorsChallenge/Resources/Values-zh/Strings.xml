@@ -117,7 +117,7 @@
 	<string name="SAVE_PROGRESS">保存进度？</string>
 	<!--CHALLENGES-->
 	<string name="CHALLENGE_STARS">在关卡 %1$d 的阶段 %2$d 中获得 3 颗星。</string>
-	<string name="CHALLENGE_POINTS">在阶段 %2$d 的 %1$d 关卡中获得分数。</string>
+	<string name="CHALLENGE_POINTS">在阶段 %2$d 的 %1$d 关卡中击败你的分数 (%3$d)。</string>
 	<string name="CHALLENGE_NOPOWERUPS">在阶段 %2$d 的 %1$d 关卡中获得 2 颗星，且不使用任何能量提升。</string>
 	<string name="CHALLENGE_NOMISTAKES">在关卡 %1$d 的阶段 %2$d 中没有任何失败获得 2 星。</string>
 	<string name="CHALLENGE_SHAPES">在关卡 %1$d 的阶段 %2$d 找到更多拼贴。</string>

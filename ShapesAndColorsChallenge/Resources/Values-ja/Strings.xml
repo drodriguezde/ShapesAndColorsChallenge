@@ -117,7 +117,7 @@
 	<string name="SAVE_PROGRESS">進行状況を保存しますか?</string>
 	<!--CHALLENGES-->
 	<string name="CHALLENGE_STARS">ステージ %2$d のレベル %1$d で 3 つ星を獲得します。</string>
-	<string name="CHALLENGE_POINTS">ステージ %2$d のレベル %1$d でポイントを超えましょう。</string>
+	<string name="CHALLENGE_POINTS">ステージ %2$d のレベル %1$d でポイント (%3$d) を達成しました。</string>
 	<string name="CHALLENGE_NOPOWERUPS">パワーアップを使用せずに、ステージ %2$d のレベル %1$d でスターを 2 つ獲得します。</string>
 	<string name="CHALLENGE_NOMISTAKES">失敗せずにステージ %2$d のレベル %1$d で 2 つ星を獲得します。</string>
 	<string name="CHALLENGE_SHAPES">ステージ %2$d のレベル %1$d でさらにタイルを見つけます。</string>

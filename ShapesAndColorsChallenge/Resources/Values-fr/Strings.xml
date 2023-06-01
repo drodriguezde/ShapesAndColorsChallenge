@@ -117,7 +117,7 @@
 	<string name="SAVE_PROGRESS">Enregistrer la progression?</string>
 	<!--CHALLENGES-->
 	<string name="CHALLENGE_STARS">Obtenez 3 étoiles au niveau %1$d de l&quot;'étape %2$d.</string>
-	<string name="CHALLENGE_POINTS">Battre vos points au niveau %1$d de l&quot;'étape %2$d.</string>
+	<string name="CHALLENGE_POINTS">Battez vos points (%3$d) au niveau %1$d de l&quot;'étape %2$d.</string>
 	<string name="CHALLENGE_NOPOWERUPS">Obtenez 2 étoiles au niveau %1$d de l&quot;'étape %2$d sans utiliser de bonus.</string>
 	<string name="CHALLENGE_NOMISTAKES">Obtenez 2 étoiles au niveau %1$d de l&quot;'étape %2$d sans aucun échec.</string>
 	<string name="CHALLENGE_SHAPES">Trouvez plus de tuiles au niveau %1$d de l&quot;'étape %2$d.</string>
