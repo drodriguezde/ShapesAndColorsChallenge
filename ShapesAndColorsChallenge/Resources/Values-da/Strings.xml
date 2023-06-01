@@ -117,7 +117,7 @@
 	<string name="SAVE_PROGRESS">Vil du gemme status?</string>
 	<!--CHALLENGES-->
 	<string name="CHALLENGE_STARS">Få 3 stjerner på niveau %1$d på scenen %2$d.</string>
-	<string name="CHALLENGE_POINTS">Slå dine point på niveau %1$d på trin %2$d.</string>
+	<string name="CHALLENGE_POINTS">Slå dine point (%3$d) på niveau %1$d på scenen %2$d.</string>
 	<string name="CHALLENGE_NOPOWERUPS">Få 2 stjerner på niveau %1$d af scene %2$d uden at bruge nogen power-ups.</string>
 	<string name="CHALLENGE_NOMISTAKES">Få 2 stjerner på niveau %1$d af scene %2$d uden fejl.</string>
 	<string name="CHALLENGE_SHAPES">Find flere fliser på niveau %1$d af scene %2$d.</string>

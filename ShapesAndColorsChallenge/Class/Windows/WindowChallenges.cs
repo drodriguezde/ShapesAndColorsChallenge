@@ -272,7 +272,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 BaseBounds.Limits.Width - BaseBounds.Limits.X - BaseBounds.Button.Width - 50,
                 BaseBounds.Button.Height);
             Label label = new(ModalLevel, bounds, Resource.String.CHALLENGE_INFO.GetString(), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Left, 2);
-            PostObject = label;/*Se lo enviamos al padre para poder ponerlo encimo del panel inferior que oculta el listado*/
+            PostObject = label;/*Se lo enviamos al padre para poder ponerlo encima del panel inferior que oculta el listado*/
         }
 
         internal override void Update(GameTime gameTime)
