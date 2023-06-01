@@ -82,7 +82,7 @@ namespace ShapesAndColorsChallenge.Class.Particles
                 else
                 {
                     ParticlePacks.Add(new(ParticleType, ShapeType.None, TileColor.None, new(Screen.BoundsOffset.X, 200, BaseBounds.Limits.Width, Screen.Bounds.Height - 600), Screen.Bounds, true, true, 20));
-                    StartRatioFrames = Statics.GetRandom(10, 80);
+                    StartRatioFrames = Statics.GetRandom(10, 90);
                     counter = 1;
                 }
 

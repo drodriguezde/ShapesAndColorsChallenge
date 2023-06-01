@@ -217,7 +217,7 @@ namespace ShapesAndColorsChallenge.Class.Particles
             bool active = false;
 
             for (int i = 0; i < papers.Count; i++)
-                if (papers[i].Visible && LocationLimits.Y < papers[i].Location.Y)
+                if (papers[i].Visible && papers[i].Location.Y < LocationLimits.Height)
                 {
                     papers[i].Update(gameTime);
                     active = true;

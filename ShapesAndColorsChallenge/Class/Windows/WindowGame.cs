@@ -70,18 +70,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         #endregion
 
-        #region IMPORTS
-
-
-
-        #endregion
-
-        #region DELEGATES
-
-
-
-        #endregion
-
         #region VARS        
 
         /// <summary>
@@ -772,7 +760,15 @@ namespace ShapesAndColorsChallenge.Class.Windows
             double milis = (DateTime.Now - LastTileFindedAt).TotalMilliseconds;
 
             if (TIME_FOR_POSITIVE_FEEDBACK + ((GameData.HorizontalTilesNumber(Stage, Level) + GameData.VerticalTilesNumber(Stage, Level)) * 20/*Ajustamos según la dificultad*/) >= milis)
-                SoundManager.PlayRandomVoicePositiveFeedback();
+            {
+                if (GameMode.HasUnlimitedTiles())/*Si se cumple la condición anterior y es un modo sin fin siempre se reproduce*/
+                    SoundManager.PlayRandomVoicePositiveFeedback();
+                else/*Si no es un modo sin fin, se comprueba si quedan suficientes fichas como para que no se solape esta voz con la de finalización*/
+                {
+                    if (TilesCounter <= GameData.TilesCurrenStage - 2)
+                        SoundManager.PlayRandomVoicePositiveFeedback();
+                }
+            }
 
             LastTileFindedAt = DateTime.Now;
         }
@@ -943,7 +939,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         }
 
         /// <summary>
-        /// Se finalizará el juego por fichas encontradas cuando se hayan mostrado tantas como el nivel tenga y además no se aun modo interminable, incremental o timetrial.
+        /// Se finalizará el juego por fichas encontradas cuando se hayan mostrado tantas como el nivel tenga y además no sea un modo interminable, incremental o timetrial.
         /// </summary>
         /// <returns></returns>
         bool EndGameByTileFinded()

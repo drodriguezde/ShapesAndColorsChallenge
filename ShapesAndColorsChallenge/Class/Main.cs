@@ -149,7 +149,6 @@ namespace ShapesAndColorsChallenge.Class
         protected override void UnloadContent()
         {
             base.UnloadContent();
-            /*TODO, descargar recursos*/
         }
 
         protected override void Update(GameTime gameTime)
