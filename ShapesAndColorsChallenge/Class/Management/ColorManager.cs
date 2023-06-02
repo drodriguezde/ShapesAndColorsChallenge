@@ -70,12 +70,6 @@ namespace ShapesAndColorsChallenge.Class.Management
 
         #endregion
 
-        #region VARS
-
-
-
-        #endregion
-
         #region PROPERTIES
 
         /// <summary>
@@ -139,12 +133,6 @@ namespace ShapesAndColorsChallenge.Class.Management
                 return Statics.IsDarkModeActive ? CheckBoxDarkMode : CheckBoxLightMode;
             }
         }
-
-        #endregion
-
-        #region EVENTS
-
-
 
         #endregion
 

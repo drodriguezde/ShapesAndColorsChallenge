@@ -45,73 +45,67 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         #endregion
 
-        #region DELEGATES
-
-
-
-        #endregion
-
         #region VARS
 
         readonly Rectangle[] buttonBounds = new Rectangle[]
         {
-            new Rectangle(BaseBounds.Limits.X, 320, 465, 340),
-            new Rectangle(BaseBounds.Limits.X, 700, 465, 340),
-            new Rectangle(BaseBounds.Limits.X, 1080, 465, 340),
-            new Rectangle(BaseBounds.Limits.X, 1460, 465, 340),
-            new Rectangle(BaseBounds.Limits.X.Double() + 465, 320, 465, 340),
-            new Rectangle(BaseBounds.Limits.X.Double() + 465, 700, 465, 340),
-            new Rectangle(BaseBounds.Limits.X.Double() + 465, 1080, 465, 340),
-            new Rectangle(BaseBounds.Limits.X.Double() + 465, 1460, 465, 340),
+            new(BaseBounds.Limits.X, 320, 465, 340),
+            new(BaseBounds.Limits.X, 700, 465, 340),
+            new(BaseBounds.Limits.X, 1080, 465, 340),
+            new(BaseBounds.Limits.X, 1460, 465, 340),
+            new(BaseBounds.Limits.X.Double() + 465, 320, 465, 340),
+            new(BaseBounds.Limits.X.Double() + 465, 700, 465, 340),
+            new(BaseBounds.Limits.X.Double() + 465, 1080, 465, 340),
+            new(BaseBounds.Limits.X.Double() + 465, 1460, 465, 340),
         };
 
         readonly Rectangle[] imageBounds = new Rectangle[] { /*No necesita RedimMatrix, las Image se redimensionan en su propio Draw*/
-            new Rectangle(BaseBounds.Limits.X + 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 410, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
-            new Rectangle(BaseBounds.Limits.X + 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 790, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
-            new Rectangle(BaseBounds.Limits.X + 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 1170, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
-            new Rectangle(BaseBounds.Limits.X + 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 1550, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
-            new Rectangle(BaseBounds.Limits.X.Double() + 465.Double() - 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 410, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
-            new Rectangle(BaseBounds.Limits.X.Double() + 465.Double() - 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 790, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
-            new Rectangle(BaseBounds.Limits.X.Double() + 465.Double() - 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 1170, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
-            new Rectangle(BaseBounds.Limits.X.Double() + 465.Double() - 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 1550, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
+            new(BaseBounds.Limits.X + 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 410, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
+            new(BaseBounds.Limits.X + 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 790, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
+            new(BaseBounds.Limits.X + 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 1170, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
+            new(BaseBounds.Limits.X + 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 1550, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
+            new(BaseBounds.Limits.X.Double() + 465.Double() - 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 410, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
+            new(BaseBounds.Limits.X.Double() + 465.Double() - 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 790, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
+            new(BaseBounds.Limits.X.Double() + 465.Double() - 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 1170, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
+            new(BaseBounds.Limits.X.Double() + 465.Double() - 465.Half() - BaseBounds.ModeImageSize.Width.Half(), 1550, BaseBounds.ModeImageSize.Width, BaseBounds.ModeImageSize.Height),
         };
 
         readonly Rectangle[] titleBounds = new Rectangle[]
         {
-            new Rectangle(BaseBounds.Limits.X, 310, 465, 80),
-            new Rectangle(BaseBounds.Limits.X, 690, 465, 80),
-            new Rectangle(BaseBounds.Limits.X, 1070, 465, 80),
-            new Rectangle(BaseBounds.Limits.X, 1450, 465, 80),
-            new Rectangle(BaseBounds.Limits.X.Double() + 465, 310, 465, 80),
-            new Rectangle(BaseBounds.Limits.X.Double() + 465, 690, 465, 80),
-            new Rectangle(BaseBounds.Limits.X.Double() + 465, 1070, 465, 80),
-            new Rectangle(BaseBounds.Limits.X.Double() + 465, 1450, 465, 80),
+            new(BaseBounds.Limits.X, 310, 465, 80),
+            new(BaseBounds.Limits.X, 690, 465, 80),
+            new(BaseBounds.Limits.X, 1070, 465, 80),
+            new(BaseBounds.Limits.X, 1450, 465, 80),
+            new(BaseBounds.Limits.X.Double() + 465, 310, 465, 80),
+            new(BaseBounds.Limits.X.Double() + 465, 690, 465, 80),
+            new(BaseBounds.Limits.X.Double() + 465, 1070, 465, 80),
+            new(BaseBounds.Limits.X.Double() + 465, 1450, 465, 80),
         };
 
         readonly Rectangle[] imageChallengesBounds = new Rectangle[] {/*No necesita RedimMatrix, las Image se redimensionan en su propio Draw*/
-            new Rectangle(BaseBounds.Limits.X + 20, 410 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new Rectangle(BaseBounds.Limits.X + 20, 790 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new Rectangle(BaseBounds.Limits.X + 20, 1170 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new Rectangle(BaseBounds.Limits.X + 20, 1550 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new Rectangle(BaseBounds.Limits.X.Double() + 20 + 460, 410 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new Rectangle(BaseBounds.Limits.X.Double() + 20 + 460, 790 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new Rectangle(BaseBounds.Limits.X.Double() + 20 + 460, 1170 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new Rectangle(BaseBounds.Limits.X.Double() + 20 + 460, 1550 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER)
+            new(BaseBounds.Limits.X + 20, 410 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
+            new(BaseBounds.Limits.X + 20, 790 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
+            new(BaseBounds.Limits.X + 20, 1170 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
+            new(BaseBounds.Limits.X + 20, 1550 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
+            new(BaseBounds.Limits.X.Double() + 20 + 460, 410 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
+            new(BaseBounds.Limits.X.Double() + 20 + 460, 790 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
+            new(BaseBounds.Limits.X.Double() + 20 + 460, 1170 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
+            new(BaseBounds.Limits.X.Double() + 20 + 460, 1550 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER)
         };
 
         readonly Rectangle[] labelChallengesBounds = new Rectangle[] {
-            new Rectangle(BaseBounds.Limits.X + 20 + 18, 410 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new Rectangle(BaseBounds.Limits.X + 20 + 18, 790 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new Rectangle(BaseBounds.Limits.X + 20 + 18, 1170 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new Rectangle(BaseBounds.Limits.X + 20 + 18, 1550 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new Rectangle(BaseBounds.Limits.X.Double() + 20 + 460 + 18, 410 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new Rectangle(BaseBounds.Limits.X.Double() + 20 + 460 + 18, 790 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new Rectangle(BaseBounds.Limits.X.Double() + 20 + 460 + 18, 1170 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new Rectangle(BaseBounds.Limits.X.Double() + 20 + 460 + 18, 1550 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER)
+            new(BaseBounds.Limits.X + 20 + 18, 410 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
+            new(BaseBounds.Limits.X + 20 + 18, 790 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
+            new(BaseBounds.Limits.X + 20 + 18, 1170 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
+            new(BaseBounds.Limits.X + 20 + 18, 1550 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
+            new(BaseBounds.Limits.X.Double() + 20 + 460 + 18, 410 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
+            new(BaseBounds.Limits.X.Double() + 20 + 460 + 18, 790 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
+            new(BaseBounds.Limits.X.Double() + 20 + 460 + 18, 1170 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
+            new(BaseBounds.Limits.X.Double() + 20 + 460 + 18, 1550 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER)
         };
 
-        Rectangle buttonSettingsBounds = new Rectangle(BaseBounds.Limits.X + BaseBounds.Limits.Width.Half() - BaseBounds.Button.Width.Half(), BaseBounds.Limits.Bottom - BaseBounds.Button.Height, BaseBounds.Button.Width, BaseBounds.Button.Height);
-        Rectangle buttonAcheivementsBounds = new Rectangle(BaseBounds.Limits.Right - BaseBounds.Button.Width, BaseBounds.Limits.Bottom - BaseBounds.Button.Height, BaseBounds.Button.Width, BaseBounds.Button.Height);
+        Rectangle buttonSettingsBounds = new(BaseBounds.Limits.X + BaseBounds.Limits.Width.Half() - BaseBounds.Button.Width.Half(), BaseBounds.Limits.Bottom - BaseBounds.Button.Height, BaseBounds.Button.Width, BaseBounds.Button.Height);
+        Rectangle buttonAcheivementsBounds = new(BaseBounds.Limits.Right - BaseBounds.Button.Width, BaseBounds.Limits.Bottom - BaseBounds.Button.Height, BaseBounds.Button.Width, BaseBounds.Button.Height);
 
         /*No se le hace dispose directamente ya que estarán contenidos en InteractiveObjectManager*/
 
@@ -383,7 +377,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 shakeAnimation?.Stop();
                 shakeAnimation = new AnimationShake(GetImagePadlockByGameMode(gameMode), 700);
                 shakeAnimation.Start();
-                Statics.ShowToast(GetLockedDescription(gameMode).GetString(GameData.StarsToUnlockMode), Android.Widget.ToastLength.Short);
+                Toast.Start(GetLockedDescription(gameMode).GetString(GameData.StarsToUnlockMode));
                 SoundManager.Padlock.PlaySound();/*En estos botones hay que hacer sonar el sonido dependiendo de si se puede abrir el modo de juego o no*/
                 Statics.Vibrate(VibrationDuration.Long);
             }

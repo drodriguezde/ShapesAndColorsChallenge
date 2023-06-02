@@ -31,12 +31,6 @@ namespace ShapesAndColorsChallenge.Class.Controls
 {
     internal class Label : InteractiveObject, IDisposable
     {
-        #region CONST
-
-
-
-        #endregion
-
         #region IMPORTS
 
 
@@ -145,12 +139,6 @@ namespace ShapesAndColorsChallenge.Class.Controls
         {
             Dispose(false);
         }
-
-        #endregion
-
-        #region EVENTS
-
-
 
         #endregion
 

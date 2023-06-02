@@ -36,11 +36,6 @@ namespace ShapesAndColorsChallenge.Class
 
         #endregion
 
-        #region DELEGATES
-
-
-        #endregion
-
         #region PROPERTIES
 
         /// <summary>
@@ -261,10 +256,10 @@ namespace ShapesAndColorsChallenge.Class
 
         internal static Rectangle Rescale(this Rectangle rectangle)
         {
-            Vector2 topLeft = new Vector2(rectangle.Left, rectangle.Top);
-            Vector2 topRight = new Vector2(rectangle.Right, rectangle.Top);
-            Vector2 bottomLeft = new Vector2(rectangle.Left, rectangle.Bottom);
-            Vector2 bottomRight = new Vector2(rectangle.Right, rectangle.Bottom);
+            Vector2 topLeft = new(rectangle.Left, rectangle.Top);
+            Vector2 topRight = new(rectangle.Right, rectangle.Top);
+            Vector2 bottomLeft = new(rectangle.Left, rectangle.Bottom);
+            Vector2 bottomRight = new(rectangle.Right, rectangle.Bottom);
             topLeft = Vector2.Transform(topLeft, RedimMatrix);
             topRight = Vector2.Transform(topRight, RedimMatrix);
             bottomLeft = Vector2.Transform(bottomLeft, RedimMatrix);

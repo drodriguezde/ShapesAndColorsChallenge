@@ -23,6 +23,7 @@
 
 using Microsoft.Xna.Framework;
 using ShapesAndColorsChallenge.Class.Controls;
+using ShapesAndColorsChallenge.Class.D2;
 using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Class.Params;
 using ShapesAndColorsChallenge.Class.Particles;
@@ -167,7 +168,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
             base.LoadContent();
             Bounds = GetBounds();
             SetColorMode();
-            SetBackLayer();
             SetButtonOK();
 
             if (WindowResultParams.IsChallenge)
@@ -195,11 +195,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
             int height = OFFSET + MESSAGE_LABEL_HEIGHT + OFFSET + BaseBounds.Button.Height + OFFSET + ButtonOKBounds.Height + OFFSET;
 
             return new Rectangle(BaseBounds.Limits.X + 50, BaseBounds.Bounds.Height.Half() - height.Half(), BaseBounds.Limits.Width - 100, height);
-        }
-
-        void SetBackLayer()
-        {
-            TextureBackLayer = TextureManager.Get(new Size(1, 1), Color.Black, CommonTextureType.Rectangle).Texture;
         }
 
         void SetButtonOK()
@@ -339,7 +334,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (!Visible)
                 return;
 
-            Screen.SpriteBatch.Draw(TextureBackLayer, Screen.BacklayerBounds, Color.White * BacklayerTransparency);
+            Screen.SpriteBatch.FillRectangle(Screen.BacklayerBounds, Color.Black * BacklayerTransparency);
             Screen.SpriteBatch.Draw(BodyTexture, Location, Color.White * BodyTransparency);
             base.Draw(gameTime);
             ParticleEngine.Draw(gameTime);

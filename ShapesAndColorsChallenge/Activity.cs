@@ -47,6 +47,7 @@ namespace ShapesAndColorsChallenge
             _view = _game.Services.GetService(typeof(View)) as View;
 
             Window.DecorView.SystemUiVisibility = (StatusBarVisibility)(SystemUiFlags.Fullscreen | SystemUiFlags.HideNavigation);/*Quita los botones de navegación del sistema*/
+
             SetContentView(_view);
             _game.Run();
         }

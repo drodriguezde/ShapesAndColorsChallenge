@@ -32,18 +32,6 @@ namespace ShapesAndColorsChallenge.Class.D2
 {
     internal static class Primitives2D
     {
-        #region CONST
-
-
-
-        #endregion
-
-        #region IMPORTS
-
-
-
-        #endregion
-
         #region DELEGATES
 
 
@@ -52,20 +40,8 @@ namespace ShapesAndColorsChallenge.Class.D2
 
         #region VARS
 
-        static readonly Dictionary<string, List<Vector2>> circleCache = new Dictionary<string, List<Vector2>>();
+        static readonly Dictionary<string, List<Vector2>> circleCache = new();
         //private static readonly Dictionary<String, List<Vector2>> arcCache = new Dictionary<string, List<Vector2>>();
-
-        #endregion
-
-        #region PROPERTIES
-
-
-
-        #endregion
-
-        #region EVENTS
-
-
 
         #endregion
 
@@ -110,7 +86,7 @@ namespace ShapesAndColorsChallenge.Class.D2
             if (circleCache.ContainsKey(circleKey))
                 return circleCache[circleKey];
 
-            List<Vector2> vectors = new List<Vector2>();
+            List<Vector2> vectors = new();
             const double max = 2.0 * Math.PI;
             double step = max / sides;
 
@@ -136,7 +112,7 @@ namespace ShapesAndColorsChallenge.Class.D2
         /// <returns>A list of vectors that, if connected, will create an arc</returns>
         static List<Vector2> CreateArc(float radius, int sides, float startingAngle, float radians)
         {
-            List<Vector2> points = new List<Vector2>();
+            List<Vector2> points = new();
             points.AddRange(CreateCircle(radius, sides));
             points.RemoveAt(points.Count - 1); // remove the last point because it's a duplicate of the first
 
@@ -530,7 +506,7 @@ namespace ShapesAndColorsChallenge.Class.D2
             if (borderThickness + borderRadius > height / 2 || borderThickness + borderRadius > width / 2) throw new ArgumentException("Border will be too thick and/or rounded to fit on the texture.");
             if (borderShadow > borderRadius) throw new ArgumentException("Border shadow must be lesser in magnitude than the border radius (suggeted: shadow <= 0.25 * radius).");
 
-            Texture2D texture = new Texture2D(spriteBatch.GraphicsDevice, width, height, false, SurfaceFormat.Color);
+            Texture2D texture = new(spriteBatch.GraphicsDevice, width, height, false, SurfaceFormat.Color);
             Color[] color = new Color[width * height];
 
             for (int x = 0; x < texture.Width; x++)
@@ -567,37 +543,37 @@ namespace ShapesAndColorsChallenge.Class.D2
 
         private static Color ColorBorder(int x, int y, int width, int height, int borderThickness, int borderRadius, int borderShadow, Color initialColor, List<Color> borderColors, float initialShadowIntensity, float finalShadowIntensity)
         {
-            Rectangle internalRectangle = new Rectangle((borderThickness + borderRadius), (borderThickness + borderRadius), width - 2 * (borderThickness + borderRadius), height - 2 * (borderThickness + borderRadius));
+            Rectangle internalRectangle = new((borderThickness + borderRadius), (borderThickness + borderRadius), width - 2 * (borderThickness + borderRadius), height - 2 * (borderThickness + borderRadius));
 
             if (internalRectangle.Contains(x, y)) return initialColor;
 
             Vector2 origin = Vector2.Zero;
-            Vector2 point = new Vector2(x, y);
+            Vector2 point = new(x, y);
 
             if (x < borderThickness + borderRadius)
             {
                 if (y < borderRadius + borderThickness)
-                    origin = new Vector2(borderRadius + borderThickness, borderRadius + borderThickness);
+                    origin = new(borderRadius + borderThickness, borderRadius + borderThickness);
                 else if (y > height - (borderRadius + borderThickness))
-                    origin = new Vector2(borderRadius + borderThickness, height - (borderRadius + borderThickness));
+                    origin = new(borderRadius + borderThickness, height - (borderRadius + borderThickness));
                 else
-                    origin = new Vector2(borderRadius + borderThickness, y);
+                    origin = new(borderRadius + borderThickness, y);
             }
             else if (x > width - (borderRadius + borderThickness))
             {
                 if (y < borderRadius + borderThickness)
-                    origin = new Vector2(width - (borderRadius + borderThickness), borderRadius + borderThickness);
+                    origin = new(width - (borderRadius + borderThickness), borderRadius + borderThickness);
                 else if (y > height - (borderRadius + borderThickness))
-                    origin = new Vector2(width - (borderRadius + borderThickness), height - (borderRadius + borderThickness));
+                    origin = new(width - (borderRadius + borderThickness), height - (borderRadius + borderThickness));
                 else
-                    origin = new Vector2(width - (borderRadius + borderThickness), y);
+                    origin = new(width - (borderRadius + borderThickness), y);
             }
             else
             {
                 if (y < borderRadius + borderThickness)
-                    origin = new Vector2(x, borderRadius + borderThickness);
+                    origin = new(x, borderRadius + borderThickness);
                 else if (y > height - (borderRadius + borderThickness))
-                    origin = new Vector2(x, height - (borderRadius + borderThickness));
+                    origin = new(x, height - (borderRadius + borderThickness));
             }
 
             if (!origin.Equals(Vector2.Zero))
@@ -614,16 +590,10 @@ namespace ShapesAndColorsChallenge.Class.D2
                     {
                         float modNum = distance - borderRadius;
 
-                        if (modNum < borderThickness / 2)
-                        {
-                            return Color.Lerp(borderColors[2], borderColors[1], (float)((modNum) / (borderThickness / 2.0)));
-                        }
-                        else
-                        {
-                            return Color.Lerp(borderColors[1], borderColors[0], (float)((modNum - (borderThickness / 2.0)) / (borderThickness / 2.0)));
-                        }
+                        return modNum < borderThickness / 2
+                            ? Color.Lerp(borderColors[2], borderColors[1], (float)((modNum) / (borderThickness / 2.0)))
+                            : Color.Lerp(borderColors[1], borderColors[0], (float)((modNum - (borderThickness / 2.0)) / (borderThickness / 2.0)));
                     }
-
 
                     if (borderColors.Count > 0)
                         return borderColors[0];

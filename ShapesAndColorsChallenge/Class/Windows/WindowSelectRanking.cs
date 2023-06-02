@@ -23,6 +23,7 @@
 
 using Microsoft.Xna.Framework;
 using ShapesAndColorsChallenge.Class.Controls;
+using ShapesAndColorsChallenge.Class.D2;
 using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Enum;
 using System;
@@ -50,19 +51,13 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// <summary>
         /// Tamaño y posición de botoón ok cuando está junto con el botón cancelar para la resolución base.
         /// </summary>
-        Rectangle buttonCancelBounds { get; set; } = new Rectangle(BaseBounds.Bounds.Width.Half() - 306.Half(), BaseBounds.Bounds.Height.Half() + 50, 306, 256);
+        Rectangle buttonCancelBounds = new(BaseBounds.Bounds.Width.Half() - 306.Half(), BaseBounds.Bounds.Height.Half() + 50, 306, 256);
 
-        Rectangle buttonLocalBounds { get; set; } = new Rectangle(BaseBounds.Bounds.Width.Half() - 306, BaseBounds.Bounds.Height.Half() - 275, 256, 256);
+        Rectangle buttonLocalBounds = new(BaseBounds.Bounds.Width.Half() - 306, BaseBounds.Bounds.Height.Half() - 275, 256, 256);
 
-        Rectangle buttonGlobalBounds { get; set; } = new Rectangle(BaseBounds.Bounds.Width.Half() + 50, BaseBounds.Bounds.Height.Half() - 275, 256, 256);
+        Rectangle buttonGlobalBounds = new(BaseBounds.Bounds.Width.Half() + 50, BaseBounds.Bounds.Height.Half() - 275, 256, 256);
 
-        static Rectangle messageBoxBounds = new Rectangle(BaseBounds.Limits.X + 100, BaseBounds.Bounds.Height.Half() - 700.Half(), BaseBounds.Limits.Width - 200, 700);/*Tiene que ser estática*/
-
-
-        #endregion
-
-        #region PROPERTIES
-
+        static Rectangle messageBoxBounds = new(BaseBounds.Limits.X + 100, BaseBounds.Bounds.Height.Half() - 700.Half(), BaseBounds.Limits.Width - 200, 700);/*Tiene que ser estática*/
 
         #endregion
 
@@ -176,7 +171,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
         {
             base.LoadContent();
             SetColorMode();
-            SetBackLayer();
             SetButtonCancel();
             SetButtonLocal();
             SetButtonGlobal();
@@ -186,11 +180,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
         internal override void SetColorMode()
         {
             BodyTexture = TextureManager.Get(new Size(Bounds.Width, Bounds.Height), ColorManager.WindowBodyColor, ColorManager.WindowBorderColor, CommonTextureType.RoundedRectangle).Texture;
-        }
-
-        void SetBackLayer()
-        {
-            TextureBackLayer = TextureManager.Get(new Size(1, 1), Color.Black, CommonTextureType.Rectangle).Texture;
         }
 
         void SetButtonCancel()
@@ -224,7 +213,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (!Visible)
                 return;
 
-            Screen.SpriteBatch.Draw(TextureBackLayer, Screen.BacklayerBounds, Color.White * BacklayerTransparency);
+            Screen.SpriteBatch.FillRectangle(Screen.BacklayerBounds, Color.Black * BacklayerTransparency);
             Screen.SpriteBatch.Draw(BodyTexture, Location, Color.White * BodyTransparency);
             base.Draw(gameTime);
         }

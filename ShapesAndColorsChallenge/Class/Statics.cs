@@ -31,7 +31,6 @@ using Android.Content.Res;
 using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Enum;
 using System.Globalization;
-using Android.Widget;
 using AndroidApp = Android.App;
 using Microsoft.Xna.Framework.Graphics;
 using Android.Net;
@@ -40,6 +39,7 @@ using Android.Content;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Threading;
+using Android.OS;
 #if ANDROID
 using Java.Util;
 #else
@@ -134,7 +134,7 @@ namespace ShapesAndColorsChallenge.Class
 
         internal static string GetUserPath()
         {
-            return string.Concat(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"\", AppDomain.CurrentDomain.FriendlyName.ToLower().Replace(".exe", ""), @"\");
+            return string.Concat(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), @"\", AppDomain.CurrentDomain.FriendlyName.ToLower().Replace(".exe", ""), @"\");
         }
 
         /// <summary>
@@ -154,8 +154,7 @@ namespace ShapesAndColorsChallenge.Class
         {
             try
             {
-                if (currentCulture == null)
-                    currentCulture = new CultureInfo(Locale.Default.Language);
+                currentCulture ??= new CultureInfo(Locale.Default.Language);
             }
             catch
             {
@@ -172,31 +171,11 @@ namespace ShapesAndColorsChallenge.Class
         /// <returns>Devuelve un códivo válido, de existir traducción, de no existir devuelve "gb"</returns>
         static string GetTranslation(string countryCode)
         {
-            switch (countryCode)
+            return countryCode switch
             {
-                case "cs":
-                case "da":
-                case "de":
-                case "es":
-                case "fi":
-                case "fr":
-                case "en":
-                case "hu":
-                case "it":
-                case "ja":
-                case "ko":
-                case "nl":
-                case "no":
-                case "pl":
-                case "pt":
-                case "ru":
-                case "sv":
-                case "tr":
-                case "zh":
-                    return countryCode;
-                default:
-                    return "en";
-            }
+                "cs" or "da" or "de" or "es" or "fi" or "fr" or "en" or "hu" or "it" or "ja" or "ko" or "nl" or "no" or "pl" or "pt" or "ru" or "sv" or "tr" or "zh" => countryCode,
+                _ => "en",
+            };
         }
 
         internal static string GetGameModeTitle()
@@ -274,9 +253,9 @@ namespace ShapesAndColorsChallenge.Class
         internal static void SetLocale(string languageCode)
         {
 #if ANDROID
-            Locale locale = new Locale(languageCode);
+            Locale locale = new(languageCode);
             Locale.SetDefault(Locale.Category.Display, locale);
-            Resources resources = Android.App.Application.Context.Resources;
+            Resources resources = AndroidApp.Application.Context.Resources;
             Configuration config = resources.Configuration;
             config.SetLocale(locale);
             //Application.Context.ApplicationContext.CreateConfigurationContext(config);
@@ -354,14 +333,29 @@ namespace ShapesAndColorsChallenge.Class
 
         /// <summary>
         /// Hace vibrar el dispositivo los milisegundos indicados.
+        /// el obsoleto en este método está solucionado.
         /// </summary>
-        /// <param name="miliseconds"></param>
-        internal static void Vibrate(int miliseconds)
+        /// <param name="milliseconds"></param>
+        internal static void Vibrate(int milliseconds)
         {
-            var vibrator = (Android.OS.Vibrator)AndroidApp.Application.Context.GetSystemService(Android.Content.Context.VibratorService);
+#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
+            var vibrator = (Vibrator)AndroidApp.Application.Context.GetSystemService(Context.VibratorService);
+#pragma warning restore CS0618 // El tipo o el miembro están obsoletos
 
             if (vibrator.HasVibrator && UserSettingsManager.Vibration)
-                vibrator.Vibrate(miliseconds);
+            {
+                if (Build.VERSION.SdkInt >= BuildVersionCodes.O)/*Android 8.0 (API nivel 26) en adelante*/
+                {
+                    var vibrationEffect = VibrationEffect.CreateOneShot(milliseconds, VibrationEffect.DefaultAmplitude);
+                    vibrator.Vibrate(vibrationEffect);
+                }
+                else
+                {
+#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
+                    vibrator.Vibrate(milliseconds);/*Para versiones anteriores a Android 8.0*/
+#pragma warning restore CS0618 // El tipo o el miembro están obsoletos
+                }
+            }
         }
 
         /// <summary>
@@ -371,16 +365,6 @@ namespace ShapesAndColorsChallenge.Class
         internal static void Vibrate(VibrationDuration vibrationDuration)
         {
             Vibrate(vibrationDuration.ToInt());
-        }
-
-        /// <summary>
-        /// Muestra un mensaje toast.
-        /// </summary>
-        /// <param name="message"></param>
-        /// <param name="length"></param>
-        internal static void ShowToast(string message, ToastLength length)
-        {
-            Toast.MakeText(AndroidApp.Application.Context, message, length).Show();
         }
 
         /// <summary>

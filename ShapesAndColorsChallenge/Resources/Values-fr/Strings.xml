@@ -5,7 +5,7 @@
 	<string name="YES">Oui</string>
 	<string name="NOT">Non</string>
 	<string name="SETTINGS">Paramètres</string>
-	<string name="RÉALISATIONS">Réalisations</string>
+	<string name="ACHEIVEMENTS">Réalisations</string>
 	<string name="GAME">Jeu</string>
 	<string name="LANGUAGE">Langue</string>
 	<string name="MUSIC">Musique</string>
@@ -65,7 +65,7 @@
 	<string name="APP_TITLE_FIRST_LINE">Formes et couleurs</string>
 	<string name="APP_TITLE_SECOND_LINE">Défi</string>
 	<string name="GAME_MODES">Modes de jeu</string>
-	<string name="JOUER">JOUER!</string>
+	<string name="PLAY">JOUER!</string>
 	<string name="RESET_PROGRESS_QUESTION">Tous les progrès sauf les succès seront supprimés, continuer?</string>
 	<string name="PROGRESS_RESET">Réinitialisation de la progression</string>
 	<string name="CLOSE">Fermer</string>

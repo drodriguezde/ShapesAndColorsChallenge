@@ -23,6 +23,7 @@
 
 using Microsoft.Xna.Framework;
 using ShapesAndColorsChallenge.Class.Controls;
+using ShapesAndColorsChallenge.Class.D2;
 using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Enum;
 using System;
@@ -31,12 +32,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
 {
     public class WindowMessageBox : Window, IDisposable
     {
-        #region IMPORTS
-
-
-
-        #endregion
-
         #region DELEGATES
 
         internal event EventHandler OnAccept;
@@ -78,24 +73,24 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         int LinesNumber { get; set; } = 1;
 
-        static Rectangle MessageBoxBounds { get; set; } = new Rectangle(BaseBounds.Limits.X + 50, 840, BaseBounds.Limits.Width - 100, 570);/*Tiene que ser estática*/
+        static Rectangle MessageBoxBounds { get; set; } = new(BaseBounds.Limits.X + 50, 840, BaseBounds.Limits.Width - 100, 570);/*Tiene que ser estática*/
 
         /// <summary>
         /// Tamaño y posición de botoón ok cuando está junto con el botón cancelar para la resolución base.
         /// </summary>
-        Rectangle ButtonOKBounds { get; set; } = new Rectangle(BaseBounds.Bounds.Width.Half() - 712.Half(), 1082, 306, 256);
+        Rectangle ButtonOKBounds { get; set; } = new(BaseBounds.Bounds.Width.Half() - 712.Half(), 1082, 306, 256);
 
         /// <summary>
         /// Tamaño y posición de botoón cancelar cuando está junto con el botón ok para la resolución base.
         /// </summary>
-        Rectangle ButtonCancelBounds { get; set; } = new Rectangle(BaseBounds.Bounds.Width.Half() + 50, 1082, 306, 256);
+        Rectangle ButtonCancelBounds { get; set; } = new(BaseBounds.Bounds.Width.Half() + 50, 1082, 306, 256);
 
         /// <summary>
         /// Tamaño y posición de botón ok o cancelar cuando está solo.
         /// </summary>
-        Rectangle ButtonAloneBounds { get; set; } = new Rectangle(BaseBounds.Bounds.Width.Half() - 306.Half(), 1082, 306, 256);
+        Rectangle ButtonAloneBounds { get; set; } = new(BaseBounds.Bounds.Width.Half() - 306.Half(), 1082, 306, 256);
 
-        Rectangle MessageBounds { get; set; } = new Rectangle(170, 887, 710, 120);
+        Rectangle MessageBounds { get; set; } = new(170, 887, 710, 120);
 
         #endregion
 
@@ -203,7 +198,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
             base.LoadContent();
             SetBody();
             SetColorMode();
-            SetBackLayer();
             InitializeButtons();
             InitializeMessage();
             SubscribeEvents();
@@ -218,17 +212,12 @@ namespace ShapesAndColorsChallenge.Class.Windows
         {
             if (MessageBoxButton == MessageBoxButton.None)
             {
-                BodyBounds = new Rectangle(Bounds.X, BaseBounds.Bounds.Height.Half() - 100, Bounds.Width, 200);
-                Bounds = new Rectangle(Bounds.X, BaseBounds.Bounds.Height.Half() - 100, Bounds.Width, 200);
-                MessageBounds = new Rectangle(170, BodyBounds.Top + 40, 710, 120);
+                BodyBounds = new(Bounds.X, BaseBounds.Bounds.Height.Half() - 100, Bounds.Width, 200);
+                Bounds = new(Bounds.X, BaseBounds.Bounds.Height.Half() - 100, Bounds.Width, 200);
+                MessageBounds = new(170, BodyBounds.Top + 40, 710, 120);
             }
             else
                 BodyBounds = new Rectangle(Bounds.X, Bounds.Y, Bounds.Width, Bounds.Height);
-        }
-
-        void SetBackLayer()
-        {
-            TextureBackLayer = TextureManager.Get(new Size(1, 1), Color.Black, CommonTextureType.Rectangle).Texture;
         }
 
         void InitializeButtons()
@@ -271,7 +260,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (!Visible)
                 return;
 
-            Screen.SpriteBatch.Draw(TextureBackLayer, Screen.BacklayerBounds, Color.White * BacklayerTransparency);
+            Screen.SpriteBatch.FillRectangle(Screen.BacklayerBounds, Color.Black * BacklayerTransparency);
             Screen.SpriteBatch.Draw(BodyTexture, Location, Color.White * BodyTransparency);
             base.Draw(gameTime);
         }

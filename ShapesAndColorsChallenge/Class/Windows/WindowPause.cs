@@ -23,6 +23,7 @@
 
 using Microsoft.Xna.Framework;
 using ShapesAndColorsChallenge.Class.Controls;
+using ShapesAndColorsChallenge.Class.D2;
 using ShapesAndColorsChallenge.Class.Management;
 using ShapesAndColorsChallenge.Enum;
 using System;
@@ -31,12 +32,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
 {
     public class WindowPause : Window, IDisposable
     {
-        #region IMPORTS
-
-
-
-        #endregion
-
         #region DELEGATES
 
         internal event EventHandler OnResume;
@@ -181,7 +176,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
             base.LoadContent();
             SetBody();
             SetColorMode();
-            SetBackLayer();
             InitializeButtons();
             SetTitle();
             SetInfoChallenge();
@@ -195,18 +189,13 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetBody()
         {
-            BodyBounds = new Rectangle(Bounds.X, Bounds.Y, Bounds.Width, Bounds.Height);
-        }
-
-        void SetBackLayer()
-        {
-            TextureBackLayer = TextureManager.Get(new Size(1, 1), Color.Black, CommonTextureType.Rectangle).Texture;
+            BodyBounds = new(Bounds.X, Bounds.Y, Bounds.Width, Bounds.Height);
         }
 
         void InitializeButtons()
         {
-            buttonResume = new Button(ModalLevel, buttonResumeBounds);
-            buttonQuit = new Button(ModalLevel, buttonQuitBounds);
+            buttonResume = new(ModalLevel, buttonResumeBounds);
+            buttonQuit = new(ModalLevel, buttonQuitBounds);
             Label labelResume = new(ModalLevel, new(buttonResumeBounds.X, buttonResumeBounds.Y + 20, buttonResumeBounds.Width, 160), Resource.String.RESUME.GetString(), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
             Label labelQuit = new(ModalLevel, new(buttonQuitBounds.X, buttonQuitBounds.Y + 20, buttonQuitBounds.Width, 160), Resource.String.QUIT.GetString(), Color.OrangeRed, Color.OrangeRed, AlignHorizontal.Center);
             InteractiveObjectManager.Add(buttonResume, buttonQuit, labelResume, labelQuit);
@@ -237,7 +226,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (!Visible)
                 return;
 
-            Screen.SpriteBatch.Draw(TextureBackLayer, Screen.BacklayerBounds, Color.White * BacklayerTransparency);
+            Screen.SpriteBatch.FillRectangle(Screen.BacklayerBounds, Color.Black * BacklayerTransparency);
             Screen.SpriteBatch.Draw(BodyTexture, Location, Color.White * BodyTransparency);
             base.Draw(gameTime);
         }

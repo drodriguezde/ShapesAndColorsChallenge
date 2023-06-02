@@ -40,12 +40,6 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         #endregion
 
-        #region IMPORTS
-
-
-
-        #endregion
-
         #region DELEGATES
 
 

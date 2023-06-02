@@ -34,18 +34,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
 {
     public class Window : Entity, IDisposable
     {
-        #region CONST
-
-
-
-        #endregion
-
-        #region IMPORTS
-
-
-
-        #endregion
-
         #region DELEGATES
 
         internal event EventHandler OnClose;
@@ -81,8 +69,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
         internal Texture2D BodyTexture { get; set; }
 
         internal float BodyTransparency { get; set; } = 1f;
-
-        internal Texture2D TextureBackLayer { get; set; }
 
         internal float BacklayerTransparency { get; set; } = 0.3f;
 

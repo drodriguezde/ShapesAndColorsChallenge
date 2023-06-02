@@ -11,6 +11,7 @@
 	<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
 	<ApplicationIcon>Icon.ico</ApplicationIcon>
 	<PackageIcon>ic_launcher.png</PackageIcon>
+	<GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;CA1416</NoWarn>
@@ -50,6 +51,9 @@
     <Folder Include="Resources\Drawable-xhdpi\" />
     <Folder Include="Resources\Drawable-xxhdpi\" />
     <Folder Include="Resources\Drawable-xxxhdpi\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Update="Resources\Values\Strings.xml">

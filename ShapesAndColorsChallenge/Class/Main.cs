@@ -21,6 +21,7 @@
 */
 
 using Microsoft.Xna.Framework;
+using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.Management;
 using System;
 
@@ -28,24 +29,6 @@ namespace ShapesAndColorsChallenge.Class
 {
     public class Main : Game
     {
-        #region CONST
-
-
-
-        #endregion
-
-        #region IMPORTS
-
-
-
-        #endregion
-
-        #region DELEGATES
-
-
-
-        #endregion
-
         #region VARS
 
 
@@ -73,12 +56,6 @@ namespace ShapesAndColorsChallenge.Class
 #endif
             ExitManager.Initialize(this);
         }
-
-        #endregion
-
-        #region DESTRUCTOR
-
-
 
         #endregion
 
@@ -156,10 +133,11 @@ namespace ShapesAndColorsChallenge.Class
             TouchManager.Update(gameTime);
             WindowManager.Update(gameTime);/*Actualiza los elemento de la interfaz*/
             ExitManager.Update(gameTime);
+            Toast.Update(gameTime);
 #if DEBUG
             DebugManager.Update(gameTime);
 #endif
-            OrchestratorManager.Update(gameTime);/*Esta linea la última antes de base.Update(gameTime);, en caso contrario no fucniona correctamente el botón back*/
+            OrchestratorManager.Update(gameTime);/*Esta linea la última antes de base.Update(gameTime);, en caso contrario no funciona correctamente el botón back*/
             base.Update(gameTime);
         }
 
@@ -168,6 +146,7 @@ namespace ShapesAndColorsChallenge.Class
             Screen.GraphicsDevice.Clear(Color.FromNonPremultiplied(ColorManager.WindowBodyColor.ToVector4()));/*Limpiamos la pantalla*/
             Screen.SpriteBatchBeginUI();
             WindowManager.Draw(gameTime);
+            Toast.Draw(gameTime);
 #if DEBUG
             DebugManager.Draw(gameTime, false, false, false, false, false, false, false);
 #endif
