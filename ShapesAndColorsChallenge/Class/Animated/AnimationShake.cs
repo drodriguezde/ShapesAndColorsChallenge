@@ -70,7 +70,7 @@ namespace ShapesAndColorsChallenge.Class.Animated
         internal override void Start()
         {
             CurrentFrame = 0;
-            Object.Location = OriginalLocation;
+            Object.Origin = Vector2.Zero;
             Running = true;
         }
 
@@ -96,8 +96,8 @@ namespace ShapesAndColorsChallenge.Class.Animated
         internal override void Stop()
         {
             CurrentFrame = 0;
-            Object.Location = OriginalLocation;
             Running = false;
+            Object.Origin = Vector2.Zero;            
         }
 
         internal override void Update(GameTime gameTime)
@@ -114,55 +114,55 @@ namespace ShapesAndColorsChallenge.Class.Animated
             switch (CurrentFrame)
             {
                 case 1:
-                    Object.Location = new Vector2(OriginalLocation.X, OriginalLocation.Y - ShakeRange);
+                    Object.Origin = Vector2.Zero + new Vector2(0, -ShakeRange);
                     break;
                 case 2:
-                    Object.Location = new Vector2(OriginalLocation.X, OriginalLocation.Y + ShakeRange);
+                    Object.Origin = Vector2.Zero + new Vector2(0, ShakeRange);
                     break;
                 case 3:
-                    Object.Location = new Vector2(OriginalLocation.X - ShakeRange, OriginalLocation.Y);
+                    Object.Origin = Vector2.Zero + new Vector2(-ShakeRange, 0);
                     break;
                 case 4:
-                    Object.Location = new Vector2(OriginalLocation.X + ShakeRange, OriginalLocation.Y);
+                    Object.Origin = Vector2.Zero + new Vector2(ShakeRange, 0);
                     break;
                 case 5:
-                    Object.Location = new Vector2(OriginalLocation.X - ShakeRange, OriginalLocation.Y - ShakeRange);
+                    Object.Origin = Vector2.Zero + new Vector2(-ShakeRange, -ShakeRange);
                     break;
                 case 6:
-                    Object.Location = new Vector2(OriginalLocation.X + ShakeRange, OriginalLocation.Y + ShakeRange);
+                    Object.Origin = Vector2.Zero + new Vector2(ShakeRange, ShakeRange);
                     break;
                 case 7:
-                    Object.Location = new Vector2(OriginalLocation.X + ShakeRange, OriginalLocation.Y);
+                    Object.Origin = Vector2.Zero + new Vector2(ShakeRange, 0);
                     break;
                 case 8:
-                    Object.Location = new Vector2(OriginalLocation.X, OriginalLocation.Y + ShakeRange);
+                    Object.Origin = Vector2.Zero + new Vector2(0, ShakeRange);
                     break;
                 case 9:
-                    Object.Location = new Vector2(OriginalLocation.X, OriginalLocation.Y - ShakeRange);
+                    Object.Origin = Vector2.Zero + new Vector2(0, -ShakeRange);
                     break;
                 case 10:
-                    Object.Location = new Vector2(OriginalLocation.X, OriginalLocation.Y + ShakeRange);
+                    Object.Origin = Vector2.Zero + new Vector2(0, ShakeRange);
                     break;
                 case 11:
-                    Object.Location = new Vector2(OriginalLocation.X - ShakeRange, OriginalLocation.Y);
+                    Object.Origin = Vector2.Zero + new Vector2(-ShakeRange, 0);
                     break;
                 case 12:
-                    Object.Location = new Vector2(OriginalLocation.X + ShakeRange, OriginalLocation.Y);
+                    Object.Origin = Vector2.Zero + new Vector2(ShakeRange, 0);
                     break;
                 case 13:
-                    Object.Location = new Vector2(OriginalLocation.X - ShakeRange, OriginalLocation.Y - ShakeRange);
+                    Object.Origin = Vector2.Zero + new Vector2(-ShakeRange, -ShakeRange);
                     break;
                 case 14:
-                    Object.Location = new Vector2(OriginalLocation.X + ShakeRange, OriginalLocation.Y + ShakeRange);
+                    Object.Origin = Vector2.Zero + new Vector2(ShakeRange, ShakeRange);
                     break;
                 case 15:
-                    Object.Location = new Vector2(OriginalLocation.X + ShakeRange, OriginalLocation.Y - ShakeRange);
+                    Object.Origin = Vector2.Zero + new Vector2(ShakeRange, -ShakeRange);
                     break;
                 case 16:
-                    Object.Location = new Vector2(OriginalLocation.X - ShakeRange, OriginalLocation.Y + ShakeRange);
+                    Object.Origin = Vector2.Zero + new Vector2(-ShakeRange, ShakeRange);
                     break;
                 case 17:
-                    Object.Location = OriginalLocation;
+                    Object.Origin = Vector2.Zero;
                     Running = false;
                     return;
             }
