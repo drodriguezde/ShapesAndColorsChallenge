@@ -35,7 +35,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
     {
         #region CONST
 
-        const int STAR_OFFSET = 128;
+        const int STAR_OFFSET = 384;
 
         #endregion
 

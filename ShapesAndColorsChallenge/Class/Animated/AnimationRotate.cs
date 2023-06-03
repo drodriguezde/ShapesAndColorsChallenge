@@ -68,8 +68,10 @@ namespace ShapesAndColorsChallenge.Class.Animated
         internal override void Start()
         {
             Object.Rotation = 0;
+            float diffX = ((Object as Image).Texture.Width - Object.Bounds.Width).Half();
+            float diffY = ((Object as Image).Texture.Height - Object.Bounds.Height).Half();
             Object.Location = new(Object.Location.X + Object.Bounds.Width.ToSingle().Half(), Object.Location.Y + Object.Bounds.Height.ToSingle().Half());
-            Object.Origin = new(Object.Bounds.Width.ToSingle().Half(), Object.Bounds.Height.ToSingle().Half());
+            Object.Origin = new(Object.Bounds.Width.ToSingle().Half() + diffX, Object.Bounds.Height.ToSingle().Half() + diffY);
             Running = true;
         }
 
