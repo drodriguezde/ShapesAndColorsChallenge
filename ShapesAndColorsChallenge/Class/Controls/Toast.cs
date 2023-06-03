@@ -55,7 +55,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
         {
             Running = true;
             Time = 0f;
-            Label = new(ModalLevel.None, new(BaseBounds.Limits.X + 50, BaseBounds.Bounds.Height - 600, BaseBounds.Limits.Width - 50, 200), text, Color.Black, Color.White, AlignHorizontal.Center, 2);
+            Label = new(ModalLevel.None, new(BaseBounds.Limits.X + 50, BaseBounds.Bounds.Height - 600, BaseBounds.Limits.Width - 100, 200), text, Color.Black, Color.White, AlignHorizontal.Center, 2);
             Label.LoadContent();
             BodyTextureBounds = new(Label.Bounds.X - 10, Label.Bounds.Y - 10, Label.Bounds.Width + 20, Label.Bounds.Height + 20);
             BackTextureBounds = new(Label.Bounds.X - 20, Label.Bounds.Y - 20, Label.Bounds.Width + 40, Label.Bounds.Height + 40);

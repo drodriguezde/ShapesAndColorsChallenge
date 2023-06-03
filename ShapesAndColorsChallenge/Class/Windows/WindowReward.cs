@@ -231,7 +231,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 labelMessage.Bounds.Bottom + OFFSET + BaseBounds.Button.Height.Half() - MESSAGE_LABEL_HEIGHT.Half(),
                 300,
                 MESSAGE_LABEL_HEIGHT);
-            Label labelAmount = new(ModalLevel, labelBounds, $"x {WindowRewardParams.Amount1}", ColorManager.HardGray, ColorManager.HardGray);
+            Label labelAmount = new(ModalLevel, labelBounds, $"x {WindowRewardParams.Amount1}", ColorManager.Green, ColorManager.Green);
             InteractiveObjectManager.Add(imagePerk, labelAmount);
 
             SetReward2(imageBounds, labelBounds);

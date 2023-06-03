@@ -28,15 +28,56 @@ using ShapesAndColorsChallenge.Class.Windows;
 using ShapesAndColorsChallenge.Enum;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace ShapesAndColorsChallenge.Class.Controls
 {
     internal class NavigationPanelVertical : InteractiveObject, IDisposable
     {
+        #region CONST
+
+        /// <summary>
+        /// Se usa para calcular la velocidad del scroll.
+        /// </summary>
+        const float SCROLL_SENSITIVITY = 1f;
+
+        /// <summary>
+        /// Tiempo máximo para la activación del scroll cinético.
+        /// Si el tiempo en milisegundos entre el drag y el drop es menor es que el usuario ha desplazado muy deprisa así que se lanza el scroll cinetico.
+        /// </summary>
+        const int ACTIVATE_SCROLL_INTERVAL = 200;
+
+        #endregion
+
         #region VARS
 
         float yStart = 0;
+
+        /// <summary>
+        /// Velocidad de movimiento del scroll provocado por el usuario.
+        /// </summary>
+        float scrollSpeed = 0;
+
+        /// <summary>
+        /// Indica la dirección de movimiento del scrol.
+        /// </summary>
+        bool scrollDirectionUpToDown = false;
+
+        /// <summary>
+        /// Tiempo que pasó entre el darg y el drop.
+        /// </summary>
+        TimeSpan timeDragAction = TimeSpan.MaxValue;
+
+        /// <summary>
+        /// Conatará el tiempo desde el drag.
+        /// </summary>
+        Stopwatch stopwatch = new();
+
+        /// <summary>
+        /// Impide que se resetee el tiempo inicial del drag.
+        /// </summary>
+        bool firstDrag = false;
 
         #endregion
 
@@ -158,6 +199,14 @@ namespace ShapesAndColorsChallenge.Class.Controls
             float diff = yStart - e.Current.Y;
             Move(diff);
             yStart = e.Current.Y;
+
+            if (firstDrag)/*Este bloque impide que se resetee constantemente el contador del tiempo mientras se hace drag, nos interesa solo el primero*/
+                return;
+            else
+            {
+                stopwatch = Stopwatch.StartNew();
+                firstDrag = true;
+            }
         }
 
         private void TouchManager_OnDrop(object sender, DropEventArgs e)
@@ -165,6 +214,11 @@ namespace ShapesAndColorsChallenge.Class.Controls
             if (!WindowManager.ItsMeTheTopMost(ModalLevel))
                 return;
 
+            int deltaY = e.Start.Y.ToInt() - yStart.ToInt();
+            scrollSpeed = deltaY * SCROLL_SENSITIVITY;
+            scrollDirectionUpToDown = scrollSpeed > 0;
+            timeDragAction = stopwatch.Elapsed;
+            firstDrag = false;
             yStart = 0;
         }
 
@@ -329,8 +383,41 @@ namespace ShapesAndColorsChallenge.Class.Controls
             panelItem.Move();
         }
 
+        /// <summary>
+        /// Este método sirve para dar efecto cinético al scroll.
+        /// </summary>
+        void DoKineticScroll()
+        {
+            if (scrollSpeed != 0 && timeDragAction < TimeSpan.FromMilliseconds(ACTIVATE_SCROLL_INTERVAL))
+            {
+                Move(scrollSpeed);
+
+                if (scrollDirectionUpToDown)
+                {
+                    scrollSpeed /= 1.5f;
+
+                    if (scrollSpeed <= 0)
+                    {
+                        scrollSpeed = 0;
+                        timeDragAction = TimeSpan.MaxValue;
+                    }
+                }
+                else
+                {
+                    scrollSpeed /= 1.5f;
+
+                    if (scrollSpeed >= 0)
+                    {
+                        scrollSpeed = 0;
+                        timeDragAction = TimeSpan.MaxValue;
+                    }
+                }
+            }
+        }
+
         internal override void Update(GameTime gameTime)
         {
+            DoKineticScroll();
             base.Update(gameTime);
         }
 

@@ -120,7 +120,7 @@
 	<string name="CHALLENGE_POINTS">%2$d 스테이지의 %1$d 레벨에서 포인트(%3$d)를 획득하세요.</string>
 	<string name="CHALLENGE_NOPOWERUPS">파워업을 사용하지 않고 %2$d 스테이지의 %1$d 레벨에서 별 2개를 받으세요.</string>
 	<string name="CHALLENGE_NOMISTAKES">실패 없이 %2$d 단계의 %1$d 단계에서 별 2개를 받으세요.</string>
-	<string name="CHALLENGE_SHAPES">%2$d 스테이지의 %1$d 레벨에서 더 많은 타일을 찾으세요.</string>
+	<string name="CHALLENGE_SHAPES">%2$d 스테이지의 %1$d 레벨에서 더 많은 토큰(%3$d)을 찾으십시오.</string>
 	<string name="CHALLENGE_INFO">파워업을 얻으려면 챌린지를 완료하세요!</string>
 	<string name="CHALLENGE_LEAVE">탈퇴하면 챌린지를 잃게 됩니다!</string>
 	<string name="CHALLENGE_FAILED">도전 실패!</string>

@@ -120,7 +120,7 @@
 	<string name="CHALLENGE_POINTS">ステージ %2$d のレベル %1$d でポイント (%3$d) を達成しました。</string>
 	<string name="CHALLENGE_NOPOWERUPS">パワーアップを使用せずに、ステージ %2$d のレベル %1$d でスターを 2 つ獲得します。</string>
 	<string name="CHALLENGE_NOMISTAKES">失敗せずにステージ %2$d のレベル %1$d で 2 つ星を獲得します。</string>
-	<string name="CHALLENGE_SHAPES">ステージ %2$d のレベル %1$d でさらにタイルを見つけます。</string>
+	<string name="CHALLENGE_SHAPES">ステージ %2$d のレベル %1$d でさらにトークン (%3$d) を見つけます。</string>
 	<string name="CHALLENGE_INFO">チャレンジを完了してパワーアップを獲得しましょう！</string>
 	<string name="CHALLENGE_LEAVE">退出するとチャレンジは失われます!</string>
 	<string name="CHALLENGE_FAILED">チャレンジは失敗しました!</string>

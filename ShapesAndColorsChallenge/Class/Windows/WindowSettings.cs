@@ -38,24 +38,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
 {
     internal class WindowSettings : Window, IDisposable
     {
-        #region CONST
-
-
-
-        #endregion
-
-        #region IMPORTS
-
-
-
-        #endregion
-
-        #region DELEGATES
-
-
-
-        #endregion
-
         #region VARS
 
         Label labelTitle;
@@ -248,6 +230,8 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 UserSettingsManager.PlayerName = Const.PLAYER_NAME;
             else
             {
+                playerName = playerName.Replace("'", "").Replace("\"", "");
+
                 if (playerName.Trim().Length > 20)
                     UserSettingsManager.PlayerName = playerName.Trim()[..20];
                 else

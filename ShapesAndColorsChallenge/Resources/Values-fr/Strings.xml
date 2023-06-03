@@ -120,7 +120,7 @@
 	<string name="CHALLENGE_POINTS">Battez vos points (%3$d) au niveau %1$d de l&quot;'étape %2$d.</string>
 	<string name="CHALLENGE_NOPOWERUPS">Obtenez 2 étoiles au niveau %1$d de l&quot;'étape %2$d sans utiliser de bonus.</string>
 	<string name="CHALLENGE_NOMISTAKES">Obtenez 2 étoiles au niveau %1$d de l&quot;'étape %2$d sans aucun échec.</string>
-	<string name="CHALLENGE_SHAPES">Trouvez plus de tuiles au niveau %1$d de l&quot;'étape %2$d.</string>
+	<string name="CHALLENGE_SHAPES">Trouvez plus de jetons (%3$d) au niveau %1$d de l&quot;'étape %2$d.</string>
 	<string name="CHALLENGE_INFO">Relevez des défis pour gagner des bonus!</string>
 	<string name="CHALLENGE_LEAVE">Si vous partez, vous perdrez le défi!</string>
 	<string name="CHALLENGE_FAILED">Le défi a échoué!</string>

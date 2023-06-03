@@ -467,6 +467,16 @@ namespace ShapesAndColorsChallenge.Class
             return value.IsIn(Enum.GameMode.Rotate, Enum.GameMode.RotatePlus);
         }
 
+        /// <summary>
+        /// Indica si el modo es infinito.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static bool IsEndless(this Enum.GameMode value)
+        {
+            return value.IsIn(Enum.GameMode.Endless, Enum.GameMode.EndlessPlus);
+        }
+
         public static bool IsPlus(this Enum.GameMode value)
         {
             return value.IsIn(Enum.GameMode.ClassicPlus,

@@ -209,7 +209,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetInfoChallenge()
         {
-            if (!IsInChallenge)
+            if (!IsInChallenge || OrchestratorManager.GameMode.IsEndless()/*En sin fín se puede abandonar*/)
                 return;
 
             Label label = new(ModalLevel, infoChallengeLabel, Resource.String.CHALLENGE_LEAVE.GetString(), Color.Red, Color.Red, AlignHorizontal.Center);

@@ -120,7 +120,7 @@
 	<string name="CHALLENGE_POINTS">Slå dine point (%3$d) på niveau %1$d på scenen %2$d.</string>
 	<string name="CHALLENGE_NOPOWERUPS">Få 2 stjerner på niveau %1$d af scene %2$d uden at bruge nogen power-ups.</string>
 	<string name="CHALLENGE_NOMISTAKES">Få 2 stjerner på niveau %1$d af scene %2$d uden fejl.</string>
-	<string name="CHALLENGE_SHAPES">Find flere fliser på niveau %1$d af scene %2$d.</string>
+	<string name="CHALLENGE_SHAPES">FFind flere tokens (%3$d) på niveau %1$d i trin %2$d.</string>
 	<string name="CHALLENGE_INFO">Fuldfør udfordringer for at få power-ups!</string>
 	<string name="CHALLENGE_LEAVE">Hvis du forlader, mister du udfordringen!</string>
 	<string name="CHALLENGE_FAILED">Udfordring mislykkedes!</string>

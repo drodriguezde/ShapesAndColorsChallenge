@@ -148,7 +148,7 @@ namespace ShapesAndColorsChallenge.Class
             WindowManager.Draw(gameTime);
             Toast.Draw(gameTime);
 #if DEBUG
-            DebugManager.Draw(gameTime, false, false, false, false, false, false, false);
+            DebugManager.Draw(gameTime, false, true, false, false, false, false, false);
 #endif
             Screen.SpriteBatchEnd();
             base.Draw(gameTime);

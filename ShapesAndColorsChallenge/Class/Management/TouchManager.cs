@@ -79,12 +79,6 @@ namespace ShapesAndColorsChallenge.Class.Management
 
         #endregion
 
-        #region EVENTS
-
-
-
-        #endregion
-
         #region METHODS
 
         internal static void Initialize(Game game)

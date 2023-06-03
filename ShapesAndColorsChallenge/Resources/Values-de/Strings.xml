@@ -120,7 +120,7 @@
 	<string name="CHALLENGE_POINTS">Erreiche deine Punkte (%3$d) auf Level %1$d der Stufe %2$d.</string>
 	<string name="CHALLENGE_NOPOWERUPS">Erreiche 2 Sterne auf Level %1$d der Stufe %2$d, ohne Power-Ups zu verwenden.</string>
 	<string name="CHALLENGE_NOMISTAKES">Erreiche 2 Sterne auf Level %1$d der Stufe %2$d ohne Fehler.</string>
-	<string name="CHALLENGE_SHAPES">Finden Sie weitere Kacheln auf Ebene %1$d von Stufe %2$d.</string>
+	<string name="CHALLENGE_SHAPES">Finden Sie weitere Token (%3$d) auf Ebene %1$d der Stufe %2$d.</string>
 	<string name="CHALLENGE_INFO">Schließe Herausforderungen ab, um Power-Ups zu verdienen!</string>
 	<string name="CHALLENGE_LEAVE">Wenn du gehst, verlierst du die Herausforderung!</string>
 	<string name="CHALLENGE_FAILED">Challenge fehlgeschlagen!</string>

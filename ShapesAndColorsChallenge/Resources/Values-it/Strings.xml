@@ -120,7 +120,7 @@
 	<string name="CHALLENGE_POINTS">Batti i tuoi punti (%3$d) al livello %1$d della fase %2$d.</string>
 	<string name="CHALLENGE_NOPOWERUPS">Ottieni 2 stelle al livello %1$d del livello %2$d senza usare alcun potenziamento.</string>
 	<string name="CHALLENGE_NOMISTAKES">Ottieni 2 stelle al livello %1$d del livello %2$d senza fallimenti.</string>
-	<string name="CHALLENGE_SHAPES">Trova altre tessere al livello %1$d del livello %2$d.</string>
+	<string name="CHALLENGE_SHAPES">Trova altri token (%3$d) al livello %1$d dello stage %2$d.</string>
 	<string name="CHALLENGE_INFO">Completa le sfide per ottenere potenziamenti!</string>
 	<string name="CHALLENGE_LEAVE">Se te ne vai perderai la sfida!</string>
 	<string name="CHALLENGE_FAILED">Sfida fallita!</string>

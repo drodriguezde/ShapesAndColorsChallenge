@@ -120,7 +120,7 @@
 	<string name="CHALLENGE_POINTS">Beat your points (%3$d) on level %1$d of stage %2$d.</string>
 	<string name="CHALLENGE_NOPOWERUPS">Get 2 stars on level %1$d of stage %2$d without using any power-ups.</string>
 	<string name="CHALLENGE_NOMISTAKES">Get 2 stars on level %1$d of stage %2$d without any failures.</string>
-	<string name="CHALLENGE_SHAPES">Find more tiles on level %1$d of stage %2$d.</string>
+	<string name="CHALLENGE_SHAPES">Find more tiles (%3$d) on level %1$d of stage %2$d.</string>
 	<string name="CHALLENGE_INFO">Complete challenges to get power-ups!</string>
 	<string name="CHALLENGE_LEAVE">If you quit you will lose the challenge!</string>
 	<string name="CHALLENGE_FAILED">Challenge failed!</string>

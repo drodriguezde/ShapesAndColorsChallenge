@@ -120,7 +120,7 @@
 	<string name="CHALLENGE_POINTS">Supera tus puntos (%3$d) en el nivel %1$d de la etapa %2$d.</string>
 	<string name="CHALLENGE_NOPOWERUPS">Consigue 2 estrellas en el nivel %1$d de la etapa %2$d sin usar potenciadores.</string>
 	<string name="CHALLENGE_NOMISTAKES">Consigue 2 estrellas en el nivel %1$d de la etapa %2$d sin ningún fallo.</string>
-	<string name="CHALLENGE_SHAPES">Encuentra más fichas el nivel %1$d de la etapa %2$d.</string>
+	<string name="CHALLENGE_SHAPES">Encuentra más fichas (%3$d) en el nivel %1$d de la etapa %2$d.</string>
 	<string name="CHALLENGE_INFO">¡Supera retos para conseguir potenciadores!</string>
 	<string name="CHALLENGE_LEAVE">¡Si abandonas perderás el reto!</string>
 	<string name="CHALLENGE_FAILED">¡Reto fallado!</string>

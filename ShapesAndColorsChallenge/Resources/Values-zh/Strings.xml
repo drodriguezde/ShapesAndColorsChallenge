@@ -120,7 +120,7 @@
 	<string name="CHALLENGE_POINTS">在阶段 %2$d 的 %1$d 关卡中击败你的分数 (%3$d)。</string>
 	<string name="CHALLENGE_NOPOWERUPS">在阶段 %2$d 的 %1$d 关卡中获得 2 颗星，且不使用任何能量提升。</string>
 	<string name="CHALLENGE_NOMISTAKES">在关卡 %1$d 的阶段 %2$d 中没有任何失败获得 2 星。</string>
-	<string name="CHALLENGE_SHAPES">在关卡 %1$d 的阶段 %2$d 找到更多拼贴。</string>
+	<string name="CHALLENGE_SHAPES">在关卡 %1$d 的阶段 %2$d 找到更多令牌 (%3$d)。</string>
 	<string name="CHALLENGE_INFO">完成挑战以获得能量提升！</string>
 	<string name="CHALLENGE_LEAVE">如果你离开，你将失去挑战！</string>
 	<string name="CHALLENGE_FAILED">挑战失败！</string>

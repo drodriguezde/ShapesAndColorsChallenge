@@ -66,7 +66,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// </summary>
         const int TIME_FOR_POSITIVE_FEEDBACK = 600;
 
-        const int REVEAL_PERK_BOUNDS_OFFSET = 8;
+        const int REVEAL_PERK_BOUNDS_OFFSET = 10;
 
         #endregion
 
@@ -1106,7 +1106,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (!PerksPanel.IsRevealRunning)
                 return;
 
-            Screen.SpriteBatch.DrawRectangle(RevealPerkBounds, ColorManager.Cyan, 1f, REVEAL_PERK_BOUNDS_OFFSET);
+            Screen.SpriteBatch.DrawRectangle(RevealPerkBounds, ColorManager.GetShapeColor(GameData.RandomColor(GameData.STAGES, GameData.LEVELS)), 1f, REVEAL_PERK_BOUNDS_OFFSET);
         }
 
         /// <summary>
