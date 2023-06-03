@@ -282,7 +282,7 @@ namespace ShapesAndColorsChallenge.Class
         internal static bool CheckConectivity()
         {
 #if ANDROID
-            ConnectivityManager connectivityManager = (ConnectivityManager)Android.App.Application.Context.GetSystemService(Context.ConnectivityService);
+            ConnectivityManager connectivityManager = (ConnectivityManager)AndroidApp.Application.Context.GetSystemService(Context.ConnectivityService);
 
             // Comprueba si hay una conexión activa
             NetworkInfo activeNetworkInfo = connectivityManager.ActiveNetworkInfo;

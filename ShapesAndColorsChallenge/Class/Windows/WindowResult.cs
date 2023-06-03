@@ -317,12 +317,13 @@ namespace ShapesAndColorsChallenge.Class.Windows
             }
             else
             {
-                ParticleEngine.Start(ParticleType.Fireworks);
-
-                if (!VoicePlayed && WindowResultParams.NewRecord)
+                if (!VoicePlayed)
                 {
                     VoicePlayed = true;
-                    SoundManager.VoiceNewHighScore.PlayVoice();                    
+                    ParticleEngine.Start(ParticleType.Fireworks);
+
+                    if (WindowResultParams.NewRecord)                        
+                        SoundManager.VoiceNewHighScore.PlayVoice();                                       
                 }
             }
 
