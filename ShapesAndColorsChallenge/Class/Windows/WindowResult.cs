@@ -271,7 +271,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetReward()
         {
-            Rectangle bounds = new(Bounds.X + Bounds.Width.Half() - 250.Half(), Bounds.Y + 30, 200, 200);
             Rectangle imageBounds = new(BaseBounds.Bounds.Width.Half() - BaseBounds.Perk.Width + 50,
                 Bounds.Top + OFFSET,
                 BaseBounds.Perk.Width,
@@ -318,11 +317,12 @@ namespace ShapesAndColorsChallenge.Class.Windows
             }
             else
             {
+                ParticleEngine.Start(ParticleType.Fireworks);
+
                 if (!VoicePlayed && WindowResultParams.NewRecord)
                 {
                     VoicePlayed = true;
-                    SoundManager.VoiceNewHighScore.PlayVoice();
-                    ParticleEngine.Start(ParticleType.Fireworks);
+                    SoundManager.VoiceNewHighScore.PlayVoice();                    
                 }
             }
 
