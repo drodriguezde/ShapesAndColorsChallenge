@@ -29,30 +29,6 @@ namespace ShapesAndColorsChallenge.Class
 {
     internal class Visor : IDisposable
     {
-        #region CONST
-
-        internal static readonly Size Resolution1920x1080 = new Size(1920, 1080);
-
-        #endregion
-
-        #region IMPORTS
-
-
-
-        #endregion
-
-        #region DELEGATES
-
-
-
-        #endregion
-
-        #region VARS
-
-
-
-        #endregion
-
         #region PROPERTIES
 
         internal Main Game { get; private set; }
