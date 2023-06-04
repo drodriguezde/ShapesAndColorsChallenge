@@ -106,7 +106,7 @@
 	<string name="HTP_ROTATE_MODE_PLUS">Trouvez la tuile (1) sur la grille (2) avant la fin du temps imparti (3), si la tuile n&quot;'est pas cliqué dessus (4), certaines tuiles tourneront.</string>
 	<string name="DONT_SHOW_AGAIN">Ne plus afficher.</string>
 	<string name="HOW_TO_PLAY">Comment jouer</string>
-	<string name="GENERIC_ERROR">Échec du téléchargement.</string>
+	<string name="GENERIC_CONNECTION_ERROR">Une erreur de connexion s&quot;'est produite.</string>
 	<string name="UPLOADING_PROGRESS">Enregistrement de la progression...</string>
 	<string name="UPLOADING_PROGRESS_OK">Progression enregistrée!</string>
 	<string name="DOWNLOADING_PROGRESS_OK">Progression restaurée!</string>

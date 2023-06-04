@@ -106,7 +106,7 @@
 	<string name="HTP_ROTATE_MODE_PLUS">制限時間内にグリッド (2) でタイル (1) を見つけます (3)。タイルをクリックしないと (4)、一部のタイルが回転します。</string>
 	<string name="DONT_SHOW_AGAIN">今後表示しないでください。</string>
 	<string name="HOW_TO_PLAY">遊び方</string>
-	<string name="GENERIC_ERROR">ダウンロードに失敗しました。</string>
+	<string name="GENERIC_CONNECTION_ERROR">接続エラーが発生しました。</string>
 	<string name="UPLOADING_PROGRESS">進行状況を保存中...</string>
 	<string name="UPLOADING_PROGRESS_OK">進行状況が保存されました!</string>
 	<string name="DOWNLOADING_PROGRESS_OK">進行状況が回復しました!</string>

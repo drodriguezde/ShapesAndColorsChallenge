@@ -106,7 +106,7 @@
 	<string name="HTP_ROTATE_MODE_PLUS">Busca la ficha (1) en la parrilla (2) antes de que acabe el tiempo (3), si la ficha no está pulsa en (4), algunas fichas girarán.</string>
 	<string name="DONT_SHOW_AGAIN">No mostrar de nuevo.</string>
 	<string name="HOW_TO_PLAY">Cómo jugar</string>
-	<string name="GENERIC_ERROR">Se produjo un error en la descarga.</string>
+	<string name="GENERIC_CONNECTION_ERROR">Se produjo un error de conexión.</string>
 	<string name="UPLOADING_PROGRESS">Guardando progreso...</string>
 	<string name="UPLOADING_PROGRESS_OK">¡Progreso guardado!</string>
 	<string name="DOWNLOADING_PROGRESS_OK">¡Progreso restaurado!</string>

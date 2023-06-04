@@ -106,7 +106,7 @@
 	<string name="HTP_ROTATE_MODE_PLUS">Finden Sie die Kachel (1) im Raster (2), bevor die Zeit abläuft (3). Wenn die Kachel nicht angeklickt wird (4), werden einige Kacheln gedreht.</string>
 	<string name="DONT_SHOW_AGAIN">Nicht mehr anzeigen.</string>
 	<string name="HOW_TO_PLAY">Wie man spielt</string>
-	<string name="GENERIC_ERROR">Download fehlgeschlagen.</string>
+	<string name="GENERIC_CONNECTION_ERROR">Es ist ein Verbindungsfehler aufgetreten.</string>
 	<string name="UPLOADING_PROGRESS">Speicherfortschritt...</string>
 	<string name="UPLOADING_PROGRESS_OK">Fortschritt gespeichert!</string>
 	<string name="DOWNLOADING_PROGRESS_OK">Fortschritt wiederhergestellt!</string>

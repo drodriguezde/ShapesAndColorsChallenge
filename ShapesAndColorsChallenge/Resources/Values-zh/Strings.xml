@@ -106,7 +106,7 @@
 	<string name="HTP_ROTATE_MODE_PLUS">在时间用完之前（3）找到网格（2）上的方块（1），如果方块没有被点击（4），一些方块会旋转。</string>
 	<string name="DONT_SHOW_AGAIN">不再显示</string>
 	<string name="HOW_TO_PLAY">玩法</string>
-	<string name="GENERIC_ERROR">下载失败。</string>
+	<string name="GENERIC_CONNECTION_ERROR">发生连接错误。</string>
 	<string name="UPLOADING_PROGRESS">正在保存进度...</string>
 	<string name="UPLOADING_PROGRESS_OK">进度已保存！</string>
 	<string name="DOWNLOADING_PROGRESS_OK">进度已恢复！</string>

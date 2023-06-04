@@ -106,7 +106,7 @@
 	<string name="HTP_ROTATE_MODE_PLUS">Trova la tessera (1) sulla griglia (2) prima che scada il tempo (3), se la tessera non viene cliccata (4), alcune tessere ruoteranno.</string>
 	<string name="DONT_SHOW_AGAIN">Non mostrare più.</string>
 	<string name="HOW_TO_PLAY">Come si gioca</string>
-	<string name="GENERIC_ERROR">Download fallito.</string>
+	<string name="GENERIC_CONNECTION_ERROR">Si è verificato un errore di connessione.</string>
 	<string name="UPLOADING_PROGRESS">Salvataggio progressi...</string>
 	<string name="UPLOADING_PROGRESS_OK">Avanzamento salvato!</string>
 	<string name="DOWNLOADING_PROGRESS_OK">Avanzamento ripristinato!</string>

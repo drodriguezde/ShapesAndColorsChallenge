@@ -313,9 +313,8 @@ namespace ShapesAndColorsChallenge.Class.D2
         /// Draws a line from point1 to point2 with an offset
         /// </summary>
         /// <param name="spriteBatch">The destination drawing surface</param>
-        /// <param name="point">The starting point</param>
-        /// <param name="length">The length of the line</param>
-        /// <param name="angle">The angle of this line from the starting point</param>
+        /// <param name="v1">The starting point</param>
+        /// <param name="v2">The end point</param>
         /// <param name="color">The color to use</param>
         /// <param name="thickness">The thickness of the line</param>
         internal static void DrawLine(this SpriteBatch spriteBatch, Vector2 v1, Vector2 v2, Color color, int thickness)
@@ -329,10 +328,9 @@ namespace ShapesAndColorsChallenge.Class.D2
         /// Draws a line from point1 to point2 with an offset
         /// </summary>
         /// <param name="spriteBatch">The destination drawing surface</param>
-        /// <param name="point">The starting point</param>
-        /// <param name="length">The length of the line</param>
-        /// <param name="angle">The angle of this line from the starting point</param>
-        /// <param name="color">The color to use</param>
+        /// <param name="line"></param>
+        /// <param name="color"></param>
+        /// <param name="transparency"></param>
         /// <param name="thickness">The thickness of the line</param>
         internal static void DrawLine(this SpriteBatch spriteBatch, Line line, Color color, float transparency, int thickness)
         {

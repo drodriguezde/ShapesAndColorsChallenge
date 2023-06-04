@@ -215,7 +215,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         {
             if (globalRanking == null)/*En caso de un error mostramos el ranking local*/
             {
-                OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(Resource.String.GENERIC_ERROR.GetString(), MessageBoxButton.Accept, 1));
+                OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(Resource.String.GENERIC_CONNECTION_ERROR.GetString(), MessageBoxButton.Accept, 1));
                 windowMessageBox.OnAccept += WindowMessageBox_OnAccept;
             }
             else

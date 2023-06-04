@@ -1,5 +1,7 @@
 using Android.App;
+using Android.Content;
 using Android.Content.PM;
+using Android.Content.Res;
 using Android.OS;
 using Android.Views;
 using Microsoft.Xna.Framework;
@@ -42,14 +44,29 @@ namespace ShapesAndColorsChallenge
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
             _game = new Main();
             _view = _game.Services.GetService(typeof(View)) as View;
-
-            Window.DecorView.SystemUiVisibility = (StatusBarVisibility)(SystemUiFlags.Fullscreen | SystemUiFlags.HideNavigation);/*Quita los botones de navegación del sistema*/
-
+            SetFullScreen();
             SetContentView(_view);
             _game.Run();
+        }
+
+        /// <summary>
+        /// Solucionado el obsoleto.
+        /// </summary>
+        void SetFullScreen()
+        {
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.R)
+            {
+                var windowInsetsController = Window.DecorView.WindowInsetsController;
+                Window.SetDecorFitsSystemWindows(false);
+                windowInsetsController.Hide(WindowInsets.Type.NavigationBars());
+                windowInsetsController.Hide(WindowInsets.Type.StatusBars());
+            }
+            else
+#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
+                Window.DecorView.SystemUiVisibility = (StatusBarVisibility)(SystemUiFlags.Fullscreen | SystemUiFlags.HideNavigation);/*Quita los botones de navegación del sistema*/
+#pragma warning restore CS0618 // El tipo o el miembro están obsoletos
         }
 
         protected override void OnDestroy()
@@ -65,11 +82,18 @@ namespace ShapesAndColorsChallenge
         protected override void OnResume()
         {
             base.OnResume();
+            SetFullScreen();
         }
 
         protected override void OnRestart()
         {
             base.OnRestart();
+        }
+
+        public override void OnWindowFocusChanged(bool hasFocus)
+        {
+            base.OnWindowFocusChanged(hasFocus);
+            SetFullScreen();
         }
     }
 }

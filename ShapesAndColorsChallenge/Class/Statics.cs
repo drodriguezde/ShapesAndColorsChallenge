@@ -40,6 +40,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Threading;
 using Android.OS;
+using System.ComponentModel.Design;
 #if ANDROID
 using Java.Util;
 #else
@@ -252,18 +253,22 @@ namespace ShapesAndColorsChallenge.Class
 
         internal static void SetLocale(string languageCode)
         {
+            try
+            {
 #if ANDROID
-            Locale locale = new(languageCode);
-            Locale.SetDefault(Locale.Category.Display, locale);
-            Resources resources = AndroidApp.Application.Context.Resources;
-            Configuration config = resources.Configuration;
-            config.SetLocale(locale);
-            //Application.Context.ApplicationContext.CreateConfigurationContext(config);
-            //Application.Context.Resources.DisplayMetrics.SetTo(resources.DisplayMetrics);
-            resources.UpdateConfiguration(config, resources.DisplayMetrics);
+                Resources resources = AndroidApp.Application.Context.Resources;
+                Configuration configuration = resources.Configuration;
+                Locale newLocale = new(languageCode);
+                Locale.SetDefault(Locale.Category.Display, newLocale);
+                configuration.SetLocale(newLocale);
+                //Application.Context.ApplicationContext.CreateConfigurationContext(config);
+                //Application.Context.Resources.DisplayMetrics.SetTo(resources.DisplayMetrics);
+                resources.UpdateConfiguration(configuration, resources.DisplayMetrics);
 #else
             /*TODO, la parte de iOS*/
 #endif
+            }
+            catch { }
         }
 
         internal static string GetAppVersion()
@@ -276,7 +281,8 @@ namespace ShapesAndColorsChallenge.Class
         }
 
         /// <summary>
-        /// Comprueba si hay coneción a internet
+        /// Comprueba si hay coneción a internet.
+        /// Solucionado el obsoleto.
         /// </summary>
         /// <returns></returns>
         internal static bool CheckConectivity()
@@ -284,14 +290,27 @@ namespace ShapesAndColorsChallenge.Class
 #if ANDROID
             ConnectivityManager connectivityManager = (ConnectivityManager)AndroidApp.Application.Context.GetSystemService(Context.ConnectivityService);
 
-            // Comprueba si hay una conexión activa
-            NetworkInfo activeNetworkInfo = connectivityManager.ActiveNetworkInfo;
-            bool isConnected = (activeNetworkInfo != null) && activeNetworkInfo.IsConnected;
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.M)
+            {
+                Network network = connectivityManager.ActiveNetwork;
+                
+                if (network == null) 
+                    return false;
 
-            // Verifica si hay una conexión a Internet
-            bool hasInternetConnection = isConnected/* && CheckInternetConnectivity().GetAwaiter().GetResult()*/;
+                NetworkCapabilities networkCapabilities = connectivityManager.GetNetworkCapabilities(network);
 
-            return hasInternetConnection;
+                return networkCapabilities != null && (networkCapabilities.HasTransport(TransportType.Wifi) || networkCapabilities.HasTransport(TransportType.Cellular));
+            }
+            else
+            {
+
+#pragma warning disable CS0618 // El tipo o el miembro están obsoletos
+                NetworkInfo activeNetworkInfo = connectivityManager.ActiveNetworkInfo;
+                bool isConnected = (activeNetworkInfo != null) && activeNetworkInfo.IsConnected;
+#pragma warning restore CS0618 // El tipo o el miembro están obsoletos
+                bool hasInternetConnection = isConnected/* && CheckInternetConnectivity().GetAwaiter().GetResult()*/;
+                return hasInternetConnection;
+            }
 #else
             
 #endif

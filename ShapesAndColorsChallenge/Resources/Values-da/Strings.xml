@@ -106,7 +106,7 @@
 	<string name="HTP_ROTATE_MODE_PLUS">Find flisen (1) på gitteret (2), inden tiden løber ud (3), hvis flisen ikke klikkes på (4), vil nogle fliser rotere.</string>
 	<string name="DONT_SHOW_AGAIN">Vis ikke igen.</string>
 	<string name="HOW_TO_PLAY">Sådan spiller man</string>
-	<string name="GENERIC_ERROR">Download mislykkedes.</string>
+	<string name="GENERIC_CONNECTION_ERROR">Der opstod en forbindelsesfejl.</string>
 	<string name="UPLOADING_PROGRESS">Gemmer status...</string>
 	<string name="UPLOADING_PROGRESS_OK">Forløbet er gemt!</string>
 	<string name="DOWNLOADING_PROGRESS_OK">Forløb gendannet!</string>

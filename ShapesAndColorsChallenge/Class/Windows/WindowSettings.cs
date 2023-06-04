@@ -468,7 +468,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             }
             else
             {
-                OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(Resource.String.GENERIC_ERROR.GetString(), MessageBoxButton.Accept, 1));
+                OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(Resource.String.GENERIC_CONNECTION_ERROR.GetString(), MessageBoxButton.Accept, 1));
                 windowMessageBox.OnAccept += UploadingDownloadingProgressResult_OnAccept;
             }
         }
@@ -494,7 +494,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             }
             else
             {
-                OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(Resource.String.GENERIC_ERROR.GetString(), MessageBoxButton.Accept, 1));
+                OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(Resource.String.GENERIC_CONNECTION_ERROR.GetString(), MessageBoxButton.Accept, 1));
                 windowMessageBox.OnAccept += UploadingDownloadingProgressResult_OnAccept;
             }
         }

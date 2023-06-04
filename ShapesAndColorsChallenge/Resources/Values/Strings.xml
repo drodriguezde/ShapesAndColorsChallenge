@@ -106,7 +106,7 @@
 	<string name="HTP_ROTATE_MODE_PLUS">Find the tile (1) on the grid (2) before the time runs out (3), if the tile is not there click on (4), some tiles will rotate.</string>
 	<string name="DONT_SHOW_AGAIN">Don&quot;'t show again.</string>
 	<string name="HOW_TO_PLAY">How to play</string>
-	<string name="GENERIC_ERROR">An error occurred in the download.</string>
+	<string name="GENERIC_CONNECTION_ERROR">A connection error occurred.</string>
 	<string name="UPLOADING_PROGRESS">Saving progress...</string>
 	<string name="UPLOADING_PROGRESS_OK">Progress saved!</string>
 	<string name="DOWNLOADING_PROGRESS_OK">Progress restored!</string>
