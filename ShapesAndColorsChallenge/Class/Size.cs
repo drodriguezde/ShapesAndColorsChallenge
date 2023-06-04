@@ -133,11 +133,7 @@ namespace ShapesAndColorsChallenge.Class
 
         public override int GetHashCode()
         {
-            int hashCode = -658672633;
-            hashCode = hashCode * -1521134295 + Width.GetHashCode();
-            hashCode = hashCode * -1521134295 + Height.GetHashCode();
-            hashCode = hashCode * -1521134295 + disposed.GetHashCode();
-            return hashCode;
+            return HashCode.Combine(Width, Height, disposed);
         }
 
         #endregion

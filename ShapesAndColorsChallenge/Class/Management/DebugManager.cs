@@ -39,7 +39,7 @@ namespace ShapesAndColorsChallenge.Class.Management
         static FrameRateCounter frameRateCounter = new();
 
         /// <summary>
-        /// Sirva para pintar lso toques y las interacciones del usuario con la pantalla.
+        /// Sirva para pintar los toques y las interacciones del usuario con la pantalla.
         /// </summary>
         static DebugInputComponent debugInputComponent;
 
