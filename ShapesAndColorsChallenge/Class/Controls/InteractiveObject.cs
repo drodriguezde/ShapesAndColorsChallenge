@@ -228,7 +228,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        internal Label GetLabel(int text)
+        internal Label GetLabel(string text)
         {
             return new(
                         ModalLevel,
@@ -237,7 +237,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
                             Bounds.Top + Bounds.Height.Half() - 40,
                             700,
                             80),
-                        text.GetString(),
+                        text,
                         ColorManager.HardGray,
                         ColorManager.HardGray);
         }

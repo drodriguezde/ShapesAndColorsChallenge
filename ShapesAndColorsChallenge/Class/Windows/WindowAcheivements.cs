@@ -215,7 +215,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetTitle()
         {
-            Label labelTitle = new(ModalLevel, BaseBounds.Title, Resource.String.ACHEIVEMENTS.GetString(), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
+            Label labelTitle = new(ModalLevel, BaseBounds.Title, LanguageManager.Get("ACHEIVEMENTS"), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
             Image titleBackground = new(
                 ModalLevel,
                 new(0, 0, BaseBounds.Bounds.Width, BaseBounds.Title.Bottom),

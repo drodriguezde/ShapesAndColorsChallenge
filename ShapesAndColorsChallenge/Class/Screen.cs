@@ -248,9 +248,9 @@ namespace ShapesAndColorsChallenge.Class
             {
                 SpriteBatch = new SpriteBatch(GraphicsDevice);
             }
-            catch (Exception exception)
+            catch
             {
-                Statics.TraceException(exception.Message);
+
             }
         }
 

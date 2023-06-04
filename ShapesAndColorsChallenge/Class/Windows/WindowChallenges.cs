@@ -186,7 +186,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetTitle()
         {
-            Label labelTitle = new(ModalLevel, BaseBounds.Title, Resource.String.CHALLENGES.GetString(), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
+            Label labelTitle = new(ModalLevel, BaseBounds.Title, LanguageManager.Get("CHALLENGES"), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
             Image titleBackground = new(
                 ModalLevel,
                 new(0, 0, BaseBounds.Bounds.Width, BaseBounds.Title.Bottom),
@@ -271,7 +271,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 BaseBounds.Limits.Bottom - BaseBounds.Button.Height,
                 BaseBounds.Limits.Width - BaseBounds.Limits.X - BaseBounds.Button.Width - 50,
                 BaseBounds.Button.Height);
-            Label label = new(ModalLevel, bounds, Resource.String.CHALLENGE_INFO.GetString(), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Left, 2);
+            Label label = new(ModalLevel, bounds, LanguageManager.Get("CHALLENGE_INFO"), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Left, 2);
             PostObject = label;/*Se lo enviamos al padre para poder ponerlo encima del panel inferior que oculta el listado*/
         }
 

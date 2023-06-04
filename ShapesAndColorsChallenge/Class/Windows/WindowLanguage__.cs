@@ -38,18 +38,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         #endregion
 
-        #region IMPORTS
-
-
-
-        #endregion
-
-        #region DELEGATES
-
-
-
-        #endregion
-
         #region VARS
 
         /*No se le hace dispose directamente ya que estarán contenidos en InteractiveObjectManager*/
@@ -74,31 +62,31 @@ namespace ShapesAndColorsChallenge.Class.Windows
         Image buttonTR;
         Image buttonZH;
 
-        NavigationPanelHorizontal navigationPanelHorizontal { get; set; }
-
         #endregion
 
         #region PROPERTIES
 
-        Rectangle BoundsCS = new Rectangle(115, 150, 300, 200);
-        Rectangle BoundsDA = new Rectangle(115, 500, 300, 200);
-        Rectangle BoundsDE = new Rectangle(115, 850, 300, 200);
-        Rectangle BoundsEN = new Rectangle(115, 1200, 300, 200);
-        Rectangle BoundsES = new Rectangle(115, 1550, 300, 200);
-        Rectangle BoundsFI = new Rectangle(655, 150, 300, 200);
-        Rectangle BoundsFR = new Rectangle(655, 500, 300, 200);
-        Rectangle BoundsHU = new Rectangle(655, 850, 300, 200);
-        Rectangle BoundsIT = new Rectangle(655, 1200, 300, 200);
-        Rectangle BoundsJA = new Rectangle(655, 1550, 300, 200);
-        Rectangle BoundsKO = new Rectangle(115, 150, 300, 200);
-        Rectangle BoundsNL = new Rectangle(115, 500, 300, 200);
-        Rectangle BoundsNO = new Rectangle(115, 850, 300, 200);
-        Rectangle BoundsPL = new Rectangle(115, 1200, 300, 200);
-        Rectangle BoundsPT = new Rectangle(115, 1550, 300, 200);
-        Rectangle BoundsRU = new Rectangle(655, 150, 300, 200);
-        Rectangle BoundsSV = new Rectangle(655, 500, 300, 200);
-        Rectangle BoundsTR = new Rectangle(655, 850, 300, 200);
-        Rectangle BoundsZH = new Rectangle(655, 1200, 300, 200);
+        Rectangle BoundsCS = new(115, 150, 300, 200);
+        Rectangle BoundsDA = new(115, 500, 300, 200);
+        Rectangle BoundsDE = new(115, 850, 300, 200);
+        Rectangle BoundsEN = new(115, 1200, 300, 200);
+        Rectangle BoundsES = new(115, 1550, 300, 200);
+        Rectangle BoundsFI = new(655, 150, 300, 200);
+        Rectangle BoundsFR = new(655, 500, 300, 200);
+        Rectangle BoundsHU = new(655, 850, 300, 200);
+        Rectangle BoundsIT = new(655, 1200, 300, 200);
+        Rectangle BoundsJA = new(655, 1550, 300, 200);
+        Rectangle BoundsKO = new(115, 150, 300, 200);
+        Rectangle BoundsNL = new(115, 500, 300, 200);
+        Rectangle BoundsNO = new(115, 850, 300, 200);
+        Rectangle BoundsPL = new(115, 1200, 300, 200);
+        Rectangle BoundsPT = new(115, 1550, 300, 200);
+        Rectangle BoundsRU = new(655, 150, 300, 200);
+        Rectangle BoundsSV = new(655, 500, 300, 200);
+        Rectangle BoundsTR = new(655, 850, 300, 200);
+        Rectangle BoundsZH = new(655, 1200, 300, 200);
+
+        NavigationPanelHorizontal NavigationPanelHorizontal { get; set; }
 
         #endregion
 
@@ -214,10 +202,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (UserSettingsManager.CountryCode != language.ToString())
                 UserSettingsManager.CountryCode = language.ToString();
 
-#if DEBUG
-            DebugManager.RunLanguageTest();
-#endif
-
             CloseMeAndOpenThis(WindowType.Settings);
         }
 
@@ -231,13 +215,13 @@ namespace ShapesAndColorsChallenge.Class.Windows
             SetPanel();
             SetButtons();
             SubscribeEvents();
-            navigationPanelHorizontal.Set();
+            NavigationPanelHorizontal.Set();
         }
 
         void SetPanel()
         {
-            navigationPanelHorizontal = new NavigationPanelHorizontal(ModalLevel, Bounds, NAVIGATION_PANEL_BOTTOM_BUTTONS, this);
-            InteractiveObjectManager.Add(navigationPanelHorizontal);
+            NavigationPanelHorizontal = new NavigationPanelHorizontal(ModalLevel, Bounds, NAVIGATION_PANEL_BOTTOM_BUTTONS, this);
+            InteractiveObjectManager.Add(NavigationPanelHorizontal);
         }
 
         void SetButtons()
@@ -276,7 +260,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonCS = new(ModalLevel, BoundsCS, TextureManager.Flag("cs")) { Tag = new() { Language.cs } };
             Image backImage = FlagBackground(Language.cs, BoundsCS);
             InteractiveObjectManager.Add(backImage, buttonCS);
-            navigationPanelHorizontal.Add(1, buttonCS, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(1, buttonCS, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         void SetDA()
@@ -284,7 +268,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonDA = new(ModalLevel, BoundsDA, TextureManager.Flag("da")) { Tag = new() { Language.da } };
             Image backImage = FlagBackground(Language.da, BoundsDA);
             InteractiveObjectManager.Add(backImage, buttonDA);
-            navigationPanelHorizontal.Add(1, buttonDA, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(1, buttonDA, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         void SetDE()
@@ -292,7 +276,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonDE = new(ModalLevel, BoundsDE, TextureManager.Flag("de")) { Tag = new() { Language.de } };
             Image backImage = FlagBackground(Language.de, BoundsDE);
             InteractiveObjectManager.Add(backImage, buttonDE);
-            navigationPanelHorizontal.Add(1, buttonDE, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(1, buttonDE, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         void SetEN()
@@ -300,7 +284,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonEN = new(ModalLevel, BoundsEN, TextureManager.Flag("en")) { Tag = new() { Language.en } };
             Image backImage = FlagBackground(Language.en, BoundsEN);
             InteractiveObjectManager.Add(backImage, buttonEN);
-            navigationPanelHorizontal.Add(1, buttonEN, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(1, buttonEN, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         void SetES()
@@ -308,7 +292,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonES = new(ModalLevel, BoundsES, TextureManager.Flag("es")) { Tag = new() { Language.es } };
             Image backImage = FlagBackground(Language.es, BoundsES);
             InteractiveObjectManager.Add(backImage, buttonES);
-            navigationPanelHorizontal.Add(1, buttonES, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(1, buttonES, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         void SetFI()
@@ -316,7 +300,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonFI = new(ModalLevel, BoundsFI, TextureManager.Flag("fi")) { Tag = new() { Language.fi } };
             Image backImage = FlagBackground(Language.fi, BoundsFI);
             InteractiveObjectManager.Add(backImage, buttonFI);
-            navigationPanelHorizontal.Add(1, buttonFI, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(1, buttonFI, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         void SetFR()
@@ -324,7 +308,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonFR = new(ModalLevel, BoundsFR, TextureManager.Flag("fr")) { Tag = new() { Language.fr } };
             Image backImage = FlagBackground(Language.fr, BoundsFR);
             InteractiveObjectManager.Add(backImage, buttonFR);
-            navigationPanelHorizontal.Add(1, buttonFR, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(1, buttonFR, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         void SetHU()
@@ -332,7 +316,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonHU = new(ModalLevel, BoundsHU, TextureManager.Flag("hu")) { Tag = new() { Language.hu } };
             Image backImage = FlagBackground(Language.hu, BoundsHU);
             InteractiveObjectManager.Add(backImage, buttonHU);
-            navigationPanelHorizontal.Add(1, buttonHU, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(1, buttonHU, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         void SetIT()
@@ -340,7 +324,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonIT = new(ModalLevel, BoundsIT, TextureManager.Flag("it")) { Tag = new() { Language.it } };
             Image backImage = FlagBackground(Language.it, BoundsIT);
             InteractiveObjectManager.Add(backImage, buttonIT);
-            navigationPanelHorizontal.Add(1, buttonIT, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(1, buttonIT, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         void SetJA()
@@ -348,7 +332,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonJA = new(ModalLevel, BoundsJA, TextureManager.Flag("ja")) { Tag = new() { Language.ja } };
             Image backImage = FlagBackground(Language.ja, BoundsJA);
             InteractiveObjectManager.Add(backImage, buttonJA);
-            navigationPanelHorizontal.Add(1, buttonJA, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(1, buttonJA, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         void SetKO()
@@ -356,7 +340,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonKO = new(ModalLevel, BoundsKO, TextureManager.Flag("ko")) { Tag = new() { Language.ko } };
             Image backImage = FlagBackground(Language.ko, BoundsKO);
             InteractiveObjectManager.Add(backImage, buttonKO);
-            navigationPanelHorizontal.Add(2, buttonKO, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(2, buttonKO, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         void SetNL()
@@ -364,7 +348,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonNL = new(ModalLevel, BoundsNL, TextureManager.Flag("nl")) { Tag = new() { Language.nl } };
             Image backImage = FlagBackground(Language.nl, BoundsNL);
             InteractiveObjectManager.Add(backImage, buttonNL);
-            navigationPanelHorizontal.Add(2, buttonNL, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(2, buttonNL, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         void SetNO()
@@ -372,7 +356,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonNO = new(ModalLevel, BoundsNO, TextureManager.Flag("no")) { Tag = new() { Language.no } };
             Image backImage = FlagBackground(Language.no, BoundsNO);
             InteractiveObjectManager.Add(backImage, buttonNO);
-            navigationPanelHorizontal.Add(2, buttonNO, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(2, buttonNO, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         void SetPL()
@@ -380,7 +364,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonPL = new(ModalLevel, BoundsPL, TextureManager.Flag("pl")) { Tag = new() { Language.pl } };
             Image backImage = FlagBackground(Language.pl, BoundsPL);
             InteractiveObjectManager.Add(backImage, buttonPL);
-            navigationPanelHorizontal.Add(2, buttonPL, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(2, buttonPL, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         void SetPT()
@@ -388,7 +372,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonPT = new(ModalLevel, BoundsPT, TextureManager.Flag("pt")) { Tag = new() { Language.pt } };
             Image backImage = FlagBackground(Language.pt, BoundsPT);
             InteractiveObjectManager.Add(backImage, buttonPT);
-            navigationPanelHorizontal.Add(2, buttonPT, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(2, buttonPT, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         void SetRU()
@@ -396,7 +380,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonRU = new(ModalLevel, BoundsRU, TextureManager.Flag("ru")) { Tag = new() { Language.ru } };
             Image backImage = FlagBackground(Language.ru, BoundsRU);
             InteractiveObjectManager.Add(backImage, buttonRU);
-            navigationPanelHorizontal.Add(2, buttonRU, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(2, buttonRU, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         void SetSV()
@@ -404,7 +388,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonSV = new(ModalLevel, BoundsSV, TextureManager.Flag("sv")) { Tag = new() { Language.sv } };
             Image backImage = FlagBackground(Language.sv, BoundsSV);
             InteractiveObjectManager.Add(backImage, buttonSV);
-            navigationPanelHorizontal.Add(2, buttonSV, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(2, buttonSV, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         void SetTR()
@@ -412,7 +396,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonTR = new(ModalLevel, BoundsTR, TextureManager.Flag("tr")) { Tag = new() { Language.tr } };
             Image backImage = FlagBackground(Language.tr, BoundsTR);
             InteractiveObjectManager.Add(backImage, buttonTR);
-            navigationPanelHorizontal.Add(2, buttonTR, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(2, buttonTR, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         void SetZH()
@@ -420,7 +404,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             buttonZH = new(ModalLevel, BoundsZH, TextureManager.Flag("zh")) { Tag = new() { Language.zh } };
             Image backImage = FlagBackground(Language.zh, BoundsZH);
             InteractiveObjectManager.Add(backImage, buttonZH);
-            navigationPanelHorizontal.Add(2, buttonZH, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
+            NavigationPanelHorizontal.Add(2, buttonZH, backImage);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
         }
 
         internal override void Update(GameTime gameTime)

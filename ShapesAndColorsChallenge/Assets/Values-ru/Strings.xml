@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Ruso-->
+<resources>
+	<string name="app_name">Вызов форм и цветов</string>
+	<string name="YES">да</string>
+	<string name="NOT">Нет</string>
+	<string name="SETTINGS">Настройки</string>
+	<string name="ACHEIVEMENTS">Достижения</string>
+	<string name="GAME">Игра</string>
+	<string name="LANGUAGE">Язык</string>		
+	<string name="MUSIC">Музыка</string>
+	<string name="SOUND">Звуки</string>
+	<string name="NOTIFICATIONS">Уведомления</string>
+	<string name="VIBRATION">Вибрация</string>
+	<string name="DARK_MODE">Темный режим</string>
+	<string name="ALWAYS_DARK_MODE">Всегда темный режим</string>
+	<string name="RESET_PROGRESS">Сбросить прогресс</string>
+	<string name="CLASSIC_MODE">Классический</string>
+	<string name="CLASSIC_MODE_DESCRIPTION">Найдите правильную плитку на сетке as как можно быстрее.</string>
+	<string name="ENDLESS_MODE">Бесконечный</string>
+	<string name="ENDLESS_MODE_DESCRIPTION">У него нет конца, пока вы не побьете свой рекорд.</string>
+	<string name="MEMORY_MODE">Память</string>
+	<string name="MEMORY_MODE_DESCRIPTION">Перед появлением плитки необходимо запомнить матрицу, через несколько секунд она исчезает.</string>
+	<string name="TIMETRIAL_MODE">Пробный период</string>
+	<string name="TIMETRIAL_MODE_DESCRIPTION">Время прохождения уровня ограничено, если оно достигает нуля, который вы потеряли.</string>
+	<string name="INCREMENTAL_MODE">Инкрементный</string>
+	<string name="INCREMENTAL_MODE_DESCRIPTION">Сложность постепенно увеличивается с каждой новой плиткой.</string>
+	<string name="MOVE_MODE">Переехать</string>
+	<string name="MOVE_MODE_DESCRIPTION">Матрица изменяется случайным образом с каждой новой плиткой.</string>
+	<string name="BLINK_MODE">мигать</string>
+	<string name="BLINK_MODE_DESCRIPTION">Жетон виден в течение короткого времени если вы моргнете, вы его не увидите.</string>
+	<string name="ROTATE_MODE">Повернуть</string>
+	<string name="ROTATE_MODE_DESCRIPTION">Некоторые фигуры будут повернуты.</string>
+	<string name="CLASSIC_MODE_PLUS">Классический</string>
+	<string name="CLASSIC_MODE_PLUS_LOCKED">Вам нужно собрать %1$d звезд в классическом режиме чтобы разблокировать классический режим.</string>
+	<string name="CLASSIC_MODE_PLUS_DESCRIPTION">Классический режим, но токен может отсутствовать в сетке или может быть в сетке несколько раз.</string>
+	<string name="ENDLESS_MODE_PLUS">Бесконечный</string>
+	<string name="ENDLESS_MODE_PLUS_LOCKED">Вам нужно собрать %1$d звезд в бесконечном режиме, чтобы разблокировать бесконечный режим.</string>
+	<string name="ENDLESS_MODE_PLUS_DESCRIPTION">Бесконечный режим, но токен может отсутствовать в сетке или может быть в сетке несколько раз.</string>
+	<string name="MEMORY_MODE_PLUS">Память</string>
+	<string name="MEMORY_MODE_PLUS_LOCKED">Вам нужно собрать %1$d звезд в режиме воспоминаний, чтобы разблокировать режим воспоминаний.</string>
+	<string name="MEMORY_MODE_PLUS_DESCRIPTION">Режим памяти, но токен может отсутствовать в сетке или может быть в сетке несколько раз.</string>
+	<string name="TIMETRIAL_MODE_PLUS">Пробный период</string>
+	<string name="TIMETRIAL_MODE_PLUS_LOCKED">Вам нужно собрать %1$d звезд в режиме "Испытания на время", чтобы разблокировать режим "Испытания на время".</string>
+	<string name="TIMETRIAL_MODE_PLUS_DESCRIPTION">Режим Time Trial, но жетон может отсутствовать в сетке или может быть в сетке несколько раз.</string>
+	<string name="INCREMENTAL_MODE_PLUS">Инкрементный</string>
+	<string name="INCREMENTAL_MODE_PLUS_LOCKED">Вам нужно собрать %1$d звезд в добавочном режиме, чтобы разблокировать добавочный режим.</string>
+	<string name="INCREMENTAL_MODE_PLUS_DESCRIPTION">Классический режим, но токен может отсутствовать в сетке или может быть в сетке несколько раз.</string>
+	<string name="MOVE_MODE_PLUS">Переехать</string>
+	<string name="MOVE_MODE_PLUS_LOCKED">Вам нужно собрать %1$d звезд в режиме движения, чтобы разблокировать режим движения.</string>
+	<string name="MOVE_MODE_PLUS_DESCRIPTION">Режим перемещения, но маркер может отсутствовать в сетке или может быть в сетке несколько раз.</string>
+	<string name="BLINK_MODE_PLUS">мигать</string>
+	<string name="BLINK_MODE_PLUS_LOCKED">Вам нужно собрать %1$d звезд в режиме Blink, чтобы разблокировать режим Blink.</string>
+	<string name="BLINK_MODE_PLUS_DESCRIPTION">Режим мерцания, но маркер может отсутствовать в сетке или может быть в сетке несколько раз.</string>
+	<string name="ROTATE_MODE_PLUS">Повернуть</string>
+	<string name="ROTATE_MODE_PLUS_LOCKED">Вам нужно собрать %1$d звезд в режиме вращения, чтобы разблокировать режим вращения+.</string>
+	<string name="ROTATE_MODE_PLUS_DESCRIPTION">Режим поворота, но маркер может отсутствовать в сетке или может быть в сетке несколько раз.</string>
+	<string name="ERROR_SAVING_SETTINGS">Произошла ошибка при попытке сохранить настройки.</string>
+	<string name="EXIT_GAME_QUESTION">Закрыть игру?</string>
+	<string name="BACK_TO_MAIN_MENU_QUESTION">Вернуться в главное меню?</string>
+	<string name="MORE_GAMES">Больше игр</string>
+	<string name="VERSION">Версия</string>
+	<string name="APP_TITLE">Вызов форм и цветов</string>
+	<string name="APP_TITLE_FIRST_LINE">Формы и цвета</string>
+	<string name="APP_TITLE_SECOND_LINE">Испытание</string>
+	<string name="GAME_MODES">Режимы игры</string>
+	<string name="PLAY">ИГРАТЬ!</string>
+
+
+
+	<!---->
+
+
+
+	<!---->
+</resources>

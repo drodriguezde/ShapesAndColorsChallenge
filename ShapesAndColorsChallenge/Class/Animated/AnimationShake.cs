@@ -97,7 +97,7 @@ namespace ShapesAndColorsChallenge.Class.Animated
         {
             CurrentFrame = 0;
             Running = false;
-            Object.Origin = Vector2.Zero;            
+            Object.Origin = Vector2.Zero;
         }
 
         internal override void Update(GameTime gameTime)

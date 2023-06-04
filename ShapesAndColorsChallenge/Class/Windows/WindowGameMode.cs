@@ -272,29 +272,29 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetTitle()
         {
-            Label labelTitle = new(ModalLevel, BaseBounds.Title, Resource.String.GAME_MODES.GetString(), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
+            Label labelTitle = new(ModalLevel, BaseBounds.Title, LanguageManager.Get("GAME_MODES"), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
             InteractiveObjectManager.Add(labelTitle);
         }
 
         void SetModes()
         {
-            SetMode(ref buttonClassic, buttonBounds[0], GameMode.Classic, imageBounds[0], TextureManager.ModeClassic, titleBounds[0], Resource.String.CLASSIC_MODE.GetString(), imageChallengesBounds[0], labelChallengesBounds[0], 1, ref imageClassic);
-            SetMode(ref buttonEndless, buttonBounds[1], GameMode.Endless, imageBounds[1], TextureManager.ModeEndless, titleBounds[1], Resource.String.ENDLESS_MODE.GetString(), imageChallengesBounds[1], labelChallengesBounds[1], 1, ref imageEndless);
-            SetMode(ref buttonMemory, buttonBounds[2], GameMode.Memory, imageBounds[2], TextureManager.ModeMemory, titleBounds[2], Resource.String.MEMORY_MODE.GetString(), imageChallengesBounds[2], labelChallengesBounds[2], 1, ref imageMemory);
-            SetMode(ref buttonTimeTrial, buttonBounds[3], GameMode.TimeTrial, imageBounds[3], TextureManager.ModeTimeTrial, titleBounds[3], Resource.String.TIMETRIAL_MODE.GetString(), imageChallengesBounds[3], labelChallengesBounds[3], 1, ref imageTimeTrial);
-            SetMode(ref buttonIncremental, buttonBounds[4], GameMode.Incremental, imageBounds[4], TextureManager.ModeIncremental, titleBounds[4], Resource.String.INCREMENTAL_MODE.GetString(), imageChallengesBounds[4], labelChallengesBounds[4], 1, ref imageIncremental);
-            SetMode(ref buttonMove, buttonBounds[5], GameMode.Move, imageBounds[5], TextureManager.ModeMove, titleBounds[5], Resource.String.MOVE_MODE.GetString(), imageChallengesBounds[5], labelChallengesBounds[5], 1, ref imageMove);
-            SetMode(ref buttonBlink, buttonBounds[6], GameMode.Blink, imageBounds[6], TextureManager.ModeBlink, titleBounds[6], Resource.String.BLINK_MODE.GetString(), imageChallengesBounds[6], labelChallengesBounds[6], 1, ref imageBlink);
-            SetMode(ref buttonRotate, buttonBounds[7], GameMode.Rotate, imageBounds[7], TextureManager.ModeRotate, titleBounds[7], Resource.String.ROTATE_MODE.GetString(), imageChallengesBounds[7], labelChallengesBounds[7], 1, ref imageRotate);
+            SetMode(ref buttonClassic, buttonBounds[0], GameMode.Classic, imageBounds[0], TextureManager.ModeClassic, titleBounds[0], LanguageManager.Get("CLASSIC_MODE"), imageChallengesBounds[0], labelChallengesBounds[0], 1, ref imageClassic);
+            SetMode(ref buttonEndless, buttonBounds[1], GameMode.Endless, imageBounds[1], TextureManager.ModeEndless, titleBounds[1], LanguageManager.Get("ENDLESS_MODE"), imageChallengesBounds[1], labelChallengesBounds[1], 1, ref imageEndless);
+            SetMode(ref buttonMemory, buttonBounds[2], GameMode.Memory, imageBounds[2], TextureManager.ModeMemory, titleBounds[2], LanguageManager.Get("MEMORY_MODE"), imageChallengesBounds[2], labelChallengesBounds[2], 1, ref imageMemory);
+            SetMode(ref buttonTimeTrial, buttonBounds[3], GameMode.TimeTrial, imageBounds[3], TextureManager.ModeTimeTrial, titleBounds[3], LanguageManager.Get("TIMETRIAL_MODE"), imageChallengesBounds[3], labelChallengesBounds[3], 1, ref imageTimeTrial);
+            SetMode(ref buttonIncremental, buttonBounds[4], GameMode.Incremental, imageBounds[4], TextureManager.ModeIncremental, titleBounds[4], LanguageManager.Get("INCREMENTAL_MODE"), imageChallengesBounds[4], labelChallengesBounds[4], 1, ref imageIncremental);
+            SetMode(ref buttonMove, buttonBounds[5], GameMode.Move, imageBounds[5], TextureManager.ModeMove, titleBounds[5], LanguageManager.Get("MOVE_MODE"), imageChallengesBounds[5], labelChallengesBounds[5], 1, ref imageMove);
+            SetMode(ref buttonBlink, buttonBounds[6], GameMode.Blink, imageBounds[6], TextureManager.ModeBlink, titleBounds[6], LanguageManager.Get("BLINK_MODE"), imageChallengesBounds[6], labelChallengesBounds[6], 1, ref imageBlink);
+            SetMode(ref buttonRotate, buttonBounds[7], GameMode.Rotate, imageBounds[7], TextureManager.ModeRotate, titleBounds[7], LanguageManager.Get("ROTATE_MODE"), imageChallengesBounds[7], labelChallengesBounds[7], 1, ref imageRotate);
 
-            SetMode(ref buttonClassicPlus, buttonBounds[0], GameMode.ClassicPlus, imageBounds[0], TextureManager.ModeClassic, titleBounds[0], Resource.String.CLASSIC_MODE_PLUS.GetString(), imageChallengesBounds[0], labelChallengesBounds[0], 2, ref imageClassicPlus);
-            SetMode(ref buttonEndlessPlus, buttonBounds[1], GameMode.EndlessPlus, imageBounds[1], TextureManager.ModeEndless, titleBounds[1], Resource.String.ENDLESS_MODE_PLUS.GetString(), imageChallengesBounds[1], labelChallengesBounds[1], 2, ref imageEndlessPlus);
-            SetMode(ref buttonMemoryPlus, buttonBounds[2], GameMode.MemoryPlus, imageBounds[2], TextureManager.ModeMemory, titleBounds[2], Resource.String.MEMORY_MODE_PLUS.GetString(), imageChallengesBounds[2], labelChallengesBounds[2], 2, ref imageMemoryPlus);
-            SetMode(ref buttonTimeTrialPlus, buttonBounds[3], GameMode.TimeTrialPlus, imageBounds[3], TextureManager.ModeTimeTrial, titleBounds[3], Resource.String.TIMETRIAL_MODE_PLUS.GetString(), imageChallengesBounds[3], labelChallengesBounds[3], 2, ref imageTimeTrialPlus);
-            SetMode(ref buttonIncrementalPlus, buttonBounds[4], GameMode.IncrementalPlus, imageBounds[4], TextureManager.ModeIncremental, titleBounds[4], Resource.String.INCREMENTAL_MODE_PLUS.GetString(), imageChallengesBounds[4], labelChallengesBounds[4], 2, ref imageIncrementalPlus);
-            SetMode(ref buttonMovePlus, buttonBounds[5], GameMode.MovePlus, imageBounds[5], TextureManager.ModeMove, titleBounds[5], Resource.String.MOVE_MODE_PLUS.GetString(), imageChallengesBounds[5], labelChallengesBounds[5], 2, ref imageMovePlus);
-            SetMode(ref buttonBlinkPlus, buttonBounds[6], GameMode.BlinkPlus, imageBounds[6], TextureManager.ModeBlink, titleBounds[6], Resource.String.BLINK_MODE_PLUS.GetString(), imageChallengesBounds[6], labelChallengesBounds[6], 2, ref imageBlinkPlus);
-            SetMode(ref buttonRotatePlus, buttonBounds[7], GameMode.RotatePlus, imageBounds[7], TextureManager.ModeRotate, titleBounds[7], Resource.String.ROTATE_MODE_PLUS.GetString(), imageChallengesBounds[7], labelChallengesBounds[7], 2, ref imageRotatePlus);
+            SetMode(ref buttonClassicPlus, buttonBounds[0], GameMode.ClassicPlus, imageBounds[0], TextureManager.ModeClassic, titleBounds[0], LanguageManager.Get("CLASSIC_MODE_PLUS"), imageChallengesBounds[0], labelChallengesBounds[0], 2, ref imageClassicPlus);
+            SetMode(ref buttonEndlessPlus, buttonBounds[1], GameMode.EndlessPlus, imageBounds[1], TextureManager.ModeEndless, titleBounds[1], LanguageManager.Get("ENDLESS_MODE_PLUS"), imageChallengesBounds[1], labelChallengesBounds[1], 2, ref imageEndlessPlus);
+            SetMode(ref buttonMemoryPlus, buttonBounds[2], GameMode.MemoryPlus, imageBounds[2], TextureManager.ModeMemory, titleBounds[2], LanguageManager.Get("MEMORY_MODE_PLUS"), imageChallengesBounds[2], labelChallengesBounds[2], 2, ref imageMemoryPlus);
+            SetMode(ref buttonTimeTrialPlus, buttonBounds[3], GameMode.TimeTrialPlus, imageBounds[3], TextureManager.ModeTimeTrial, titleBounds[3], LanguageManager.Get("TIMETRIAL_MODE_PLUS"), imageChallengesBounds[3], labelChallengesBounds[3], 2, ref imageTimeTrialPlus);
+            SetMode(ref buttonIncrementalPlus, buttonBounds[4], GameMode.IncrementalPlus, imageBounds[4], TextureManager.ModeIncremental, titleBounds[4], LanguageManager.Get("INCREMENTAL_MODE_PLUS"), imageChallengesBounds[4], labelChallengesBounds[4], 2, ref imageIncrementalPlus);
+            SetMode(ref buttonMovePlus, buttonBounds[5], GameMode.MovePlus, imageBounds[5], TextureManager.ModeMove, titleBounds[5], LanguageManager.Get("MOVE_MODE_PLUS"), imageChallengesBounds[5], labelChallengesBounds[5], 2, ref imageMovePlus);
+            SetMode(ref buttonBlinkPlus, buttonBounds[6], GameMode.BlinkPlus, imageBounds[6], TextureManager.ModeBlink, titleBounds[6], LanguageManager.Get("BLINK_MODE_PLUS"), imageChallengesBounds[6], labelChallengesBounds[6], 2, ref imageBlinkPlus);
+            SetMode(ref buttonRotatePlus, buttonBounds[7], GameMode.RotatePlus, imageBounds[7], TextureManager.ModeRotate, titleBounds[7], LanguageManager.Get("ROTATE_MODE_PLUS"), imageChallengesBounds[7], labelChallengesBounds[7], 2, ref imageRotatePlus);
         }
 
         void SetButtonConfiguration()
@@ -377,7 +377,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 shakeAnimation?.Stop();
                 shakeAnimation = new AnimationShake(GetImagePadlockByGameMode(gameMode), 700);
                 shakeAnimation.Start();
-                Toast.Start(GetLockedDescription(gameMode).GetString(GameData.StarsToUnlockMode));
+                Toast.Start(LanguageManager.Get(GetLockedDescription(gameMode), GameData.StarsToUnlockMode));
                 SoundManager.Padlock.PlaySound();/*En estos botones hay que hacer sonar el sonido dependiendo de si se puede abrir el modo de juego o no*/
                 Statics.Vibrate(VibrationDuration.Long);
             }
@@ -388,19 +388,19 @@ namespace ShapesAndColorsChallenge.Class.Windows
             }
         }
 
-        static int GetLockedDescription(GameMode gameMode)
+        static string GetLockedDescription(GameMode gameMode)
         {
             return gameMode switch
             {
-                GameMode.ClassicPlus => Resource.String.CLASSIC_MODE_PLUS_LOCKED,
-                GameMode.EndlessPlus => Resource.String.ENDLESS_MODE_PLUS_LOCKED,
-                GameMode.MemoryPlus => Resource.String.MEMORY_MODE_PLUS_LOCKED,
-                GameMode.TimeTrialPlus => Resource.String.TIMETRIAL_MODE_PLUS_LOCKED,
-                GameMode.IncrementalPlus => Resource.String.INCREMENTAL_MODE_PLUS_LOCKED,
-                GameMode.MovePlus => Resource.String.MOVE_MODE_PLUS_LOCKED,
-                GameMode.BlinkPlus => Resource.String.BLINK_MODE_PLUS_LOCKED,
-                GameMode.RotatePlus => Resource.String.ROTATE_MODE_PLUS_LOCKED,
-                _ => 0,
+                GameMode.ClassicPlus => "CLASSIC_MODE_PLUS_LOCKED",
+                GameMode.EndlessPlus => "ENDLESS_MODE_PLUS_LOCKED",
+                GameMode.MemoryPlus => "MEMORY_MODE_PLUS_LOCKED",
+                GameMode.TimeTrialPlus => "TIMETRIAL_MODE_PLUS_LOCKED",
+                GameMode.IncrementalPlus => "INCREMENTAL_MODE_PLUS_LOCKED",
+                GameMode.MovePlus => "MOVE_MODE_PLUS_LOCKED",
+                GameMode.BlinkPlus => "BLINK_MODE_PLUS_LOCKED",
+                GameMode.RotatePlus => "ROTATE_MODE_PLUS_LOCKED",
+                _ => string.Empty,
             };
         }
 

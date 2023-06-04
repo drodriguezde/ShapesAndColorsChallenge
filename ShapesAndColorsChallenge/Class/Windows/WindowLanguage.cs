@@ -32,24 +32,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
 {
     internal class WindowLanguage : Window, IDisposable
     {
-        #region CONST
-
-        const int NAVIGATION_PANEL_BOTTOM_BUTTONS = 1800;
-
-        #endregion
-
-        #region IMPORTS
-
-
-
-        #endregion
-
-        #region DELEGATES
-
-
-
-        #endregion
-
         #region VARS
 
         /*No se le hace dispose directamente ya que estarán contenidos en InteractiveObjectManager*/
@@ -68,15 +50,15 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         #region PROPERTIES
 
-        Rectangle BoundsES = new Rectangle(115, 150, 300, 200);
-        Rectangle BoundsDA = new Rectangle(115, 500, 300, 200);
-        Rectangle BoundsDE = new Rectangle(115, 850, 300, 200);
-        Rectangle BoundsEN = new Rectangle(115, 1200, 300, 200);
-        Rectangle BoundsKO = new Rectangle(115, 1550, 300, 200);
-        Rectangle BoundsJA = new Rectangle(655, 150, 300, 200);
-        Rectangle BoundsFR = new Rectangle(655, 500, 300, 200);
-        Rectangle BoundsIT = new Rectangle(655, 850, 300, 200);
-        Rectangle BoundsZH = new Rectangle(655, 1200, 300, 200);
+        Rectangle BoundsES = new(115, 150, 300, 200);
+        Rectangle BoundsDA = new(115, 500, 300, 200);
+        Rectangle BoundsDE = new(115, 850, 300, 200);
+        Rectangle BoundsEN = new(115, 1200, 300, 200);
+        Rectangle BoundsKO = new(115, 1550, 300, 200);
+        Rectangle BoundsJA = new(655, 150, 300, 200);
+        Rectangle BoundsFR = new(655, 500, 300, 200);
+        Rectangle BoundsIT = new(655, 850, 300, 200);
+        Rectangle BoundsZH = new(655, 1200, 300, 200);
 
         #endregion
 
@@ -171,10 +153,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
             if (UserSettingsManager.CountryCode != language.ToString())
                 UserSettingsManager.CountryCode = language.ToString();
-
-#if DEBUG
-            DebugManager.RunLanguageTest();
-#endif
 
             CloseMeAndOpenThis(WindowType.Settings);
         }

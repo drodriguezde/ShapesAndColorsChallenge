@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Polaco-->
+<resources>
+	<string name="app_name">Wyzwanie kształtów i kolorów</string>
+	<string name="YES">TAk</string>
+	<string name="NOT">Nie</string>
+	<string name="SETTINGS">Ustawienia</string>
+	<string name="ACHEIVEMENTS">Osiągnięcia</string>
+	<string name="GAME">Gra</string>
+	<string name="LANGUAGE">Język</string>		
+	<string name="MUSIC">Muzyka</string>
+	<string name="SOUND">Dźwięki</string>
+	<string name="NOTIFICATIONS">Powiadomienia</string>
+	<string name="VIBRATION">Wibracja</string>
+	<string name="DARK_MODE">Tryb ciemny</string>
+	<string name="ALWAYS_DARK_MODE">Zawsze ciemny tryb</string>
+	<string name="RESET_PROGRESS">Zresetuj postęp</string>
+	<string name="CLASSIC_MODE">Klasyczny</string>
+	<string name="CLASSIC_MODE_DESCRIPTION">Znajdź odpowiedni kafelek na siatce tak szybko, jak to możliwe.</string>
+	<string name="ENDLESS_MODE">Nieskończony</string>
+	<string name="ENDLESS_MODE_DESCRIPTION">To nie ma końca dopóki nie pobijesz swojego rekordu.</string>
+	<string name="MEMORY_MODE">Pamięć</string>
+	<string name="MEMORY_MODE_DESCRIPTION">Zanim pojawi się kafelek, musisz zapamiętać matrycę, która po kilku sekundach znika.</string>
+	<string name="TIMETRIAL_MODE">Okres próbny</string>
+	<string name="TIMETRIAL_MODE_DESCRIPTION">Czas na ukończenie poziomu jest ograniczony jeśli osiągnie zero, które straciłeś.</string>
+	<string name="INCREMENTAL_MODE">Przyrostowe</string>
+	<string name="INCREMENTAL_MODE_DESCRIPTION">Trudność rośnie stopniowo z każdym nowym kafelkiem.</string>
+	<string name="MOVE_MODE">Ruszaj się</string>
+	<string name="MOVE_MODE_DESCRIPTION">Macierz zmienia się losowo z każdym nowym kafelkiem.</string>
+	<string name="BLINK_MODE">Migać</string>
+	<string name="BLINK_MODE_DESCRIPTION">Token jest widoczny przez krótki czas jeżeli mrugniesz, nie zobaczysz go.</string>
+	<string name="ROTATE_MODE">Obracać się</string>
+	<string name="ROTATE_MODE_DESCRIPTION">Niektóre figury zostaną obrócone.</string>
+	<string name="CLASSIC_MODE_PLUS">Klasyczny</string>
+	<string name="CLASSIC_MODE_PLUS_LOCKED">Aby odblokować tryb klasyczny, musisz zebrać %1$d gwiazdek w trybie klasycznym.</string>
+	<string name="CLASSIC_MODE_PLUS_DESCRIPTION">Tryb klasyczny, ale token może nie być w siatce lub może znajdować się w siatce wiele razy.</string>
+	<string name="ENDLESS_MODE_PLUS">Nieskończony</string>
+	<string name="ENDLESS_MODE_PLUS_LOCKED">Aby odblokować tryb Nieskończoność, musisz zebrać %1$d gwiazdek w trybie Nieskończoność.</string>
+	<string name="ENDLESS_MODE_PLUS_DESCRIPTION">Tryb nieskończony, ale token może nie być w siatce lub może znajdować się w siatce wiele razy.</string>
+	<string name="MEMORY_MODE_PLUS">Pamięć</string>
+	<string name="MEMORY_MODE_PLUS_LOCKED">Aby odblokować tryb pamięci, musisz zebrać %1$d gwiazdek w trybie pamięci.</string>
+	<string name="MEMORY_MODE_PLUS_DESCRIPTION">Tryb pamięci, ale token może nie być w siatce lub może znajdować się w siatce wiele razy.</string>
+	<string name="TIMETRIAL_MODE_PLUS">Okres próbny</string>
+	<string name="TIMETRIAL_MODE_PLUS_LOCKED">Aby odblokować tryb próby czasowej, musisz zebrać %1$d gwiazdek w trybie próby czasowej.</string>
+	<string name="TIMETRIAL_MODE_PLUS_DESCRIPTION">Tryb próby czasowej, ale token może nie znajdować się w siatce lub może znajdować się w siatce wiele razy.</string>
+	<string name="INCREMENTAL_MODE_PLUS">Przyrostowe</string>
+	<string name="INCREMENTAL_MODE_PLUS_LOCKED">Musisz zebrać %1$d gwiazdek w trybie przyrostowym aby odblokować tryb przyrostowy.</string>
+	<string name="INCREMENTAL_MODE_PLUS_DESCRIPTION">Tryb klasyczny, ale token może nie być w siatce lub może znajdować się w siatce wiele razy.</string>
+	<string name="MOVE_MODE_PLUS">Ruszaj się</string>
+	<string name="MOVE_MODE_PLUS_LOCKED">Aby odblokować tryb ruchu, musisz zebrać %1$d gwiazdek w trybie ruchu.</string>
+	<string name="MOVE_MODE_PLUS_DESCRIPTION">Tryb przenoszenia, ale token może nie być na siatce lub może znajdować się na siatce wiele razy.</string>
+	<string name="BLINK_MODE_PLUS">Migać</string>
+	<string name="BLINK_MODE_PLUS_LOCKED">Aby odblokować tryb migania, musisz zebrać %1$d gwiazdek w trybie migania.</string>
+	<string name="BLINK_MODE_PLUS_DESCRIPTION">Tryb migania, ale token może nie być w siatce lub może znajdować się w siatce wiele razy.</string>
+	<string name="ROTATE_MODE_PLUS">Obracać się</string>
+	<string name="ROTATE_MODE_PLUS_LOCKED">Aby odblokować tryb Rotate+, musisz zebrać %1$d gwiazdek w trybie Rotate.</string>
+	<string name="ROTATE_MODE_PLUS_DESCRIPTION">Tryb obracania, ale żeton może nie znajdować się na siatce lub może znajdować się na siatce wiele razy.</string>
+	<string name="ERROR_SAVING_SETTINGS">Wystąpił błąd podczas próby zapisania ustawień.</string>
+	<string name="EXIT_GAME_QUESTION">Zamknąć grę?</string>
+	<string name="BACK_TO_MAIN_MENU_QUESTION">Powrót do menu głównego?</string>
+	<string name="MORE_GAMES">Więcej gier</string>
+	<string name="VERSION">Wersja</string>
+	<string name="APP_TITLE">Wyzwanie kształtów i kolorów</string>
+	<string name="APP_TITLE_FIRST_LINE">Kształty i kolory</string>
+	<string name="APP_TITLE_SECOND_LINE">Wyzwanie</string>
+	<string name="GAME_MODES">Tryby gry</string>
+	<string name="PLAY">BAWIĆ SIĘ!</string>
+
+
+
+	<!---->
+
+
+
+	<!---->
+</resources>

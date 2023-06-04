@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Portugués-->
+<resources>
+	<string name="app_name">Shapes And Colors Challenge</string>
+	<string name="YES">Sim</string>
+	<string name="NOT">Não</string>
+	<string name="SETTINGS">Configurações</string>
+	<string name="ACHEIVEMENTS">Conquistas</string>
+	<string name="GAME">Jogo</string>
+	<string name="LANGUAGE">Idioma</string>
+	<string name="MUSIC">Música</string>
+	<string name="SOUND">Sons</string>
+	<string name="NOTIFICATIONS">Notificações</string>
+	<string name="VIBRATION">Vibração</string>
+	<string name="DARK_MODE">Modo escuro</string>
+	<string name="ALWAYS_DARK_MODE">Sempre modo escuro</string>
+	<string name="RESET_PROGRESS">Redefinir o progresso</string>
+	<string name="CLASSIC_MODE">Clássico</string>
+	<string name="CLASSIC_MODE_DESCRIPTION">Encontre o bloco correto na grade\\ o mais rápido que puder.</string>
+	<string name="ENDLESS_MODE">Sem fim</string>
+	<string name="ENDLESS_MODE_DESCRIPTION">Não tem fim\ jogo até você bater seu recorde.</string>
+	<string name="MEMORY_MODE">Memória</string>
+	<string name="MEMORY_MODE_DESCRIPTION">Antes do ladrilho aparecer, você deve memorizar\ a matriz, após alguns segundos ela desaparece.</string>
+	<string name="TIMETRIAL_MODE">Contra-relógio</string>
+	<string name="TIMETRIAL_MODE_DESCRIPTION">O tempo para completar o nível é limitado\ se chegar a zero você perdeu.</string>
+	<string name="INCREMENTAL_MODE">Incremental</string>
+	<string name="INCREMENTAL_MODE_DESCRIPTION">A dificuldade aumenta progressivamente\ a cada novo bloco.</string>
+	<string name="MOVE_MODE">Mover</string>
+	<string name="MOVE_MODE_DESCRIPTION">A matriz muda aleatoriamente\ a cada novo bloco.</string>
+	<string name="BLINK_MODE">Piscar</string>
+	<string name="BLINK_MODE_DESCRIPTION">O token fica visível por um curto período de tempo\ se você piscar você não o verá.</string>
+	<string name="ROTATE_MODE">Girar</string>
+	<string name="ROTATE_MODE_DESCRIPTION">Algumas figuras serão rotacionadas.</string>
+	<string name="CLASSIC_MODE_PLUS">Clássico</string>
+	<string name="CLASSIC_MODE_PLUS_LOCKED">Você precisa coletar %1$d estrelas no modo Clássico\\para desbloquear o modo Clássico.</string>
+	<string name="CLASSIC_MODE_PLUS_DESCRIPTION">Modo clássico, mas o token pode não estar\ a grade ou pode estar na grade várias vezes.</string>
+	<string name="ENDLESS_MODE_PLUS">Sem fim</string>
+	<string name="ENDLESS_MODE_PLUS_LOCKED">Você precisa coletar %1$d estrelas no modo Infinito\\ para desbloquear o modo Infinito.</string>
+	<string name="ENDLESS_MODE_PLUS_DESCRIPTION">Modo infinito, mas o token pode não estar\ a grade ou pode estar na grade várias vezes.</string>
+	<string name="MEMORY_MODE_PLUS">Memória</string>
+	<string name="MEMORY_MODE_PLUS_LOCKED">Você precisa coletar %1$d estrelas no modo Memória\\para desbloquear o modo Memória.</string>
+	<string name="MEMORY_MODE_PLUS_DESCRIPTION">Modo de memória, mas o token pode não estar\ a grade ou pode estar na grade várias vezes.</string>
+	<string name="TIMETRIAL_MODE_PLUS">Contra-relógio</string>
+	<string name="TIMETRIAL_MODE_PLUS_LOCKED">Você precisa coletar %1$d estrelas no modo Time Trial\\para desbloquear o modo Time Trial.</string>
+	<string name="TIMETRIAL_MODE_PLUS_DESCRIPTION">Modo Time Trial, mas o token pode não estar\ a grade ou pode estar na grade várias vezes.</string>
+	<string name="INCREMENTAL_MODE_PLUS">Incremental</string>
+	<string name="INCREMENTAL_MODE_PLUS_LOCKED">Você precisa coletar %1$d estrelas no modo Incremental\\para desbloquear o modo Incremental.</string>
+	<string name="INCREMENTAL_MODE_PLUS_DESCRIPTION">Modo clássico, mas o token pode não estar\ a grade ou pode estar na grade várias vezes.</string>
+	<string name="MOVE_MODE_PLUS">Mover</string>
+	<string name="MOVE_MODE_PLUS_LOCKED">Você precisa coletar %1$d estrelas no modo Mover\\para desbloquear o modo Mover.</string>
+	<string name="MOVE_MODE_PLUS_DESCRIPTION">Modo de movimento, mas o token pode não estar\ a grade ou pode estar na grade várias vezes.</string>
+	<string name="BLINK_MODE_PLUS">Piscar</string>
+	<string name="BLINK_MODE_PLUS_LOCKED">Você precisa coletar %1$d estrelas no modo Blink\\ para desbloquear o modo Blink.</string>
+	<string name="BLINK_MODE_PLUS_DESCRIPTION">Modo intermitente, mas o token pode não estar\ a grade ou pode estar na grade várias vezes.</string>
+	<string name="ROTATE_MODE_PLUS">Girar</string>
+	<string name="ROTATE_MODE_PLUS_LOCKED">Você precisa coletar %1$d estrelas no modo Girar para desbloquear o modo Girar+.</string>
+	<string name="ROTATE_MODE_PLUS_DESCRIPTION">Modo de rotação, mas o token pode não estar na grade ou pode estar na grade várias vezes.</string>
+	<string name="ERROR_SAVING_SETTINGS">Ocorreu um erro ao tentar salvar as configurações.</string>
+	<string name="EXIT_GAME_QUESTION">Fechar o jogo?</string>
+	<string name="BACK_TO_MAIN_MENU_QUESTION">Voltar ao menu principal?</string>
+	<string name="MORE_GAMES">Mais jogos</string>
+	<string name="VERSION">Versão</string>
+	<string name="APP_TITLE">Desafio de Formas e Cores</string>
+	<string name="APP_TITLE_FIRST_LINE">Formas e cores</string>
+	<string name="APP_TITLE_SECOND_LINE">Desafio</string>
+	<string name="GAME_MODES">Modos de jogo</string>
+	<string name="PLAY">JOGUE!</string>
+
+
+
+	<!---->
+
+
+
+	<!---->
+</resources>

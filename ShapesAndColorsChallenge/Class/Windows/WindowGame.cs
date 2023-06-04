@@ -95,9 +95,9 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// <summary>
         /// Ubicación y tamaño del botón volver en la pantalla de juego.
         /// </summary>
-        Rectangle buttonPauseBounds = new Rectangle(BaseBounds.Limits.X, 350 + BaseBounds.TileSize.Height - BaseBounds.Button.Height, BaseBounds.Button.Width, BaseBounds.Button.Height);
+        Rectangle buttonPauseBounds = new(BaseBounds.Limits.X, 350 + BaseBounds.TileSize.Height - BaseBounds.Button.Height, BaseBounds.Button.Width, BaseBounds.Button.Height);
 
-        static Rectangle masterTileBounds = new Rectangle(BaseBounds.Bounds.Width.Half() - 128, 350, BaseBounds.TileSize.Width, BaseBounds.TileSize.Height);
+        static Rectangle masterTileBounds = new(BaseBounds.Bounds.Width.Half() - 128, 350, BaseBounds.TileSize.Width, BaseBounds.TileSize.Height);
 
         #endregion
 
@@ -952,7 +952,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// </summary>
         void SetRemainingTimeLabelBounds()
         {
-            Vector2 strinsSize = FontManager.GetFont().MeasureString($"{Resource.String.REMAINING_TIME.GetString()} 0.0");
+            Vector2 strinsSize = FontManager.GetFont().MeasureString($"{LanguageManager.Get("REMAINING_TIME")} 0.0");
             int x = BaseBounds.Limits.Right - strinsSize.X.ToInt();
             RemainingTimeLabelBounds = new Rectangle(
                 x,
@@ -967,7 +967,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// </summary>
         void SetRemainingTilesLabelBounds()
         {
-            Vector2 strinsSize = FontManager.GetFont().MeasureString($"{Resource.String.REMAINING_TILES.GetString()} 99/99");
+            Vector2 strinsSize = FontManager.GetFont().MeasureString($"{LanguageManager.Get("REMAINING_TILES")} 99/99");
             int x = BaseBounds.Limits.Right - strinsSize.X.ToInt();
             RemainingTilesLabelBounds = new Rectangle(
                 x,
@@ -1090,7 +1090,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             PerksPanel.Draw(gameTime);
             PointsPanel.Draw(gameTime);
             DrawMasterTileRectangle();
-            DrawRevealPerk(gameTime);
+            DrawRevealPerk();
         }
 
         /// <summary>
@@ -1101,7 +1101,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             Screen.SpriteBatch.DrawRectangle(masterTileBounds, ColorManager.VeryHardGray, 1f, 1);
         }
 
-        void DrawRevealPerk(GameTime gameTime)
+        void DrawRevealPerk()
         {
             if (!PerksPanel.IsRevealRunning)
                 return;
@@ -1116,7 +1116,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         {
             remainingTime = (RemainingTimeCurrentTile.ToSingle() / 1000).Round1().ToStringCulture();
             remainingTime = remainingTime.Length == 1 ? string.Concat(remainingTime, decimalSeparator, "0") : remainingTime;
-            RemainingTimeLabel.Text = $"{Resource.String.REMAINING_TIME.GetString()} {remainingTime}";
+            RemainingTimeLabel.Text = $"{LanguageManager.Get("REMAINING_TIME")} {remainingTime}";
         }
 
         /// <summary>
@@ -1125,9 +1125,9 @@ namespace ShapesAndColorsChallenge.Class.Windows
         void UpdateRemainingTiles()
         {
             if (GameMode.HasUnlimitedTiles())/*En estos modos no hay límite de fichas a encontrar*/
-                RemainingTilesLabel.Text = $"{Resource.String.REMAINING_TILES.GetString()} {(TilesCounter.ToString().Length == 1 ? string.Concat(" ", TilesCounter.ToString()) : TilesCounter.ToString())}/∞";
+                RemainingTilesLabel.Text = $"{LanguageManager.Get("REMAINING_TILES")} {(TilesCounter.ToString().Length == 1 ? string.Concat(" ", TilesCounter.ToString()) : TilesCounter.ToString())}/∞";
             else
-                RemainingTilesLabel.Text = $"{Resource.String.REMAINING_TILES.GetString()} {(TilesCounter.ToString().Length == 1 ? string.Concat(" ", TilesCounter.ToString()) : TilesCounter.ToString())}/{GameData.TilesCurrenStage}";
+                RemainingTilesLabel.Text = $"{LanguageManager.Get("REMAINING_TILES")} {(TilesCounter.ToString().Length == 1 ? string.Concat(" ", TilesCounter.ToString()) : TilesCounter.ToString())}/{GameData.TilesCurrenStage}";
         }
 
         /// <summary>

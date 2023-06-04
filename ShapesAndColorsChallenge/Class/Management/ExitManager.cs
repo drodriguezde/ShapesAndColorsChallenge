@@ -46,11 +46,6 @@ namespace ShapesAndColorsChallenge.Class.Management
 
         #endregion
 
-        #region CONSTRUCTORS
-
-
-        #endregion
-
         #region EVENTS
 
         /// <summary>
@@ -105,7 +100,7 @@ namespace ShapesAndColorsChallenge.Class.Management
             if (OrchestratorManager.BackButtonPressed())/*Si la operación de ir atrás es cambiar de pantalla*/
                 return;
 
-            OrchestratorManager.OpenMessageBox(ref windowMessageExit, new(Resource.String.EXIT_GAME_QUESTION.GetString(), MessageBoxButton.AcceptCancel));
+            OrchestratorManager.OpenMessageBox(ref windowMessageExit, new(LanguageManager.Get("EXIT_GAME_QUESTION"), MessageBoxButton.AcceptCancel));
             windowMessageExit.OnCancel += WindowMessageExit_OnCancel;
             windowMessageExit.OnAccept += WindowMessageExit_OnAccept;
         }

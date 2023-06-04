@@ -32,12 +32,6 @@ namespace ShapesAndColorsChallenge.Class.D2
 {
     internal static class Primitives2D
     {
-        #region DELEGATES
-
-
-
-        #endregion
-
         #region VARS
 
         static readonly Dictionary<string, List<Vector2>> circleCache = new();
@@ -346,9 +340,10 @@ namespace ShapesAndColorsChallenge.Class.D2
         /// Draws a line from point1 to point2 with an offset
         /// </summary>
         /// <param name="spriteBatch">The destination drawing surface</param>
-        /// <param name="point">The starting point</param>
-        /// <param name="length">The length of the line</param>
-        /// <param name="angle">The angle of this line from the starting point</param>
+        /// <param name="x1">The starting point</param>
+        /// <param name="y1"></param>
+        /// <param name="x2"></param>
+        /// <param name="y2"></param>
         /// <param name="color">The color to use</param>
         /// <param name="thickness">The thickness of the line</param>
         internal static void DrawLine(this SpriteBatch spriteBatch, int x1, int y1, int x2, int y2, Color color, float transparency, int thickness)
@@ -365,9 +360,8 @@ namespace ShapesAndColorsChallenge.Class.D2
         /// Draws a line from point1 to point2 with an offset
         /// </summary>
         /// <param name="spriteBatch">The destination drawing surface</param>
-        /// <param name="point">The starting point</param>
-        /// <param name="length">The length of the line</param>
-        /// <param name="angle">The angle of this line from the starting point</param>
+        /// <param name="p1">The starting point</param>
+        /// <param name="p2"></param>
         /// <param name="color">The color to use</param>
         /// <param name="thickness">The thickness of the line</param>
         internal static void DrawLine(this SpriteBatch spriteBatch, Point p1, Point p2, Color color, float transparency, int thickness)
@@ -616,5 +610,4 @@ namespace ShapesAndColorsChallenge.Class.D2
 
         #endregion
     }
-
 }

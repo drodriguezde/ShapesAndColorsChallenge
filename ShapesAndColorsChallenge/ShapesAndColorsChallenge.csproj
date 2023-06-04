@@ -20,6 +20,25 @@
     <NoWarn>1701;1702;CA1416</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Assets\Values-cs\Strings.xml" />
+    <None Remove="Assets\Values-da\Strings.xml" />
+    <None Remove="Assets\Values-de\Strings.xml" />
+    <None Remove="Assets\Values-en\Strings.xml" />
+    <None Remove="Assets\Values-es\Strings.xml" />
+    <None Remove="Assets\Values-fi\Strings.xml" />
+    <None Remove="Assets\Values-fr\Strings.xml" />
+    <None Remove="Assets\Values-hu\Strings.xml" />
+    <None Remove="Assets\Values-it\Strings.xml" />
+    <None Remove="Assets\Values-ja\Strings.xml" />
+    <None Remove="Assets\Values-ko\Strings.xml" />
+    <None Remove="Assets\Values-nl\Strings.xml" />
+    <None Remove="Assets\Values-no\Strings.xml" />
+    <None Remove="Assets\Values-pl\Strings.xml" />
+    <None Remove="Assets\Values-pt\Strings.xml" />
+    <None Remove="Assets\Values-ru\Strings.xml" />
+    <None Remove="Assets\Values-sv\Strings.xml" />
+    <None Remove="Assets\Values-tr\Strings.xml" />
+    <None Remove="Assets\Values-zh\Strings.xml" />
     <None Remove="Content\Image\0572586650d8f63ab7ba8cf1df59020c.png" />
     <None Remove="Resources\Drawable\apk_icon.png" />
   </ItemGroup>

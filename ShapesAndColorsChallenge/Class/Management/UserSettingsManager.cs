@@ -28,12 +28,6 @@ namespace ShapesAndColorsChallenge.Class.Management
 {
     internal static class UserSettingsManager
     {
-        #region VARS
-
-
-
-        #endregion
-
         #region PROPERTIES
 
         static Settings UserSettings { get; set; }
@@ -147,7 +141,7 @@ namespace ShapesAndColorsChallenge.Class.Management
             {
                 UserSettings.CountryCode = value;
                 UpdateData();
-                Statics.SetLocale(CountryCode);
+                LanguageManager.SetLanguage(CountryCode);
             }
         }
 
@@ -186,7 +180,7 @@ namespace ShapesAndColorsChallenge.Class.Management
         internal static void Initialize()
         {
             UserSettings = ControllerSettings.Get();
-            Statics.SetLocale(CountryCode);
+            LanguageManager.SetLanguage(CountryCode);
         }
 
         static void UpdateData()

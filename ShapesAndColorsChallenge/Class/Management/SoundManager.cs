@@ -41,12 +41,6 @@ namespace ShapesAndColorsChallenge.Class.Management
 
         #endregion
 
-        #region DELEGATES
-
-
-
-        #endregion
-
         #region VARS
 
         internal static readonly string bgm_01 = "BGM_01";

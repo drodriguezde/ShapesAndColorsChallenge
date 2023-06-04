@@ -215,7 +215,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 return;
 
             Rectangle bounds = new(Bounds.X, Bounds.Y + 340, Bounds.Width, 100);
-            Label label = new(ModalLevel, bounds, Resource.String.NEW_RECORD.GetString(), ColorManager.LightGreen, ColorManager.LightGreen, AlignHorizontal.Center);
+            Label label = new(ModalLevel, bounds, LanguageManager.Get("NEW_RECORD"), ColorManager.LightGreen, ColorManager.LightGreen, AlignHorizontal.Center);
             InteractiveObjectManager.Add(label);
         }
 
@@ -225,16 +225,16 @@ namespace ShapesAndColorsChallenge.Class.Windows
             Label label;
 
             if (WindowResultParams.ChallengeCompleted)
-                label = new(ModalLevel, bounds, Resource.String.CHALLENGE_COMPLETED.GetString(), ColorManager.LightGreen, ColorManager.LightGreen, AlignHorizontal.Center);
+                label = new(ModalLevel, bounds, LanguageManager.Get("CHALLENGE_COMPLETED"), ColorManager.LightGreen, ColorManager.LightGreen, AlignHorizontal.Center);
             else
-                label = new(ModalLevel, bounds, Resource.String.CHALLENGE_FAILED.GetString(), ColorManager.Red, ColorManager.Red, AlignHorizontal.Center);
+                label = new(ModalLevel, bounds, LanguageManager.Get("CHALLENGE_FAILED"), ColorManager.Red, ColorManager.Red, AlignHorizontal.Center);
 
             InteractiveObjectManager.Add(label);
         }
 
         void SetPoints()
         {
-            string text = $"{Resource.String.POINTS.GetString()} {WindowResultParams.Points}";
+            string text = $"{LanguageManager.Get("POINTS")} {WindowResultParams.Points}";
             Rectangle bounds = new(Bounds.X, Bounds.Y + 250, Bounds.Width, 100);
             Label label = new(ModalLevel, bounds, text, ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
             InteractiveObjectManager.Add(label);
@@ -322,8 +322,8 @@ namespace ShapesAndColorsChallenge.Class.Windows
                     VoicePlayed = true;
                     ParticleEngine.Start(ParticleType.Fireworks);
 
-                    if (WindowResultParams.NewRecord)                        
-                        SoundManager.VoiceNewHighScore.PlayVoice();                                       
+                    if (WindowResultParams.NewRecord)
+                        SoundManager.VoiceNewHighScore.PlayVoice();
                 }
             }
 

@@ -36,24 +36,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
 {
     internal class WindowTitle : Window, IDisposable
     {
-        #region CONST
-
-
-
-        #endregion
-
-        #region IMPORTS
-
-
-
-        #endregion
-
-        #region DELEGATES
-
-
-
-        #endregion
-
         #region VARS
 
         /*No se le hace dispose directamente ya que estarán contenidos en InteractiveObjectManager*/
@@ -70,23 +52,23 @@ namespace ShapesAndColorsChallenge.Class.Windows
         /// Posición y tamaño para la resolución base.
         /// Se recalculará.
         /// </summary>
-        Rectangle ButtonPlayBounds { get; set; } = new Rectangle(BaseBounds.Limits.X, 770, BaseBounds.Limits.Width, BaseBounds.Bounds.Height - 770.Double());
+        Rectangle ButtonPlayBounds { get; set; } = new(BaseBounds.Limits.X, 770, BaseBounds.Limits.Width, BaseBounds.Bounds.Height - 770.Double());
 
         /// <summary>
         /// Tamaño y posición inicial de la primera linea de título de la aplicación para la resolución base.
         /// </summary>
-        Rectangle TitleFirstLineBounds { get; set; } = new Rectangle(BaseBounds.Limits.X, 330, BaseBounds.Limits.Width, 250);
+        Rectangle TitleFirstLineBounds { get; set; } = new(BaseBounds.Limits.X, 330, BaseBounds.Limits.Width, 250);
 
         /// <summary>
         /// Tamaño y posición inicial de la segunda linea de título de la aplicación para la resolución base.
         /// </summary>
-        Rectangle TitleSecondLineBounds { get; set; } = new Rectangle(BaseBounds.Limits.X, 480, BaseBounds.Limits.Width, 250);
+        Rectangle TitleSecondLineBounds { get; set; } = new(BaseBounds.Limits.X, 480, BaseBounds.Limits.Width, 250);
 
-        Rectangle LinkBounds { get; set; } = new Rectangle(675, BaseBounds.Limits.Bottom - 180, 250, 80);
+        Rectangle LinkBounds { get; set; } = new(675, BaseBounds.Limits.Bottom - 180, 250, 80);
 
-        Rectangle LabelVersionBounds { get; set; } = new Rectangle(650, BaseBounds.Limits.Bottom - 90, 300, 90);
+        Rectangle LabelVersionBounds { get; set; } = new(650, BaseBounds.Limits.Bottom - 90, 300, 90);
 
-        Rectangle PlayTextBounds = new Rectangle(BaseBounds.Limits.X, BaseBounds.Bounds.Height.Half() - 150.Half(), BaseBounds.Limits.Width, 150);
+        Rectangle PlayTextBounds = new(BaseBounds.Limits.X, BaseBounds.Bounds.Height.Half() - 150.Half(), BaseBounds.Limits.Width, 150);
 
         #endregion
 
@@ -201,19 +183,19 @@ namespace ShapesAndColorsChallenge.Class.Windows
         {
             linkToDanSite = new(ModalLevel, LinkBounds, true, this);
             InteractiveObjectManager.Add(linkToDanSite);
-            Label labelTextLink = new(ModalLevel, LinkBounds, Resource.String.MORE_GAMES.GetString(), ColorManager.LinkLightMode, ColorManager.LinkDarkMode, AlignHorizontal.Center);
+            Label labelTextLink = new(ModalLevel, LinkBounds, LanguageManager.Get("MORE_GAMES"), ColorManager.LinkLightMode, ColorManager.LinkDarkMode, AlignHorizontal.Center);
             InteractiveObjectManager.Add(labelTextLink);
         }
 
         void InitializeAppVersion()
         {
-            Label labelVersion = new(ModalLevel, LabelVersionBounds, string.Concat(Resource.String.VERSION.GetString(), ": ", Statics.GetAppVersion()), ColorManager.VersionLightMode, ColorManager.VersionDarkMode, AlignHorizontal.Center);
+            Label labelVersion = new(ModalLevel, LabelVersionBounds, string.Concat(LanguageManager.Get("VERSION"), ": ", Statics.GetAppVersion()), ColorManager.VersionLightMode, ColorManager.VersionDarkMode, AlignHorizontal.Center);
             InteractiveObjectManager.Add(labelVersion);
         }
 
         void InitializePlayText()
         {
-            Label labelPlay = new(ModalLevel, PlayTextBounds, Resource.String.PLAY.GetString(), Color.Orange, Color.Orange, AlignHorizontal.Center) { LockScaleToFit = false };
+            Label labelPlay = new(ModalLevel, PlayTextBounds, LanguageManager.Get("PLAY"), Color.Orange, Color.Orange, AlignHorizontal.Center) { LockScaleToFit = false };
             InteractiveObjectManager.Add(labelPlay);
             /*La inicialización de la animación debe ir después de InteractiveObjectManager.Add para que se construya completamente el objeto a animar*/
             animationHeartBeat = new AnimationHeartBeat(labelPlay, 1200) { ScaleHeartBeat = 2f, FramesOfTheAnimation = 10 };
@@ -222,10 +204,10 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void InitializeTitle()
         {
-            Label labelFirstLineTitle = new(ModalLevel, TitleFirstLineBounds, string.Concat(Resource.String.APP_TITLE_FIRST_LINE.GetString()), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
+            Label labelFirstLineTitle = new(ModalLevel, TitleFirstLineBounds, string.Concat(LanguageManager.Get("APP_TITLE_FIRST_LINE")), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
             InteractiveObjectManager.Add(labelFirstLineTitle);
 
-            Label labelSecondLineTitle = new(ModalLevel, TitleSecondLineBounds, string.Concat(Resource.String.APP_TITLE_SECOND_LINE.GetString()), ColorManager.VeryHardGray, ColorManager.VeryHardGray, AlignHorizontal.Center);
+            Label labelSecondLineTitle = new(ModalLevel, TitleSecondLineBounds, string.Concat(LanguageManager.Get("APP_TITLE_SECOND_LINE")), ColorManager.VeryHardGray, ColorManager.VeryHardGray, AlignHorizontal.Center);
             InteractiveObjectManager.Add(labelSecondLineTitle);
         }
 

@@ -208,7 +208,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             bounds.X += OFFSET.Half();
             bounds.Width -= OFFSET;
             bounds.Height = MESSAGE_LABEL_HEIGHT;
-            labelMessage = new Label(ModalLevel, bounds, Resource.String.REWARD.GetString(), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center, LinesNumber);
+            labelMessage = new Label(ModalLevel, bounds, LanguageManager.Get("REWARD"), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center, LinesNumber);
             InteractiveObjectManager.Add(labelMessage);
         }
 

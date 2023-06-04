@@ -399,7 +399,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 shakeAnimation?.Stop();
                 shakeAnimation = new AnimationShake(GetImagePadlockByStage(stage), 700);
                 shakeAnimation.Start();
-                Toast.Start(Resource.String.STAGE_LOCKED.GetString(GameData.StarsToUnlockStage(stage)));
+                Toast.Start(LanguageManager.Get("STAGE_LOCKED", GameData.StarsToUnlockStage(stage)));
                 SoundManager.Padlock.PlaySound();/*En estos botones hay que hacer sonar el sonido dependiendo de si se puede abrir el modo de juego o no*/
                 Statics.Vibrate(VibrationDuration.Long);
             }

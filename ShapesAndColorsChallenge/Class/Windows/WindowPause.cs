@@ -196,14 +196,14 @@ namespace ShapesAndColorsChallenge.Class.Windows
         {
             buttonResume = new(ModalLevel, buttonResumeBounds);
             buttonQuit = new(ModalLevel, buttonQuitBounds);
-            Label labelResume = new(ModalLevel, new(buttonResumeBounds.X, buttonResumeBounds.Y + 20, buttonResumeBounds.Width, 160), Resource.String.RESUME.GetString(), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
-            Label labelQuit = new(ModalLevel, new(buttonQuitBounds.X, buttonQuitBounds.Y + 20, buttonQuitBounds.Width, 160), Resource.String.QUIT.GetString(), Color.OrangeRed, Color.OrangeRed, AlignHorizontal.Center);
+            Label labelResume = new(ModalLevel, new(buttonResumeBounds.X, buttonResumeBounds.Y + 20, buttonResumeBounds.Width, 160), LanguageManager.Get("RESUME"), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
+            Label labelQuit = new(ModalLevel, new(buttonQuitBounds.X, buttonQuitBounds.Y + 20, buttonQuitBounds.Width, 160), LanguageManager.Get("QUIT"), Color.OrangeRed, Color.OrangeRed, AlignHorizontal.Center);
             InteractiveObjectManager.Add(buttonResume, buttonQuit, labelResume, labelQuit);
         }
 
         void SetTitle()
         {
-            labelMessage = new Label(ModalLevel, titleBounds, Resource.String.PAUSE.GetString(), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
+            labelMessage = new Label(ModalLevel, titleBounds, LanguageManager.Get("PAUSE"), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
             InteractiveObjectManager.Add(labelMessage);
         }
 
@@ -212,7 +212,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             if (!IsInChallenge || OrchestratorManager.GameMode.IsEndless()/*En sin fín se puede abandonar*/)
                 return;
 
-            Label label = new(ModalLevel, infoChallengeLabel, Resource.String.CHALLENGE_LEAVE.GetString(), Color.Red, Color.Red, AlignHorizontal.Center);
+            Label label = new(ModalLevel, infoChallengeLabel, LanguageManager.Get("CHALLENGE_LEAVE"), Color.Red, Color.Red, AlignHorizontal.Center);
             InteractiveObjectManager.Add(label);
         }
 

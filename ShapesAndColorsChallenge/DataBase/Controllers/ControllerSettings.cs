@@ -31,9 +31,9 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
                 Vibration = true,
                 DarkMode = true,
                 AlwaysDarkMode = false,
-                CountryCode = Statics.GetSystemLanguage(),
+                CountryCode = LanguageManager.GetSystemLanguage(),
                 PlayerName = "PLAYER",
-                PlayerCountryCode = Statics.GetSystemLanguage(),
+                PlayerCountryCode = LanguageManager.GetSystemLanguage(),
                 ShowHowToPlay = "0000000000000000",
                 PlayerToken = string.Empty
             };
@@ -96,7 +96,7 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
 
             return gameMode switch
             {
-                GameMode.Classic => showHowToPlay.Substring(0, 1).ToBool(),
+                GameMode.Classic => showHowToPlay[..1].ToBool(),
                 GameMode.Incremental => showHowToPlay.Substring(1, 1).ToBool(),
                 GameMode.Endless => showHowToPlay.Substring(2, 1).ToBool(),
                 GameMode.Move => showHowToPlay.Substring(3, 1).ToBool(),
@@ -123,21 +123,21 @@ namespace ShapesAndColorsChallenge.DataBase.Controllers
             showHowToPlay = gameMode switch
             {
                 GameMode.Classic => string.Concat(value.ToInt().ToString(), showHowToPlay.Substring(1, 15)),
-                GameMode.Incremental => string.Concat(showHowToPlay.Substring(0, 1), value.ToInt().ToString(), showHowToPlay.Substring(1, 14)),
-                GameMode.Endless => string.Concat(showHowToPlay.Substring(0, 2), value.ToInt().ToString(), showHowToPlay.Substring(1, 13)),
-                GameMode.Move => string.Concat(showHowToPlay.Substring(0, 3), value.ToInt().ToString(), showHowToPlay.Substring(1, 12)),
-                GameMode.Memory => string.Concat(showHowToPlay.Substring(0, 4), value.ToInt().ToString(), showHowToPlay.Substring(1, 11)),
-                GameMode.Blink => string.Concat(showHowToPlay.Substring(0, 5), value.ToInt().ToString(), showHowToPlay.Substring(1, 10)),
-                GameMode.TimeTrial => string.Concat(showHowToPlay.Substring(0, 6), value.ToInt().ToString(), showHowToPlay.Substring(1, 9)),
-                GameMode.Rotate => string.Concat(showHowToPlay.Substring(0, 7), value.ToInt().ToString(), showHowToPlay.Substring(1, 8)),
-                GameMode.ClassicPlus => string.Concat(showHowToPlay.Substring(0, 8), value.ToInt().ToString(), showHowToPlay.Substring(1, 7)),
-                GameMode.IncrementalPlus => string.Concat(showHowToPlay.Substring(0, 9), value.ToInt().ToString(), showHowToPlay.Substring(1, 6)),
-                GameMode.EndlessPlus => string.Concat(showHowToPlay.Substring(0, 10), value.ToInt().ToString(), showHowToPlay.Substring(1, 5)),
-                GameMode.MovePlus => string.Concat(showHowToPlay.Substring(01, 11), value.ToInt().ToString(), showHowToPlay.Substring(1, 4)),
-                GameMode.MemoryPlus => string.Concat(showHowToPlay.Substring(0, 12), value.ToInt().ToString(), showHowToPlay.Substring(1, 3)),
-                GameMode.BlinkPlus => string.Concat(showHowToPlay.Substring(0, 13), value.ToInt().ToString(), showHowToPlay.Substring(1, 2)),
-                GameMode.TimeTrialPlus => string.Concat(showHowToPlay.Substring(0, 14), value.ToInt().ToString(), showHowToPlay.Substring(1, 1)),
-                GameMode.RotatePlus => string.Concat(showHowToPlay.Substring(0, 15), value.ToInt().ToString()),
+                GameMode.Incremental => string.Concat(showHowToPlay[..1], value.ToInt().ToString(), showHowToPlay.Substring(1, 14)),
+                GameMode.Endless => string.Concat(showHowToPlay[..2], value.ToInt().ToString(), showHowToPlay.Substring(1, 13)),
+                GameMode.Move => string.Concat(showHowToPlay[..3], value.ToInt().ToString(), showHowToPlay.Substring(1, 12)),
+                GameMode.Memory => string.Concat(showHowToPlay[..4], value.ToInt().ToString(), showHowToPlay.Substring(1, 11)),
+                GameMode.Blink => string.Concat(showHowToPlay[..5], value.ToInt().ToString(), showHowToPlay.Substring(1, 10)),
+                GameMode.TimeTrial => string.Concat(showHowToPlay[..6], value.ToInt().ToString(), showHowToPlay.Substring(1, 9)),
+                GameMode.Rotate => string.Concat(showHowToPlay[..7], value.ToInt().ToString(), showHowToPlay.Substring(1, 8)),
+                GameMode.ClassicPlus => string.Concat(showHowToPlay[..8], value.ToInt().ToString(), showHowToPlay.Substring(1, 7)),
+                GameMode.IncrementalPlus => string.Concat(showHowToPlay[..9], value.ToInt().ToString(), showHowToPlay.Substring(1, 6)),
+                GameMode.EndlessPlus => string.Concat(showHowToPlay[..10], value.ToInt().ToString(), showHowToPlay.Substring(1, 5)),
+                GameMode.MovePlus => string.Concat(showHowToPlay[..11], value.ToInt().ToString(), showHowToPlay.Substring(1, 4)),
+                GameMode.MemoryPlus => string.Concat(showHowToPlay[..12], value.ToInt().ToString(), showHowToPlay.Substring(1, 3)),
+                GameMode.BlinkPlus => string.Concat(showHowToPlay[..13], value.ToInt().ToString(), showHowToPlay.Substring(1, 2)),
+                GameMode.TimeTrialPlus => string.Concat(showHowToPlay[..14], value.ToInt().ToString(), showHowToPlay.Substring(1, 1)),
+                GameMode.RotatePlus => string.Concat(showHowToPlay[..15], value.ToInt().ToString()),
                 _ => showHowToPlay,
             };
 

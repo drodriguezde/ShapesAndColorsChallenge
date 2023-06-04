@@ -126,8 +126,8 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         void SetLabelPoints()
         {
-            Rectangle bounds = new Rectangle(LEFT, TOP, 240, HEIGHT);
-            labelPoints = new(ModalLevel.Window, bounds, $"{Resource.String.POINTS.GetString()}  "/*dos espacio en blanco*/, ColorManager.HardGray, ColorManager.HardGray);
+            Rectangle bounds = new(LEFT, TOP, 240, HEIGHT);
+            labelPoints = new(ModalLevel.Window, bounds, $"{LanguageManager.Get("POINTS")}  "/*dos espacio en blanco*/, ColorManager.HardGray, ColorManager.HardGray);
         }
 
         void SetLabelsDigits()
@@ -162,7 +162,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
             label07.Text = text.Substring(3, 1);
             label08.Text = text.Substring(2, 1);
             label09.Text = text.Substring(1, 1);
-            label10.Text = text.Substring(0, 1);
+            label10.Text = text[..1];
             label01.ColorLightMode = text == "0000000000" ? ColorManager.LightGray : ColorManager.HardGray;
             label02.ColorLightMode = text[..9] == "000000000" ? ColorManager.LightGray : ColorManager.HardGray;
             label03.ColorLightMode = text[..8] == "00000000" ? ColorManager.LightGray : ColorManager.HardGray;

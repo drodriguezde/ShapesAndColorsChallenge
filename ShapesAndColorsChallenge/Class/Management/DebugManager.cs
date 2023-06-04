@@ -26,11 +26,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input.Touch;
 using ShapesAndColorsChallenge.Class.Controls;
 using ShapesAndColorsChallenge.Class.D2;
-using ShapesAndColorsChallenge.Enum;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using TouchScreenBuddy;
 
 namespace ShapesAndColorsChallenge.Class.Management
@@ -40,16 +37,6 @@ namespace ShapesAndColorsChallenge.Class.Management
         #region VARS
 
         static FrameRateCounter frameRateCounter = new();
-
-        /// <summary>
-        /// Almacena los identificadores de las cadenas de texto de los idiomas.
-        /// </summary>
-        static List<FieldInfo> listFieldInfoLanguage = new();
-
-        /// <summary>
-        /// Cantidad de cadenas de idioma probadas.
-        /// </summary>
-        static int fieldsTested = 0;
 
         /// <summary>
         /// Sirva para pintar lso toques y las interacciones del usuario con la pantalla.
@@ -89,35 +76,6 @@ namespace ShapesAndColorsChallenge.Class.Management
             {
                 Enabled = false
             };
-        }
-
-        /// <summary>
-        /// Cuando se invoca se prueba el idioma seleccionado actualmente.
-        /// </summary>
-        public static void RunLanguageTest()
-        {
-#if ANDROID
-            FieldInfo[] fieldInfos = typeof(Resource.String).GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy);
-#else
-            /*TODO, iOS*/
-#endif
-            listFieldInfoLanguage = fieldInfos.Where(fi => fi.IsLiteral && !fi.IsInitOnly).ToList();
-            fieldsTested = 0;
-        }
-
-        static void TestAllLanguageStrings()
-        {
-            if (fieldsTested == listFieldInfoLanguage.Count)
-                return;
-
-            FontManager.DrawString(
-                listFieldInfoLanguage[fieldsTested].GetValue(null).ToInt().GetString(),
-                new Rectangle(0, 0, BaseBounds.Bounds.Width, (BaseBounds.Bounds.Height * 0.04f).ToInt()),
-                1f,
-                ColorManager.VersionLightMode * 1f,
-                1,
-                AlignHorizontal.Center);
-            fieldsTested++;
         }
 
         static void ChangeDarkMode(GameTime gameTime)
@@ -220,11 +178,8 @@ namespace ShapesAndColorsChallenge.Class.Management
             frameRateCounter.Update(gameTime);
         }
 
-        internal static void Draw(GameTime gameTime, bool showTextLanguage, bool showFPS, bool showTouch, bool showLimitLines, bool showWindows, bool showInteractiveObjects, bool showDarkMode)
+        internal static void Draw(GameTime gameTime, bool showFPS, bool showTouch, bool showLimitLines, bool showWindows, bool showInteractiveObjects, bool showDarkMode)
         {
-            if (showTextLanguage)
-                TestAllLanguageStrings();
-
             if (showFPS)
                 frameRateCounter.DrawFps(new Vector2(40f, 40f), ColorManager.VersionColor);
 

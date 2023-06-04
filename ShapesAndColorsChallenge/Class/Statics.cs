@@ -21,28 +21,22 @@
 *
 */
 
+using Android.Content;
+using Android.Net;
+using Android.OS;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ShapesAndColorsChallenge.Class.Controls;
+using ShapesAndColorsChallenge.Class.Management;
+using ShapesAndColorsChallenge.Enum;
 using System;
+using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
-using Microsoft.Xna.Framework;
-using ShapesAndColorsChallenge.Class.Controls;
-using Android.Content.Res;
-using ShapesAndColorsChallenge.Class.Management;
-using ShapesAndColorsChallenge.Enum;
-using System.Globalization;
-using AndroidApp = Android.App;
-using Microsoft.Xna.Framework.Graphics;
-using Android.Net;
-using System.Net.Http;
-using Android.Content;
-using System.Threading.Tasks;
-using System.Diagnostics;
 using System.Threading;
-using Android.OS;
-using System.ComponentModel.Design;
+using AndroidApp = Android.App;
 #if ANDROID
-using Java.Util;
 #else
 /*https://docs.microsoft.com/es-es/dotnet/api/Foundation.NSLocale?view=xamarin-ios-sdk-12*/
 #endif
@@ -54,7 +48,6 @@ namespace ShapesAndColorsChallenge.Class
         #region VARS
 
         static long id = 0;
-        static CultureInfo currentCulture = null;
 
         #endregion
 
@@ -92,7 +85,7 @@ namespace ShapesAndColorsChallenge.Class
         }
 
         /// <summary>
-        /// Devuelve el punto de intersección donde se cuzan dos lineas rectas
+        /// Devuelve el punto de intersección donde se cruzan dos lineas rectas
         /// Donde se cruza la recta a con la recta b
         /// </summary>
         /// <param name="point1Line1">Es el punto xy de uno de los extremos de la recta a</param>
@@ -138,67 +131,26 @@ namespace ShapesAndColorsChallenge.Class
             return string.Concat(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), @"\", AppDomain.CurrentDomain.FriendlyName.ToLower().Replace(".exe", ""), @"\");
         }
 
-        /// <summary>
-        /// Obtiene el lenguaje del sistema operativo.
-        /// </summary>
-        /// <returns></returns>
-        internal static string GetSystemLanguage()
-        {
-#if ANDROID
-            return GetTranslation(Locale.Default.Country.ToLower());
-#else
-            return NSLocale.CurrentLocale.LocaleIdentifier;
-#endif
-        }
-
-        internal static CultureInfo GetCultureInfo()
-        {
-            try
-            {
-                currentCulture ??= new CultureInfo(Locale.Default.Language);
-            }
-            catch
-            {
-                currentCulture = new CultureInfo("en");
-            }
-
-            return currentCulture;
-        }
-
-        /// <summary>
-        /// Comprueba si el idioma actual del dispositivo está entre los posibles de la aplicación.
-        /// </summary>
-        /// <param name="countryCode"></param>
-        /// <returns>Devuelve un códivo válido, de existir traducción, de no existir devuelve "gb"</returns>
-        static string GetTranslation(string countryCode)
-        {
-            return countryCode switch
-            {
-                "cs" or "da" or "de" or "es" or "fi" or "fr" or "en" or "hu" or "it" or "ja" or "ko" or "nl" or "no" or "pl" or "pt" or "ru" or "sv" or "tr" or "zh" => countryCode,
-                _ => "en",
-            };
-        }
-
         internal static string GetGameModeTitle()
         {
             return OrchestratorManager.GameMode switch
             {
-                GameMode.Blink => Resource.String.BLINK_MODE.GetString(),
-                GameMode.BlinkPlus => Resource.String.BLINK_MODE_PLUS.GetString(),
-                GameMode.Rotate => Resource.String.ROTATE_MODE.GetString(),
-                GameMode.RotatePlus => Resource.String.ROTATE_MODE_PLUS.GetString(),
-                GameMode.Classic => Resource.String.CLASSIC_MODE.GetString(),
-                GameMode.ClassicPlus => Resource.String.CLASSIC_MODE_PLUS.GetString(),
-                GameMode.Endless => Resource.String.ENDLESS_MODE.GetString(),
-                GameMode.EndlessPlus => Resource.String.ENDLESS_MODE_PLUS.GetString(),
-                GameMode.Incremental => Resource.String.INCREMENTAL_MODE.GetString(),
-                GameMode.IncrementalPlus => Resource.String.INCREMENTAL_MODE_PLUS.GetString(),
-                GameMode.Memory => Resource.String.MEMORY_MODE.GetString(),
-                GameMode.MemoryPlus => Resource.String.MEMORY_MODE_PLUS.GetString(),
-                GameMode.Move => Resource.String.MOVE_MODE.GetString(),
-                GameMode.MovePlus => Resource.String.MOVE_MODE_PLUS.GetString(),
-                GameMode.TimeTrial => Resource.String.TIMETRIAL_MODE.GetString(),
-                GameMode.TimeTrialPlus => Resource.String.TIMETRIAL_MODE_PLUS.GetString(),
+                GameMode.Blink => LanguageManager.Get("BLINK_MODE"),
+                GameMode.BlinkPlus => LanguageManager.Get("BLINK_MODE_PLUS"),
+                GameMode.Rotate => LanguageManager.Get("ROTATE_MODE"),
+                GameMode.RotatePlus => LanguageManager.Get("ROTATE_MODE_PLUS"),
+                GameMode.Classic => LanguageManager.Get("CLASSIC_MODE"),
+                GameMode.ClassicPlus => LanguageManager.Get("CLASSIC_MODE_PLUS"),
+                GameMode.Endless => LanguageManager.Get("ENDLESS_MODE"),
+                GameMode.EndlessPlus => LanguageManager.Get("ENDLESS_MODE_PLUS"),
+                GameMode.Incremental => LanguageManager.Get("INCREMENTAL_MODE"),
+                GameMode.IncrementalPlus => LanguageManager.Get("INCREMENTAL_MODE_PLUS"),
+                GameMode.Memory => LanguageManager.Get("MEMORY_MODE"),
+                GameMode.MemoryPlus => LanguageManager.Get("MEMORY_MODE_PLUS"),
+                GameMode.Move => LanguageManager.Get("MOVE_MODE"),
+                GameMode.MovePlus => LanguageManager.Get("MOVE_MODE_PLUS"),
+                GameMode.TimeTrial => LanguageManager.Get("TIMETRIAL_MODE"),
+                GameMode.TimeTrialPlus => LanguageManager.Get("TIMETRIAL_MODE_PLUS"),
                 _ => string.Empty,
             };
         }
@@ -207,22 +159,22 @@ namespace ShapesAndColorsChallenge.Class
         {
             return gameMode switch
             {
-                GameMode.Classic => Resource.String.HTP_CLASSIC_MODE.GetString(),
-                GameMode.Incremental => Resource.String.HTP_INCREMENTAL_MODE.GetString(),
-                GameMode.Endless => Resource.String.HTP_ENDLESS_MODE.GetString(),
-                GameMode.Move => Resource.String.HTP_MOVE_MODE.GetString(),
-                GameMode.Memory => Resource.String.HTP_MEMORY_MODE.GetString(),
-                GameMode.Blink => Resource.String.HTP_BLINK_MODE.GetString(),
-                GameMode.TimeTrial => Resource.String.HTP_TIMETRIAL_MODE.GetString(),
-                GameMode.Rotate => Resource.String.HTP_ROTATE_MODE.GetString(),
-                GameMode.ClassicPlus => Resource.String.HTP_CLASSIC_MODE_PLUS.GetString(),
-                GameMode.IncrementalPlus => Resource.String.HTP_INCREMENTAL_MODE_PLUS.GetString(),
-                GameMode.EndlessPlus => Resource.String.HTP_ENDLESS_MODE_PLUS.GetString(),
-                GameMode.MovePlus => Resource.String.HTP_MOVE_MODE_PLUS.GetString(),
-                GameMode.MemoryPlus => Resource.String.HTP_MEMORY_MODE_PLUS.GetString(),
-                GameMode.BlinkPlus => Resource.String.HTP_BLINK_MODE_PLUS.GetString(),
-                GameMode.TimeTrialPlus => Resource.String.HTP_TIMETRIAL_MODE_PLUS.GetString(),
-                GameMode.RotatePlus => Resource.String.HTP_ROTATE_MODE_PLUS.GetString(),
+                GameMode.Classic => LanguageManager.Get("HTP_CLASSIC_MODE"),
+                GameMode.Incremental => LanguageManager.Get("HTP_INCREMENTAL_MODE"),
+                GameMode.Endless => LanguageManager.Get("HTP_ENDLESS_MODE"),
+                GameMode.Move => LanguageManager.Get("HTP_MOVE_MODE"),
+                GameMode.Memory => LanguageManager.Get("HTP_MEMORY_MODE"),
+                GameMode.Blink => LanguageManager.Get("HTP_BLINK_MODE"),
+                GameMode.TimeTrial => LanguageManager.Get("HTP_TIMETRIAL_MODE"),
+                GameMode.Rotate => LanguageManager.Get("HTP_ROTATE_MODE"),
+                GameMode.ClassicPlus => LanguageManager.Get("HTP_CLASSIC_MODE_PLUS"),
+                GameMode.IncrementalPlus => LanguageManager.Get("HTP_INCREMENTAL_MODE_PLUS"),
+                GameMode.EndlessPlus => LanguageManager.Get("HTP_ENDLESS_MODE_PLUS"),
+                GameMode.MovePlus => LanguageManager.Get("HTP_MOVE_MODE_PLUS"),
+                GameMode.MemoryPlus => LanguageManager.Get("HTP_MEMORY_MODE_PLUS"),
+                GameMode.BlinkPlus => LanguageManager.Get("HTP_BLINK_MODE_PLUS"),
+                GameMode.TimeTrialPlus => LanguageManager.Get("TP_TIMETRIAL_MODE_PLUS"),
+                GameMode.RotatePlus => LanguageManager.Get("HTP_ROTATE_MODE_PLUS"),
                 _ => null,
             };
         }
@@ -251,26 +203,6 @@ namespace ShapesAndColorsChallenge.Class
             };
         }
 
-        internal static void SetLocale(string languageCode)
-        {
-            try
-            {
-#if ANDROID
-                Resources resources = AndroidApp.Application.Context.Resources;
-                Configuration configuration = resources.Configuration;
-                Locale newLocale = new(languageCode);
-                Locale.SetDefault(Locale.Category.Display, newLocale);
-                configuration.SetLocale(newLocale);
-                //Application.Context.ApplicationContext.CreateConfigurationContext(config);
-                //Application.Context.Resources.DisplayMetrics.SetTo(resources.DisplayMetrics);
-                resources.UpdateConfiguration(configuration, resources.DisplayMetrics);
-#else
-            /*TODO, la parte de iOS*/
-#endif
-            }
-            catch { }
-        }
-
         internal static string GetAppVersion()
         {
 #if ANDROID
@@ -293,8 +225,8 @@ namespace ShapesAndColorsChallenge.Class
             if (Build.VERSION.SdkInt >= BuildVersionCodes.M)
             {
                 Network network = connectivityManager.ActiveNetwork;
-                
-                if (network == null) 
+
+                if (network == null)
                     return false;
 
                 NetworkCapabilities networkCapabilities = connectivityManager.GetNetworkCapabilities(network);
@@ -314,20 +246,6 @@ namespace ShapesAndColorsChallenge.Class
 #else
             
 #endif
-        }
-
-        static async Task<bool> CheckInternetConnectivity()
-        {
-            try
-            {
-                using HttpClient client = new();
-                using HttpResponseMessage response = await client.GetAsync("https://www.google.com");
-                return response.IsSuccessStatusCode;
-            }
-            catch
-            {
-                return false;
-            }
         }
 
         internal static long NewID()

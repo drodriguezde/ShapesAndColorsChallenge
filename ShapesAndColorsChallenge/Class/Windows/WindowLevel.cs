@@ -311,7 +311,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 shakeAnimation?.Stop();
                 shakeAnimation = new AnimationShake(GetImagePadlockByLevel(level), 700);
                 shakeAnimation.Start();
-                Toast.Start(Resource.String.LEVEL_LOCKED.GetString(GameData.StarsToUnlockLevel(level)));
+                Toast.Start(LanguageManager.Get("LEVEL_LOCKED", GameData.StarsToUnlockLevel(level)));
                 SoundManager.Padlock.PlaySound();/*En estos botones hay que hacer sonar el sonido dependiendo de si se puede abrir el modo de juego o no*/
                 Statics.Vibrate(VibrationDuration.Long);
             }

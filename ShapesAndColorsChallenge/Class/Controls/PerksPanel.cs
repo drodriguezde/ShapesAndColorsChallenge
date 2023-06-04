@@ -60,9 +60,9 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         #region VARS
 
-        Rectangle buttonChangeBounds = new Rectangle(BaseBounds.Limits.Right - BaseBounds.Perk.Width, BaseBounds.Limits.Bottom - BaseBounds.Perk.Height, BaseBounds.Perk.Width, BaseBounds.Perk.Height);
-        Rectangle buttonRevealBounds = new Rectangle(BaseBounds.Limits.X + BaseBounds.Limits.Width.Half() - BaseBounds.Perk.Width.Half(), BaseBounds.Limits.Bottom - BaseBounds.Perk.Height, BaseBounds.Perk.Width, BaseBounds.Perk.Height);
-        Rectangle buttonTimeStopBounds = new Rectangle(BaseBounds.Limits.X, BaseBounds.Limits.Bottom - BaseBounds.Perk.Height, BaseBounds.Perk.Width, BaseBounds.Perk.Height);
+        Rectangle buttonChangeBounds = new(BaseBounds.Limits.Right - BaseBounds.Perk.Width, BaseBounds.Limits.Bottom - BaseBounds.Perk.Height, BaseBounds.Perk.Width, BaseBounds.Perk.Height);
+        Rectangle buttonRevealBounds = new(BaseBounds.Limits.X + BaseBounds.Limits.Width.Half() - BaseBounds.Perk.Width.Half(), BaseBounds.Limits.Bottom - BaseBounds.Perk.Height, BaseBounds.Perk.Width, BaseBounds.Perk.Height);
+        Rectangle buttonTimeStopBounds = new(BaseBounds.Limits.X, BaseBounds.Limits.Bottom - BaseBounds.Perk.Height, BaseBounds.Perk.Width, BaseBounds.Perk.Height);
         Button buttonReveal, buttonChange, buttonTimeStop;
         Image imageReveal, imageChange, imageTimeStop;
         Image imageBubbleReveal, imageBubbleChange, imageBubbleTimeStop;
@@ -351,7 +351,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
         internal override void Update(GameTime gameTime)
         {
             UpdatePerksAnimations(gameTime);
-            UpdateRunningPerks(gameTime);
+            UpdateRunningPerks();
         }
 
         void UpdatePerksAnimations(GameTime gameTime)
@@ -361,7 +361,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
             animatedTimeStop.Update(gameTime);
         }
 
-        void UpdateRunningPerks(GameTime gameTime)
+        void UpdateRunningPerks()
         {
             UpdateRunningTimeStop();
         }
@@ -396,10 +396,10 @@ namespace ShapesAndColorsChallenge.Class.Controls
 
         void DrawRunningPerks(GameTime gameTime)
         {
-            DrawRunningTimeStop(gameTime);
+            DrawRunningTimeStop();
         }
 
-        void DrawRunningTimeStop(GameTime gameTime)
+        void DrawRunningTimeStop()
         {
             if (!IsTimeStopRunning)
                 return;

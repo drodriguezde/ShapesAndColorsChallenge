@@ -192,11 +192,11 @@ namespace ShapesAndColorsChallenge.Class.Management
         {
             return challenge.ChallengeType switch
             {
-                ChallengeType.Stars => Resource.String.CHALLENGE_STARS.GetString(challenge.LevelNumber, challenge.StageNumber),
-                ChallengeType.Points => Resource.String.CHALLENGE_POINTS.GetString(challenge.LevelNumber, challenge.StageNumber, ControllerScore.Get(challenge.GameMode, challenge.StageNumber, challenge.LevelNumber).UserScore.ToInt()),
-                ChallengeType.NoPowerUps => Resource.String.CHALLENGE_NOPOWERUPS.GetString(challenge.LevelNumber, challenge.StageNumber),
-                ChallengeType.NoMistakes => Resource.String.CHALLENGE_NOMISTAKES.GetString(challenge.LevelNumber, challenge.StageNumber),
-                ChallengeType.Shapes => Resource.String.CHALLENGE_SHAPES.GetString(challenge.LevelNumber, challenge.StageNumber, ControllerScore.Get(challenge.GameMode, challenge.StageNumber, challenge.LevelNumber).TilesFinded),
+                ChallengeType.Stars => LanguageManager.Get("CHALLENGE_STARS", challenge.LevelNumber, challenge.StageNumber),
+                ChallengeType.Points => LanguageManager.Get("CHALLENGE_POINTS", challenge.LevelNumber, challenge.StageNumber, ControllerScore.Get(challenge.GameMode, challenge.StageNumber, challenge.LevelNumber).UserScore.ToInt()),
+                ChallengeType.NoPowerUps => LanguageManager.Get("CHALLENGE_NOPOWERUPS", challenge.LevelNumber, challenge.StageNumber),
+                ChallengeType.NoMistakes => LanguageManager.Get("CHALLENGE_NOMISTAKES", challenge.LevelNumber, challenge.StageNumber),
+                ChallengeType.Shapes => LanguageManager.Get("CHALLENGE_SHAPES", challenge.LevelNumber, challenge.StageNumber, ControllerScore.Get(challenge.GameMode, challenge.StageNumber, challenge.LevelNumber).TilesFinded),
                 _ => "",
             };
         }

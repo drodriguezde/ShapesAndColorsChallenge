@@ -33,31 +33,13 @@ namespace ShapesAndColorsChallenge.Class.Windows
 {
     internal class WindowHowToPlay : Window, IDisposable
     {
-        #region CONST
-
-
-
-        #endregion
-
-        #region IMPORTS
-
-
-
-        #endregion
-
-        #region DELEGATES
-
-
-
-        #endregion
-
         #region VARS        
 
         NavigationPanelHorizontal navigationPanelHorizontal;
         CheckBox checkBoxHowToPlay;
         Button buttonPlay;
 
-        readonly Rectangle buttonPlayBounds = new Rectangle(
+        readonly Rectangle buttonPlayBounds = new(
             BaseBounds.Limits.X + (BaseBounds.Limits.Width - BaseBounds.Button.Width * 4) + BaseBounds.Button.Width.Multi(3),
             BaseBounds.Limits.Bottom - BaseBounds.Button.Height,
             BaseBounds.Button.Width,
@@ -189,7 +171,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetTitle()
         {
-            Label labelTitle = new(ModalLevel, BaseBounds.Title, string.Concat(Resource.String.HOW_TO_PLAY.GetString(), " (", Statics.GetGameModeTitle(), ")"), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
+            Label labelTitle = new(ModalLevel, BaseBounds.Title, string.Concat(LanguageManager.Get("HOW_TO_PLAY"), "(", Statics.GetGameModeTitle(), ")"), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
             InteractiveObjectManager.Add(labelTitle);
         }
 
@@ -199,13 +181,13 @@ namespace ShapesAndColorsChallenge.Class.Windows
             Label labelDescription = new(ModalLevel, new(BaseBounds.Limits.X, BaseBounds.Title.Y + 1450, BaseBounds.Limits.Width, 400), Statics.GetHowToPlayDescription(OrchestratorManager.GameMode), Color.Gray, Color.Gray, AlignHorizontal.Left, (Statics.GetHowToPlayDescription(OrchestratorManager.GameMode).Length / 40f).Ceiling());
             Rectangle bounds = new(BaseBounds.Limits.X, BaseBounds.Title.Y + 300, 380, 380);
             Image imageTimeStop = new(ModalLevel, bounds, TextureManager.TexturePerkTimeStop, Color.Gray, Color.Gray, true, 0, true);
-            Label labelTimeStop = new(ModalLevel, new(bounds.X + bounds.Width + 50, bounds.Top, BaseBounds.Bounds.Width - (bounds.X + bounds.Width + 150), bounds.Height), Resource.String.PERK_TIMESTOP.GetString(), Color.Gray, Color.Gray, AlignHorizontal.Left, (Resource.String.PERK_TIMESTOP.GetString().Length / 25f).Ceiling());
+            Label labelTimeStop = new(ModalLevel, new(bounds.X + bounds.Width + 50, bounds.Top, BaseBounds.Bounds.Width - (bounds.X + bounds.Width + 150), bounds.Height), LanguageManager.Get("PERK_TIMESTOP"), Color.Gray, Color.Gray, AlignHorizontal.Left, (LanguageManager.Get("PERK_TIMESTOP").Length / 25f).Ceiling());
             bounds = new(BaseBounds.Limits.X, BaseBounds.Title.Y + 400 + 380, 380, 380);
             Image imageReveal = new(ModalLevel, bounds, TextureManager.TexturePerkReveal, Color.Gray, Color.Gray, true, 0, true);
-            Label labelReveal = new(ModalLevel, new(bounds.X + bounds.Width + 50, bounds.Top, BaseBounds.Bounds.Width - (bounds.X + bounds.Width + 150), bounds.Height), Resource.String.PERK_REVEAL.GetString(), Color.Gray, Color.Gray, AlignHorizontal.Left, (Resource.String.PERK_REVEAL.GetString().Length / 25f).Ceiling());
+            Label labelReveal = new(ModalLevel, new(bounds.X + bounds.Width + 50, bounds.Top, BaseBounds.Bounds.Width - (bounds.X + bounds.Width + 150), bounds.Height), LanguageManager.Get("PERK_REVEAL"), Color.Gray, Color.Gray, AlignHorizontal.Left, (LanguageManager.Get("PERK_REVEAL").Length / 25f).Ceiling());
             bounds = new(BaseBounds.Limits.X, BaseBounds.Title.Y + 500 + 760, 380, 380);
             Image imageChange = new(ModalLevel, bounds, TextureManager.TexturePerkChange, Color.Gray, Color.Gray, true, 0, true);
-            Label labelChange = new(ModalLevel, new(bounds.X + bounds.Width + 50, bounds.Top, BaseBounds.Bounds.Width - (bounds.X + bounds.Width + 150), bounds.Height), Resource.String.PERK_CHANGE.GetString(), Color.Gray, Color.Gray, AlignHorizontal.Left, (Resource.String.PERK_CHANGE.GetString().Length / 25f).Ceiling());
+            Label labelChange = new(ModalLevel, new(bounds.X + bounds.Width + 50, bounds.Top, BaseBounds.Bounds.Width - (bounds.X + bounds.Width + 150), bounds.Height), LanguageManager.Get("PERK_CHANGE"), Color.Gray, Color.Gray, AlignHorizontal.Left, (LanguageManager.Get("PERK_CHANGE").Length / 25f).Ceiling());
             InteractiveObjectManager.Add(imageMode, labelDescription, imageTimeStop, labelTimeStop, imageReveal, labelReveal, imageChange, labelChange);
             navigationPanelHorizontal.Add(1, imageMode, labelDescription);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
             navigationPanelHorizontal.Add(2, imageTimeStop, labelTimeStop);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
@@ -230,7 +212,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
             Rectangle bounds = new(BaseBounds.Limits.X, BaseBounds.Limits.Bottom - BaseBounds.Button.Height.Half() - BaseBounds.CheckBox.Height.Half(), BaseBounds.CheckBox.Width, BaseBounds.CheckBox.Height);
             checkBoxHowToPlay = new(ModalLevel, bounds, false);
-            InteractiveObjectManager.Add(checkBoxHowToPlay, checkBoxHowToPlay.GetLabel(Resource.String.DONT_SHOW_AGAIN));
+            InteractiveObjectManager.Add(checkBoxHowToPlay, checkBoxHowToPlay.GetLabel(LanguageManager.Get("DONT_SHOW_AGAIN")));
         }
 
         internal override void Update(GameTime gameTime)

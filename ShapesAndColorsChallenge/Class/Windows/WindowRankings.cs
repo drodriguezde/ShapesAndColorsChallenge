@@ -51,12 +51,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         #endregion
 
-        #region IMPORTS
-
-
-
-        #endregion
-
         #region DELEGATES
 
 
@@ -215,7 +209,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         {
             if (globalRanking == null)/*En caso de un error mostramos el ranking local*/
             {
-                OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(Resource.String.GENERIC_CONNECTION_ERROR.GetString(), MessageBoxButton.Accept, 1));
+                OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(LanguageManager.Get("GENERIC_CONNECTION_ERROR"), MessageBoxButton.Accept, 1));
                 windowMessageBox.OnAccept += WindowMessageBox_OnAccept;
             }
             else
@@ -263,7 +257,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetTitle()
         {
-            Label labelTitle = new(ModalLevel, BaseBounds.Title, $"{Resource.String.RANKING.GetString()} ({Statics.GetGameModeTitle()})", ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
+            Label labelTitle = new(ModalLevel, BaseBounds.Title, $"{LanguageManager.Get("RANKING")} ({Statics.GetGameModeTitle()})", ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
             Image titleBackground = new(
                 ModalLevel,
                 new(0, 0, BaseBounds.Bounds.Width, BaseBounds.Title.Bottom),
