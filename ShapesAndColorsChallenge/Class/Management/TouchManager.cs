@@ -89,7 +89,7 @@ namespace ShapesAndColorsChallenge.Class.Management
             };
         }
 
-        internal static void Update(GameTime gameTime)
+        internal static void Update()
         {
             if (TouchComponent.Clicks.Count > 0)
                 OnClick?.Invoke(TouchComponent, new OnClickEventArgs(TouchComponent.Clicks[0]));

@@ -96,7 +96,6 @@ namespace ShapesAndColorsChallenge.Class
 
             /*Objetos no administrados aquí*/
 
-
             disposed = true;
         }
 

@@ -351,7 +351,7 @@ namespace ShapesAndColorsChallenge.Class.Web
                 while (tries < 10)
                 {
                     string newPlayerToken = Guid.NewGuid().ToString("N").ToUpper();
-                    newPlayerToken = newPlayerToken.Length >= 10 ? newPlayerToken.Substring(0, 10) : newPlayerToken.PadRight(10, '0');
+                    newPlayerToken = newPlayerToken.Length >= 10 ? newPlayerToken[..10] : newPlayerToken.PadRight(10, '0');
                     string currentPlayerToken = ExistPlayerToken(newPlayerToken);
 
                     if (currentPlayerToken == "-1")/*No se ha podido obtener el playerToken actual, salimos*/

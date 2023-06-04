@@ -124,7 +124,7 @@ namespace ShapesAndColorsChallenge.Class
 
         protected override void Update(GameTime gameTime)
         {
-            TouchManager.Update(gameTime);
+            TouchManager.Update();
             WindowManager.Update(gameTime);/*Actualiza los elemento de la interfaz*/
             ExitManager.Update(gameTime);
             Toast.Update(gameTime);
