@@ -48,6 +48,11 @@ namespace ShapesAndColorsChallenge.Class.Controls
         /// </summary>
         const int ACTIVATE_SCROLL_INTERVAL = 200;
 
+        /// <summary>
+        /// Desaceleración del scroll conético.
+        /// </summary>
+        const float SCROLL_DECLERATION = 1.5f;
+
         #endregion
 
         #region VARS
@@ -388,13 +393,16 @@ namespace ShapesAndColorsChallenge.Class.Controls
         /// </summary>
         void DoKineticScroll()
         {
+            if (BottomLimit - TopLimit >= PanelItems.Count * PanelItems.First().Bounds.Height)
+                return;
+
             if (scrollSpeed != 0 && timeDragAction < TimeSpan.FromMilliseconds(ACTIVATE_SCROLL_INTERVAL))
             {
                 Move(scrollSpeed);
 
                 if (scrollDirectionUpToDown)
                 {
-                    scrollSpeed /= 1.5f;
+                    scrollSpeed /= SCROLL_DECLERATION;
 
                     if (scrollSpeed <= 0)
                     {
@@ -404,7 +412,7 @@ namespace ShapesAndColorsChallenge.Class.Controls
                 }
                 else
                 {
-                    scrollSpeed /= 1.5f;
+                    scrollSpeed /= SCROLL_DECLERATION;
 
                     if (scrollSpeed >= 0)
                     {
