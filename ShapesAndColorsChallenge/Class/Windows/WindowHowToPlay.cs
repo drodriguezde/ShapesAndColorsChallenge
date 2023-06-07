@@ -171,7 +171,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetTitle()
         {
-            Label labelTitle = new(ModalLevel, BaseBounds.Title, string.Concat(LanguageManager.Get("HOW_TO_PLAY"), "(", Statics.GetGameModeTitle(), ")"), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
+            Label labelTitle = new(ModalLevel, BaseBounds.Title, string.Concat(LanguageManager.Get("HOW_TO_PLAY"), " (", Statics.GetGameModeTitle(), ")"), ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
             InteractiveObjectManager.Add(labelTitle);
         }
 
