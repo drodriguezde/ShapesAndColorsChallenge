@@ -93,17 +93,6 @@ namespace ShapesAndColorsChallenge.Class.Windows
             new(BaseBounds.Limits.X.Double() + 20 + 460, 1550 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER)
         };
 
-        readonly Rectangle[] labelChallengesBounds = new Rectangle[] {
-            new(BaseBounds.Limits.X + 20 + 18, 410 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new(BaseBounds.Limits.X + 20 + 18, 790 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new(BaseBounds.Limits.X + 20 + 18, 1170 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new(BaseBounds.Limits.X + 20 + 18, 1550 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new(BaseBounds.Limits.X.Double() + 20 + 460 + 18, 410 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new(BaseBounds.Limits.X.Double() + 20 + 460 + 18, 790 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new(BaseBounds.Limits.X.Double() + 20 + 460 + 18, 1170 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER),
-            new(BaseBounds.Limits.X.Double() + 20 + 460 + 18, 1550 + SEPARATOR_TITLE_LINE, Const.BUBBLE_INFO_DIAMETER, Const.BUBBLE_INFO_DIAMETER)
-        };
-
         Rectangle buttonSettingsBounds = new(BaseBounds.Limits.X + BaseBounds.Limits.Width.Half() - BaseBounds.Button.Width.Half(), BaseBounds.Limits.Bottom - BaseBounds.Button.Height, BaseBounds.Button.Width, BaseBounds.Button.Height);
         Rectangle buttonAcheivementsBounds = new(BaseBounds.Limits.Right - BaseBounds.Button.Width, BaseBounds.Limits.Bottom - BaseBounds.Button.Height, BaseBounds.Button.Width, BaseBounds.Button.Height);
 
@@ -278,23 +267,23 @@ namespace ShapesAndColorsChallenge.Class.Windows
 
         void SetModes()
         {
-            SetMode(ref buttonClassic, buttonBounds[0], GameMode.Classic, imageBounds[0], TextureManager.ModeClassic, titleBounds[0], LanguageManager.Get("CLASSIC_MODE"), imageChallengesBounds[0], labelChallengesBounds[0], 1, ref imageClassic);
-            SetMode(ref buttonEndless, buttonBounds[1], GameMode.Endless, imageBounds[1], TextureManager.ModeEndless, titleBounds[1], LanguageManager.Get("ENDLESS_MODE"), imageChallengesBounds[1], labelChallengesBounds[1], 1, ref imageEndless);
-            SetMode(ref buttonMemory, buttonBounds[2], GameMode.Memory, imageBounds[2], TextureManager.ModeMemory, titleBounds[2], LanguageManager.Get("MEMORY_MODE"), imageChallengesBounds[2], labelChallengesBounds[2], 1, ref imageMemory);
-            SetMode(ref buttonTimeTrial, buttonBounds[3], GameMode.TimeTrial, imageBounds[3], TextureManager.ModeTimeTrial, titleBounds[3], LanguageManager.Get("TIMETRIAL_MODE"), imageChallengesBounds[3], labelChallengesBounds[3], 1, ref imageTimeTrial);
-            SetMode(ref buttonIncremental, buttonBounds[4], GameMode.Incremental, imageBounds[4], TextureManager.ModeIncremental, titleBounds[4], LanguageManager.Get("INCREMENTAL_MODE"), imageChallengesBounds[4], labelChallengesBounds[4], 1, ref imageIncremental);
-            SetMode(ref buttonMove, buttonBounds[5], GameMode.Move, imageBounds[5], TextureManager.ModeMove, titleBounds[5], LanguageManager.Get("MOVE_MODE"), imageChallengesBounds[5], labelChallengesBounds[5], 1, ref imageMove);
-            SetMode(ref buttonBlink, buttonBounds[6], GameMode.Blink, imageBounds[6], TextureManager.ModeBlink, titleBounds[6], LanguageManager.Get("BLINK_MODE"), imageChallengesBounds[6], labelChallengesBounds[6], 1, ref imageBlink);
-            SetMode(ref buttonRotate, buttonBounds[7], GameMode.Rotate, imageBounds[7], TextureManager.ModeRotate, titleBounds[7], LanguageManager.Get("ROTATE_MODE"), imageChallengesBounds[7], labelChallengesBounds[7], 1, ref imageRotate);
+            SetMode(ref buttonClassic, buttonBounds[0], GameMode.Classic, imageBounds[0], TextureManager.ModeClassic, titleBounds[0], LanguageManager.Get("CLASSIC_MODE"), imageChallengesBounds[0], 1, ref imageClassic);
+            SetMode(ref buttonEndless, buttonBounds[1], GameMode.Endless, imageBounds[1], TextureManager.ModeEndless, titleBounds[1], LanguageManager.Get("ENDLESS_MODE"), imageChallengesBounds[1], 1, ref imageEndless);
+            SetMode(ref buttonMemory, buttonBounds[2], GameMode.Memory, imageBounds[2], TextureManager.ModeMemory, titleBounds[2], LanguageManager.Get("MEMORY_MODE"), imageChallengesBounds[2], 1, ref imageMemory);
+            SetMode(ref buttonTimeTrial, buttonBounds[3], GameMode.TimeTrial, imageBounds[3], TextureManager.ModeTimeTrial, titleBounds[3], LanguageManager.Get("TIMETRIAL_MODE"), imageChallengesBounds[3], 1, ref imageTimeTrial);
+            SetMode(ref buttonIncremental, buttonBounds[4], GameMode.Incremental, imageBounds[4], TextureManager.ModeIncremental, titleBounds[4], LanguageManager.Get("INCREMENTAL_MODE"), imageChallengesBounds[4], 1, ref imageIncremental);
+            SetMode(ref buttonMove, buttonBounds[5], GameMode.Move, imageBounds[5], TextureManager.ModeMove, titleBounds[5], LanguageManager.Get("MOVE_MODE"), imageChallengesBounds[5], 1, ref imageMove);
+            SetMode(ref buttonBlink, buttonBounds[6], GameMode.Blink, imageBounds[6], TextureManager.ModeBlink, titleBounds[6], LanguageManager.Get("BLINK_MODE"), imageChallengesBounds[6], 1, ref imageBlink);
+            SetMode(ref buttonRotate, buttonBounds[7], GameMode.Rotate, imageBounds[7], TextureManager.ModeRotate, titleBounds[7], LanguageManager.Get("ROTATE_MODE"), imageChallengesBounds[7], 1, ref imageRotate);
 
-            SetMode(ref buttonClassicPlus, buttonBounds[0], GameMode.ClassicPlus, imageBounds[0], TextureManager.ModeClassic, titleBounds[0], LanguageManager.Get("CLASSIC_MODE_PLUS"), imageChallengesBounds[0], labelChallengesBounds[0], 2, ref imageClassicPlus);
-            SetMode(ref buttonEndlessPlus, buttonBounds[1], GameMode.EndlessPlus, imageBounds[1], TextureManager.ModeEndless, titleBounds[1], LanguageManager.Get("ENDLESS_MODE_PLUS"), imageChallengesBounds[1], labelChallengesBounds[1], 2, ref imageEndlessPlus);
-            SetMode(ref buttonMemoryPlus, buttonBounds[2], GameMode.MemoryPlus, imageBounds[2], TextureManager.ModeMemory, titleBounds[2], LanguageManager.Get("MEMORY_MODE_PLUS"), imageChallengesBounds[2], labelChallengesBounds[2], 2, ref imageMemoryPlus);
-            SetMode(ref buttonTimeTrialPlus, buttonBounds[3], GameMode.TimeTrialPlus, imageBounds[3], TextureManager.ModeTimeTrial, titleBounds[3], LanguageManager.Get("TIMETRIAL_MODE_PLUS"), imageChallengesBounds[3], labelChallengesBounds[3], 2, ref imageTimeTrialPlus);
-            SetMode(ref buttonIncrementalPlus, buttonBounds[4], GameMode.IncrementalPlus, imageBounds[4], TextureManager.ModeIncremental, titleBounds[4], LanguageManager.Get("INCREMENTAL_MODE_PLUS"), imageChallengesBounds[4], labelChallengesBounds[4], 2, ref imageIncrementalPlus);
-            SetMode(ref buttonMovePlus, buttonBounds[5], GameMode.MovePlus, imageBounds[5], TextureManager.ModeMove, titleBounds[5], LanguageManager.Get("MOVE_MODE_PLUS"), imageChallengesBounds[5], labelChallengesBounds[5], 2, ref imageMovePlus);
-            SetMode(ref buttonBlinkPlus, buttonBounds[6], GameMode.BlinkPlus, imageBounds[6], TextureManager.ModeBlink, titleBounds[6], LanguageManager.Get("BLINK_MODE_PLUS"), imageChallengesBounds[6], labelChallengesBounds[6], 2, ref imageBlinkPlus);
-            SetMode(ref buttonRotatePlus, buttonBounds[7], GameMode.RotatePlus, imageBounds[7], TextureManager.ModeRotate, titleBounds[7], LanguageManager.Get("ROTATE_MODE_PLUS"), imageChallengesBounds[7], labelChallengesBounds[7], 2, ref imageRotatePlus);
+            SetMode(ref buttonClassicPlus, buttonBounds[0], GameMode.ClassicPlus, imageBounds[0], TextureManager.ModeClassic, titleBounds[0], LanguageManager.Get("CLASSIC_MODE_PLUS"), imageChallengesBounds[0], 2, ref imageClassicPlus);
+            SetMode(ref buttonEndlessPlus, buttonBounds[1], GameMode.EndlessPlus, imageBounds[1], TextureManager.ModeEndless, titleBounds[1], LanguageManager.Get("ENDLESS_MODE_PLUS"), imageChallengesBounds[1], 2, ref imageEndlessPlus);
+            SetMode(ref buttonMemoryPlus, buttonBounds[2], GameMode.MemoryPlus, imageBounds[2], TextureManager.ModeMemory, titleBounds[2], LanguageManager.Get("MEMORY_MODE_PLUS"), imageChallengesBounds[2], 2, ref imageMemoryPlus);
+            SetMode(ref buttonTimeTrialPlus, buttonBounds[3], GameMode.TimeTrialPlus, imageBounds[3], TextureManager.ModeTimeTrial, titleBounds[3], LanguageManager.Get("TIMETRIAL_MODE_PLUS"), imageChallengesBounds[3], 2, ref imageTimeTrialPlus);
+            SetMode(ref buttonIncrementalPlus, buttonBounds[4], GameMode.IncrementalPlus, imageBounds[4], TextureManager.ModeIncremental, titleBounds[4], LanguageManager.Get("INCREMENTAL_MODE_PLUS"), imageChallengesBounds[4], 2, ref imageIncrementalPlus);
+            SetMode(ref buttonMovePlus, buttonBounds[5], GameMode.MovePlus, imageBounds[5], TextureManager.ModeMove, titleBounds[5], LanguageManager.Get("MOVE_MODE_PLUS"), imageChallengesBounds[5], 2, ref imageMovePlus);
+            SetMode(ref buttonBlinkPlus, buttonBounds[6], GameMode.BlinkPlus, imageBounds[6], TextureManager.ModeBlink, titleBounds[6], LanguageManager.Get("BLINK_MODE_PLUS"), imageChallengesBounds[6], 2, ref imageBlinkPlus);
+            SetMode(ref buttonRotatePlus, buttonBounds[7], GameMode.RotatePlus, imageBounds[7], TextureManager.ModeRotate, titleBounds[7], LanguageManager.Get("ROTATE_MODE_PLUS"), imageChallengesBounds[7], 2, ref imageRotatePlus);
         }
 
         void SetButtonConfiguration()
@@ -325,14 +314,14 @@ namespace ShapesAndColorsChallenge.Class.Windows
             InteractiveObjectManager.Add(image, label);
         }
 
-        void SetMode(ref Button button, Rectangle buttonBounds, GameMode gameMode, Rectangle imageBounds, Texture2D textureMode, Rectangle labelModeBounds, string title, Rectangle challengesBounds, Rectangle challengesLabelBounds, int panel, ref Image imageMode)
+        void SetMode(ref Button button, Rectangle buttonBounds, GameMode gameMode, Rectangle imageBounds, Texture2D textureMode, Rectangle labelModeBounds, string title, Rectangle challengesBounds, int panel, ref Image imageMode)
         {
             bool locked = IsLocked(gameMode);
             button = new(ModalLevel, buttonBounds) { Tag = new() { gameMode }, IsTransparent = true };
             imageMode = new(ModalLevel, imageBounds, locked ? TextureManager.TexturePadLock : textureMode, Color.DarkGray, Color.DarkGray, true, 30);
             Label labelMode = new(ModalLevel, labelModeBounds, title, ColorManager.HardGray, ColorManager.HardGray, AlignHorizontal.Center);
             Line lineMode = new(ModalLevel, new Point(labelModeBounds.Left, labelModeBounds.Bottom + SEPARATOR_TITLE_LINE), new Point(labelModeBounds.Right, labelModeBounds.Bottom + SEPARATOR_TITLE_LINE), ColorManager.HardGray, ColorManager.HardGray, 1);
-            (Image imageChallenges, Label labelChallenges) = SetChallengesBubble(locked, gameMode, challengesBounds, challengesLabelBounds);
+            (Image imageChallenges, Label labelChallenges) = SetChallengesBubble(locked, gameMode, challengesBounds);
             InteractiveObjectManager.Add(button, imageMode, labelMode, lineMode, imageChallenges, imageChallenges, labelChallenges);
             navigationPanelHorizontal.Add(panel, button, imageMode, labelMode, lineMode, imageChallenges, imageChallenges, labelChallenges);/*Esta linea debe ir después de InteractiveObjectManager.Add, para que salte LoadContent de cada objeto añadido*/
 
@@ -340,11 +329,11 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 SetStarsByGameMode(gameMode, panel, imageBounds);
         }
 
-        (Image, Label) SetChallengesBubble(bool locked, GameMode gameMode, Rectangle challengesBounds, Rectangle challengesLabelBounds)
+        (Image, Label) SetChallengesBubble(bool locked, GameMode gameMode, Rectangle challengesBounds)
         {
             int challenges = ControllerChallenge.Get().Count(t => t.IsActive && t.GameMode == gameMode);
             Image image = new(ModalLevel, challengesBounds, textureChallenges) { VisibleForNavigationPanel = !locked && challenges.NotIsZero(), Visible = !locked && challenges.NotIsZero() };
-            Label label = new(ModalLevel, challengesLabelBounds, challenges.ToString(), Color.White, Color.Black) { VisibleForNavigationPanel = !locked && challenges.NotIsZero(), Visible = !locked && challenges.NotIsZero() };
+            Label label = new(ModalLevel, challengesBounds, challenges.ToString(), Color.White, Color.Black, AlignHorizontal.Center) { VisibleForNavigationPanel = !locked && challenges.NotIsZero(), Visible = !locked && challenges.NotIsZero() };
             return (image, label);
         }
 

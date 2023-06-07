@@ -64,7 +64,7 @@ namespace ShapesAndColorsChallenge.Class
         /// <summary>
         /// Diametro de las burbujas de información.
         /// </summary>
-        internal const int BUBBLE_INFO_DIAMETER = 58;
+        internal const int BUBBLE_INFO_DIAMETER = 80;
 
         /// <summary>
         /// Padding de la imagen de la ficha con respecto a su contenedor.
