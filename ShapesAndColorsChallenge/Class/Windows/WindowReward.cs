@@ -244,7 +244,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 return;
 
             Image imagePerk = new(ModalLevel, new(imageBounds.X, imageBounds.Y + BaseBounds.Button.Height + OFFSET, imageBounds.Width, imageBounds.Height), Statics.GetPerkImage(WindowRewardParams.Reward2), ColorManager.HardGray, ColorManager.HardGray, true);
-            Label labelAmount = new(ModalLevel, new(labelBounds.X, labelBounds.Y + BaseBounds.Button.Height + OFFSET, labelBounds.Width, labelBounds.Height), $"x {WindowRewardParams.Amount2}", ColorManager.HardGray, ColorManager.HardGray);
+            Label labelAmount = new(ModalLevel, new(labelBounds.X, labelBounds.Y + BaseBounds.Button.Height + OFFSET, labelBounds.Width, labelBounds.Height), $"x {WindowRewardParams.Amount2}", ColorManager.Green, ColorManager.Green);
             InteractiveObjectManager.Add(imagePerk, labelAmount);
         }
 
@@ -254,7 +254,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 return;
 
             Image imagePerk = new(ModalLevel, new(imageBounds.X, imageBounds.Y + (BaseBounds.Button.Height + OFFSET).Double(), imageBounds.Width, imageBounds.Height), Statics.GetPerkImage(WindowRewardParams.Reward3), ColorManager.HardGray, ColorManager.HardGray, true);
-            Label labelAmount = new(ModalLevel, new(labelBounds.X, labelBounds.Y + (BaseBounds.Button.Height + OFFSET).Double(), labelBounds.Width, labelBounds.Height), $"x {WindowRewardParams.Amount3}", ColorManager.HardGray, ColorManager.HardGray);
+            Label labelAmount = new(ModalLevel, new(labelBounds.X, labelBounds.Y + (BaseBounds.Button.Height + OFFSET).Double(), labelBounds.Width, labelBounds.Height), $"x {WindowRewardParams.Amount3}", ColorManager.Green, ColorManager.Green);
             InteractiveObjectManager.Add(imagePerk, labelAmount);
 
         }

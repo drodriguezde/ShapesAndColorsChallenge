@@ -430,6 +430,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
             ClosePauseWindow();
             CurrentEndThreadToken = EndThreadTokens.Last();/*Esto desbloqueará el hilo de fichas*/
             Paused = false;
+            DisableUI();
 
             if (GameMode.IsIn(GameMode.Endless, GameMode.EndlessPlus))/*En estos modos se guarda la puntuación*/
                 End(true, true);
@@ -916,8 +917,7 @@ namespace ShapesAndColorsChallenge.Class.Windows
         {
             StopAnimations();
             GameEnded = true;
-            Grid.Disable();
-            PerksPanel.Disable();
+            DisableUI();
             bool newRecord = UpdateScore();
 
             if (newRecord)/*Si hay nuevo record intentamos guardar en la nube el total del modo*/
