@@ -486,7 +486,8 @@ namespace ShapesAndColorsChallenge.Class.Windows
                 ControllerRanking.Restore(userProgress.Rankings);
                 ControllerScore.Restore(userProgress.Scores);
                 ControllerSettings.Restore(userProgress.Settings);
-                userProgress = null;
+                AcheivementsManager.Refresh();
+                userProgress = null;                
                 ResetContent();
 
                 OrchestratorManager.OpenMessageBox(ref windowMessageBox, new(LanguageManager.Get("DOWNLOADING_PROGRESS_OK"), MessageBoxButton.Accept, 1));
